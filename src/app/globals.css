@@ -1,26 +1,495 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * UpFreights Design System
+ *
+ * Aesthetic Direction: Industrial Maritime
+ * - Evokes trust, reliability, global trade
+ * - Warm charcoal-slate over pure black
+ * - Warm off-whites (cream) over pure white
+ * - Copper/terracotta accent for energy and movement
+ * - Muted teal for secondary contrast
+ *
+ * Typography:
+ * - Headings: Bitter (bold serif - trust/stability)
+ * - Body: Plus Jakarta Sans (modern geometric sans)
+ */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Typography */
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
+
+  /* Core colors */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+
+  /* UI elements */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand colors */
+  --color-slate: var(--slate);
+  --color-slate-dark: var(--slate-dark);
+  --color-slate-light: var(--slate-light);
+  --color-copper: var(--copper);
+  --color-copper-light: var(--copper-light);
+  --color-copper-dark: var(--copper-dark);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+
+  /* Keep backward compat with orange/navy naming */
+  --color-orange: var(--copper);
+  --color-orange-light: var(--copper-light);
+  --color-orange-dark: var(--copper-dark);
+  --color-navy: var(--slate);
+  --color-navy-light: var(--slate-light);
+  --color-navy-dark: var(--slate-dark);
+  --color-ocean: var(--teal);
+  --color-ocean-light: var(--teal-light);
+
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radius - intentionally varied for visual interest */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.5rem;
+
+  /* Brand: Deep Slate (trust, stability, industrial) */
+  --slate: #1a2332;
+  --slate-dark: #0f151f;
+  --slate-light: #2d3a4f;
+
+  /* Brand: Warm Copper (energy, movement, premium) */
+  --copper: #c77b4a;
+  --copper-light: #dda070;
+  --copper-dark: #a15f32;
+
+  /* Brand: Muted Teal (contrast, oceanic, calm) */
+  --teal: #3a7d7e;
+  --teal-light: #5a9d9e;
+
+  /* Warm Off-White */
+  --cream: #f8f6f3;
+  --cream-dark: #eae6e0;
+
+  /* Semantic mappings */
+  --background: #faf9f7;
+  --foreground: #1a2332;
+
+  --card: #ffffff;
+  --card-foreground: #1a2332;
+
+  --popover: #ffffff;
+  --popover-foreground: #1a2332;
+
+  --primary: #1a2332;
+  --primary-foreground: #faf9f7;
+
+  --secondary: #f0ece6;
+  --secondary-foreground: #1a2332;
+
+  --muted: #f5f2ed;
+  --muted-foreground: #5c6370;
+
+  --accent: #c77b4a;
+  --accent-foreground: #ffffff;
+
+  --destructive: #c44536;
+
+  --border: #e0dcd6;
+  --input: #eae6e0;
+  --ring: #3a7d7e;
+
+  /* Chart colors */
+  --chart-1: #1a2332;
+  --chart-2: #c77b4a;
+  --chart-3: #3a7d7e;
+  --chart-4: #5c6370;
+  --chart-5: #dda070;
+}
+
+.dark {
+  --background: #0f151f;
+  --foreground: #e8e4de;
+
+  --card: #1a2332;
+  --card-foreground: #e8e4de;
+
+  --popover: #1a2332;
+  --popover-foreground: #e8e4de;
+
+  --primary: #e8e4de;
+  --primary-foreground: #1a2332;
+
+  --secondary: #2d3a4f;
+  --secondary-foreground: #e8e4de;
+
+  --muted: #2d3a4f;
+  --muted-foreground: #9ca3af;
+
+  --accent: #dda070;
+  --accent-foreground: #1a2332;
+
+  --destructive: #ef6461;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #5a9d9e;
+
+  --chart-1: #5a9d9e;
+  --chart-2: #dda070;
+  --chart-3: #7c8594;
+  --chart-4: #a15f32;
+  --chart-5: #3a7d7e;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Heading typography - Bitter */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--foreground);
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+  }
+
+  /* Body typography - Plus Jakarta Sans */
+  p, span, li, a, button, input, textarea, select {
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    background-color: var(--copper);
+    color: white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Font utilities */
+  .font-heading {
+    font-family: var(--font-heading), Georgia, serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  /* Gradient backgrounds - Industrial Maritime */
+  .bg-gradient-hero {
+    background: linear-gradient(
+      145deg,
+      var(--slate-dark) 0%,
+      var(--slate) 40%,
+      var(--slate-light) 100%
+    );
+  }
+
+  .bg-gradient-copper {
+    background: linear-gradient(
+      135deg,
+      var(--copper-dark) 0%,
+      var(--copper) 50%,
+      var(--copper-light) 100%
+    );
+  }
+
+  .bg-gradient-subtle {
+    background: linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--cream-dark) 100%
+    );
+  }
+
+  .bg-gradient-navy {
+    background: linear-gradient(
+      145deg,
+      var(--slate-dark) 0%,
+      var(--slate) 60%,
+      var(--teal) 100%
+    );
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--slate), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-copper {
+    background: linear-gradient(135deg, var(--copper-dark), var(--copper-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Diagonal accent line - visual interest */
+  .diagonal-accent {
+    position: relative;
+  }
+
+  .diagonal-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--copper), var(--teal));
+    transform: skewX(-12deg);
+    transform-origin: top left;
+  }
+
+  /* Asymmetric card hover */
+  .card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+    box-shadow:
+      0 20px 40px -12px rgba(26, 35, 50, 0.15),
+      0 4px 6px -2px rgba(26, 35, 50, 0.05);
+  }
+
+  /* Border accent */
+  .border-accent-left {
+    border-left: 4px solid var(--copper);
+  }
+
+  .border-accent-top {
+    border-top: 4px solid var(--copper);
+  }
+
+  /* Offset grid helpers for asymmetric layouts */
+  .offset-left-sm {
+    margin-left: -1rem;
+  }
+
+  .offset-left {
+    margin-left: -2rem;
+  }
+
+  .offset-right-sm {
+    margin-right: -1rem;
+  }
+
+  .offset-right {
+    margin-right: -2rem;
+  }
+
+  /* Subtle rotation for visual interest */
+  .rotate-subtle {
+    transform: rotate(-1deg);
+  }
+
+  .rotate-subtle-reverse {
+    transform: rotate(1deg);
+  }
+
+  /* Industrial grid pattern overlay */
+  .pattern-grid {
+    background-image:
+      linear-gradient(rgba(26, 35, 50, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 35, 50, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Dot pattern */
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgba(26, 35, 50, 0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Copper underline animation */
+  .underline-copper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-copper::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--copper);
+    transition: width 0.3s ease;
+  }
+
+  .underline-copper:hover::after {
+    width: 100%;
+  }
+
+  /* Section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--border) 20%,
+      var(--copper) 50%,
+      var(--border) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Badge variants */
+  .badge-copper {
+    background-color: var(--copper);
+    color: white;
+  }
+
+  .badge-teal {
+    background-color: var(--teal);
+    color: white;
+  }
+
+  .badge-slate {
+    background-color: var(--slate);
+    color: white;
+  }
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation keyframes */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
