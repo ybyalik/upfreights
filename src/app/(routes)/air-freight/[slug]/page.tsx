@@ -155,29 +155,6 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
   const airFreightContent = getAirFreightContent(route.originCity, route.destinationCity);
   const airFreightTitles = getAirFreightSectionTitles(route.originCity, route.destinationCity);
 
-  // Service tiers for air freight
-  const serviceTiers = [
-    {
-      name: 'Express',
-      transitTime: '1-2 days',
-      priceRange: '$8 - $12 /kg',
-      features: ['Priority handling', 'Next-day delivery', 'Real-time tracking', 'Dedicated support'],
-    },
-    {
-      name: 'Standard',
-      transitTime: '3-5 days',
-      priceRange: '$4.50 - $7 /kg',
-      features: ['Regular flights', 'Door-to-door service', 'Online tracking', 'Email updates'],
-      isPopular: true,
-    },
-    {
-      name: 'Economy',
-      transitTime: '5-7 days',
-      priceRange: '$3 - $5 /kg',
-      features: ['Consolidated shipping', 'Basic tracking', 'Cost-effective', 'Flexible timing'],
-    },
-  ];
-
   return (
     <>
       {/* Hero Section */}
@@ -496,71 +473,6 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
           </section>
         </>
       )}
-
-      {/* Service Tiers */}
-      <section className="py-20 lg:py-28 pattern-dots">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-12 gap-8 mb-12">
-            <div className="lg:col-span-5">
-              <p className="text-teal font-medium text-sm uppercase tracking-wider mb-2">Service Levels</p>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
-                Choose Your Speed
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-7 flex items-end">
-              <p className="text-muted-foreground">
-                From express priority to cost-optimized economy shipping. Every tier includes
-                full cargo protection and tracking.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 items-start">
-            {serviceTiers.map((tier, index) => (
-              <Card
-                key={index}
-                className={`border-border/50 card-lift relative overflow-hidden ${
-                  tier.isPopular ? 'border-teal border-2 md:-mt-4' : index === 2 ? 'md:mt-8' : ''
-                }`}
-              >
-                {tier.isPopular && (
-                  <div className="absolute top-0 right-0 bg-teal text-white text-xs px-3 py-1 rounded-bl-lg font-medium">
-                    Most Popular
-                  </div>
-                )}
-                <CardContent className="p-6">
-                  <div className="mb-6">
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
-                      {tier.name} Service
-                    </p>
-                    <h4 className="font-heading font-bold text-xl text-foreground mb-2">
-                      {tier.transitTime}
-                    </h4>
-                    <p className="text-2xl font-bold text-teal">{tier.priceRange}</p>
-                  </div>
-
-                  <div className="space-y-3 pt-4 border-t border-border">
-                    {tier.features.map((feature, fIndex) => (
-                      <div key={fIndex} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-teal flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button
-                    asChild
-                    className={`w-full mt-6 ${tier.isPopular ? 'bg-teal hover:bg-teal-dark text-white' : ''}`}
-                    variant={tier.isPopular ? 'default' : 'outline'}
-                  >
-                    <Link href="/quote">Get Quote</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Service Stats */}
       <section className="py-20 lg:py-28 bg-slate relative overflow-hidden">
