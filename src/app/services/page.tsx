@@ -108,6 +108,34 @@ const comparisonData = [
   },
 ];
 
+const popularRoutes = [
+  {
+    destination: 'USA',
+    seaFreight: '14-28 days',
+    airFreight: '1-3 days',
+  },
+  {
+    destination: 'UK',
+    seaFreight: '25-35 days',
+    airFreight: '2-4 days',
+  },
+  {
+    destination: 'Australia',
+    seaFreight: '12-18 days',
+    airFreight: '2-3 days',
+  },
+  {
+    destination: 'Canada',
+    seaFreight: '15-25 days',
+    airFreight: '1-3 days',
+  },
+  {
+    destination: 'Germany',
+    seaFreight: '28-35 days',
+    airFreight: '2-4 days',
+  },
+];
+
 export default function ServicesPage() {
   return (
     <>
@@ -240,6 +268,39 @@ export default function ServicesPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Routes Section */}
+      <section className="py-16 lg:py-24 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Popular Shipping Routes from China
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            {popularRoutes.map((route) => (
+              <Card key={route.destination} className="border-border/50">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold text-foreground mb-4">
+                    China to {route.destination}
+                  </h3>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Sea Freight:</p>
+                      <p className="font-semibold text-foreground">{route.seaFreight}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Air Freight:</p>
+                      <p className="font-semibold text-foreground">{route.airFreight}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
