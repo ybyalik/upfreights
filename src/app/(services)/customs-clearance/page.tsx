@@ -347,7 +347,7 @@ export default function CustomsClearancePage() {
         variant="gradient"
         title="Need Expert Customs Clearance?"
         description="Let our licensed customs brokers handle your import/export documentation and clearance processes."
-        primaryButtonText="Get Customs Quote"
+        primaryAction={{ label: 'Get Customs Quote', href: '/quote' }}
       />
     </>
   );

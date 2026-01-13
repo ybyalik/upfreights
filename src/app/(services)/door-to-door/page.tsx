@@ -244,7 +244,7 @@ export default function DoorToDoorPage() {
         variant="gradient"
         title="Ready for Hassle-Free Door-to-Door Service?"
         description="Let us handle the entire shipping process while you focus on your business growth."
-        primaryButtonText="Get Complete Quote"
+        primaryAction={{ label: 'Get Complete Quote', href: '/quote' }}
       />
     </>
   );
