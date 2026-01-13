@@ -2,18 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { CTASection } from '@/components/sections';
 
 const contactInfo = [
@@ -28,7 +22,7 @@ const contactInfo = [
     icon: Phone,
     title: 'Phone',
     value: '+86-573-82600785',
-    description: 'Mon-Fri, 9am-6pm CST',
+    description: 'Available for inquiries',
     href: 'tel:+86-573-82600785',
   },
   {
@@ -37,36 +31,6 @@ const contactInfo = [
     value: 'Room 1106, Fuyue Building',
     description: 'No.28 Zhonghuan West Road, Jiaxing, China 314000',
     href: '#',
-  },
-  {
-    icon: Clock,
-    title: 'Business Hours',
-    value: 'Monday - Friday',
-    description: '9:00 AM - 6:00 PM CST',
-    href: '#',
-  },
-];
-
-const faqs = [
-  {
-    question: 'How quickly will I receive a quote?',
-    answer:
-      'We aim to respond to all quote requests within 24 hours. For urgent inquiries, please call our hotline for immediate assistance.',
-  },
-  {
-    question: 'What information do I need to provide for a quote?',
-    answer:
-      'To provide an accurate quote, we need: origin and destination, cargo details (weight, dimensions, type), preferred shipping method (sea/air), and your timeline.',
-  },
-  {
-    question: 'Do you offer pickup services from suppliers in China?',
-    answer:
-      'Yes, we offer door-to-door services including pickup from your supplier anywhere in China and delivery to your specified destination.',
-  },
-  {
-    question: 'How can I track my shipment?',
-    answer:
-      'Once your shipment is booked, you\'ll receive a tracking number and access to our online tracking portal. You can also contact your dedicated account manager for updates.',
   },
 ];
 
@@ -296,39 +260,6 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 lg:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-muted-foreground">
-                Quick answers to common questions about our services.
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`faq-${index}`}
-                  className="bg-card border border-border/50 rounded-lg px-6"
-                >
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
           </div>
         </div>
       </section>
