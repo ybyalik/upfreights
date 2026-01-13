@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
+import { Clock, ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,8 +38,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: `${post.title} | UpFreights Blog`,
       description: post.excerpt,
       type: 'article',
-      publishedTime: post.publishedAt,
-      authors: [post.author.name],
     },
   };
 }
@@ -86,14 +84,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className="flex flex-wrap items-center gap-6 text-white/70">
               <div className="flex items-center space-x-2">
-                <User className="h-4 w-4" />
-                <span>{post.author.name}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Calendar className="h-4 w-4" />
-                <span>{formattedDate}</span>
-              </div>
-              <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4" />
                 <span>{post.readingTime}</span>
               </div>
@@ -117,32 +107,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {/* Sidebar */}
               <aside className="lg:col-span-1">
-                {/* Author Card */}
+                {/* Tags Card */}
                 <Card className="border-border/50 mb-6 sticky top-24">
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-foreground mb-4">About the Author</h3>
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-lg font-semibold text-primary">
-                          {post.author.name.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="font-medium text-foreground">{post.author.name}</p>
-                        <p className="text-sm text-muted-foreground">{post.author.role}</p>
-                      </div>
-                    </div>
-
-                    {/* Tags */}
-                    <div className="pt-4 border-t border-border/50">
-                      <h4 className="text-sm font-medium text-muted-foreground mb-3">Tags</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {post.tags.map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
+                    <h4 className="text-sm font-medium text-muted-foreground mb-3">Tags</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
