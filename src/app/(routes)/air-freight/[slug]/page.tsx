@@ -260,52 +260,236 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
       {/* AI-Generated Content Sections - Benefits, Rates, Transit Times */}
       {airFreightContent && (
         <>
-          {/* Benefits Section */}
+          {/* Benefits Section - Feature Grid Layout */}
           <section className="py-20 lg:py-28 bg-background">
             <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-10 lg:col-start-2">
+              <div className="grid lg:grid-cols-12 gap-8 mb-12">
+                <div className="lg:col-span-8">
                   <p className="text-teal font-medium text-sm uppercase tracking-wider mb-2">Why Air Freight</p>
-                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
                     {airFreightTitles.benefits}
                   </h2>
-                  <div className="prose prose-lg max-w-none text-muted-foreground">
-                    <p className="leading-relaxed">{airFreightContent.benefits}</p>
-                  </div>
+                </div>
+              </div>
+
+              {/* Feature Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <Card className="border-border/50 bg-teal/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+                      <Zap className="h-6 w-6 text-teal" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Fast Delivery</h4>
+                    <p className="text-sm text-muted-foreground">2-3 days vs 15-18 days by ocean freight</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/50 bg-teal/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+                      <Calendar className="h-6 w-6 text-teal" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Daily Flights</h4>
+                    <p className="text-sm text-muted-foreground">Multiple carrier options available daily</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/50 bg-teal/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+                      <Shield className="h-6 w-6 text-teal" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Lower Risk</h4>
+                    <p className="text-sm text-muted-foreground">Reduced handling and shorter exposure time</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/50 bg-teal/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+                      <FileText className="h-6 w-6 text-teal" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Pre-Clearance</h4>
+                    <p className="text-sm text-muted-foreground">Expedited customs processing programs</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Detailed Text */}
+              <div className="bg-cream rounded-2xl p-8 lg:p-10">
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="leading-relaxed">{airFreightContent.benefits}</p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Rates Section */}
+          {/* Rates Section - Sidebar Summary Layout */}
           <section className="py-20 lg:py-28 bg-cream">
             <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-10 lg:col-start-2">
+              <div className="grid lg:grid-cols-12 gap-8 mb-12">
+                <div className="lg:col-span-8">
                   <p className="text-teal font-medium text-sm uppercase tracking-wider mb-2">Pricing Guide</p>
-                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
                     {airFreightTitles.rates}
                   </h2>
-                  <div className="prose prose-lg max-w-none text-muted-foreground">
-                    <p className="leading-relaxed">{airFreightContent.rates}</p>
+                </div>
+              </div>
+
+              <div className="grid lg:grid-cols-12 gap-8">
+                {/* Main Content */}
+                <div className="lg:col-span-7">
+                  <div className="bg-white rounded-2xl p-8 lg:p-10 border border-border/50">
+                    <div className="prose prose-lg max-w-none text-muted-foreground">
+                      <p className="leading-relaxed">{airFreightContent.rates}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sticky Sidebar */}
+                <div className="lg:col-span-5">
+                  <div className="lg:sticky lg:top-24 space-y-6">
+                    {/* Quick Rates Card */}
+                    <Card className="border-teal border-2 bg-white">
+                      <CardContent className="p-6">
+                        <h4 className="font-heading font-bold text-lg text-foreground mb-4">Quick Rate Guide</h4>
+                        <div className="space-y-4">
+                          <div className="flex justify-between items-center pb-3 border-b border-border/50">
+                            <div>
+                              <p className="font-medium text-foreground">Express</p>
+                              <p className="text-xs text-muted-foreground">1-2 day priority</p>
+                            </div>
+                            <p className="font-bold text-teal">$6-8/kg</p>
+                          </div>
+                          <div className="flex justify-between items-center pb-3 border-b border-border/50">
+                            <div>
+                              <p className="font-medium text-foreground">Standard</p>
+                              <p className="text-xs text-muted-foreground">3-5 day transit</p>
+                            </div>
+                            <p className="font-bold text-teal">$3.50-5/kg</p>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <p className="font-medium text-foreground">Economy</p>
+                              <p className="text-xs text-muted-foreground">5-7 day deferred</p>
+                            </div>
+                            <p className="font-bold text-teal">$3-4/kg</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Additional Costs Card */}
+                    <Card className="border-border/50 bg-slate/5">
+                      <CardContent className="p-6">
+                        <h4 className="font-heading font-bold text-foreground mb-3">Additional Costs</h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Fuel Surcharge</span>
+                            <span className="font-medium">~$1.20/kg</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Security Fee</span>
+                            <span className="font-medium">~$0.15/kg</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Terminal Handling</span>
+                            <span className="font-medium">~$0.25/kg</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Customs Brokerage</span>
+                            <span className="font-medium">$150-350</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* CTA */}
+                    <Button asChild className="w-full bg-teal hover:bg-teal-dark text-white">
+                      <Link href="/quote">
+                        Get Exact Quote
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Transit Times Section */}
+          {/* Transit Times Section - Timeline Layout */}
           <section className="py-20 lg:py-28 bg-background">
             <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-10 lg:col-start-2">
+              <div className="grid lg:grid-cols-12 gap-8 mb-12">
+                <div className="lg:col-span-8">
                   <p className="text-teal font-medium text-sm uppercase tracking-wider mb-2">Delivery Timeline</p>
-                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
                     {airFreightTitles.transitTimes}
                   </h2>
-                  <div className="prose prose-lg max-w-none text-muted-foreground">
-                    <p className="leading-relaxed">{airFreightContent.transitTimes}</p>
+                </div>
+              </div>
+
+              {/* Visual Timeline */}
+              <div className="mb-12">
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-teal/20 -translate-y-1/2" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+                    {[
+                      { step: 'Cargo Acceptance', time: '4-8 hrs', icon: Package, description: 'Security screening at origin' },
+                      { step: 'Flight Transit', time: '12-14 hrs', icon: Plane, description: 'Direct flight to destination' },
+                      { step: 'Customs Clearance', time: '4-24 hrs', icon: FileText, description: 'TSA and CBP inspection' },
+                      { step: 'Release & Sort', time: '2-4 hrs', icon: CheckCircle, description: 'Cargo release and sorting' },
+                      { step: 'Final Delivery', time: 'Same/Next day', icon: ArrowRight, description: 'Door delivery' },
+                    ].map((item, index) => {
+                      const Icon = item.icon;
+                      return (
+                        <div key={index} className="relative">
+                          {/* Timeline dot - hidden on mobile */}
+                          <div className="hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-teal border-4 border-background z-10" />
+
+                          <Card className="border-border/50 h-full lg:mt-6">
+                            <CardContent className="p-5 text-center">
+                              <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mx-auto mb-3">
+                                <Icon className="h-5 w-5 text-teal" />
+                              </div>
+                              <p className="text-xs text-teal font-semibold uppercase tracking-wider mb-1">Step {index + 1}</p>
+                              <h4 className="font-heading font-bold text-foreground text-sm mb-1">{item.step}</h4>
+                              <p className="text-lg font-bold text-teal mb-1">{item.time}</p>
+                              <p className="text-xs text-muted-foreground">{item.description}</p>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      );
+                    })}
                   </div>
+                </div>
+              </div>
+
+              {/* Service Level Summary */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="bg-teal text-white rounded-xl p-6">
+                  <p className="text-teal-light text-xs uppercase tracking-wider mb-1">Express</p>
+                  <p className="text-3xl font-bold mb-2">1-2 Days</p>
+                  <p className="text-white/80 text-sm">Door-to-door with priority handling</p>
+                </div>
+                <div className="bg-slate text-white rounded-xl p-6">
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Standard</p>
+                  <p className="text-3xl font-bold mb-2">3-5 Days</p>
+                  <p className="text-white/80 text-sm">Regular service with full tracking</p>
+                </div>
+                <div className="bg-cream-dark rounded-xl p-6">
+                  <p className="text-muted-foreground text-xs uppercase tracking-wider mb-1">Economy</p>
+                  <p className="text-3xl font-bold text-foreground mb-2">5-7 Days</p>
+                  <p className="text-muted-foreground text-sm">Consolidated for cost savings</p>
+                </div>
+              </div>
+
+              {/* Detailed Text */}
+              <div className="bg-cream rounded-2xl p-8 lg:p-10">
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="leading-relaxed">{airFreightContent.transitTimes}</p>
                 </div>
               </div>
             </div>
