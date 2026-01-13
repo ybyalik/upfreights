@@ -74,15 +74,15 @@ export function Navbar() {
                             <NavigationMenuLink asChild>
                               <Link
                                 href={`/${service.slug}`}
-                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                className="group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-orange hover:text-white focus:bg-orange focus:text-white"
                               >
                                 <div className="flex items-center space-x-2">
-                                  <Icon className="h-5 w-5 text-orange" />
+                                  <Icon className="h-5 w-5 text-orange group-hover:text-white" />
                                   <span className="text-sm font-medium leading-none">
                                     {service.shortTitle}
                                   </span>
                                 </div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-white/80 mt-2">
                                   {service.shortDescription}
                                 </p>
                               </Link>
@@ -94,7 +94,7 @@ export function Navbar() {
                         <NavigationMenuLink asChild>
                           <Link
                             href="/services"
-                            className="block select-none rounded-md p-3 text-center font-medium text-orange hover:bg-accent transition-colors"
+                            className="block select-none rounded-md p-3 text-center font-medium text-orange hover:bg-orange hover:text-white transition-colors"
                           >
                             View All Services
                           </Link>
@@ -116,7 +116,7 @@ export function Navbar() {
                           <NavigationMenuLink asChild>
                             <Link
                               href={`/shipping-${destination.slug}`}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-orange hover:text-white focus:bg-orange focus:text-white"
                             >
                               <div className="flex items-center space-x-2">
                                 <span className="text-2xl">{destination.flag}</span>
@@ -124,7 +124,7 @@ export function Navbar() {
                                   {destination.country}
                                 </span>
                               </div>
-                              <p className="text-xs text-muted-foreground mt-1">
+                              <p className="text-xs text-muted-foreground group-hover:text-white/80 mt-1">
                                 {destination.transitTimeAir} by air
                               </p>
                             </Link>
