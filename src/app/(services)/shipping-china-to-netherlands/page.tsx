@@ -41,7 +41,7 @@ export default function ShippingToNetherlandsPage() {
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: 'Destinations', href: '/shipping' },
+              { label: 'Destinations', href: '/all-routes' },
               { label: 'Netherlands' },
             ]}
             variant="light"

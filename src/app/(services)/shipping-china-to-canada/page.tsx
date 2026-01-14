@@ -41,7 +41,7 @@ export default function ShippingToCanadaPage() {
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: 'Destinations', href: '/shipping' },
+              { label: 'Destinations', href: '/all-routes' },
               { label: 'Canada' },
             ]}
             variant="light"

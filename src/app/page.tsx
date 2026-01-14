@@ -103,7 +103,7 @@ export default function HomePage() {
               </p>
             </div>
             <Button asChild variant="outline" className="mt-4 md:mt-0">
-              <Link href="/shipping">
+              <Link href="/all-routes">
                 View All Destinations
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

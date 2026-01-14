@@ -43,7 +43,7 @@ export default function ShippingToUKPage() {
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: 'Destinations', href: '/shipping' },
+              { label: 'Destinations', href: '/all-routes' },
               { label: 'United Kingdom' },
             ]}
             variant="light"

@@ -220,7 +220,7 @@ function CountryDestinationPage({ country }: { country: CountryDestination }) {
           <div className="max-w-4xl">
             <Breadcrumbs
               items={[
-                { label: 'Destinations', href: '/shipping' },
+                { label: 'Destinations', href: '/all-routes' },
                 { label: country.name },
               ]}
               variant="light"
