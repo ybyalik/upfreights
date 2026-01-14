@@ -329,6 +329,9 @@ function formatContent(content: string): string {
     inTable = false;
   }
 
+  // Track if we just saw an empty line while in a table (signals new row in single-cell format)
+  let tableRowBreak = false;
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const trimmedLine = line.trim();
@@ -336,9 +339,9 @@ function formatContent(content: string): string {
     // Skip empty lines but close lists
     if (!trimmedLine) {
       closeList();
-      // For tables, check if next non-empty line continues the table
-      // Don't render yet if we're in single-cell-per-line format
+      // For tables in single-cell-per-line format, empty line signals end of current row
       if (inTable) {
+        tableRowBreak = true;
         // Look ahead to see if the table continues
         let nextLineIdx = i + 1;
         while (nextLineIdx < lines.length && !lines[nextLineIdx].trim()) {
@@ -348,13 +351,13 @@ function formatContent(content: string): string {
         // If next content line doesn't start with |, render the table
         if (!nextLine.startsWith('|')) {
           renderTable();
+          tableRowBreak = false;
         }
-        // Otherwise keep building the table
       }
       continue;
     }
 
-    // Check for table row (starts with | or has | for multi-column tables)
+    // Check for table row (starts with |)
     // Handle both formats: "| Col1 | Col2 | Col3 |" and single-line cells "| Cell "
     if (trimmedLine.startsWith('|')) {
       closeList();
@@ -377,21 +380,17 @@ function formatContent(content: string): string {
           // Standard markdown table row: | Col1 | Col2 | Col3 |
           tableRows.push(cells);
         } else {
-          // Single cell per line format - accumulate into current row
-          // Check if we need to start a new row based on pattern
-          if (tableRows.length === 0) {
-            // First cell, start accumulating
+          // Single cell per line format
+          // If we had an empty line, start a new row
+          if (tableRowBreak && tableRows.length > 0) {
+            tableRows.push([cells[0]]);
+            tableRowBreak = false;
+          } else if (tableRows.length === 0) {
+            // First cell, start first row
             tableRows.push([cells[0]]);
           } else {
-            const lastRow = tableRows[tableRows.length - 1];
-            const firstRow = tableRows[0];
-            // If current row is same length as header or we're building first row
-            if (tableRows.length === 1 || lastRow.length < firstRow.length) {
-              lastRow.push(cells[0]);
-            } else {
-              // Start a new row
-              tableRows.push([cells[0]]);
-            }
+            // Add to current row
+            tableRows[tableRows.length - 1].push(cells[0]);
           }
         }
       }
@@ -401,6 +400,7 @@ function formatContent(content: string): string {
     // If we were in a table and hit a non-table line, render the table
     if (inTable) {
       renderTable();
+      tableRowBreak = false;
     }
 
     // Headers
