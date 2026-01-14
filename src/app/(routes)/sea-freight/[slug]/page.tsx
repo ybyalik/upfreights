@@ -23,6 +23,7 @@ import {
   Breadcrumbs,
   CTASection,
   FAQSchema,
+  HeroQuoteForm,
 } from '@/components/sections';
 import { generateSeaFreightFAQs } from '@/lib/utils/generateFAQ';
 import {
@@ -66,6 +67,11 @@ import {
   getRoutePricing,
   formatPrice,
 } from '@/lib/data/pricing';
+import {
+  getSeaFreightContent,
+  getSeaFreightSectionTitles,
+} from '@/lib/utils/seaFreightContent';
+import { generateRouteServiceSchema } from '@/lib/schema';
 
 interface SeaFreightPageProps {
   params: Promise<{ slug: string }>;
@@ -155,6 +161,10 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
   const risksIntroText = getRisksIntroText(route.originCity, route.destinationCity, route.destinationCountry, 'sea');
   const risksCTA = getRisksCTAText(route.destinationCountry, 'sea');
 
+  // Get AI-generated content for benefits, rates, and transit times
+  const seaFreightContent = getSeaFreightContent(route.originCity, route.destinationCity);
+  const seaFreightTitles = getSeaFreightSectionTitles(route.originCity, route.destinationCity);
+
   // Default pricing for display (when no real pricing available)
   const containerPricing = [
     { type: '20ft FCL', label: 'Standard', dimensions: '6.1m × 2.4m × 2.6m', transitTime: route.transitTime, priceRange: '$2,400 - $3,200' },
@@ -163,15 +173,33 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
     { type: 'LCL Shipment', dimensions: 'Per CBM', transitTime: route.transitTime, priceRange: '$45 - $85 /CBM' },
   ];
 
+  // Generate route-specific service schema
+  const routeServiceSchema = generateRouteServiceSchema({
+    origin: route.originCity,
+    destination: route.destinationCity,
+    originCountry: route.originCountry,
+    destinationCountry: route.destinationCountry,
+    slug: slug,
+    serviceType: 'sea-freight',
+    transitTime: route.transitTime,
+    frequency: route.frequency,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(routeServiceSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent transform skew-x-[-12deg] origin-top-right" />
 
         <div className="container mx-auto px-4 relative">
-          <div className="grid lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8 lg:col-start-1">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7">
               <Breadcrumbs
                 items={[
                   { label: 'Sea Freight', href: '/sea-freight' },
@@ -238,9 +266,254 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                 </div>
               </div>
             </div>
+
+            {/* Quote Form */}
+            <div className="lg:col-span-5 hidden lg:block">
+              <HeroQuoteForm defaultService="sea" />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* AI-Generated Content Sections - Benefits, Rates, Transit Times */}
+      {seaFreightContent && (
+        <>
+          {/* Benefits Section - Feature Grid Layout */}
+          <section className="py-20 lg:py-28 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="grid lg:grid-cols-12 gap-8 mb-12">
+                <div className="lg:col-span-8">
+                  <p className="text-copper font-medium text-sm uppercase tracking-wider mb-2">Why Sea Freight</p>
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
+                    {seaFreightTitles.benefits}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Feature Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <Card className="border-border/50 bg-copper/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-copper/10 flex items-center justify-center mb-4">
+                      <Package className="h-6 w-6 text-copper" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Cost Effective</h4>
+                    <p className="text-sm text-muted-foreground">80-90% cheaper than air freight for bulk cargo</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/50 bg-copper/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-copper/10 flex items-center justify-center mb-4">
+                      <Box className="h-6 w-6 text-copper" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">High Capacity</h4>
+                    <p className="text-sm text-muted-foreground">FCL and LCL options for any shipment size</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/50 bg-copper/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-copper/10 flex items-center justify-center mb-4">
+                      <Anchor className="h-6 w-6 text-copper" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Reliable Service</h4>
+                    <p className="text-sm text-muted-foreground">Weekly sailings from major carriers</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/50 bg-copper/5">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-copper/10 flex items-center justify-center mb-4">
+                      <Ship className="h-6 w-6 text-copper" />
+                    </div>
+                    <h4 className="font-heading font-bold text-foreground mb-2">Global Network</h4>
+                    <p className="text-sm text-muted-foreground">Direct routes to major ports worldwide</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Detailed Text */}
+              <div className="bg-cream rounded-2xl p-8 lg:p-10">
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="leading-relaxed">{seaFreightContent.benefits}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Rates Section - Sidebar Summary Layout */}
+          <section className="py-20 lg:py-28 bg-cream">
+            <div className="container mx-auto px-4">
+              <div className="grid lg:grid-cols-12 gap-8 mb-12">
+                <div className="lg:col-span-8">
+                  <p className="text-copper font-medium text-sm uppercase tracking-wider mb-2">Pricing Guide</p>
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
+                    {seaFreightTitles.rates}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="grid lg:grid-cols-12 gap-8">
+                {/* Main Content */}
+                <div className="lg:col-span-7">
+                  <div className="bg-white rounded-2xl p-8 lg:p-10 border border-border/50">
+                    <div className="prose prose-lg max-w-none text-muted-foreground">
+                      <p className="leading-relaxed">{seaFreightContent.rates}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sticky Sidebar */}
+                <div className="lg:col-span-5">
+                  <div className="lg:sticky lg:top-24 space-y-6">
+                    {/* Quick Rates Card */}
+                    <Card className="border-copper border-2 bg-white">
+                      <CardContent className="p-6">
+                        <h4 className="font-heading font-bold text-lg text-foreground mb-4">Quick Rate Guide</h4>
+                        <div className="space-y-4">
+                          <div className="flex justify-between items-center pb-3 border-b border-border/50">
+                            <div>
+                              <p className="font-medium text-foreground">20ft Container</p>
+                              <p className="text-xs text-muted-foreground">Standard dry</p>
+                            </div>
+                            <p className="font-bold text-copper">$1,800-2,800</p>
+                          </div>
+                          <div className="flex justify-between items-center pb-3 border-b border-border/50">
+                            <div>
+                              <p className="font-medium text-foreground">40ft Container</p>
+                              <p className="text-xs text-muted-foreground">Standard dry</p>
+                            </div>
+                            <p className="font-bold text-copper">$2,400-4,200</p>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <p className="font-medium text-foreground">LCL Shipment</p>
+                              <p className="text-xs text-muted-foreground">Per cubic meter</p>
+                            </div>
+                            <p className="font-bold text-copper">$45-85/CBM</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Additional Costs Card */}
+                    <Card className="border-border/50 bg-slate/5">
+                      <CardContent className="p-6">
+                        <h4 className="font-heading font-bold text-foreground mb-3">Additional Costs</h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Origin THC</span>
+                            <span className="font-medium">$150-250</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Destination THC</span>
+                            <span className="font-medium">$200-350</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">BAF Surcharge</span>
+                            <span className="font-medium">$300-500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Customs Brokerage</span>
+                            <span className="font-medium">$150-400</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* CTA */}
+                    <Button asChild className="w-full bg-copper hover:bg-copper-dark text-white">
+                      <Link href="/quote">
+                        Get Exact Quote
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Transit Times Section - Timeline Layout */}
+          <section className="py-20 lg:py-28 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="grid lg:grid-cols-12 gap-8 mb-12">
+                <div className="lg:col-span-8">
+                  <p className="text-copper font-medium text-sm uppercase tracking-wider mb-2">Delivery Timeline</p>
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
+                    {seaFreightTitles.transitTimes}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Visual Timeline */}
+              <div className="mb-12">
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-copper/20 -translate-y-1/2" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
+                    {[
+                      { step: 'Cargo Loading', time: '1-2 days', icon: Package, description: 'Container stuffing at origin' },
+                      { step: 'Export Clearance', time: '1-2 days', icon: FileText, description: 'Documentation and customs' },
+                      { step: 'Ocean Transit', time: '15-25 days', icon: Ship, description: 'Sailing to destination port' },
+                      { step: 'Import Clearance', time: '1-3 days', icon: CheckCircle, description: 'Customs inspection and release' },
+                      { step: 'Final Delivery', time: '1-5 days', icon: ArrowRight, description: 'Transport to final destination' },
+                    ].map((item, index) => {
+                      const Icon = item.icon;
+                      return (
+                        <div key={index} className="relative">
+                          {/* Timeline dot - hidden on mobile */}
+                          <div className="hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-copper border-4 border-background z-10" />
+
+                          <Card className="border-border/50 h-full lg:mt-6">
+                            <CardContent className="p-5 text-center">
+                              <div className="w-10 h-10 rounded-lg bg-copper/10 flex items-center justify-center mx-auto mb-3">
+                                <Icon className="h-5 w-5 text-copper" />
+                              </div>
+                              <p className="text-xs text-copper font-semibold uppercase tracking-wider mb-1">Step {index + 1}</p>
+                              <h4 className="font-heading font-bold text-foreground text-sm mb-1">{item.step}</h4>
+                              <p className="text-lg font-bold text-copper mb-1">{item.time}</p>
+                              <p className="text-xs text-muted-foreground">{item.description}</p>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Service Level Summary */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="bg-copper text-white rounded-xl p-6">
+                  <p className="text-copper-light text-xs uppercase tracking-wider mb-1">Express</p>
+                  <p className="text-3xl font-bold mb-2">20-25 Days</p>
+                  <p className="text-white/80 text-sm">Direct service with priority handling</p>
+                </div>
+                <div className="bg-slate text-white rounded-xl p-6">
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Standard</p>
+                  <p className="text-3xl font-bold mb-2">25-35 Days</p>
+                  <p className="text-white/80 text-sm">Regular service with full tracking</p>
+                </div>
+                <div className="bg-cream-dark rounded-xl p-6">
+                  <p className="text-muted-foreground text-xs uppercase tracking-wider mb-1">Economy</p>
+                  <p className="text-3xl font-bold text-foreground mb-2">35-45 Days</p>
+                  <p className="text-muted-foreground text-sm">Consolidated for maximum savings</p>
+                </div>
+              </div>
+
+              {/* Detailed Text */}
+              <div className="bg-cream rounded-2xl p-8 lg:p-10">
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="leading-relaxed">{seaFreightContent.transitTimes}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Container Options & Pricing */}
       <section className="py-20 lg:py-28 pattern-dots">

@@ -92,9 +92,11 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wide mb-4">
-              Services
-            </h3>
+            <p className="font-semibold text-sm uppercase tracking-wide mb-4">
+              <Link href="/services" className="text-primary-foreground hover:text-orange transition-colors">
+                Services
+              </Link>
+            </p>
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.id}>
@@ -111,9 +113,9 @@ export function Footer() {
 
           {/* Destinations */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wide mb-4">
+            <p className="font-semibold text-sm uppercase tracking-wide mb-4 text-primary-foreground">
               Destinations
-            </h3>
+            </p>
             <ul className="space-y-3">
               {destinations.map((destination) => (
                 <li key={destination.id}>
@@ -126,14 +128,22 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/all-routes"
+                  className="text-sm text-primary-foreground/80 hover:text-orange transition-colors"
+                >
+                  All Routes →
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wide mb-4">
+            <p className="font-semibold text-sm uppercase tracking-wide mb-4 text-primary-foreground">
               Company
-            </h3>
+            </p>
             <ul className="space-y-3">
               <li>
                 <Link

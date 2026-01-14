@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { Plane, CheckCircle, ArrowRight, Clock, Globe, Shield, Package, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Breadcrumbs, CTASection } from '@/components/sections';
+import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
 import { generateAirRoutes } from '@/lib/data/routeGenerator';
+import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Air Freight Services from China | UpFreights',
@@ -79,6 +80,22 @@ const destinationCountries = [
   },
 ];
 
+const airFreightServiceSchema = generateServiceSchema({
+  name: 'Air Freight Shipping Services',
+  description: 'Fast, reliable air cargo services for time-sensitive shipments with express delivery options and premium handling from major Chinese airports to worldwide destinations.',
+  url: `${ORGANIZATION_INFO.url}/air-freight`,
+  features: [
+    'Express and standard air freight options',
+    'Charter services for urgent cargo',
+    'Temperature-controlled shipments',
+    'Dangerous goods handling (DG certified)',
+    'Airport-to-airport and door-to-door',
+    'Same-day and next-day options available',
+    'Secure handling for high-value goods',
+    'Dedicated account management',
+  ],
+});
+
 export default function AirFreightPage() {
   const allAirRoutes = generateAirRoutes();
 
@@ -95,6 +112,12 @@ export default function AirFreightPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(airFreightServiceSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
@@ -106,24 +129,29 @@ export default function AirFreightPage() {
             variant="light"
             className="mb-6"
           />
-          <div className="max-w-4xl">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
-                <Plane className="h-8 w-8 text-orange" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Plane className="h-8 w-8 text-orange" />
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                  Air Freight Services from China
+                </h1>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Air Freight Services from China
-              </h1>
+              <p className="text-lg text-white/80 mb-8 max-w-3xl">
+                Fast, reliable air cargo services for time-sensitive shipments with express delivery options and premium handling from major Chinese airports.
+              </p>
+              <Button asChild className="bg-orange hover:bg-orange-dark text-white lg:hidden">
+                <Link href="/quote">
+                  Get Air Freight Quote
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-            <p className="text-lg text-white/80 mb-8 max-w-3xl">
-              Fast, reliable air cargo services for time-sensitive shipments with express delivery options and premium handling from major Chinese airports.
-            </p>
-            <Button asChild className="bg-orange hover:bg-orange-dark text-white">
-              <Link href="/quote">
-                Get Air Freight Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="hidden lg:block">
+              <HeroQuoteForm defaultService="air" />
+            </div>
           </div>
         </div>
       </section>

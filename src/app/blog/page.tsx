@@ -1,9 +1,16 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { BookOpen } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BlogCard, CTASection } from '@/components/sections';
-import { blogPosts, getFeaturedPosts, getAllCategories } from '@/lib/data/blog';
+import { blogPosts } from '@/lib/data/blog';
+import { Button } from '@/components/ui/button';
+import { generateBlogCollectionSchema } from '@/lib/schema';
+
+const POSTS_PER_PAGE = 20;
+
+const blogCollectionSchema = generateBlogCollectionSchema(
+  blogPosts.map((post) => ({ title: post.title, slug: post.slug }))
+);
 
 export const metadata: Metadata = {
   title: 'Blog - Shipping Insights & Guides',
@@ -19,13 +26,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const featuredPosts = getFeaturedPosts();
-  const categories = getAllCategories();
-  const regularPosts = blogPosts.filter((post) => !post.featured);
+interface BlogPageProps {
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const params = await searchParams;
+  const currentPage = Math.max(1, parseInt(params.page || '1', 10));
+  const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  const paginatedPosts = blogPosts.slice(startIndex, endIndex);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogCollectionSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
@@ -44,43 +65,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-8 border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-sm text-muted-foreground">Categories:</span>
-            <Badge variant="secondary" className="cursor-pointer hover:bg-secondary/80">
-              All Posts
-            </Badge>
-            {categories.map((category) => (
-              <Badge
-                key={category}
-                variant="outline"
-                className="cursor-pointer hover:bg-secondary"
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-              Featured Articles
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {featuredPosts.map((post) => (
-                <BlogCard key={post.id} post={post} variant="featured" />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* All Posts */}
       <section className="py-16 lg:py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
@@ -88,10 +72,53 @@ export default function BlogPage() {
             Latest Articles
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {regularPosts.map((post) => (
+            {paginatedPosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-12">
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className={currentPage <= 1 ? 'pointer-events-none opacity-50' : ''}
+              >
+                <Link href={currentPage > 1 ? `/blog?page=${currentPage - 1}` : '#'}>
+                  <ChevronLeft className="h-4 w-4 mr-1" />
+                  Previous
+                </Link>
+              </Button>
+
+              <div className="flex items-center gap-1">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <Button
+                    key={page}
+                    variant={page === currentPage ? 'default' : 'outline'}
+                    size="sm"
+                    asChild
+                    className={page === currentPage ? 'bg-orange hover:bg-orange-dark' : ''}
+                  >
+                    <Link href={`/blog?page=${page}`}>{page}</Link>
+                  </Button>
+                ))}
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className={currentPage >= totalPages ? 'pointer-events-none opacity-50' : ''}
+              >
+                <Link href={currentPage < totalPages ? `/blog?page=${currentPage + 1}` : '#'}>
+                  Next
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </Link>
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 

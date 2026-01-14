@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
+import { generateAboutPageSchema, generatePersonSchema, TEAM_MEMBERS, generateOrganizationSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'About Us | Upfreights - China Freight Forwarding',
@@ -114,9 +115,28 @@ const whyChoose = [
   },
 ];
 
+// Generate about page schemas
+const aboutPageSchema = generateAboutPageSchema();
+const teamPersonSchemas = TEAM_MEMBERS.map((member) => generatePersonSchema(member));
+
+// Combine all schemas
+const aboutSchemas = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    aboutPageSchema,
+    ...teamPersonSchemas,
+  ],
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutSchemas),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">

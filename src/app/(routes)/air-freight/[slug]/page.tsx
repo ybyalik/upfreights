@@ -22,6 +22,7 @@ import {
   Breadcrumbs,
   CTASection,
   FAQSchema,
+  HeroQuoteForm,
 } from '@/components/sections';
 import { generateAirFreightFAQs } from '@/lib/utils/generateFAQ';
 import {
@@ -65,6 +66,7 @@ import {
   getRoutesByOrigin,
   getRoutesByDestination,
 } from '@/lib/data/routeGenerator';
+import { generateRouteServiceSchema } from '@/lib/schema';
 
 interface AirFreightPageProps {
   params: Promise<{ slug: string }>;
@@ -155,15 +157,33 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
   const airFreightContent = getAirFreightContent(route.originCity, route.destinationCity);
   const airFreightTitles = getAirFreightSectionTitles(route.originCity, route.destinationCity);
 
+  // Generate route-specific service schema
+  const routeServiceSchema = generateRouteServiceSchema({
+    origin: route.originCity,
+    destination: route.destinationCity,
+    originCountry: route.originCountry,
+    destinationCountry: route.destinationCountry,
+    slug: slug,
+    serviceType: 'air-freight',
+    transitTime: route.transitTime,
+    frequency: route.frequency,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(routeServiceSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent transform skew-x-[-12deg] origin-top-right" />
 
         <div className="container mx-auto px-4 relative">
-          <div className="grid lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8 lg:col-start-1">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7">
               <Breadcrumbs
                 items={[
                   { label: 'Air Freight', href: '/air-freight' },
@@ -229,6 +249,11 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Quote Form */}
+            <div className="lg:col-span-5 hidden lg:block">
+              <HeroQuoteForm defaultService="air" />
             </div>
           </div>
         </div>
@@ -474,47 +499,6 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
         </>
       )}
 
-      {/* Service Stats */}
-      <section className="py-20 lg:py-28 bg-slate relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-teal/20 transform skew-x-[-6deg] origin-top-right hidden lg:block" />
-
-        <div className="container mx-auto px-4 relative">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <p className="text-teal-light font-medium text-sm uppercase tracking-wider mb-2">Track Record</p>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-white mb-4">
-                Reliable Service
-              </h2>
-              <p className="text-white/70 leading-relaxed">
-                Years of experience moving cargo quickly and safely between {route.originCity} and {route.destinationCity}.
-              </p>
-            </div>
-
-            <div className="lg:col-span-6 lg:col-start-7 grid grid-cols-2 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-teal-light mb-2">15+</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">Years Experience</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 mt-6">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-white mb-2">50K+</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">Shipments Delivered</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-copper-light mb-2">99%</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">On-Time Delivery</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 mt-6">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-white mb-2">24/7</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">Support Available</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
       <section className="py-20 lg:py-28 bg-cream-dark">
         <div className="container mx-auto px-4">
@@ -531,7 +515,7 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
             <div className="lg:col-span-7 relative">
               <div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden md:block" />
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {[
                   { step: 1, title: 'Quote & Booking', description: 'Get a quote and book your air freight shipment.', timeline: 'Same day' },
                   { step: 2, title: 'Collection', description: 'We collect cargo from your location.', timeline: '1 day' },
@@ -558,25 +542,30 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
               </div>
             </div>
 
-            <div className="lg:col-span-4 lg:col-start-9">
+            <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-24">
-                <div className="bg-slate rounded-2xl p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-teal/20 flex items-center justify-center">
-                      <FileText className="h-5 w-5 text-teal-light" />
-                    </div>
-                    <h4 className="font-heading font-bold text-white">Key Documents</h4>
+                <div className="bg-slate rounded-2xl p-8 lg:p-10">
+                  <div className="mb-6">
+                    <p className="text-teal-light font-medium text-sm uppercase tracking-wider mb-2">Track Record</p>
+                    <h4 className="font-heading font-bold text-xl text-white">Reliable Service</h4>
                   </div>
-                  <div className="space-y-3">
-                    {[
-                      ...requiredDocs.universal.slice(0, 2).map(d => d.name),
-                      ...requiredDocs.airSpecific.slice(0, 3).map(d => d.name),
-                    ].map((doc, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-teal-light flex-shrink-0" />
-                        <span className="text-sm text-white/80">{doc}</span>
-                      </div>
-                    ))}
+                  <div className="grid grid-cols-2 gap-5">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                      <p className="font-heading text-3xl lg:text-4xl font-bold text-teal-light mb-2">15+</p>
+                      <p className="text-white/70 text-sm">Years Experience</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                      <p className="font-heading text-3xl lg:text-4xl font-bold text-white mb-2">50K+</p>
+                      <p className="text-white/70 text-sm">Shipments</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                      <p className="font-heading text-3xl lg:text-4xl font-bold text-copper-light mb-2">99%</p>
+                      <p className="text-white/70 text-sm">On-Time Delivery</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                      <p className="font-heading text-3xl lg:text-4xl font-bold text-white mb-2">24/7</p>
+                      <p className="text-white/70 text-sm">Support Available</p>
+                    </div>
                   </div>
                 </div>
               </div>

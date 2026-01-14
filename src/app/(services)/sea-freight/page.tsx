@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { Ship, CheckCircle, ArrowRight, Anchor, Clock, Shield, Package, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Breadcrumbs, CTASection } from '@/components/sections';
+import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
 import { generateSeaRoutes } from '@/lib/data/routeGenerator';
+import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Sea Freight Services from China | UpFreights',
@@ -79,6 +80,22 @@ const destinationCountries = [
   },
 ];
 
+const seaFreightServiceSchema = generateServiceSchema({
+  name: 'Sea Freight Shipping Services',
+  description: 'Cost-effective ocean shipping solutions for full container loads (FCL) and less-than-container loads (LCL) with reliable transit times and competitive rates from China to worldwide destinations.',
+  url: `${ORGANIZATION_INFO.url}/sea-freight`,
+  features: [
+    'Full Container Load (FCL) shipping',
+    'Less than Container Load (LCL) consolidation',
+    'Refrigerated container options',
+    'Oversized and project cargo handling',
+    'Port-to-port and door-to-door options',
+    'Real-time container tracking',
+    'Customs documentation support',
+    'Cargo insurance options',
+  ],
+});
+
 export default function SeaFreightPage() {
   const allSeaRoutes = generateSeaRoutes();
 
@@ -95,6 +112,12 @@ export default function SeaFreightPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(seaFreightServiceSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
@@ -106,24 +129,29 @@ export default function SeaFreightPage() {
             variant="light"
             className="mb-6"
           />
-          <div className="max-w-4xl">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
-                <Ship className="h-8 w-8 text-orange" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Ship className="h-8 w-8 text-orange" />
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                  Sea Freight Services from China
+                </h1>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Sea Freight Services from China
-              </h1>
+              <p className="text-lg text-white/80 mb-8 max-w-3xl">
+                Cost-effective ocean shipping solutions for full container loads (FCL) and less-than-container loads (LCL) with reliable transit times and competitive rates.
+              </p>
+              <Button asChild className="bg-orange hover:bg-orange-dark text-white lg:hidden">
+                <Link href="/quote">
+                  Get Sea Freight Quote
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-            <p className="text-lg text-white/80 mb-8 max-w-3xl">
-              Cost-effective ocean shipping solutions for full container loads (FCL) and less-than-container loads (LCL) with reliable transit times and competitive rates.
-            </p>
-            <Button asChild className="bg-orange hover:bg-orange-dark text-white">
-              <Link href="/quote">
-                Get Sea Freight Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="hidden lg:block">
+              <HeroQuoteForm defaultService="sea" />
+            </div>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 export { Hero } from './Hero';
+export { HeroQuoteForm } from './HeroQuoteForm';
 export { ServiceCard } from './ServiceCard';
 export { RouteCard } from './RouteCard';
 export { DestinationCard } from './DestinationCard';

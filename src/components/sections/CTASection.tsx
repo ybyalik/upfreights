@@ -46,12 +46,12 @@ export function CTASection({
         {/* Asymmetric layout */}
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
-            <h2 className={cn(
+            <p className={cn(
               'font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4',
               variant === 'default' ? 'text-foreground' : 'text-white'
             )}>
               {title}
-            </h2>
+            </p>
 
             <p className={cn(
               'text-lg mb-8 max-w-xl',

@@ -2,13 +2,15 @@ import Link from 'next/link';
 import { ArrowRight, Ship, Plane, Package, Shield, Clock, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { HeroQuoteForm } from './HeroQuoteForm';
 
 interface HeroProps {
   variant?: 'default' | 'simple';
   className?: string;
+  showQuoteForm?: boolean;
 }
 
-export function Hero({ variant = 'default', className }: HeroProps) {
+export function Hero({ variant = 'default', className, showQuoteForm = true }: HeroProps) {
   if (variant === 'simple') {
     return (
       <section className={cn('bg-gradient-hero py-16 lg:py-24', className)}>
@@ -41,81 +43,92 @@ export function Hero({ variant = 'default', className }: HeroProps) {
       </div>
 
       <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">
-        <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-sm text-white/90">Trusted by 1,000+ businesses worldwide</span>
-          </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-xl">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-sm text-white/90">Trusted by 1,000+ businesses worldwide</span>
+            </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Ship From China{' '}
-            <span className="text-orange">Worldwide</span>
-            <br />
-            With Confidence
-          </h1>
+            {/* Main Heading */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Ship From China{' '}
+              <span className="text-orange">Worldwide</span>
+              <br />
+              With Confidence
+            </h1>
 
-          {/* Subheading */}
-          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
-            UpFreights provides reliable, cost-effective freight forwarding services.
-            Sea freight, air freight, and door-to-door delivery to over 50 countries.
-          </p>
+            {/* Subheading */}
+            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
+              UpFreights provides reliable, cost-effective freight forwarding services.
+              Sea freight, air freight, and door-to-door delivery to over 50 countries.
+            </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button
-              asChild
-              size="lg"
-              className="bg-orange hover:bg-orange-dark text-white px-8"
-            >
-              <Link href="/quote">
-                Get a Free Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="!border-white/40 !text-white !bg-transparent hover:!bg-white/10 hover:!text-white px-8"
-            >
-              <Link href="/services/sea-freight">
-                Explore Services
-              </Link>
-            </Button>
-          </div>
-
-          {/* Trust Signals */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
-                <Clock className="h-6 w-6 text-orange" />
+            {/* CTA Buttons - only show if no quote form */}
+            {!showQuoteForm && (
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-orange hover:bg-orange-dark text-white px-8"
+                >
+                  <Link href="/quote">
+                    Get a Free Quote
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="!border-white/40 !text-white !bg-transparent hover:!bg-white/10 hover:!text-white px-8"
+                >
+                  <Link href="/services/sea-freight">
+                    Explore Services
+                  </Link>
+                </Button>
               </div>
-              <div>
-                <p className="font-semibold text-white">24hr Response</p>
-                <p className="text-sm text-white/60">Quick quote turnaround</p>
+            )}
+
+            {/* Trust Signals */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10">
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                  <Clock className="h-6 w-6 text-orange" />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">24hr Response</p>
+                  <p className="text-sm text-white/60">Quick quote turnaround</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-orange" />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">Fully Insured</p>
+                  <p className="text-sm text-white/60">Cargo protection included</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                  <Globe className="h-6 w-6 text-orange" />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">50+ Countries</p>
+                  <p className="text-sm text-white/60">Global shipping network</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-orange" />
-              </div>
-              <div>
-                <p className="font-semibold text-white">Fully Insured</p>
-                <p className="text-sm text-white/60">Cargo protection included</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
-                <Globe className="h-6 w-6 text-orange" />
-              </div>
-              <div>
-                <p className="font-semibold text-white">50+ Countries</p>
-                <p className="text-sm text-white/60">Global shipping network</p>
-              </div>
-            </div>
           </div>
+
+          {/* Quote Form on right side */}
+          {showQuoteForm && (
+            <div className="hidden lg:block">
+              <HeroQuoteForm />
+            </div>
+          )}
         </div>
       </div>
 

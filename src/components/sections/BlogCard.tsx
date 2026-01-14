@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
@@ -12,12 +12,6 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, variant = 'default', className }: BlogCardProps) {
-  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-
   if (variant === 'compact') {
     return (
       <Link href={`/blog/${post.slug}`}>
@@ -33,8 +27,8 @@ export function BlogCard({ post, variant = 'default', className }: BlogCardProps
               {post.title}
             </h3>
             <div className="flex items-center text-xs text-muted-foreground">
-              <Calendar className="h-3 w-3 mr-1" />
-              {formattedDate}
+              <Clock className="h-3 w-3 mr-1" />
+              {post.readingTime}
             </div>
           </CardContent>
         </Card>
@@ -74,16 +68,10 @@ export function BlogCard({ post, variant = 'default', className }: BlogCardProps
               {post.excerpt}
             </p>
             <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center space-x-4 text-muted-foreground">
-                <span className="flex items-center">
-                  <Calendar className="h-4 w-4 mr-1" />
-                  {formattedDate}
-                </span>
-                <span className="flex items-center">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {post.readingTime}
-                </span>
-              </div>
+              <span className="flex items-center text-muted-foreground">
+                <Clock className="h-4 w-4 mr-1" />
+                {post.readingTime}
+              </span>
               <span className="flex items-center text-orange font-medium group-hover:translate-x-1 transition-transform">
                 Read <ArrowRight className="ml-1 h-4 w-4" />
               </span>
@@ -112,17 +100,9 @@ export function BlogCard({ post, variant = 'default', className }: BlogCardProps
           <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
             {post.excerpt}
           </p>
-          <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <div className="flex items-center space-x-3">
-              <span className="flex items-center">
-                <Calendar className="h-3 w-3 mr-1" />
-                {formattedDate}
-              </span>
-              <span className="flex items-center">
-                <Clock className="h-3 w-3 mr-1" />
-                {post.readingTime}
-              </span>
-            </div>
+          <div className="flex items-center text-xs text-muted-foreground">
+            <Clock className="h-3 w-3 mr-1" />
+            {post.readingTime}
           </div>
         </CardContent>
       </Card>

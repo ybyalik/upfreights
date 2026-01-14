@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { Home, CheckCircle, ArrowRight, Package, MapPin, Truck, FileCheck, Ship, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Breadcrumbs, CTASection } from '@/components/sections';
+import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
+import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Door-to-Door Delivery Services | UpFreights',
@@ -83,9 +84,31 @@ const costTimeBenefits = [
   'Consolidated billing and invoicing',
 ];
 
+const doorToDoorServiceSchema = generateServiceSchema({
+  name: 'Door-to-Door Delivery Services',
+  description: 'Complete end-to-end logistics solutions from your supplier\'s door in China to your warehouse or business address worldwide.',
+  url: `${ORGANIZATION_INFO.url}/door-to-door`,
+  features: [
+    'Direct supplier pickup in China',
+    'End-to-end cargo tracking',
+    'Export and import customs clearance',
+    'International sea or air transit',
+    'Final mile delivery to your address',
+    'Single point of contact',
+    'Complete documentation handling',
+    'Flexible delivery scheduling',
+  ],
+});
+
 export default function DoorToDoorPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(doorToDoorServiceSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
@@ -97,24 +120,29 @@ export default function DoorToDoorPage() {
             variant="light"
             className="mb-6"
           />
-          <div className="max-w-4xl">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
-                <Home className="h-8 w-8 text-orange" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Home className="h-8 w-8 text-orange" />
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                  Door-to-Door Delivery Services
+                </h1>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Door-to-Door Delivery Services
-              </h1>
+              <p className="text-lg text-white/80 mb-8 max-w-3xl">
+                Complete end-to-end logistics solutions from your supplier&apos;s door in China to your warehouse or business address worldwide.
+              </p>
+              <Button asChild className="bg-orange hover:bg-orange-dark text-white lg:hidden">
+                <Link href="/quote">
+                  Get Door-to-Door Quote
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-            <p className="text-lg text-white/80 mb-8 max-w-3xl">
-              Complete end-to-end logistics solutions from your supplier&apos;s door in China to your warehouse or business address worldwide.
-            </p>
-            <Button asChild className="bg-orange hover:bg-orange-dark text-white">
-              <Link href="/quote">
-                Get Door-to-Door Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="hidden lg:block">
+              <HeroQuoteForm defaultService="door-to-door" />
+            </div>
           </div>
         </div>
       </section>

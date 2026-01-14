@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Ship, Plane, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Breadcrumbs, CTASection, FilterableRoutesList } from '@/components/sections';
+import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/components/sections';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
@@ -47,25 +47,30 @@ export default function ShippingToCanadaPage() {
             variant="light"
             className="mb-6"
           />
-          <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Shipping from China to Canada
-            </h1>
-            <p className="text-lg text-white/80 mb-8">
-              Comprehensive freight forwarding services with air and sea shipping options. Reliable, cost-effective solutions for businesses of all sizes.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild className="bg-orange hover:bg-orange-dark text-white">
-                <Link href="/quote">
-                  Get Instant Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="!border-white/40 !text-white !bg-transparent hover:!bg-white/10">
-                <Link href="#all-routes">
-                  View All Routes
-                </Link>
-              </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                Shipping from China to Canada
+              </h1>
+              <p className="text-lg text-white/80 mb-8">
+                Comprehensive freight forwarding services with air and sea shipping options. Reliable, cost-effective solutions for businesses of all sizes.
+              </p>
+              <div className="flex flex-wrap gap-4 lg:hidden">
+                <Button asChild className="bg-orange hover:bg-orange-dark text-white">
+                  <Link href="/quote">
+                    Get Instant Quote
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="!border-white/40 !text-white !bg-transparent hover:!bg-white/10">
+                  <Link href="#all-routes">
+                    View All Routes
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            <div className="hidden lg:block">
+              <HeroQuoteForm />
             </div>
           </div>
         </div>

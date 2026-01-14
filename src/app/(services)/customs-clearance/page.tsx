@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { FileCheck, CheckCircle, ArrowRight, FileText, Shield, Clock, Calculator, ClipboardList, Receipt, Award, FileWarning } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Breadcrumbs, CTASection } from '@/components/sections';
+import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
+import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Customs Clearance Services | UpFreights',
@@ -150,9 +151,31 @@ const clearanceProcess = [
   },
 ];
 
+const customsClearanceServiceSchema = generateServiceSchema({
+  name: 'Customs Clearance Services',
+  description: 'Expert customs brokerage services for smooth import/export processes with full regulatory compliance and documentation handling from China to worldwide destinations.',
+  url: `${ORGANIZATION_INFO.url}/customs-clearance`,
+  features: [
+    'Import and export documentation',
+    'Customs duty and tax calculation',
+    'HS code classification',
+    'Regulatory compliance (FDA, FCC, DOT)',
+    'Certificate of origin processing',
+    'Special permits handling',
+    'Bonded warehouse services',
+    'Trade compliance consulting',
+  ],
+});
+
 export default function CustomsClearancePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(customsClearanceServiceSchema),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
@@ -164,24 +187,29 @@ export default function CustomsClearancePage() {
             variant="light"
             className="mb-6"
           />
-          <div className="max-w-4xl">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
-                <FileCheck className="h-8 w-8 text-orange" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
+                  <FileCheck className="h-8 w-8 text-orange" />
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                  Customs Clearance Services
+                </h1>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Customs Clearance Services
-              </h1>
+              <p className="text-lg text-white/80 mb-8 max-w-3xl">
+                Expert customs brokerage services for smooth import/export processes with full regulatory compliance and documentation handling from China to worldwide destinations.
+              </p>
+              <Button asChild className="bg-orange hover:bg-orange-dark text-white lg:hidden">
+                <Link href="/quote">
+                  Get Customs Quote
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-            <p className="text-lg text-white/80 mb-8 max-w-3xl">
-              Expert customs brokerage services for smooth import/export processes with full regulatory compliance and documentation handling from China to worldwide destinations.
-            </p>
-            <Button asChild className="bg-orange hover:bg-orange-dark text-white">
-              <Link href="/quote">
-                Get Customs Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="hidden lg:block">
+              <HeroQuoteForm defaultService="customs-clearance" />
+            </div>
           </div>
         </div>
       </section>

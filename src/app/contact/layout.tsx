@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { generateLocalBusinessSchema, generateContactPageSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -14,5 +15,21 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateLocalBusinessSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateContactPageSchema()),
+        }}
+      />
+      {children}
+    </>
+  );
 }
