@@ -44,6 +44,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
+// Decode HTML entities helper
+function decodeHtmlEntities(text: string): string {
+  const htmlEntities: Record<string, string> = {
+    '&#39;': "'",
+    '&apos;': "'",
+    '&quot;': '"',
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&nbsp;': ' ',
+  };
+  return text.replace(/&#?\w+;/g, (entity) => htmlEntities[entity] || entity);
+}
+
 // Extract headings from content for table of contents
 function extractHeadings(content: string): { id: string; text: string; level: number }[] {
   const headings: { id: string; text: string; level: number }[] = [];
@@ -51,17 +65,27 @@ function extractHeadings(content: string): { id: string; text: string; level: nu
 
   lines.forEach((line) => {
     if (line.startsWith('## ')) {
-      const text = line.slice(3).trim();
+      const rawText = line.slice(3).trim();
+      const text = decodeHtmlEntities(rawText);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       headings.push({ id, text, level: 2 });
     } else if (line.startsWith('### ')) {
-      const text = line.slice(4).trim();
+      const rawText = line.slice(4).trim();
+      const text = decodeHtmlEntities(rawText);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       headings.push({ id, text, level: 3 });
     }
   });
 
   return headings;
+}
+
+// Calculate reading time from content
+function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -74,6 +98,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const relatedPosts = getRelatedPosts(slug, 3);
   const headings = extractHeadings(post.content);
+  const readingTime = post.readingTime || calculateReadingTime(post.content);
 
   const blogPostSchema = generateBlogPostingSchema({
     title: post.title,
@@ -105,9 +130,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               className="mb-6"
             />
 
-            <Badge className="bg-white/10 text-white border-white/20 mb-4">
-              {post.category}
-            </Badge>
+            {post.category && (
+              <Badge className="bg-white/10 text-white border-white/20 mb-4">
+                {post.category}
+              </Badge>
+            )}
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               {post.title}
@@ -118,7 +145,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex flex-wrap items-center gap-6 text-white/70">
               <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4" />
-                <span>{post.readingTime}</span>
+                <span>{readingTime}</span>
               </div>
             </div>
           </div>
@@ -170,9 +197,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <section className="py-16 lg:py-24 bg-secondary/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+              <p className="text-xl font-semibold text-foreground mb-8">
                 Related Articles
-              </h2>
+              </p>
               <div className="grid md:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <BlogCard key={relatedPost.id} post={relatedPost} variant="compact" />
@@ -276,7 +303,7 @@ function formatContent(content: string): string {
       if (isValidUrl(decodedUrl)) {
         // Re-escape the URL for safe attribute insertion
         const safeUrl = escapeHtml(decodedUrl);
-        return `<a href="${safeUrl}" rel="noopener noreferrer">${linkText}</a>`;
+        return `<a href="${safeUrl}" rel="noopener noreferrer" class="text-orange hover:underline font-medium">${linkText}</a>`;
       }
       // Invalid URL - render as plain text
       return linkText;

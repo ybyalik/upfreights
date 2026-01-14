@@ -7,7 +7,7 @@ import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
 import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Customs Clearance Services | UpFreights',
+  title: 'Customs Clearance Services',
   description: 'Expert customs brokerage services for smooth import/export processes with full regulatory compliance and documentation handling from China to worldwide destinations.',
   alternates: {
     canonical: '/customs-clearance',

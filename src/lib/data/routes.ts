@@ -36,7 +36,7 @@ const containerOptions: ContainerOption[] = [
 export const routes: Route[] = [
   {
     id: 'shanghai-new-york-air',
-    slug: 'shanghai-to-new-york-air',
+    slug: 'shanghai-to-new-york',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -107,7 +107,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-los-angeles-air',
-    slug: 'shanghai-to-los-angeles-air',
+    slug: 'shanghai-to-los-angeles',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -178,7 +178,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-london-air',
-    slug: 'shanghai-to-london-air',
+    slug: 'shanghai-to-london',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -249,7 +249,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-felixstowe-sea',
-    slug: 'shanghai-to-felixstowe-sea',
+    slug: 'shanghai-to-felixstowe',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -422,7 +422,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-sydney-air',
-    slug: 'shanghai-to-sydney-air',
+    slug: 'shanghai-to-sydney',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -493,7 +493,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-melbourne-air',
-    slug: 'shanghai-to-melbourne-air',
+    slug: 'shanghai-to-melbourne',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -564,7 +564,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-vancouver-air',
-    slug: 'shanghai-to-vancouver-air',
+    slug: 'shanghai-to-vancouver',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -635,7 +635,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-los-angeles-sea',
-    slug: 'shanghai-to-los-angeles-sea',
+    slug: 'shanghai-to-los-angeles',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -808,7 +808,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-london-air',
-    slug: 'beijing-to-london-air',
+    slug: 'beijing-to-london',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -879,7 +879,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-chicago-air',
-    slug: 'shanghai-to-chicago-air',
+    slug: 'shanghai-to-chicago',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -950,7 +950,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-boston-air',
-    slug: 'shanghai-to-boston-air',
+    slug: 'shanghai-to-boston',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1021,7 +1021,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-atlanta-air',
-    slug: 'shanghai-to-atlanta-air',
+    slug: 'shanghai-to-atlanta',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1092,7 +1092,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-dallas-air',
-    slug: 'shanghai-to-dallas-air',
+    slug: 'shanghai-to-dallas',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1163,7 +1163,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-denver-air',
-    slug: 'shanghai-to-denver-air',
+    slug: 'shanghai-to-denver',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1234,7 +1234,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-miami-air',
-    slug: 'shanghai-to-miami-air',
+    slug: 'shanghai-to-miami',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1305,7 +1305,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-san-francisco-air',
-    slug: 'shanghai-to-san-francisco-air',
+    slug: 'shanghai-to-san-francisco',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1376,7 +1376,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-toronto-air',
-    slug: 'shanghai-to-toronto-air',
+    slug: 'shanghai-to-toronto',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1447,7 +1447,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-montreal-air',
-    slug: 'shanghai-to-montreal-air',
+    slug: 'shanghai-to-montreal',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1518,7 +1518,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-calgary-air',
-    slug: 'shanghai-to-calgary-air',
+    slug: 'shanghai-to-calgary',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1589,7 +1589,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-ottawa-air',
-    slug: 'shanghai-to-ottawa-air',
+    slug: 'shanghai-to-ottawa',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1660,7 +1660,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-brisbane-air',
-    slug: 'shanghai-to-brisbane-air',
+    slug: 'shanghai-to-brisbane',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1731,7 +1731,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-canberra-air',
-    slug: 'shanghai-to-canberra-air',
+    slug: 'shanghai-to-canberra',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1802,7 +1802,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-frankfurt-air',
-    slug: 'shanghai-to-frankfurt-air',
+    slug: 'shanghai-to-frankfurt',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1873,7 +1873,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-munich-air',
-    slug: 'shanghai-to-munich-air',
+    slug: 'shanghai-to-munich',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -1944,7 +1944,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-new-york-air',
-    slug: 'shenzhen-to-new-york-air',
+    slug: 'shenzhen-to-new-york',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2015,7 +2015,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-los-angeles-air',
-    slug: 'shenzhen-to-los-angeles-air',
+    slug: 'shenzhen-to-los-angeles',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2086,7 +2086,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-chicago-air',
-    slug: 'shenzhen-to-chicago-air',
+    slug: 'shenzhen-to-chicago',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2157,7 +2157,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-boston-air',
-    slug: 'shenzhen-to-boston-air',
+    slug: 'shenzhen-to-boston',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2228,7 +2228,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-atlanta-air',
-    slug: 'shenzhen-to-atlanta-air',
+    slug: 'shenzhen-to-atlanta',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2299,7 +2299,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-dallas-air',
-    slug: 'shenzhen-to-dallas-air',
+    slug: 'shenzhen-to-dallas',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2370,7 +2370,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-denver-air',
-    slug: 'shenzhen-to-denver-air',
+    slug: 'shenzhen-to-denver',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2441,7 +2441,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-miami-air',
-    slug: 'shenzhen-to-miami-air',
+    slug: 'shenzhen-to-miami',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2512,7 +2512,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-san-francisco-air',
-    slug: 'shenzhen-to-san-francisco-air',
+    slug: 'shenzhen-to-san-francisco',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2583,7 +2583,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-vancouver-air',
-    slug: 'shenzhen-to-vancouver-air',
+    slug: 'shenzhen-to-vancouver',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2654,7 +2654,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-toronto-air',
-    slug: 'shenzhen-to-toronto-air',
+    slug: 'shenzhen-to-toronto',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2725,7 +2725,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-montreal-air',
-    slug: 'shenzhen-to-montreal-air',
+    slug: 'shenzhen-to-montreal',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2796,7 +2796,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-calgary-air',
-    slug: 'shenzhen-to-calgary-air',
+    slug: 'shenzhen-to-calgary',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2867,7 +2867,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-ottawa-air',
-    slug: 'shenzhen-to-ottawa-air',
+    slug: 'shenzhen-to-ottawa',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -2938,7 +2938,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-london-air',
-    slug: 'shenzhen-to-london-air',
+    slug: 'shenzhen-to-london',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3009,7 +3009,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-sydney-air',
-    slug: 'shenzhen-to-sydney-air',
+    slug: 'shenzhen-to-sydney',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3080,7 +3080,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-melbourne-air',
-    slug: 'shenzhen-to-melbourne-air',
+    slug: 'shenzhen-to-melbourne',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3151,7 +3151,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-brisbane-air',
-    slug: 'shenzhen-to-brisbane-air',
+    slug: 'shenzhen-to-brisbane',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3222,7 +3222,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-canberra-air',
-    slug: 'shenzhen-to-canberra-air',
+    slug: 'shenzhen-to-canberra',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3293,7 +3293,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-frankfurt-air',
-    slug: 'shenzhen-to-frankfurt-air',
+    slug: 'shenzhen-to-frankfurt',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3364,7 +3364,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-munich-air',
-    slug: 'shenzhen-to-munich-air',
+    slug: 'shenzhen-to-munich',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -3435,7 +3435,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-new-york-air',
-    slug: 'beijing-to-new-york-air',
+    slug: 'beijing-to-new-york',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3506,7 +3506,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-los-angeles-air',
-    slug: 'beijing-to-los-angeles-air',
+    slug: 'beijing-to-los-angeles',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3577,7 +3577,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-chicago-air',
-    slug: 'beijing-to-chicago-air',
+    slug: 'beijing-to-chicago',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3648,7 +3648,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-boston-air',
-    slug: 'beijing-to-boston-air',
+    slug: 'beijing-to-boston',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3719,7 +3719,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-atlanta-air',
-    slug: 'beijing-to-atlanta-air',
+    slug: 'beijing-to-atlanta',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3790,7 +3790,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-dallas-air',
-    slug: 'beijing-to-dallas-air',
+    slug: 'beijing-to-dallas',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3861,7 +3861,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-denver-air',
-    slug: 'beijing-to-denver-air',
+    slug: 'beijing-to-denver',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -3932,7 +3932,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-miami-air',
-    slug: 'beijing-to-miami-air',
+    slug: 'beijing-to-miami',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4003,7 +4003,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-san-francisco-air',
-    slug: 'beijing-to-san-francisco-air',
+    slug: 'beijing-to-san-francisco',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4074,7 +4074,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-vancouver-air',
-    slug: 'beijing-to-vancouver-air',
+    slug: 'beijing-to-vancouver',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4145,7 +4145,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-toronto-air',
-    slug: 'beijing-to-toronto-air',
+    slug: 'beijing-to-toronto',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4216,7 +4216,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-montreal-air',
-    slug: 'beijing-to-montreal-air',
+    slug: 'beijing-to-montreal',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4287,7 +4287,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-calgary-air',
-    slug: 'beijing-to-calgary-air',
+    slug: 'beijing-to-calgary',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4358,7 +4358,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-ottawa-air',
-    slug: 'beijing-to-ottawa-air',
+    slug: 'beijing-to-ottawa',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4429,7 +4429,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-sydney-air',
-    slug: 'beijing-to-sydney-air',
+    slug: 'beijing-to-sydney',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4500,7 +4500,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-melbourne-air',
-    slug: 'beijing-to-melbourne-air',
+    slug: 'beijing-to-melbourne',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4571,7 +4571,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-brisbane-air',
-    slug: 'beijing-to-brisbane-air',
+    slug: 'beijing-to-brisbane',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4642,7 +4642,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-canberra-air',
-    slug: 'beijing-to-canberra-air',
+    slug: 'beijing-to-canberra',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4713,7 +4713,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-frankfurt-air',
-    slug: 'beijing-to-frankfurt-air',
+    slug: 'beijing-to-frankfurt',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4784,7 +4784,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-munich-air',
-    slug: 'beijing-to-munich-air',
+    slug: 'beijing-to-munich',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -4855,7 +4855,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-new-york-air',
-    slug: 'qingdao-to-new-york-air',
+    slug: 'qingdao-to-new-york',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -4926,7 +4926,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-los-angeles-air',
-    slug: 'qingdao-to-los-angeles-air',
+    slug: 'qingdao-to-los-angeles',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -4997,7 +4997,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-chicago-air',
-    slug: 'qingdao-to-chicago-air',
+    slug: 'qingdao-to-chicago',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5068,7 +5068,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-boston-air',
-    slug: 'qingdao-to-boston-air',
+    slug: 'qingdao-to-boston',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5139,7 +5139,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-atlanta-air',
-    slug: 'qingdao-to-atlanta-air',
+    slug: 'qingdao-to-atlanta',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5210,7 +5210,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-dallas-air',
-    slug: 'qingdao-to-dallas-air',
+    slug: 'qingdao-to-dallas',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5281,7 +5281,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-denver-air',
-    slug: 'qingdao-to-denver-air',
+    slug: 'qingdao-to-denver',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5352,7 +5352,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-miami-air',
-    slug: 'qingdao-to-miami-air',
+    slug: 'qingdao-to-miami',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5423,7 +5423,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-san-francisco-air',
-    slug: 'qingdao-to-san-francisco-air',
+    slug: 'qingdao-to-san-francisco',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5494,7 +5494,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-vancouver-air',
-    slug: 'qingdao-to-vancouver-air',
+    slug: 'qingdao-to-vancouver',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5565,7 +5565,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-toronto-air',
-    slug: 'qingdao-to-toronto-air',
+    slug: 'qingdao-to-toronto',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5636,7 +5636,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-montreal-air',
-    slug: 'qingdao-to-montreal-air',
+    slug: 'qingdao-to-montreal',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5707,7 +5707,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-calgary-air',
-    slug: 'qingdao-to-calgary-air',
+    slug: 'qingdao-to-calgary',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5778,7 +5778,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-ottawa-air',
-    slug: 'qingdao-to-ottawa-air',
+    slug: 'qingdao-to-ottawa',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5849,7 +5849,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-london-air',
-    slug: 'qingdao-to-london-air',
+    slug: 'qingdao-to-london',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5920,7 +5920,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-sydney-air',
-    slug: 'qingdao-to-sydney-air',
+    slug: 'qingdao-to-sydney',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -5991,7 +5991,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-melbourne-air',
-    slug: 'qingdao-to-melbourne-air',
+    slug: 'qingdao-to-melbourne',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -6062,7 +6062,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-brisbane-air',
-    slug: 'qingdao-to-brisbane-air',
+    slug: 'qingdao-to-brisbane',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -6133,7 +6133,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-canberra-air',
-    slug: 'qingdao-to-canberra-air',
+    slug: 'qingdao-to-canberra',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -6204,7 +6204,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-frankfurt-air',
-    slug: 'qingdao-to-frankfurt-air',
+    slug: 'qingdao-to-frankfurt',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -6275,7 +6275,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-munich-air',
-    slug: 'qingdao-to-munich-air',
+    slug: 'qingdao-to-munich',
     originCity: 'Qingdao',
     originPort: 'Qingdao Jiaodong Airport (TAO)',
     originCountry: 'China',
@@ -6346,7 +6346,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-new-york-air',
-    slug: 'xiamen-to-new-york-air',
+    slug: 'xiamen-to-new-york',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6417,7 +6417,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-los-angeles-air',
-    slug: 'xiamen-to-los-angeles-air',
+    slug: 'xiamen-to-los-angeles',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6488,7 +6488,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-chicago-air',
-    slug: 'xiamen-to-chicago-air',
+    slug: 'xiamen-to-chicago',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6559,7 +6559,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-boston-air',
-    slug: 'xiamen-to-boston-air',
+    slug: 'xiamen-to-boston',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6630,7 +6630,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-atlanta-air',
-    slug: 'xiamen-to-atlanta-air',
+    slug: 'xiamen-to-atlanta',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6701,7 +6701,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-dallas-air',
-    slug: 'xiamen-to-dallas-air',
+    slug: 'xiamen-to-dallas',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6772,7 +6772,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-denver-air',
-    slug: 'xiamen-to-denver-air',
+    slug: 'xiamen-to-denver',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6843,7 +6843,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-miami-air',
-    slug: 'xiamen-to-miami-air',
+    slug: 'xiamen-to-miami',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6914,7 +6914,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-san-francisco-air',
-    slug: 'xiamen-to-san-francisco-air',
+    slug: 'xiamen-to-san-francisco',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -6985,7 +6985,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-vancouver-air',
-    slug: 'xiamen-to-vancouver-air',
+    slug: 'xiamen-to-vancouver',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7056,7 +7056,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-toronto-air',
-    slug: 'xiamen-to-toronto-air',
+    slug: 'xiamen-to-toronto',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7127,7 +7127,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-montreal-air',
-    slug: 'xiamen-to-montreal-air',
+    slug: 'xiamen-to-montreal',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7198,7 +7198,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-calgary-air',
-    slug: 'xiamen-to-calgary-air',
+    slug: 'xiamen-to-calgary',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7269,7 +7269,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-ottawa-air',
-    slug: 'xiamen-to-ottawa-air',
+    slug: 'xiamen-to-ottawa',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7340,7 +7340,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-london-air',
-    slug: 'xiamen-to-london-air',
+    slug: 'xiamen-to-london',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7411,7 +7411,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-sydney-air',
-    slug: 'xiamen-to-sydney-air',
+    slug: 'xiamen-to-sydney',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7482,7 +7482,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-melbourne-air',
-    slug: 'xiamen-to-melbourne-air',
+    slug: 'xiamen-to-melbourne',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7553,7 +7553,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-brisbane-air',
-    slug: 'xiamen-to-brisbane-air',
+    slug: 'xiamen-to-brisbane',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7624,7 +7624,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-canberra-air',
-    slug: 'xiamen-to-canberra-air',
+    slug: 'xiamen-to-canberra',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7695,7 +7695,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-frankfurt-air',
-    slug: 'xiamen-to-frankfurt-air',
+    slug: 'xiamen-to-frankfurt',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7766,7 +7766,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-munich-air',
-    slug: 'xiamen-to-munich-air',
+    slug: 'xiamen-to-munich',
     originCity: 'Xiamen',
     originPort: 'Xiamen Gaoqi Airport (XMN)',
     originCountry: 'China',
@@ -7837,7 +7837,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-new-york-air',
-    slug: 'guangzhou-to-new-york-air',
+    slug: 'guangzhou-to-new-york',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -7908,7 +7908,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-los-angeles-air',
-    slug: 'guangzhou-to-los-angeles-air',
+    slug: 'guangzhou-to-los-angeles',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -7979,7 +7979,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-chicago-air',
-    slug: 'guangzhou-to-chicago-air',
+    slug: 'guangzhou-to-chicago',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8050,7 +8050,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-boston-air',
-    slug: 'guangzhou-to-boston-air',
+    slug: 'guangzhou-to-boston',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8121,7 +8121,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-atlanta-air',
-    slug: 'guangzhou-to-atlanta-air',
+    slug: 'guangzhou-to-atlanta',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8192,7 +8192,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-dallas-air',
-    slug: 'guangzhou-to-dallas-air',
+    slug: 'guangzhou-to-dallas',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8263,7 +8263,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-denver-air',
-    slug: 'guangzhou-to-denver-air',
+    slug: 'guangzhou-to-denver',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8334,7 +8334,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-miami-air',
-    slug: 'guangzhou-to-miami-air',
+    slug: 'guangzhou-to-miami',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8405,7 +8405,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-san-francisco-air',
-    slug: 'guangzhou-to-san-francisco-air',
+    slug: 'guangzhou-to-san-francisco',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8476,7 +8476,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-vancouver-air',
-    slug: 'guangzhou-to-vancouver-air',
+    slug: 'guangzhou-to-vancouver',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8547,7 +8547,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-toronto-air',
-    slug: 'guangzhou-to-toronto-air',
+    slug: 'guangzhou-to-toronto',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8618,7 +8618,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-montreal-air',
-    slug: 'guangzhou-to-montreal-air',
+    slug: 'guangzhou-to-montreal',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8689,7 +8689,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-calgary-air',
-    slug: 'guangzhou-to-calgary-air',
+    slug: 'guangzhou-to-calgary',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8760,7 +8760,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-ottawa-air',
-    slug: 'guangzhou-to-ottawa-air',
+    slug: 'guangzhou-to-ottawa',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8831,7 +8831,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-london-air',
-    slug: 'guangzhou-to-london-air',
+    slug: 'guangzhou-to-london',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8902,7 +8902,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-sydney-air',
-    slug: 'guangzhou-to-sydney-air',
+    slug: 'guangzhou-to-sydney',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -8973,7 +8973,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-melbourne-air',
-    slug: 'guangzhou-to-melbourne-air',
+    slug: 'guangzhou-to-melbourne',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -9044,7 +9044,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-brisbane-air',
-    slug: 'guangzhou-to-brisbane-air',
+    slug: 'guangzhou-to-brisbane',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -9115,7 +9115,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-canberra-air',
-    slug: 'guangzhou-to-canberra-air',
+    slug: 'guangzhou-to-canberra',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -9186,7 +9186,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-frankfurt-air',
-    slug: 'guangzhou-to-frankfurt-air',
+    slug: 'guangzhou-to-frankfurt',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -9257,7 +9257,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-munich-air',
-    slug: 'guangzhou-to-munich-air',
+    slug: 'guangzhou-to-munich',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -9328,7 +9328,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-new-york-sea',
-    slug: 'shanghai-to-new-york-sea',
+    slug: 'shanghai-to-new-york',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -9501,7 +9501,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-long-beach-sea',
-    slug: 'shanghai-to-long-beach-sea',
+    slug: 'shanghai-to-long-beach',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -9674,7 +9674,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-savannah-sea',
-    slug: 'shanghai-to-savannah-sea',
+    slug: 'shanghai-to-savannah',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -9847,7 +9847,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-houston-sea',
-    slug: 'shanghai-to-houston-sea',
+    slug: 'shanghai-to-houston',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -10020,7 +10020,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-dallas-sea',
-    slug: 'shanghai-to-dallas-sea',
+    slug: 'shanghai-to-dallas',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -10193,7 +10193,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-oakland-sea',
-    slug: 'shanghai-to-oakland-sea',
+    slug: 'shanghai-to-oakland',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -10366,7 +10366,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-tacoma-sea',
-    slug: 'shanghai-to-tacoma-sea',
+    slug: 'shanghai-to-tacoma',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -10539,7 +10539,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-seattle-sea',
-    slug: 'shanghai-to-seattle-sea',
+    slug: 'shanghai-to-seattle',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -10712,7 +10712,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-vancouver-sea',
-    slug: 'shanghai-to-vancouver-sea',
+    slug: 'shanghai-to-vancouver',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -10885,7 +10885,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-prince-rupert-sea',
-    slug: 'shanghai-to-prince-rupert-sea',
+    slug: 'shanghai-to-prince-rupert',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -11058,7 +11058,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-toronto-sea',
-    slug: 'shanghai-to-toronto-sea',
+    slug: 'shanghai-to-toronto',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -11231,7 +11231,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-montreal-sea',
-    slug: 'shanghai-to-montreal-sea',
+    slug: 'shanghai-to-montreal',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -11404,7 +11404,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-calgary-sea',
-    slug: 'shanghai-to-calgary-sea',
+    slug: 'shanghai-to-calgary',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -11577,7 +11577,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-halifax-sea',
-    slug: 'shanghai-to-halifax-sea',
+    slug: 'shanghai-to-halifax',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -11750,7 +11750,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-london-gateway-sea',
-    slug: 'shanghai-to-london-gateway-sea',
+    slug: 'shanghai-to-london-gateway',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -11923,7 +11923,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-southampton-sea',
-    slug: 'shanghai-to-southampton-sea',
+    slug: 'shanghai-to-southampton',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -12096,7 +12096,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-sydney-sea',
-    slug: 'shanghai-to-sydney-sea',
+    slug: 'shanghai-to-sydney',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -12269,7 +12269,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-melbourne-sea',
-    slug: 'shanghai-to-melbourne-sea',
+    slug: 'shanghai-to-melbourne',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -12442,7 +12442,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-brisbane-sea',
-    slug: 'shanghai-to-brisbane-sea',
+    slug: 'shanghai-to-brisbane',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -12615,7 +12615,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-fremantle-sea',
-    slug: 'shanghai-to-fremantle-sea',
+    slug: 'shanghai-to-fremantle',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -12788,7 +12788,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-hamburg-sea',
-    slug: 'shanghai-to-hamburg-sea',
+    slug: 'shanghai-to-hamburg',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -12961,7 +12961,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-bremerhaven-sea',
-    slug: 'shanghai-to-bremerhaven-sea',
+    slug: 'shanghai-to-bremerhaven',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -13134,7 +13134,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-new-york-sea',
-    slug: 'shenzhen-to-new-york-sea',
+    slug: 'shenzhen-to-new-york',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -13307,7 +13307,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-los-angeles-sea',
-    slug: 'shenzhen-to-los-angeles-sea',
+    slug: 'shenzhen-to-los-angeles',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -13480,7 +13480,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-long-beach-sea',
-    slug: 'shenzhen-to-long-beach-sea',
+    slug: 'shenzhen-to-long-beach',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -13653,7 +13653,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-savannah-sea',
-    slug: 'shenzhen-to-savannah-sea',
+    slug: 'shenzhen-to-savannah',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -13826,7 +13826,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-houston-sea',
-    slug: 'shenzhen-to-houston-sea',
+    slug: 'shenzhen-to-houston',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -13999,7 +13999,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-dallas-sea',
-    slug: 'shenzhen-to-dallas-sea',
+    slug: 'shenzhen-to-dallas',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -14172,7 +14172,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-oakland-sea',
-    slug: 'shenzhen-to-oakland-sea',
+    slug: 'shenzhen-to-oakland',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -14345,7 +14345,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-tacoma-sea',
-    slug: 'shenzhen-to-tacoma-sea',
+    slug: 'shenzhen-to-tacoma',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -14518,7 +14518,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-seattle-sea',
-    slug: 'shenzhen-to-seattle-sea',
+    slug: 'shenzhen-to-seattle',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -14691,7 +14691,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-vancouver-sea',
-    slug: 'shenzhen-to-vancouver-sea',
+    slug: 'shenzhen-to-vancouver',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -14864,7 +14864,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-prince-rupert-sea',
-    slug: 'shenzhen-to-prince-rupert-sea',
+    slug: 'shenzhen-to-prince-rupert',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -15037,7 +15037,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-toronto-sea',
-    slug: 'shenzhen-to-toronto-sea',
+    slug: 'shenzhen-to-toronto',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -15210,7 +15210,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-montreal-sea',
-    slug: 'shenzhen-to-montreal-sea',
+    slug: 'shenzhen-to-montreal',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -15383,7 +15383,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-calgary-sea',
-    slug: 'shenzhen-to-calgary-sea',
+    slug: 'shenzhen-to-calgary',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -15556,7 +15556,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-halifax-sea',
-    slug: 'shenzhen-to-halifax-sea',
+    slug: 'shenzhen-to-halifax',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -15729,7 +15729,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-felixstowe-sea',
-    slug: 'shenzhen-to-felixstowe-sea',
+    slug: 'shenzhen-to-felixstowe',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -15902,7 +15902,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-london-gateway-sea',
-    slug: 'shenzhen-to-london-gateway-sea',
+    slug: 'shenzhen-to-london-gateway',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -16075,7 +16075,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-southampton-sea',
-    slug: 'shenzhen-to-southampton-sea',
+    slug: 'shenzhen-to-southampton',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -16248,7 +16248,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-sydney-sea',
-    slug: 'shenzhen-to-sydney-sea',
+    slug: 'shenzhen-to-sydney',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -16421,7 +16421,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-melbourne-sea',
-    slug: 'shenzhen-to-melbourne-sea',
+    slug: 'shenzhen-to-melbourne',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -16594,7 +16594,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-brisbane-sea',
-    slug: 'shenzhen-to-brisbane-sea',
+    slug: 'shenzhen-to-brisbane',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -16767,7 +16767,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-fremantle-sea',
-    slug: 'shenzhen-to-fremantle-sea',
+    slug: 'shenzhen-to-fremantle',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -16940,7 +16940,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-hamburg-sea',
-    slug: 'shenzhen-to-hamburg-sea',
+    slug: 'shenzhen-to-hamburg',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -17113,7 +17113,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-bremerhaven-sea',
-    slug: 'shenzhen-to-bremerhaven-sea',
+    slug: 'shenzhen-to-bremerhaven',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -17286,7 +17286,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-new-york-sea',
-    slug: 'ningbo-to-new-york-sea',
+    slug: 'ningbo-to-new-york',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -17459,7 +17459,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-los-angeles-sea',
-    slug: 'ningbo-to-los-angeles-sea',
+    slug: 'ningbo-to-los-angeles',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -17632,7 +17632,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-long-beach-sea',
-    slug: 'ningbo-to-long-beach-sea',
+    slug: 'ningbo-to-long-beach',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -17805,7 +17805,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-savannah-sea',
-    slug: 'ningbo-to-savannah-sea',
+    slug: 'ningbo-to-savannah',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -17978,7 +17978,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-houston-sea',
-    slug: 'ningbo-to-houston-sea',
+    slug: 'ningbo-to-houston',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -18151,7 +18151,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-dallas-sea',
-    slug: 'ningbo-to-dallas-sea',
+    slug: 'ningbo-to-dallas',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -18324,7 +18324,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-oakland-sea',
-    slug: 'ningbo-to-oakland-sea',
+    slug: 'ningbo-to-oakland',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -18497,7 +18497,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-tacoma-sea',
-    slug: 'ningbo-to-tacoma-sea',
+    slug: 'ningbo-to-tacoma',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -18670,7 +18670,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-seattle-sea',
-    slug: 'ningbo-to-seattle-sea',
+    slug: 'ningbo-to-seattle',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -18843,7 +18843,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-vancouver-sea',
-    slug: 'ningbo-to-vancouver-sea',
+    slug: 'ningbo-to-vancouver',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -19016,7 +19016,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-prince-rupert-sea',
-    slug: 'ningbo-to-prince-rupert-sea',
+    slug: 'ningbo-to-prince-rupert',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -19189,7 +19189,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-toronto-sea',
-    slug: 'ningbo-to-toronto-sea',
+    slug: 'ningbo-to-toronto',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -19362,7 +19362,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-montreal-sea',
-    slug: 'ningbo-to-montreal-sea',
+    slug: 'ningbo-to-montreal',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -19535,7 +19535,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-calgary-sea',
-    slug: 'ningbo-to-calgary-sea',
+    slug: 'ningbo-to-calgary',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -19708,7 +19708,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-halifax-sea',
-    slug: 'ningbo-to-halifax-sea',
+    slug: 'ningbo-to-halifax',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -19881,7 +19881,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-felixstowe-sea',
-    slug: 'ningbo-to-felixstowe-sea',
+    slug: 'ningbo-to-felixstowe',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -20054,7 +20054,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-london-gateway-sea',
-    slug: 'ningbo-to-london-gateway-sea',
+    slug: 'ningbo-to-london-gateway',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -20227,7 +20227,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-southampton-sea',
-    slug: 'ningbo-to-southampton-sea',
+    slug: 'ningbo-to-southampton',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -20400,7 +20400,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-sydney-sea',
-    slug: 'ningbo-to-sydney-sea',
+    slug: 'ningbo-to-sydney',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -20573,7 +20573,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-melbourne-sea',
-    slug: 'ningbo-to-melbourne-sea',
+    slug: 'ningbo-to-melbourne',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -20746,7 +20746,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-brisbane-sea',
-    slug: 'ningbo-to-brisbane-sea',
+    slug: 'ningbo-to-brisbane',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -20919,7 +20919,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-fremantle-sea',
-    slug: 'ningbo-to-fremantle-sea',
+    slug: 'ningbo-to-fremantle',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -21092,7 +21092,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-hamburg-sea',
-    slug: 'ningbo-to-hamburg-sea',
+    slug: 'ningbo-to-hamburg',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -21265,7 +21265,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-bremerhaven-sea',
-    slug: 'ningbo-to-bremerhaven-sea',
+    slug: 'ningbo-to-bremerhaven',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -21438,7 +21438,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-new-york-sea',
-    slug: 'qingdao-to-new-york-sea',
+    slug: 'qingdao-to-new-york',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -21611,7 +21611,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-los-angeles-sea',
-    slug: 'qingdao-to-los-angeles-sea',
+    slug: 'qingdao-to-los-angeles',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -21784,7 +21784,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-long-beach-sea',
-    slug: 'qingdao-to-long-beach-sea',
+    slug: 'qingdao-to-long-beach',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -21957,7 +21957,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-savannah-sea',
-    slug: 'qingdao-to-savannah-sea',
+    slug: 'qingdao-to-savannah',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -22130,7 +22130,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-houston-sea',
-    slug: 'qingdao-to-houston-sea',
+    slug: 'qingdao-to-houston',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -22303,7 +22303,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-dallas-sea',
-    slug: 'qingdao-to-dallas-sea',
+    slug: 'qingdao-to-dallas',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -22476,7 +22476,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-oakland-sea',
-    slug: 'qingdao-to-oakland-sea',
+    slug: 'qingdao-to-oakland',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -22649,7 +22649,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-tacoma-sea',
-    slug: 'qingdao-to-tacoma-sea',
+    slug: 'qingdao-to-tacoma',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -22822,7 +22822,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-seattle-sea',
-    slug: 'qingdao-to-seattle-sea',
+    slug: 'qingdao-to-seattle',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -22995,7 +22995,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-vancouver-sea',
-    slug: 'qingdao-to-vancouver-sea',
+    slug: 'qingdao-to-vancouver',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -23168,7 +23168,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-prince-rupert-sea',
-    slug: 'qingdao-to-prince-rupert-sea',
+    slug: 'qingdao-to-prince-rupert',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -23341,7 +23341,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-toronto-sea',
-    slug: 'qingdao-to-toronto-sea',
+    slug: 'qingdao-to-toronto',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -23514,7 +23514,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-montreal-sea',
-    slug: 'qingdao-to-montreal-sea',
+    slug: 'qingdao-to-montreal',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -23687,7 +23687,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-calgary-sea',
-    slug: 'qingdao-to-calgary-sea',
+    slug: 'qingdao-to-calgary',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -23860,7 +23860,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-halifax-sea',
-    slug: 'qingdao-to-halifax-sea',
+    slug: 'qingdao-to-halifax',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -24033,7 +24033,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-felixstowe-sea',
-    slug: 'qingdao-to-felixstowe-sea',
+    slug: 'qingdao-to-felixstowe',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -24206,7 +24206,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-london-gateway-sea',
-    slug: 'qingdao-to-london-gateway-sea',
+    slug: 'qingdao-to-london-gateway',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -24379,7 +24379,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-southampton-sea',
-    slug: 'qingdao-to-southampton-sea',
+    slug: 'qingdao-to-southampton',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -24552,7 +24552,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-sydney-sea',
-    slug: 'qingdao-to-sydney-sea',
+    slug: 'qingdao-to-sydney',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -24725,7 +24725,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-melbourne-sea',
-    slug: 'qingdao-to-melbourne-sea',
+    slug: 'qingdao-to-melbourne',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -24898,7 +24898,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-brisbane-sea',
-    slug: 'qingdao-to-brisbane-sea',
+    slug: 'qingdao-to-brisbane',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -25071,7 +25071,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-fremantle-sea',
-    slug: 'qingdao-to-fremantle-sea',
+    slug: 'qingdao-to-fremantle',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -25244,7 +25244,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-hamburg-sea',
-    slug: 'qingdao-to-hamburg-sea',
+    slug: 'qingdao-to-hamburg',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -25417,7 +25417,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-bremerhaven-sea',
-    slug: 'qingdao-to-bremerhaven-sea',
+    slug: 'qingdao-to-bremerhaven',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -25590,7 +25590,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-new-york-sea',
-    slug: 'xiamen-to-new-york-sea',
+    slug: 'xiamen-to-new-york',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -25763,7 +25763,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-los-angeles-sea',
-    slug: 'xiamen-to-los-angeles-sea',
+    slug: 'xiamen-to-los-angeles',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -25936,7 +25936,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-long-beach-sea',
-    slug: 'xiamen-to-long-beach-sea',
+    slug: 'xiamen-to-long-beach',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -26109,7 +26109,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-savannah-sea',
-    slug: 'xiamen-to-savannah-sea',
+    slug: 'xiamen-to-savannah',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -26282,7 +26282,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-houston-sea',
-    slug: 'xiamen-to-houston-sea',
+    slug: 'xiamen-to-houston',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -26455,7 +26455,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-dallas-sea',
-    slug: 'xiamen-to-dallas-sea',
+    slug: 'xiamen-to-dallas',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -26628,7 +26628,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-oakland-sea',
-    slug: 'xiamen-to-oakland-sea',
+    slug: 'xiamen-to-oakland',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -26801,7 +26801,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-tacoma-sea',
-    slug: 'xiamen-to-tacoma-sea',
+    slug: 'xiamen-to-tacoma',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -26974,7 +26974,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-seattle-sea',
-    slug: 'xiamen-to-seattle-sea',
+    slug: 'xiamen-to-seattle',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -27147,7 +27147,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-vancouver-sea',
-    slug: 'xiamen-to-vancouver-sea',
+    slug: 'xiamen-to-vancouver',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -27320,7 +27320,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-prince-rupert-sea',
-    slug: 'xiamen-to-prince-rupert-sea',
+    slug: 'xiamen-to-prince-rupert',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -27493,7 +27493,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-toronto-sea',
-    slug: 'xiamen-to-toronto-sea',
+    slug: 'xiamen-to-toronto',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -27666,7 +27666,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-montreal-sea',
-    slug: 'xiamen-to-montreal-sea',
+    slug: 'xiamen-to-montreal',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -27839,7 +27839,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-calgary-sea',
-    slug: 'xiamen-to-calgary-sea',
+    slug: 'xiamen-to-calgary',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -28012,7 +28012,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-halifax-sea',
-    slug: 'xiamen-to-halifax-sea',
+    slug: 'xiamen-to-halifax',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -28185,7 +28185,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-felixstowe-sea',
-    slug: 'xiamen-to-felixstowe-sea',
+    slug: 'xiamen-to-felixstowe',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -28358,7 +28358,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-london-gateway-sea',
-    slug: 'xiamen-to-london-gateway-sea',
+    slug: 'xiamen-to-london-gateway',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -28531,7 +28531,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-southampton-sea',
-    slug: 'xiamen-to-southampton-sea',
+    slug: 'xiamen-to-southampton',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -28704,7 +28704,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-sydney-sea',
-    slug: 'xiamen-to-sydney-sea',
+    slug: 'xiamen-to-sydney',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -28877,7 +28877,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-melbourne-sea',
-    slug: 'xiamen-to-melbourne-sea',
+    slug: 'xiamen-to-melbourne',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -29050,7 +29050,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-brisbane-sea',
-    slug: 'xiamen-to-brisbane-sea',
+    slug: 'xiamen-to-brisbane',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -29223,7 +29223,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-fremantle-sea',
-    slug: 'xiamen-to-fremantle-sea',
+    slug: 'xiamen-to-fremantle',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -29396,7 +29396,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-hamburg-sea',
-    slug: 'xiamen-to-hamburg-sea',
+    slug: 'xiamen-to-hamburg',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -29569,7 +29569,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-bremerhaven-sea',
-    slug: 'xiamen-to-bremerhaven-sea',
+    slug: 'xiamen-to-bremerhaven',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -29742,7 +29742,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-new-york-sea',
-    slug: 'tianjin-to-new-york-sea',
+    slug: 'tianjin-to-new-york',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -29915,7 +29915,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-los-angeles-sea',
-    slug: 'tianjin-to-los-angeles-sea',
+    slug: 'tianjin-to-los-angeles',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -30088,7 +30088,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-long-beach-sea',
-    slug: 'tianjin-to-long-beach-sea',
+    slug: 'tianjin-to-long-beach',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -30261,7 +30261,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-savannah-sea',
-    slug: 'tianjin-to-savannah-sea',
+    slug: 'tianjin-to-savannah',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -30434,7 +30434,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-houston-sea',
-    slug: 'tianjin-to-houston-sea',
+    slug: 'tianjin-to-houston',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -30607,7 +30607,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-dallas-sea',
-    slug: 'tianjin-to-dallas-sea',
+    slug: 'tianjin-to-dallas',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -30780,7 +30780,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-oakland-sea',
-    slug: 'tianjin-to-oakland-sea',
+    slug: 'tianjin-to-oakland',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -30953,7 +30953,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-tacoma-sea',
-    slug: 'tianjin-to-tacoma-sea',
+    slug: 'tianjin-to-tacoma',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -31126,7 +31126,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-seattle-sea',
-    slug: 'tianjin-to-seattle-sea',
+    slug: 'tianjin-to-seattle',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -31299,7 +31299,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-vancouver-sea',
-    slug: 'tianjin-to-vancouver-sea',
+    slug: 'tianjin-to-vancouver',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -31472,7 +31472,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-prince-rupert-sea',
-    slug: 'tianjin-to-prince-rupert-sea',
+    slug: 'tianjin-to-prince-rupert',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -31645,7 +31645,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-toronto-sea',
-    slug: 'tianjin-to-toronto-sea',
+    slug: 'tianjin-to-toronto',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -31818,7 +31818,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-montreal-sea',
-    slug: 'tianjin-to-montreal-sea',
+    slug: 'tianjin-to-montreal',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -31991,7 +31991,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-calgary-sea',
-    slug: 'tianjin-to-calgary-sea',
+    slug: 'tianjin-to-calgary',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -32164,7 +32164,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-halifax-sea',
-    slug: 'tianjin-to-halifax-sea',
+    slug: 'tianjin-to-halifax',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -32337,7 +32337,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-felixstowe-sea',
-    slug: 'tianjin-to-felixstowe-sea',
+    slug: 'tianjin-to-felixstowe',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -32510,7 +32510,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-london-gateway-sea',
-    slug: 'tianjin-to-london-gateway-sea',
+    slug: 'tianjin-to-london-gateway',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -32683,7 +32683,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-southampton-sea',
-    slug: 'tianjin-to-southampton-sea',
+    slug: 'tianjin-to-southampton',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -32856,7 +32856,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-sydney-sea',
-    slug: 'tianjin-to-sydney-sea',
+    slug: 'tianjin-to-sydney',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -33029,7 +33029,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-melbourne-sea',
-    slug: 'tianjin-to-melbourne-sea',
+    slug: 'tianjin-to-melbourne',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -33202,7 +33202,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-brisbane-sea',
-    slug: 'tianjin-to-brisbane-sea',
+    slug: 'tianjin-to-brisbane',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -33375,7 +33375,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-fremantle-sea',
-    slug: 'tianjin-to-fremantle-sea',
+    slug: 'tianjin-to-fremantle',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -33548,7 +33548,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-hamburg-sea',
-    slug: 'tianjin-to-hamburg-sea',
+    slug: 'tianjin-to-hamburg',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -33721,7 +33721,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-bremerhaven-sea',
-    slug: 'tianjin-to-bremerhaven-sea',
+    slug: 'tianjin-to-bremerhaven',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -33894,7 +33894,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-wilmington-sea',
-    slug: 'shanghai-to-wilmington-sea',
+    slug: 'shanghai-to-wilmington',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -34047,7 +34047,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-norfolk-sea',
-    slug: 'shanghai-to-norfolk-sea',
+    slug: 'shanghai-to-norfolk',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -34200,7 +34200,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-charleston-sea',
-    slug: 'shanghai-to-charleston-sea',
+    slug: 'shanghai-to-charleston',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -34353,7 +34353,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-jacksonville-sea',
-    slug: 'shanghai-to-jacksonville-sea',
+    slug: 'shanghai-to-jacksonville',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -34506,7 +34506,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-new-york-sea',
-    slug: 'hong-kong-to-new-york-sea',
+    slug: 'hong-kong-to-new-york',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -34659,7 +34659,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-dallas-sea',
-    slug: 'hong-kong-to-dallas-sea',
+    slug: 'hong-kong-to-dallas',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -34812,7 +34812,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-houston-sea',
-    slug: 'hong-kong-to-houston-sea',
+    slug: 'hong-kong-to-houston',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -34965,7 +34965,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-los-angeles-sea',
-    slug: 'hong-kong-to-los-angeles-sea',
+    slug: 'hong-kong-to-los-angeles',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -35118,7 +35118,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-jacksonville-sea',
-    slug: 'shenzhen-to-jacksonville-sea',
+    slug: 'shenzhen-to-jacksonville',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -35255,7 +35255,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-charleston-sea',
-    slug: 'shenzhen-to-charleston-sea',
+    slug: 'shenzhen-to-charleston',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -35392,7 +35392,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-norfolk-sea',
-    slug: 'shenzhen-to-norfolk-sea',
+    slug: 'shenzhen-to-norfolk',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -35529,7 +35529,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-jacksonville-sea',
-    slug: 'qingdao-to-jacksonville-sea',
+    slug: 'qingdao-to-jacksonville',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -35666,7 +35666,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-charleston-sea',
-    slug: 'qingdao-to-charleston-sea',
+    slug: 'qingdao-to-charleston',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -35803,7 +35803,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-norfolk-sea',
-    slug: 'qingdao-to-norfolk-sea',
+    slug: 'qingdao-to-norfolk',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -35940,7 +35940,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-jacksonville-sea',
-    slug: 'xiamen-to-jacksonville-sea',
+    slug: 'xiamen-to-jacksonville',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -36077,7 +36077,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-charleston-sea',
-    slug: 'xiamen-to-charleston-sea',
+    slug: 'xiamen-to-charleston',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -36214,7 +36214,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-norfolk-sea',
-    slug: 'xiamen-to-norfolk-sea',
+    slug: 'xiamen-to-norfolk',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -36351,7 +36351,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-jacksonville-sea',
-    slug: 'tianjin-to-jacksonville-sea',
+    slug: 'tianjin-to-jacksonville',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -36488,7 +36488,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-charleston-sea',
-    slug: 'tianjin-to-charleston-sea',
+    slug: 'tianjin-to-charleston',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -36625,7 +36625,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-norfolk-sea',
-    slug: 'tianjin-to-norfolk-sea',
+    slug: 'tianjin-to-norfolk',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -36762,7 +36762,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-norfolk-sea',
-    slug: 'ningbo-to-norfolk-sea',
+    slug: 'ningbo-to-norfolk',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -36935,7 +36935,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-rotterdam-sea',
-    slug: 'shanghai-to-rotterdam-sea',
+    slug: 'shanghai-to-rotterdam',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -37088,7 +37088,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-rotterdam-sea',
-    slug: 'shenzhen-to-rotterdam-sea',
+    slug: 'shenzhen-to-rotterdam',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -37219,7 +37219,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-rotterdam-sea',
-    slug: 'ningbo-to-rotterdam-sea',
+    slug: 'ningbo-to-rotterdam',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -37350,7 +37350,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-rotterdam-sea',
-    slug: 'qingdao-to-rotterdam-sea',
+    slug: 'qingdao-to-rotterdam',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -37481,7 +37481,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-rotterdam-sea',
-    slug: 'xiamen-to-rotterdam-sea',
+    slug: 'xiamen-to-rotterdam',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -37612,7 +37612,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-rotterdam-sea',
-    slug: 'tianjin-to-rotterdam-sea',
+    slug: 'tianjin-to-rotterdam',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -37765,7 +37765,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-rotterdam-sea',
-    slug: 'hong-kong-to-rotterdam-sea',
+    slug: 'hong-kong-to-rotterdam',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -37896,7 +37896,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-munich-sea',
-    slug: 'xiamen-to-munich-sea',
+    slug: 'xiamen-to-munich',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -38069,7 +38069,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-frankfurt-sea',
-    slug: 'shenzhen-to-frankfurt-sea',
+    slug: 'shenzhen-to-frankfurt',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -38242,7 +38242,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-miami-sea',
-    slug: 'ningbo-to-miami-sea',
+    slug: 'ningbo-to-miami',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -38415,7 +38415,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-san-francisco-sea',
-    slug: 'shenzhen-to-san-francisco-sea',
+    slug: 'shenzhen-to-san-francisco',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -38588,7 +38588,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-ottawa-sea',
-    slug: 'guangzhou-to-ottawa-sea',
+    slug: 'guangzhou-to-ottawa',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -38761,7 +38761,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-ottawa-sea',
-    slug: 'shanghai-to-ottawa-sea',
+    slug: 'shanghai-to-ottawa',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -38934,7 +38934,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-seattle-air',
-    slug: 'shanghai-to-seattle-air',
+    slug: 'shanghai-to-seattle',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -39005,7 +39005,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-long-beach-air',
-    slug: 'shenzhen-to-long-beach-air',
+    slug: 'shenzhen-to-long-beach',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -39076,7 +39076,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-fremantle-air',
-    slug: 'shenzhen-to-fremantle-air',
+    slug: 'shenzhen-to-fremantle',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -39147,7 +39147,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-fremantle-air',
-    slug: 'beijing-to-fremantle-air',
+    slug: 'beijing-to-fremantle',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -39218,7 +39218,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-san-francisco-sea',
-    slug: 'shanghai-to-san-francisco-sea',
+    slug: 'shanghai-to-san-francisco',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -39391,7 +39391,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-ottawa-sea',
-    slug: 'xiamen-to-ottawa-sea',
+    slug: 'xiamen-to-ottawa',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -39564,7 +39564,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-atlanta-sea',
-    slug: 'xiamen-to-atlanta-sea',
+    slug: 'xiamen-to-atlanta',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -39737,7 +39737,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-atlanta-sea',
-    slug: 'guangzhou-to-atlanta-sea',
+    slug: 'guangzhou-to-atlanta',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -39910,7 +39910,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-savannah-air',
-    slug: 'shenzhen-to-savannah-air',
+    slug: 'shenzhen-to-savannah',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -39981,7 +39981,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-los-angeles-sea',
-    slug: 'guangzhou-to-los-angeles-sea',
+    slug: 'guangzhou-to-los-angeles',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -40154,7 +40154,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-san-francisco-sea',
-    slug: 'guangzhou-to-san-francisco-sea',
+    slug: 'guangzhou-to-san-francisco',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -40327,7 +40327,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-miami-sea',
-    slug: 'shanghai-to-miami-sea',
+    slug: 'shanghai-to-miami',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -40500,7 +40500,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-jacksonville-sea',
-    slug: 'ningbo-to-jacksonville-sea',
+    slug: 'ningbo-to-jacksonville',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -40673,7 +40673,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-charleston-sea',
-    slug: 'ningbo-to-charleston-sea',
+    slug: 'ningbo-to-charleston',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -40846,7 +40846,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-denver-sea',
-    slug: 'shanghai-to-denver-sea',
+    slug: 'shanghai-to-denver',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -41019,7 +41019,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-ottawa-sea',
-    slug: 'shenzhen-to-ottawa-sea',
+    slug: 'shenzhen-to-ottawa',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -41192,7 +41192,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-munich-sea',
-    slug: 'shenzhen-to-munich-sea',
+    slug: 'shenzhen-to-munich',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -41365,7 +41365,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-boston-sea',
-    slug: 'xiamen-to-boston-sea',
+    slug: 'xiamen-to-boston',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -41538,7 +41538,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-chicago-sea',
-    slug: 'xiamen-to-chicago-sea',
+    slug: 'xiamen-to-chicago',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -41711,7 +41711,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-houston-sea',
-    slug: 'guangzhou-to-houston-sea',
+    slug: 'guangzhou-to-houston',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -41884,7 +41884,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-hamburg-air',
-    slug: 'beijing-to-hamburg-air',
+    slug: 'beijing-to-hamburg',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -41955,7 +41955,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-london-sea',
-    slug: 'ningbo-to-london-sea',
+    slug: 'ningbo-to-london',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -42128,7 +42128,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-halifax-sea',
-    slug: 'guangzhou-to-halifax-sea',
+    slug: 'guangzhou-to-halifax',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -42301,7 +42301,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-toronto-sea',
-    slug: 'guangzhou-to-toronto-sea',
+    slug: 'guangzhou-to-toronto',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -42474,7 +42474,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-boston-sea',
-    slug: 'shenzhen-to-boston-sea',
+    slug: 'shenzhen-to-boston',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -42647,7 +42647,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-new-york-sea',
-    slug: 'guangzhou-to-new-york-sea',
+    slug: 'guangzhou-to-new-york',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -42820,7 +42820,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-oakland-sea',
-    slug: 'guangzhou-to-oakland-sea',
+    slug: 'guangzhou-to-oakland',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -42993,7 +42993,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-jacksonville-sea',
-    slug: 'guangzhou-to-jacksonville-sea',
+    slug: 'guangzhou-to-jacksonville',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -43166,7 +43166,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-london-sea',
-    slug: 'guangzhou-to-london-sea',
+    slug: 'guangzhou-to-london',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -43339,7 +43339,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-dallas-sea',
-    slug: 'guangzhou-to-dallas-sea',
+    slug: 'guangzhou-to-dallas',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -43512,7 +43512,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-tacoma-sea',
-    slug: 'guangzhou-to-tacoma-sea',
+    slug: 'guangzhou-to-tacoma',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -43685,7 +43685,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-vancouver-sea',
-    slug: 'guangzhou-to-vancouver-sea',
+    slug: 'guangzhou-to-vancouver',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -43858,7 +43858,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-savannah-sea',
-    slug: 'guangzhou-to-savannah-sea',
+    slug: 'guangzhou-to-savannah',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -44031,7 +44031,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-seattle-sea',
-    slug: 'guangzhou-to-seattle-sea',
+    slug: 'guangzhou-to-seattle',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -44204,7 +44204,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-calgary-sea',
-    slug: 'guangzhou-to-calgary-sea',
+    slug: 'guangzhou-to-calgary',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -44377,7 +44377,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-denver-sea',
-    slug: 'xiamen-to-denver-sea',
+    slug: 'xiamen-to-denver',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -44550,7 +44550,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-prince-rupert-sea',
-    slug: 'guangzhou-to-prince-rupert-sea',
+    slug: 'guangzhou-to-prince-rupert',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -44723,7 +44723,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-long-beach-sea',
-    slug: 'guangzhou-to-long-beach-sea',
+    slug: 'guangzhou-to-long-beach',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -44896,7 +44896,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-charleston-sea',
-    slug: 'guangzhou-to-charleston-sea',
+    slug: 'guangzhou-to-charleston',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -45069,7 +45069,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-norfolk-sea',
-    slug: 'guangzhou-to-norfolk-sea',
+    slug: 'guangzhou-to-norfolk',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -45242,7 +45242,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-halifax-air',
-    slug: 'shenzhen-to-halifax-air',
+    slug: 'shenzhen-to-halifax',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -45313,7 +45313,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-montreal-sea',
-    slug: 'guangzhou-to-montreal-sea',
+    slug: 'guangzhou-to-montreal',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -45486,7 +45486,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-munich-sea',
-    slug: 'shanghai-to-munich-sea',
+    slug: 'shanghai-to-munich',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -45659,7 +45659,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-london-sea',
-    slug: 'qingdao-to-london-sea',
+    slug: 'qingdao-to-london',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -45832,7 +45832,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-boston-sea',
-    slug: 'qingdao-to-boston-sea',
+    slug: 'qingdao-to-boston',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -46005,7 +46005,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-houston-air',
-    slug: 'shenzhen-to-houston-air',
+    slug: 'shenzhen-to-houston',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -46076,7 +46076,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-london-sea',
-    slug: 'shanghai-to-london-sea',
+    slug: 'shanghai-to-london',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -46249,7 +46249,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-atlanta-sea',
-    slug: 'shenzhen-to-atlanta-sea',
+    slug: 'shenzhen-to-atlanta',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -46422,7 +46422,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-southampton-sea',
-    slug: 'guangzhou-to-southampton-sea',
+    slug: 'guangzhou-to-southampton',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -46595,7 +46595,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-london-gateway-sea',
-    slug: 'guangzhou-to-london-gateway-sea',
+    slug: 'guangzhou-to-london-gateway',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -46768,7 +46768,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-salt-lake-city-sea',
-    slug: 'shanghai-to-salt-lake-city-sea',
+    slug: 'shanghai-to-salt-lake-city',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -46941,7 +46941,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-salt-lake-city-sea',
-    slug: 'tianjin-to-salt-lake-city-sea',
+    slug: 'tianjin-to-salt-lake-city',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -47114,7 +47114,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-salt-lake-city-sea',
-    slug: 'shenzhen-to-salt-lake-city-sea',
+    slug: 'shenzhen-to-salt-lake-city',
     originCity: 'Shenzhen',
     originPort: 'Port of Shenzhen (CNSZX)',
     originCountry: 'China',
@@ -47287,7 +47287,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-salt-lake-city-sea',
-    slug: 'ningbo-to-salt-lake-city-sea',
+    slug: 'ningbo-to-salt-lake-city',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -47460,7 +47460,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-salt-lake-city-sea',
-    slug: 'qingdao-to-salt-lake-city-sea',
+    slug: 'qingdao-to-salt-lake-city',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -47633,7 +47633,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-salt-lake-city-sea',
-    slug: 'xiamen-to-salt-lake-city-sea',
+    slug: 'xiamen-to-salt-lake-city',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -47806,7 +47806,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-salt-lake-city-sea',
-    slug: 'hong-kong-to-salt-lake-city-sea',
+    slug: 'hong-kong-to-salt-lake-city',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -47979,7 +47979,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-prince-rupert-sea',
-    slug: 'hong-kong-to-prince-rupert-sea',
+    slug: 'hong-kong-to-prince-rupert',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48110,7 +48110,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-toronto-sea',
-    slug: 'hong-kong-to-toronto-sea',
+    slug: 'hong-kong-to-toronto',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48241,7 +48241,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-halifax-sea',
-    slug: 'hong-kong-to-halifax-sea',
+    slug: 'hong-kong-to-halifax',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48372,7 +48372,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-calgary-sea',
-    slug: 'hong-kong-to-calgary-sea',
+    slug: 'hong-kong-to-calgary',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48503,7 +48503,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-montreal-sea',
-    slug: 'hong-kong-to-montreal-sea',
+    slug: 'hong-kong-to-montreal',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48634,7 +48634,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-vancouver-sea',
-    slug: 'hong-kong-to-vancouver-sea',
+    slug: 'hong-kong-to-vancouver',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48765,7 +48765,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-bremerhaven-sea',
-    slug: 'hong-kong-to-bremerhaven-sea',
+    slug: 'hong-kong-to-bremerhaven',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -48896,7 +48896,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-hamburg-sea',
-    slug: 'hong-kong-to-hamburg-sea',
+    slug: 'hong-kong-to-hamburg',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49027,7 +49027,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-melbourne-sea',
-    slug: 'hong-kong-to-melbourne-sea',
+    slug: 'hong-kong-to-melbourne',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49158,7 +49158,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-fremantle-sea',
-    slug: 'hong-kong-to-fremantle-sea',
+    slug: 'hong-kong-to-fremantle',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49289,7 +49289,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-brisbane-sea',
-    slug: 'hong-kong-to-brisbane-sea',
+    slug: 'hong-kong-to-brisbane',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49420,7 +49420,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-sydney-sea',
-    slug: 'hong-kong-to-sydney-sea',
+    slug: 'hong-kong-to-sydney',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49551,7 +49551,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-tacoma-sea',
-    slug: 'hong-kong-to-tacoma-sea',
+    slug: 'hong-kong-to-tacoma',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49682,7 +49682,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-long-beach-sea',
-    slug: 'hong-kong-to-long-beach-sea',
+    slug: 'hong-kong-to-long-beach',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -49813,7 +49813,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-felixstowe-sea',
-    slug: 'guangzhou-to-felixstowe-sea',
+    slug: 'guangzhou-to-felixstowe',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -49986,7 +49986,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-southampton-sea',
-    slug: 'hong-kong-to-southampton-sea',
+    slug: 'hong-kong-to-southampton',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50117,7 +50117,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-felixstowe-sea',
-    slug: 'hong-kong-to-felixstowe-sea',
+    slug: 'hong-kong-to-felixstowe',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50248,7 +50248,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-london-gateway-sea',
-    slug: 'hong-kong-to-london-gateway-sea',
+    slug: 'hong-kong-to-london-gateway',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50379,7 +50379,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-savannah-sea',
-    slug: 'hong-kong-to-savannah-sea',
+    slug: 'hong-kong-to-savannah',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50510,7 +50510,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-norfolk-sea',
-    slug: 'hong-kong-to-norfolk-sea',
+    slug: 'hong-kong-to-norfolk',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50641,7 +50641,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-seattle-sea',
-    slug: 'hong-kong-to-seattle-sea',
+    slug: 'hong-kong-to-seattle',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50772,7 +50772,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-oakland-sea',
-    slug: 'hong-kong-to-oakland-sea',
+    slug: 'hong-kong-to-oakland',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -50903,7 +50903,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-charleston-sea',
-    slug: 'hong-kong-to-charleston-sea',
+    slug: 'hong-kong-to-charleston',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -51034,7 +51034,7 @@ export const routes: Route[] = [
   },
   {
     id: 'hong-kong-jacksonville-sea',
-    slug: 'hong-kong-to-jacksonville-sea',
+    slug: 'hong-kong-to-jacksonville',
     originCity: 'Hong Kong',
     originPort: 'Port of Hong Kong (HKHKG)',
     originCountry: 'China',
@@ -51165,7 +51165,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-salt-lake-city-sea',
-    slug: 'guangzhou-to-salt-lake-city-sea',
+    slug: 'guangzhou-to-salt-lake-city',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -51296,7 +51296,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-bremerhaven-sea',
-    slug: 'guangzhou-to-bremerhaven-sea',
+    slug: 'guangzhou-to-bremerhaven',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -51469,7 +51469,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-brisbane-sea',
-    slug: 'guangzhou-to-brisbane-sea',
+    slug: 'guangzhou-to-brisbane',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -51642,7 +51642,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-fremantle-sea',
-    slug: 'guangzhou-to-fremantle-sea',
+    slug: 'guangzhou-to-fremantle',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -51815,7 +51815,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-melbourne-sea',
-    slug: 'guangzhou-to-melbourne-sea',
+    slug: 'guangzhou-to-melbourne',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -51988,7 +51988,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-sydney-sea',
-    slug: 'guangzhou-to-sydney-sea',
+    slug: 'guangzhou-to-sydney',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -52161,7 +52161,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-hamburg-sea',
-    slug: 'guangzhou-to-hamburg-sea',
+    slug: 'guangzhou-to-hamburg',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -52334,7 +52334,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-munich-sea',
-    slug: 'qingdao-to-munich-sea',
+    slug: 'qingdao-to-munich',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -52507,7 +52507,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-denver-sea',
-    slug: 'tianjin-to-denver-sea',
+    slug: 'tianjin-to-denver',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -52680,7 +52680,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-ottawa-sea',
-    slug: 'tianjin-to-ottawa-sea',
+    slug: 'tianjin-to-ottawa',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -52853,7 +52853,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-tacoma-air',
-    slug: 'beijing-to-tacoma-air',
+    slug: 'beijing-to-tacoma',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -52924,7 +52924,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-oakland-air',
-    slug: 'beijing-to-oakland-air',
+    slug: 'beijing-to-oakland',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -52995,7 +52995,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-oakland-air',
-    slug: 'shanghai-to-oakland-air',
+    slug: 'shanghai-to-oakland',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -53066,7 +53066,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-chicago-sea',
-    slug: 'ningbo-to-chicago-sea',
+    slug: 'ningbo-to-chicago',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -53239,7 +53239,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-chicago-sea',
-    slug: 'tianjin-to-chicago-sea',
+    slug: 'tianjin-to-chicago',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -53412,7 +53412,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-ottawa-sea',
-    slug: 'qingdao-to-ottawa-sea',
+    slug: 'qingdao-to-ottawa',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -53585,7 +53585,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-oakland-air',
-    slug: 'shenzhen-to-oakland-air',
+    slug: 'shenzhen-to-oakland',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -53656,7 +53656,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-munich-sea',
-    slug: 'guangzhou-to-munich-sea',
+    slug: 'guangzhou-to-munich',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -53829,7 +53829,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-savannah-air',
-    slug: 'guangzhou-to-savannah-air',
+    slug: 'guangzhou-to-savannah',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -53900,7 +53900,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-frankfurt-sea',
-    slug: 'qingdao-to-frankfurt-sea',
+    slug: 'qingdao-to-frankfurt',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -54073,7 +54073,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-denver-sea',
-    slug: 'qingdao-to-denver-sea',
+    slug: 'qingdao-to-denver',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -54246,7 +54246,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-miami-sea',
-    slug: 'tianjin-to-miami-sea',
+    slug: 'tianjin-to-miami',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -54419,7 +54419,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-san-francisco-sea',
-    slug: 'ningbo-to-san-francisco-sea',
+    slug: 'ningbo-to-san-francisco',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -54592,7 +54592,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-tacoma-air',
-    slug: 'shanghai-to-tacoma-air',
+    slug: 'shanghai-to-tacoma',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -54663,7 +54663,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-atlanta-sea',
-    slug: 'qingdao-to-atlanta-sea',
+    slug: 'qingdao-to-atlanta',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -54836,7 +54836,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-chicago-sea',
-    slug: 'guangzhou-to-chicago-sea',
+    slug: 'guangzhou-to-chicago',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -55009,7 +55009,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-seattle-air',
-    slug: 'beijing-to-seattle-air',
+    slug: 'beijing-to-seattle',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -55080,7 +55080,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-frankfurt-sea',
-    slug: 'ningbo-to-frankfurt-sea',
+    slug: 'ningbo-to-frankfurt',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -55253,7 +55253,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-long-beach-air',
-    slug: 'beijing-to-long-beach-air',
+    slug: 'beijing-to-long-beach',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -55324,7 +55324,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-boston-sea',
-    slug: 'guangzhou-to-boston-sea',
+    slug: 'guangzhou-to-boston',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -55497,7 +55497,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-prince-rupert-air',
-    slug: 'shenzhen-to-prince-rupert-air',
+    slug: 'shenzhen-to-prince-rupert',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -55568,7 +55568,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-tacoma-air',
-    slug: 'shenzhen-to-tacoma-air',
+    slug: 'shenzhen-to-tacoma',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -55639,7 +55639,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-ottawa-sea',
-    slug: 'ningbo-to-ottawa-sea',
+    slug: 'ningbo-to-ottawa',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -55812,7 +55812,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-london-sea',
-    slug: 'tianjin-to-london-sea',
+    slug: 'tianjin-to-london',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -55985,7 +55985,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-hamburg-air',
-    slug: 'guangzhou-to-hamburg-air',
+    slug: 'guangzhou-to-hamburg',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -56056,7 +56056,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-halifax-air',
-    slug: 'guangzhou-to-halifax-air',
+    slug: 'guangzhou-to-halifax',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -56127,7 +56127,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-savannah-air',
-    slug: 'shanghai-to-savannah-air',
+    slug: 'shanghai-to-savannah',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -56198,7 +56198,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-atlanta-sea',
-    slug: 'shanghai-to-atlanta-sea',
+    slug: 'shanghai-to-atlanta',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -56371,7 +56371,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-chicago-sea',
-    slug: 'shanghai-to-chicago-sea',
+    slug: 'shanghai-to-chicago',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -56544,7 +56544,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-long-beach-air',
-    slug: 'shanghai-to-long-beach-air',
+    slug: 'shanghai-to-long-beach',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -56615,7 +56615,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-san-francisco-sea',
-    slug: 'tianjin-to-san-francisco-sea',
+    slug: 'tianjin-to-san-francisco',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -56788,7 +56788,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-seattle-air',
-    slug: 'guangzhou-to-seattle-air',
+    slug: 'guangzhou-to-seattle',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -56859,7 +56859,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-tacoma-air',
-    slug: 'guangzhou-to-tacoma-air',
+    slug: 'guangzhou-to-tacoma',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -56930,7 +56930,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-fremantle-air',
-    slug: 'guangzhou-to-fremantle-air',
+    slug: 'guangzhou-to-fremantle',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -57001,7 +57001,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shenzhen-seattle-air',
-    slug: 'shenzhen-to-seattle-air',
+    slug: 'shenzhen-to-seattle',
     originCity: 'Shenzhen',
     originPort: 'Shenzhen Bao\'an Airport (SZX)',
     originCountry: 'China',
@@ -57072,7 +57072,7 @@ export const routes: Route[] = [
   },
   {
     id: 'qingdao-san-francisco-sea',
-    slug: 'qingdao-to-san-francisco-sea',
+    slug: 'qingdao-to-san-francisco',
     originCity: 'Qingdao',
     originPort: 'Port of Qingdao (CNTAO)',
     originCountry: 'China',
@@ -57245,7 +57245,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-boston-sea',
-    slug: 'shanghai-to-boston-sea',
+    slug: 'shanghai-to-boston',
     originCity: 'Shanghai',
     originPort: 'Port of Shanghai (CNSHA)',
     originCountry: 'China',
@@ -57418,7 +57418,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-long-beach-air',
-    slug: 'guangzhou-to-long-beach-air',
+    slug: 'guangzhou-to-long-beach',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',
@@ -57489,7 +57489,7 @@ export const routes: Route[] = [
   },
   {
     id: 'ningbo-munich-sea',
-    slug: 'ningbo-to-munich-sea',
+    slug: 'ningbo-to-munich',
     originCity: 'Ningbo',
     originPort: 'Port of Ningbo-Zhoushan (CNNGB)',
     originCountry: 'China',
@@ -57662,7 +57662,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-frankfurt-sea',
-    slug: 'tianjin-to-frankfurt-sea',
+    slug: 'tianjin-to-frankfurt',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -57835,7 +57835,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-houston-air',
-    slug: 'beijing-to-houston-air',
+    slug: 'beijing-to-houston',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -57906,7 +57906,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-atlanta-sea',
-    slug: 'tianjin-to-atlanta-sea',
+    slug: 'tianjin-to-atlanta',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -58079,7 +58079,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-boston-sea',
-    slug: 'tianjin-to-boston-sea',
+    slug: 'tianjin-to-boston',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -58252,7 +58252,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-savannah-air',
-    slug: 'beijing-to-savannah-air',
+    slug: 'beijing-to-savannah',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -58323,7 +58323,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-miami-sea',
-    slug: 'guangzhou-to-miami-sea',
+    slug: 'guangzhou-to-miami',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -58496,7 +58496,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-denver-sea',
-    slug: 'guangzhou-to-denver-sea',
+    slug: 'guangzhou-to-denver',
     originCity: 'Guangzhou',
     originPort: 'Port of Guangzhou (CNGZH)',
     originCountry: 'China',
@@ -58669,7 +58669,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-halifax-air',
-    slug: 'beijing-to-halifax-air',
+    slug: 'beijing-to-halifax',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -58740,7 +58740,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-halifax-air',
-    slug: 'shanghai-to-halifax-air',
+    slug: 'shanghai-to-halifax',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -58811,7 +58811,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-houston-air',
-    slug: 'shanghai-to-houston-air',
+    slug: 'shanghai-to-houston',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -58882,7 +58882,7 @@ export const routes: Route[] = [
   },
   {
     id: 'xiamen-london-sea',
-    slug: 'xiamen-to-london-sea',
+    slug: 'xiamen-to-london',
     originCity: 'Xiamen',
     originPort: 'Port of Xiamen (CNXMN)',
     originCountry: 'China',
@@ -59055,7 +59055,7 @@ export const routes: Route[] = [
   },
   {
     id: 'tianjin-munich-sea',
-    slug: 'tianjin-to-munich-sea',
+    slug: 'tianjin-to-munich',
     originCity: 'Tianjin',
     originPort: 'Port of Tianjin (CNTSN)',
     originCountry: 'China',
@@ -59228,7 +59228,7 @@ export const routes: Route[] = [
   },
   {
     id: 'beijing-prince-rupert-air',
-    slug: 'beijing-to-prince-rupert-air',
+    slug: 'beijing-to-prince-rupert',
     originCity: 'Beijing',
     originPort: 'Beijing Capital Airport (PEK)',
     originCountry: 'China',
@@ -59299,7 +59299,7 @@ export const routes: Route[] = [
   },
   {
     id: 'shanghai-prince-rupert-air',
-    slug: 'shanghai-to-prince-rupert-air',
+    slug: 'shanghai-to-prince-rupert',
     originCity: 'Shanghai',
     originPort: 'Shanghai Pudong Airport (PVG)',
     originCountry: 'China',
@@ -59370,7 +59370,7 @@ export const routes: Route[] = [
   },
   {
     id: 'guangzhou-oakland-air',
-    slug: 'guangzhou-to-oakland-air',
+    slug: 'guangzhou-to-oakland',
     originCity: 'Guangzhou',
     originPort: 'Guangzhou Baiyun Airport (CAN)',
     originCountry: 'China',

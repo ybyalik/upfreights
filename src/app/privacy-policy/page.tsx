@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Shield, Database, Share2, Lock, UserCheck, Mail, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | UpFreights',
+  title: 'Privacy Policy',
   description: 'UpFreights privacy policy. Learn how we collect, use, and protect your personal information.',
   alternates: {
     canonical: '/privacy-policy',

@@ -7,7 +7,7 @@ import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to Canada | UpFreights',
+  title: 'Shipping from China to Canada',
   description: 'Comprehensive freight forwarding services with air and sea shipping options. Reliable, cost-effective solutions for businesses of all sizes.',
   alternates: {
     canonical: '/shipping-china-to-canada',

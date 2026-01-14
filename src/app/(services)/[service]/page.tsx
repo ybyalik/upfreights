@@ -65,13 +65,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const seaFreightCountry = getSeaFreightCountryBySlug(serviceSlug);
   if (seaFreightCountry) {
     return {
-      title: `Sea Freight from China to ${seaFreightCountry.country} | Upfreights`,
+      title: `Sea Freight from China to ${seaFreightCountry.country}`,
       description: seaFreightCountry.description,
       alternates: {
         canonical: `/${serviceSlug}`,
       },
       openGraph: {
-        title: `Sea Freight from China to ${seaFreightCountry.country}`,
+        title: `Sea Freight from China to ${seaFreightCountry.country} | UpFreights`,
         description: seaFreightCountry.description,
       },
     };
@@ -81,13 +81,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const country = getCountryBySlug(serviceSlug);
   if (country) {
     return {
-      title: `Shipping from China to ${country.name} | Upfreights`,
+      title: `Shipping from China to ${country.name}`,
       description: country.description,
       alternates: {
         canonical: `/${serviceSlug}`,
       },
       openGraph: {
-        title: `Shipping from China to ${country.name}`,
+        title: `Shipping from China to ${country.name} | UpFreights`,
         description: country.description,
       },
     };

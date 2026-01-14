@@ -37,15 +37,9 @@ export function BlogCard({ post, variant = 'default', className }: BlogCardProps
                 {post.category}
               </Badge>
             )}
-            <h3 className="font-semibold text-foreground group-hover:text-orange transition-colors line-clamp-2 mb-2">
+            <p className="text-sm font-medium text-foreground group-hover:text-orange transition-colors mb-2">
               {post.title}
-            </h3>
-            {post.readingTime && (
-              <div className="flex items-center text-xs text-muted-foreground">
-                <Clock className="h-3 w-3 mr-1" />
-                {post.readingTime}
-              </div>
-            )}
+            </p>
           </CardContent>
         </Card>
       </Link>

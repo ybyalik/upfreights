@@ -8,7 +8,7 @@ import { generateAirRoutes } from '@/lib/data/routeGenerator';
 import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Air Freight Services from China | UpFreights',
+  title: 'Air Freight Services from China',
   description: 'Fast, reliable air cargo services for time-sensitive shipments with express delivery options and premium handling from major Chinese airports.',
   alternates: {
     canonical: '/air-freight',

@@ -7,7 +7,7 @@ import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
 import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Door-to-Door Delivery Services | UpFreights',
+  title: 'Door-to-Door Delivery Services',
   description: 'Complete end-to-end logistics solutions from your supplier\'s door in China to your warehouse or business address worldwide.',
   alternates: {
     canonical: '/door-to-door',

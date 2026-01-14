@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { FileText, Package, Users, DollarSign, AlertTriangle, Shield, Ban, Settings, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | UpFreights',
+  title: 'Terms of Service',
   description: 'UpFreights terms of service. Please read these terms carefully before using our freight forwarding services.',
   alternates: {
     canonical: '/terms-of-service',

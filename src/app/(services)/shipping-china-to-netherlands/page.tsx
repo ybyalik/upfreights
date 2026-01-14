@@ -7,7 +7,7 @@ import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to Netherlands | UpFreights',
+  title: 'Shipping from China to Netherlands',
   description: 'Comprehensive freight forwarding services with air and sea shipping options. Reliable, cost-effective solutions for businesses of all sizes.',
   alternates: {
     canonical: '/shipping-china-to-netherlands',

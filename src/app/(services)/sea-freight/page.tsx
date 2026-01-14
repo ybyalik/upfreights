@@ -8,7 +8,7 @@ import { generateSeaRoutes } from '@/lib/data/routeGenerator';
 import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Sea Freight Services from China | UpFreights',
+  title: 'Sea Freight Services from China',
   description: 'Cost-effective ocean shipping solutions for full container loads (FCL) and less-than-container loads (LCL) with reliable transit times and competitive rates.',
   alternates: {
     canonical: '/sea-freight',

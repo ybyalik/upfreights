@@ -28,16 +28,6 @@ export const metadata: Metadata = {
   },
   description:
     "Reliable freight forwarding services from China to the world. Sea freight, air freight, door-to-door delivery, and customs clearance. Get a free quote today.",
-  keywords: [
-    "freight forwarding",
-    "shipping from China",
-    "sea freight",
-    "air freight",
-    "international shipping",
-    "customs clearance",
-    "logistics",
-    "cargo shipping",
-  ],
   authors: [{ name: "UpFreights" }],
   creator: "UpFreights",
   openGraph: {
