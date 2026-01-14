@@ -231,12 +231,13 @@
     font-family: var(--font-body), system-ui, sans-serif;
   }
 
-  /* Gradient backgrounds - Corporate Blue & Maritime */
+  /* Gradient backgrounds - Vibrant Blue matching design */
   .bg-gradient-hero {
     background: linear-gradient(
       135deg,
-      var(--slate) 0%,
-      var(--teal) 100%
+      #1e6fd9 0%,
+      #2485e8 50%,
+      #3498db 100%
     );
   }
 
