@@ -297,17 +297,28 @@ function formatContent(content: string): string {
   function renderTable() {
     if (tableRows.length === 0) return;
 
-    let html = '<div class="overflow-x-auto my-6"><table class="min-w-full border-collapse border border-border">';
+    let html = '<div class="overflow-x-auto my-6"><table class="min-w-full border-collapse">';
 
     tableRows.forEach((row, rowIndex) => {
-      const tag = rowIndex === 0 ? 'th' : 'td';
-      const cellClass = rowIndex === 0
-        ? 'border border-border px-4 py-2 bg-secondary font-semibold text-foreground'
-        : 'border border-border px-4 py-2 text-muted-foreground';
+      const isHeader = rowIndex === 0;
+      const isEvenRow = rowIndex % 2 === 0;
+      const tag = isHeader ? 'th' : 'td';
 
-      html += '<tr>';
-      row.forEach(cell => {
-        html += `<${tag} class="${cellClass}">${processInline(cell.trim())}</${tag}>`;
+      // Row styling - header gets special style, data rows alternate
+      const rowClass = isHeader
+        ? ''
+        : isEvenRow ? 'bg-secondary/30' : '';
+
+      // Cell styling
+      const cellClass = isHeader
+        ? 'px-4 py-3 text-left font-semibold text-foreground border-b-2 border-border'
+        : 'px-4 py-3 text-muted-foreground border-b border-border/50';
+
+      html += `<tr class="${rowClass}">`;
+      row.forEach((cell, cellIndex) => {
+        // First column in data rows is often a label, make it slightly bolder
+        const extraClass = !isHeader && cellIndex === 0 ? ' font-medium text-foreground' : '';
+        html += `<${tag} class="${cellClass}${extraClass}">${processInline(cell.trim())}</${tag}>`;
       });
       html += '</tr>';
     });
@@ -325,8 +336,20 @@ function formatContent(content: string): string {
     // Skip empty lines but close lists
     if (!trimmedLine) {
       closeList();
+      // For tables, check if next non-empty line continues the table
+      // Don't render yet if we're in single-cell-per-line format
       if (inTable) {
-        renderTable();
+        // Look ahead to see if the table continues
+        let nextLineIdx = i + 1;
+        while (nextLineIdx < lines.length && !lines[nextLineIdx].trim()) {
+          nextLineIdx++;
+        }
+        const nextLine = lines[nextLineIdx]?.trim() || '';
+        // If next content line doesn't start with |, render the table
+        if (!nextLine.startsWith('|')) {
+          renderTable();
+        }
+        // Otherwise keep building the table
       }
       continue;
     }
