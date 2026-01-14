@@ -1,15 +1,12 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-// Create reusable transporter using Brevo SMTP
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Parse CONTACT_EMAIL which may contain multiple comma-separated addresses
+function getContactEmails(): string[] {
+  const contactEmail = process.env.CONTACT_EMAIL || 'info@upfreights.com';
+  return contactEmail.split(',').map(email => email.trim()).filter(Boolean);
+}
 
 interface ContactEmailData {
   name: string;
@@ -56,14 +53,18 @@ Message:
 ${message}
   `.trim();
 
-  await transporter.sendMail({
-    from: `"UpFreights Website" <${process.env.SMTP_FROM_EMAIL || 'noreply@upfreights.com'}>`,
-    to: process.env.CONTACT_EMAIL || 'info@upfreights.com',
+  const { error } = await resend.emails.send({
+    from: process.env.RESEND_FROM_EMAIL || 'UpFreights <noreply@upfreights.com>',
+    to: getContactEmails(),
     replyTo: email,
     subject: `Contact Form: ${name}`,
     text: textContent,
     html: htmlContent,
   });
+
+  if (error) {
+    throw new Error(`Failed to send email: ${error.message}`);
+  }
 }
 
 // Map shipping type IDs to display names
@@ -124,12 +125,16 @@ ${dimensions ? `Dimensions: ${dimensions}` : ''}
 ${message ? `\nAdditional Notes:\n${message}` : ''}
   `.trim();
 
-  await transporter.sendMail({
-    from: `"UpFreights Website" <${process.env.SMTP_FROM_EMAIL || 'noreply@upfreights.com'}>`,
-    to: process.env.CONTACT_EMAIL || 'info@upfreights.com',
+  const { error } = await resend.emails.send({
+    from: process.env.RESEND_FROM_EMAIL || 'UpFreights <noreply@upfreights.com>',
+    to: getContactEmails(),
     replyTo: email,
     subject: `Quote Request: ${shippingTypeName}`,
     text: textContent,
     html: htmlContent,
   });
+
+  if (error) {
+    throw new Error(`Failed to send email: ${error.message}`);
+  }
 }
