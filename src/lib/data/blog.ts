@@ -304,7 +304,7 @@ Remember that freight forwarding success depends on clear communication. Whether
     metaTitle: `Freight Forwarding Terminology: A Complete Glossary for Shipping Professionals`,
     metaDescription: `Navigating the complex world of freight forwarding can feel like learning a new language. From BOLs to FCLs, the industry is filled with specialized terminology`,
     author: 'editor',
-    publishedAt: '"2025-05-21T06:56:27.000Z"',
+    publishedAt: '2025-05-21T06:56:27.000Z',
   },
   {
     id: '1755265764462',
@@ -520,7 +520,7 @@ Whether you're shipping occasionally or managing regular international freight t
     metaTitle: `Complete Guide: Choosing the Best Insurance for International Shipping`,
     metaDescription: `Navigating international shipping can be complex, especially when it comes to protecting your valuable cargo. Whether you're a business owner expanding globally`,
     author: 'editor',
-    publishedAt: '"2025-05-26T01:53:40.000Z"',
+    publishedAt: '2025-05-26T01:53:40.000Z',
   },
   {
     id: '1755265764562',
@@ -661,7 +661,7 @@ Take time to measure accurately document thoroughly and stay updated on NMFC cod
     metaTitle: `Freight Class Codes Explained: A Complete Guide to NMFC Classifications`,
     metaDescription: `Navigating the world of freight shipping can be daunting, especially when you're faced with freight class codes that seem like a foreign language. These numeric`,
     author: 'editor',
-    publishedAt: '"2025-05-26T01:53:36.000Z"',
+    publishedAt: '2025-05-26T01:53:36.000Z',
   },
   {
     id: '1755265835602',
@@ -844,7 +844,7 @@ Sustainable shipping practices appeal to environmentally conscious consumers, po
     metaTitle: `10 Best Shipping Methods for Shopify Stores to Boost Sales & Customer Satisfaction`,
     metaDescription: `Choosing the right shipping method for your Shopify store can make or break your ecommerce business. With customers expecting fast, affordable delivery options,`,
     author: 'editor',
-    publishedAt: '"2025-05-12T02:18:18.000Z"',
+    publishedAt: '2025-05-12T02:18:18.000Z',
   },
   {
     id: '1761563413123',
@@ -1071,7 +1071,7 @@ My advice? Use them. Don&#39;t try to be a hero and walk everywhere. Hopping on 
     metaTitle: `canton fair map - Your Ultimate Canton Fair Planning Guide`,
     metaDescription: `canton fair map: Discover the best routes, exhibitor highlights, and essential logistics to plan a smooth Canton Fair visit and sourcing success.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-10-27T11:10:12.265Z"',
+    publishedAt: '2025-10-27T11:10:12.265Z',
   },
   {
     id: '1761633637943',
@@ -1269,7 +1269,7 @@ A 20 ft High-Cube container gives you an extra foot of headroom, bringing its ex
     metaTitle: `The Ultimate Guide: dimension of 20 ft container`,
     metaDescription: `Discover the dimension of 20 ft container with exact exterior and interior dimensions, capacities, and packing tips to plan shipments confidently.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-10-28T06:40:37.199Z"',
+    publishedAt: '2025-10-28T06:40:37.199Z',
   },
   {
     id: '1761720874587',
@@ -1436,7 +1436,7 @@ They take care of preparing and submitting all the complex paperwork required by
     metaTitle: `Freight Forwarder Air Freight: Speed Up Global Shipments`,
     metaDescription: `Discover how freight forwarder air freight can streamline shipments, cut costs, and boost your global supply chain.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-10-29T06:54:33.816Z"',
+    publishedAt: '2025-10-29T06:54:33.816Z',
   },
   {
     id: '1761807321658',
@@ -1695,7 +1695,7 @@ Getting Incoterms right isn&#39;t just a technical detail; it&#39;s fundamental 
     metaTitle: `Your Guide to Freight by Sea from China`,
     metaDescription: `Master freight by sea from China with our expert guide. Learn how to navigate costs, documents, FCL vs LCL, and optimize your international shipping.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-10-30T06:55:20.937Z"',
+    publishedAt: '2025-10-30T06:55:20.937Z',
   },
   {
     id: '1761893797890',
@@ -1933,7 +1933,7 @@ Not all freight forwarders are equipped or willing to handle hazardous cargo in 
     metaTitle: `A Guide to Less Than Container Load Shipping`,
     metaDescription: `Discover how less than container load shipping can cut costs. Our guide covers LCL logistics, pricing, and how it compares to FCL and air freight.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-10-31T06:56:37.100Z"',
+    publishedAt: '2025-10-31T06:56:37.100Z',
   },
   {
     id: '1761980287629',
@@ -2246,7 +2246,7 @@ This clear transfer of risk is powerful protection for the buyer, shielding you 
     metaTitle: `Delivery Duty Paid Shipping Explained for Importers`,
     metaDescription: `Master delivery duty paid shipping (DDP). Our guide explains the process, costs, and risks to help you streamline international imports and logistics.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-01T06:58:07.086Z"',
+    publishedAt: '2025-11-01T06:58:07.086Z',
   },
   {
     id: '1762067118389',
@@ -2503,7 +2503,7 @@ Technically, the seller is on the hook for any fines. But the delays? Those hit 
     metaTitle: `DDU DDP Incoterms A Complete Importer's Guide`,
     metaDescription: `DDU DDP Incoterms explained. Understand the key differences in cost, risk, and responsibility to choose the right term for your international shipments.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-02T07:05:17.792Z"',
+    publishedAt: '2025-11-02T07:05:17.792Z',
   },
   {
     id: '1762153695175',
@@ -2792,7 +2792,7 @@ Second, it&#39;s just the easiest, lowest-risk option for them. Their responsibi
     metaTitle: `EXW Price Definition A Guide for Global Importers`,
     metaDescription: `Understand the EXW price definition and what it means for your costs and risks. Our guide explains everything importers need to know to ship smarter.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-03T07:08:14.569Z"',
+    publishedAt: '2025-11-03T07:08:14.569Z',
   },
   {
     id: '1762240365653',
@@ -3021,7 +3021,7 @@ Think of it like this: the IGM is the airline telling air traffic control how ma
     metaTitle: `Your Guide to the China Import General Manifest`,
     metaDescription: `Master the China Import General Manifest (IGM) for seamless customs clearance. Our guide explains its role, requirements, and how to avoid costly delays.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-04T07:12:45.068Z"',
+    publishedAt: '2025-11-04T07:12:45.068Z',
   },
   {
     id: '1762326543774',
@@ -3285,7 +3285,7 @@ Always, always review the draft document before the final version is issued. Dou
     metaTitle: `Your Guide to the Letter of Origin for Imports`,
     metaDescription: `What is a Letter of Origin? Our guide explains how this key document helps you avoid customs delays and save money on tariffs when importing goods.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-05T07:09:03.106Z"',
+    publishedAt: '2025-11-05T07:09:03.106Z',
   },
   {
     id: '1762413505374',
@@ -3525,7 +3525,7 @@ Think of it as just another business expense. You&#39;ll account for it as &quot
     metaTitle: `Your Guide to Managing VAT from China`,
     metaDescription: `Mastering import VAT from China is crucial for importers. Our guide explains how to calculate, pay, and reclaim VAT in the EU, UK, and US. Stay compliant.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-06T07:18:24.719Z"',
+    publishedAt: '2025-11-06T07:18:24.719Z',
   },
   {
     id: '1762500617228',
@@ -3802,7 +3802,7 @@ At best, you&#39;re looking at frustrating delays, your goods getting seized by 
     metaTitle: `A Guide to the Commerce Control List`,
     metaDescription: `Our guide demystifies the Commerce Control List (CCL). Learn to navigate ECCNs, classify goods, and ensure your international shipments are compliant.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-07T07:30:16.607Z"',
+    publishedAt: '2025-11-07T07:30:16.607Z',
   },
   {
     id: '1762586515988',
@@ -4025,7 +4025,7 @@ Here&#39;s the critical part: this agreement must be written in Chinese and stru
     metaTitle: `Your Guide to Sourcing Agents in China`,
     metaDescription: `Discover how to find, vet, and partner with the best sourcing agents in China. Our expert guide helps you streamline manufacturing and avoid costly mistakes.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-08T07:21:55.209Z"',
+    publishedAt: '2025-11-08T07:21:55.209Z',
   },
   {
     id: '1762673695439',
@@ -4210,7 +4210,7 @@ Don&#39;t stop there. Filing for patents and trademarks in the country of manufa
     metaTitle: `OEM and ODM A Guide to Smart Manufacturing`,
     metaDescription: `Struggling to choose a manufacturer? This guide demystifies OEM and ODM to help you find the perfect partner for your product and scale your business.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-09T07:34:54.919Z"',
+    publishedAt: '2025-11-09T07:34:54.919Z',
   },
   {
     id: '1762759667949',
@@ -4399,7 +4399,7 @@ Visa rules can be tricky and differ depending on your nationality, so don&#39;t 
     metaTitle: `Your Guide to Canton Fair Registration`,
     metaDescription: `Master the Canton Fair registration process with this expert guide. Learn how to pre-register, what documents you need, and how to get your buyer badge.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-10T07:27:47.234Z"',
+    publishedAt: '2025-11-10T07:27:47.234Z',
   },
   {
     id: '1762846871512',
@@ -4656,7 +4656,7 @@ While a forwarder can&#39;t control the weather or tell customs officials what t
     metaTitle: `Freight forwarding services: Your guide to global shipping`,
     metaDescription: `Explore freight forwarding services essentials, from costs and customs to choosing a reliable partner for streamlined global logistics.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-11T07:41:10.655Z"',
+    publishedAt: '2025-11-11T07:41:10.655Z',
   },
   {
     id: '1762932770240',
@@ -4927,7 +4927,7 @@ Seasoned buyers use the fair as the starting line, not the finish line. The smar
     metaTitle: `Your Guide to Canton Fair Phase 2`,
     metaDescription: `Master Canton Fair Phase 2 with our expert guide. We cover product categories, logistics, and insider tips for international buyers to succeed.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-12T07:32:49.450Z"',
+    publishedAt: '2025-11-12T07:32:49.450Z',
   },
   {
     id: '1763020400424',
@@ -5204,7 +5204,7 @@ Use your time there to find the right partners, lock down product details, and a
     metaTitle: `canton fair phase 3: Sourcing Guide & Tips`,
     metaDescription: `canton fair phase 3: Find reliable suppliers with proven categories, negotiation tactics, and smarter logistics.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-13T07:53:19.576Z"',
+    publishedAt: '2025-11-13T07:53:19.576Z',
   },
   {
     id: '1763106628939',
@@ -5451,7 +5451,7 @@ Trying to import without an EORI number is a recipe for disaster. Your cargo wil
     metaTitle: `Choosing German Freight Forwarders for China Trade`,
     metaDescription: `A complete guide to choosing German freight forwarders for China trade. Learn about services, customs, costs, and selecting the right logistics partner.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-14T07:50:28.306Z"',
+    publishedAt: '2025-11-14T07:50:28.306Z',
   },
   {
     id: '1763194310610',
@@ -5735,7 +5735,7 @@ The basic liability coverage offered by a carrier is next to nothing—it won&#3
     metaTitle: `A Practical Guide to Import Auto Parts to China`,
     metaDescription: `Your expert guide to import auto parts into China. Learn to navigate compliance, logistics, and costs with actionable strategies that ensure success.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-15T08:11:49.739Z"',
+    publishedAt: '2025-11-15T08:11:49.739Z',
   },
   {
     id: '1763280783453',
@@ -6013,7 +6013,7 @@ To make sure you can always find your shipment, keep your key info handy: the co
     metaTitle: `A Complete Guide to 40ft Container Size and Specs`,
     metaDescription: `Our complete guide covers every 40ft container size, dimension, type, and capacity to help you optimize cargo, reduce costs, and master global shipping.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-16T08:13:02.632Z"',
+    publishedAt: '2025-11-16T08:13:02.632Z',
   },
   {
     id: '1763366895398',
@@ -6247,7 +6247,7 @@ Given that your products are crossing an ocean, skipping insurance is a massive 
     metaTitle: `Shipping from China to US a Complete Guide`,
     metaDescription: `Master shipping from China to US with our guide. We explain air vs. sea freight, customs, and costs to help you find the best shipping solutions.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-17T08:08:14.437Z"',
+    publishedAt: '2025-11-17T08:08:14.437Z',
   },
   {
     id: '1763452839151',
@@ -6486,7 +6486,7 @@ Be aware that the divisor isn&#39;t set in stone; some carriers use 5000, which 
     metaTitle: `How to Calculate CBM for Global Shipping`,
     metaDescription: `Learn how to calculate CBM for any shipment. This guide provides practical examples, formulas, and tips to help you optimize freight costs and avoid errors.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-18T08:00:38.506Z"',
+    publishedAt: '2025-11-18T08:00:38.506Z',
   },
   {
     id: '1763539400172',
@@ -6671,7 +6671,7 @@ At Upfreights, we guide you through CBM assessments, payload checks and packing 
     metaTitle: `How Many CBM In A 40Ft Container Explained Simply`,
     metaDescription: `Discover how many CBM in a 40Ft container, compare standard and high cube capacities, master CBM calculations and packing strategies for efficient shipping.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-19T08:03:19.056Z"',
+    publishedAt: '2025-11-19T08:03:19.056Z',
   },
   {
     id: '1763626261389',
@@ -6970,7 +6970,7 @@ Think about it: a massive container ship can handle an incredible amount of weig
     metaTitle: `Shipping Guide Your 1CBM to KG Conversion Answered`,
     metaDescription: `Unlock the 1CBM to KG conversion. Our guide explains volumetric weight for air and sea freight to help you calculate costs and avoid surprise fees.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-20T08:11:00.707Z"',
+    publishedAt: '2025-11-20T08:11:00.707Z',
   },
   {
     id: '1763714226670',
@@ -7207,7 +7207,7 @@ Taking these steps shows customs you&#39;re acting in good faith. It proves you&
     metaTitle: `commercial invoice and invoice: China Imports Guide`,
     metaDescription: `Understand the commercial invoice and invoice differences for China imports. This clear guide helps your shipments clear customs faster and avoid delays.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-21T08:37:05.967Z"',
+    publishedAt: '2025-11-21T08:37:05.967Z',
   },
   {
     id: '1763801916691',
@@ -7454,7 +7454,7 @@ To move it safely and legally, a 40 HC almost always requires a special low-deck
     metaTitle: `A Guide to the Dimensions of a 40 HC Container`,
     metaDescription: `Explore the complete dimensions of a 40 HC container. Get specs on internal, external, door, and weight capacity for optimized global shipping.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-22T08:58:36.040Z"',
+    publishedAt: '2025-11-22T08:58:36.040Z',
   },
   {
     id: '1763888932242',
@@ -7829,7 +7829,7 @@ Ultimately, selecting from the best **freight forwarding services companies** is
     metaTitle: `Best freight forwarding services companies for China exports`,
     metaDescription: `Explore top freight forwarding services companies for China exports and learn how to choose reliable partners, track shipments, and cut costs.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-23T09:08:51.561Z"',
+    publishedAt: '2025-11-23T09:08:51.561Z',
   },
   {
     id: '1763976805547',
@@ -8092,7 +8092,7 @@ At Upfreights, we maintain a **98.5% on-time delivery rate**, so you can build y
     metaTitle: `cargo forwarding services: fast, reliable shipping`,
     metaDescription: `Discover cargo forwarding services that simplify shipping, save time, and cut costs. Learn how to choose the right partner.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-24T09:33:24.941Z"',
+    publishedAt: '2025-11-24T09:33:24.941Z',
   },
   {
     id: '1764059557736',
@@ -8290,7 +8290,7 @@ Now, flip that. Imagine a small, dense pallet of metal parts that only measures 
     metaTitle: `A Guide to Less Than Container Load Shipping`,
     metaDescription: `Is Less Than Container Load (LCL) right for your business? This guide explains the process, costs, and benefits to help you ship smarter and save money.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-25T08:32:37.092Z"',
+    publishedAt: '2025-11-25T08:32:37.092Z',
   },
   {
     id: '1764147239522',
@@ -8526,7 +8526,7 @@ Good insurance is your financial safety net against the higher risk of damage in
     metaTitle: `fcl and lcl: Which is Best for Your Shipment?`,
     metaDescription: `Explore fcl and lcl differences, costs, and practical tips for importers; choose the right option, avoid common mistakes, and streamline your shipments.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-26T08:53:58.989Z"',
+    publishedAt: '2025-11-26T08:53:58.989Z',
   },
   {
     id: '1764234587251',
@@ -8811,7 +8811,7 @@ Their job is to make sure your paperwork is flawless, your goods are classified 
     metaTitle: `Shipping from China to USA A Complete Guide`,
     metaDescription: `Master shipping from China to USA. This guide explains sea vs. air freight, customs clearance, costs, and Incoterms to simplify your import process.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-27T09:09:46.507Z"',
+    publishedAt: '2025-11-27T09:09:46.507Z',
   },
   {
     id: '1764323541241',
@@ -9075,7 +9075,7 @@ Trying to ship these items without a certified expert isn&#39;t just risky; it�
     metaTitle: `Your Guide to Air Cargo Forwarders`,
     metaDescription: `Discover how air cargo forwarders streamline global shipping. This guide explains their services, costs, and how to choose the right partner for your business.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-28T09:52:19.406Z"',
+    publishedAt: '2025-11-28T09:52:19.406Z',
   },
   {
     id: '1764408920474',
@@ -9367,7 +9367,7 @@ Choosing FOB gives you, the buyer, complete control over the shipping carrier, t
     metaTitle: `fob and cif: Choosing the Right Shipping Incoterm`,
     metaDescription: `Explore fob and cif advantages, costs, and risk transfer to pick the best Incoterm for your international shipments.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-29T09:35:19.893Z"',
+    publishedAt: '2025-11-29T09:35:19.893Z',
   },
   {
     id: '1764495755806',
@@ -9578,7 +9578,7 @@ Certain routes have height restrictions due to low bridges, tunnels, or overhead
     metaTitle: `A Guide to 40HQ Container Size and Dimensions`,
     metaDescription: `Your complete guide to the 40HQ container size. Get detailed internal and external dimensions, payload capacity, and expert loading tips for your shipment.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-11-30T09:42:34.763Z"',
+    publishedAt: '2025-11-30T09:42:34.763Z',
   },
   {
     id: '1764578903228',
@@ -9846,7 +9846,7 @@ And remember, those are just port-to-port estimates. They don&#39;t account for 
     metaTitle: `Your Guide to Freight Forwarding Service`,
     metaDescription: `Demystify global shipping with our guide to freight forwarding service. Learn how to navigate logistics, cut costs, and choose the right shipping partner.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-01T08:48:22.616Z"',
+    publishedAt: '2025-12-01T08:48:22.616Z',
   },
   {
     id: '1764666227390',
@@ -10061,7 +10061,7 @@ Unfortunately, your perfectly compliant cargo gets stuck right along with it. Th
     metaTitle: `LCL and FCL Shipping Your Definitive Guide`,
     metaDescription: `Choosing between LCL and FCL shipping? This guide demystifies costs, transit times, and security risks to help you make the best choice for your cargo.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-02T09:03:46.857Z"',
+    publishedAt: '2025-12-02T09:03:46.857Z',
   },
   {
     id: '1764753759691',
@@ -10303,7 +10303,7 @@ Every country attaches its own duties, regulations, and trade agreement benefits
     metaTitle: `Your Guide to the Harmonized Tariff Code`,
     metaDescription: `Master the harmonized tariff code to simplify customs, avoid costly errors, and streamline your global trade operations. Your essential guide is here.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-03T09:22:39.132Z"',
+    publishedAt: '2025-12-03T09:22:39.132Z',
   },
   {
     id: '1764841243105',
@@ -10561,7 +10561,7 @@ The term itself is built around the action of loading goods &quot;on board the v
     metaTitle: `meaning of fob: A Clear Guide to Free On Board Shipping`,
     metaDescription: `Learn the meaning of fob and how Free On Board terms impact risk, costs, and ownership in international shipping.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-04T09:40:42.567Z"',
+    publishedAt: '2025-12-04T09:40:42.567Z',
   },
   {
     id: '1765010275372',
@@ -10796,7 +10796,7 @@ A carrier&#39;s liability is capped and is usually based on the weight of the ca
     metaTitle: `Your Guide to Freight Forward Service in Global Shipping`,
     metaDescription: `Discover how a freight forward service simplifies global shipping. This guide explains how they work, key services, and how to choose the right partner.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-06T08:37:54.824Z"',
+    publishedAt: '2025-12-06T08:37:54.824Z',
   },
   {
     id: '1765097938228',
@@ -11024,7 +11024,7 @@ This is a classic logistics dilemma, and the answer almost always comes down to 
     metaTitle: `How Many CBMs in a 40 ft Container A Practical Shipping Guide`,
     metaDescription: `Learn how many CBMs in a 40 ft container. Our guide compares standard vs. high-cube options and shows you how to calculate and maximize your cargo space.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-07T08:58:57.621Z"',
+    publishedAt: '2025-12-07T08:58:57.621Z',
   },
   {
     id: '1765273168658',
@@ -11305,7 +11305,7 @@ With a DDU shipment, you, the buyer, have to handle separate payments for broker
     metaTitle: `Choosing Between ddu and ddp incoterms: A Practical Guide`,
     metaDescription: `Confused by ddu and ddp incoterms? Our clear comparison of cost, risk, and responsibility helps you choose the best shipping term.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-09T09:39:27.998Z"',
+    publishedAt: '2025-12-09T09:39:27.998Z',
   },
   {
     id: '1765360079373',
@@ -11565,7 +11565,7 @@ If you&#39;re using a blanket statement, you&#39;re responsible for making sure 
     metaTitle: `Your Guide to the Statement of Origin for China Imports`,
     metaDescription: `Unlock seamless trade with China. Our guide explains the statement of origin, how it differs from a CO, and how to create one for customs clearance.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-10T09:47:58.740Z"',
+    publishedAt: '2025-12-10T09:47:58.740Z',
   },
   {
     id: '1765442087276',
@@ -11743,7 +11743,7 @@ The **Booking Number** is your go-to for tracking in the early stages, often bef
     metaTitle: `Maersk Container Track Trace A Practical Guide`,
     metaDescription: `Struggling with Maersk container track trace? This practical guide shows you how to track shipments, decode statuses, and solve common tracking issues.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-11T08:34:46.583Z"',
+    publishedAt: '2025-12-11T08:34:46.583Z',
   },
   {
     id: '1765529720776',
@@ -11914,7 +11914,7 @@ If you have tall cargo or if that extra vertical space is exactly what you need 
     metaTitle: `How Many Cubic Meters in 40ft Container: A Simple, Accurate CBM Guide`,
     metaDescription: `Curious how many cubic meters in 40ft container? Learn precise CBM calculations for Standard, High Cube, and Reefer containers to optimize freight.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-12T08:55:20.264Z"',
+    publishedAt: '2025-12-12T08:55:20.264Z',
   },
   {
     id: '1765616512711',
@@ -12138,7 +12138,7 @@ If you&#39;re shipping anything that needs to be kept cool, you absolutely must 
     metaTitle: `A Complete Guide to 40 ft Container Dimensions in Feet`,
     metaDescription: `Get the exact 40 ft container dimensions in feet for standard and high-cube units. Our guide covers internal vs. external specs, capacity, and pallet loading.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-13T09:01:52.119Z"',
+    publishedAt: '2025-12-13T09:01:52.119Z',
   },
   {
     id: '1765704603572',
@@ -12368,7 +12368,7 @@ New importers are almost always better off starting with **FOB (Free On Board)**
     metaTitle: `Ex Work Price Definition The Importer's Complete Guide`,
     metaDescription: `A practical Ex Work price definition for importers. Learn to calculate your true landed cost, compare EXW vs FOB, and manage risks when sourcing from China.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-14T09:30:02.949Z"',
+    publishedAt: '2025-12-14T09:30:02.949Z',
   },
   {
     id: '1765792200287',
@@ -12671,7 +12671,7 @@ This all-inclusive risk coverage is one of the biggest draws for a buyer. The ri
     metaTitle: `Delivered Duty Paid Meaning Your Guide to DDP Shipping`,
     metaDescription: `What is the real Delivered Duty Paid meaning? This guide explains DDP Incoterms, seller vs. buyer roles, and how it impacts global trade and your bottom line.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-15T09:49:59.774Z"',
+    publishedAt: '2025-12-15T09:49:59.774Z',
   },
   {
     id: '1765877465481',
@@ -12911,7 +12911,7 @@ Internally, however, it&#39;s a different story. The walls, floor, and ceiling a
     metaTitle: `A Complete Guide to 20 Foot Container Dimensions`,
     metaDescription: `Explore our complete reference on 20 foot container dimensions. Get detailed specs, weight limits, and pallet capacity for FCL shipping and global freight.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-16T09:31:04.858Z"',
+    publishedAt: '2025-12-16T09:31:04.858Z',
   },
   {
     id: '1765965898191',
@@ -13145,7 +13145,7 @@ Each of these &quot;solutions&quot; adds unplanned costs and throws a wrench in 
     metaTitle: `How many cbm in 40 feet container: Your Complete Shipping Guide`,
     metaDescription: `Find out how many cbm in 40 feet container and learn precise CBM calculations, usable vs. max volume, and tips to optimize your shipment.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-17T10:04:57.746Z"',
+    publishedAt: '2025-12-17T10:04:57.746Z',
   },
   {
     id: '1766048204476',
@@ -13483,7 +13483,7 @@ Before you wrap up, remember to:
     metaTitle: `Ultimate Container Loading Calculator Guide for Optimal Shipping`,
     metaDescription: `Learn how a container loading calculator maximizes space, cuts costs, and streamlines shipment planning with practical steps and real-world examples.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-18T08:56:43.842Z"',
+    publishedAt: '2025-12-18T08:56:43.842Z',
   },
   {
     id: '1766136101148',
@@ -13710,7 +13710,7 @@ What if it doesn&#39;t run? You still have options, but it won&#39;t be a standa
     metaTitle: `A Practical Guide to Roll On Roll Off Shipping From China`,
     metaDescription: `Discover the essentials of Roll On Roll Off shipping from China. Learn how RORO works, its costs, key benefits, and how to book your first shipment.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-19T09:21:40.450Z"',
+    publishedAt: '2025-12-19T09:21:40.450Z',
   },
   {
     id: '1766222114078',
@@ -14013,7 +14013,7 @@ Trading companies might be convenient for simple, one-off buys. But for building
     metaTitle: `How to Find a Sourcing Agent in China That You Can Trust`,
     metaDescription: `Our complete guide shows you how to find, vet, and work with a sourcing agent in China. Learn the strategies to avoid costly mistakes and scale your business.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-20T09:15:13.431Z"',
+    publishedAt: '2025-12-20T09:15:13.431Z',
   },
   {
     id: '1766304414171',
@@ -14228,7 +14228,7 @@ The moment your cargo is lifted off that ship, the seller&#39;s insurance policy
     metaTitle: `Understanding cif & fob: Choosing the Right Incoterm`,
     metaDescription: `Navigate cif & fob decisions—learn costs, risk, and control to pick the best Incoterm for your shipment.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-21T08:06:53.696Z"',
+    publishedAt: '2025-12-21T08:06:53.696Z',
   },
   {
     id: '1766392016233',
@@ -14493,7 +14493,7 @@ You’ll want to work with a lawyer who understands Chinese law to put some key 
     metaTitle: `Sourcing Agent China: Your Guide to Finding the Right Partner`,
     metaDescription: `Discover a sourcing agent china you can trust: how to evaluate credentials, compare quotes, and hire the right partner to scale manufacturing.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-22T08:26:55.741Z"',
+    publishedAt: '2025-12-22T08:26:55.741Z',
   },
   {
     id: '1766480106849',
@@ -14738,7 +14738,7 @@ If you don’t have a trusted customs broker or any experience with importing, *
     metaTitle: `DDP vs DDU Choosing the Right Shipping Incoterm`,
     metaDescription: `Our expert guide on DDP vs DDU breaks down costs, risks, and control. Choose the best Incoterm for your global shipments with real-world examples.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-23T08:55:06.302Z"',
+    publishedAt: '2025-12-23T08:55:06.302Z',
   },
   {
     id: '1766567014752',
@@ -15010,7 +15010,7 @@ Keep in mind, these are just baselines. If you&#39;re shipping during a peak sea
     metaTitle: `Choosing a Freight Forwarder Company Your Business Can Trust`,
     metaDescription: `Learn how to choose the right freight forwarder company. This guide covers services, costs, and key questions to ask your next global logistics partner.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-24T09:03:34.222Z"',
+    publishedAt: '2025-12-24T09:03:34.222Z',
   },
   {
     id: '1766654681130',
@@ -15280,7 +15280,7 @@ The best way to use a calculator&#39;s output is to see it as your ideal target,
     metaTitle: `Container Load Calculator: A Quick Guide to Using the container load calculator`,
     metaDescription: `Discover how the container load calculator helps you maximize space, cut costs, and optimize freight with CBM basics and FCL/LCL decisions.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-25T09:24:40.649Z"',
+    publishedAt: '2025-12-25T09:24:40.649Z',
   },
   {
     id: '1766735475193',
@@ -15536,7 +15536,7 @@ If you have any doubt, talk to your freight forwarder *before* you ship. They ca
     metaTitle: `Your Complete Guide to China Ocean Shipping`,
     metaDescription: `Master China ocean shipping with our expert guide. Learn to navigate ports, FCL vs LCL, costs, and customs to import from China like a pro.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-26T07:51:14.687Z"',
+    publishedAt: '2025-12-26T07:51:14.687Z',
   },
   {
     id: '1766823881171',
@@ -15796,7 +15796,7 @@ Don&#39;t let that worry you, though. Arranging cargo insurance is simple. Your 
     metaTitle: `FOB Price Meaning What Smart Importers Need to Know`,
     metaDescription: `Unlock the FOB price meaning when importing from China. Learn what it includes, how it compares to other Incoterms, and why it gives you more control.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-27T08:24:39.090Z"',
+    publishedAt: '2025-12-27T08:24:39.090Z',
   },
   {
     id: '1766912345605',
@@ -15983,7 +15983,7 @@ If there&#39;s a single mistake in the export documents, your cargo can get stuc
     metaTitle: `EXW Price Meaning A Guide to China Imports and Hidden Costs`,
     metaDescription: `Understand the true EXW price meaning when importing from China. Learn what Ex Works includes, key risks, and how to calculate your total landed cost.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-12-28T08:59:04.883Z"',
+    publishedAt: '2025-12-28T08:59:04.883Z',
   },
   {
     id: 'air-freight-packaging-requirements',
@@ -16162,7 +16162,7 @@ Take time to review your current packaging protocols against IATA guidelines and
     metaTitle: `Essential Air Freight Packaging Requirements: Protect Your Cargo & Avoid Costly Delays | Upfreights`,
     metaDescription: `Shipping cargo by air requires careful attention to packaging requirements that differ significantly from other transportation methods. When you're preparing...`,
     author: 'editor',
-    publishedAt: '"2025-05-21T06:35:07.000Z"',
+    publishedAt: '2025-05-21T06:35:07.000Z',
   },
   {
     id: 'best-freight-rate-comparison-tools-cut-shipping-costs',
@@ -16198,7 +16198,7 @@ Start with free trials to evaluate user experience, rate accuracy, and customer 
     metaTitle: `Best Freight Rate Comparison Tools to Cut Shipping Costs | Upfreights`,
     metaDescription: `Discover the best freight rate comparison tools to reduce shipping costs. Compare features, pricing, and integration options for freight optimization.`,
     author: 'Stephanie Davis',
-    publishedAt: '"2025-01-20T23:00:00.000Z"',
+    publishedAt: '2025-01-20T23:00:00.000Z',
   },
   {
     id: 'china-fulfillment-services-for-dropshippers',
@@ -16451,7 +16451,7 @@ Select a partner based on warehouse locations relative to your suppliers, shippi
     metaTitle: `Top 7 China Fulfillment Services for Dropshippers: Cut Costs & Shipping Time | Upfreights`,
     metaDescription: `Are you struggling with fulfillment logistics for your dropshipping business? China fulfillment services might be the solution you've been looking for. These...`,
     author: 'editor',
-    publishedAt: '"2025-05-12T02:51:11.000Z"',
+    publishedAt: '2025-05-12T02:51:11.000Z',
   },
   {
     id: 'export-control-regulations-usa',
@@ -16784,7 +16784,7 @@ Digital transformation is revolutionizing export compliance through AI-powered s
     metaTitle: `Navigating U.S. Export Control Regulations: A Complete Guide for Business Compliance | Upfreights`,
     metaDescription: `Navigating U.S. export control regulations can feel like walking through a complex maze of federal laws and regulatory frameworks. These regulations, enforce...`,
     author: 'blogadmin',
-    publishedAt: '"2025-05-26T02:11:42.000Z"',
+    publishedAt: '2025-05-26T02:11:42.000Z',
   },
   {
     id: 'freight-consolidation-strategies',
@@ -16960,7 +16960,7 @@ Whether you choose multi-vendor geographic or time-based consolidation strategie
     metaTitle: `10 Proven Freight Consolidation Strategies to Cut Shipping Costs & Boost Efficiency | Upfreights`,
     metaDescription: `Managing your shipping costs while ensuring timely delivery can feel like walking a tightrope. That's where freight consolidation strategies come in—combinin...`,
     author: 'webmaster',
-    publishedAt: '"2025-05-26T03:23:30.000Z"',
+    publishedAt: '2025-05-26T03:23:30.000Z',
   },
   {
     id: 'freight-quote-vs-estimate-difference',
@@ -16991,7 +16991,7 @@ Whether you choose multi-vendor geographic or time-based consolidation strategie
     metaTitle: `Freight Quote vs Estimate: Understanding the Key Differences | Upfreights`,
     metaDescription: `Understand the key differences between freight quotes and estimates. Learn accuracy levels, validity periods, and best practices for shipping cost planning.`,
     author: 'David Park',
-    publishedAt: '"2025-01-20T15:00:00.000Z"',
+    publishedAt: '2025-01-20T15:00:00.000Z',
   },
   {
     id: 'freight-surcharge-types-what-youre-really-paying-for',
@@ -17031,7 +17031,7 @@ Understanding these surcharges empowers shippers to make informed decisions and 
     metaTitle: `Freight Surcharge Types Explained: What You are Really Paying For | Upfreights`,
     metaDescription: `Understand all freight surcharge types including fuel, peak season, and operational charges. Learn how to minimize surcharge costs.`,
     author: 'Andrew Miller',
-    publishedAt: '"2025-01-20T22:00:00.000Z"',
+    publishedAt: '2025-01-20T22:00:00.000Z',
   },
   {
     id: 'how-to-reduce-shipping-time-from-china',
@@ -17241,7 +17241,7 @@ Real-time tracking systems provide comprehensive visibility into shipments, enab
     metaTitle: `9 Proven Ways to Slash Shipping Time from China: Expert Guide for Faster Delivery | Upfreights`,
     metaDescription: `Waiting weeks or even months for your products to arrive from China can seriously hamper your business operations. Whether you're importing for personal use ...`,
     author: 'editor',
-    publishedAt: '"2025-05-12T02:51:11.000Z"',
+    publishedAt: '2025-05-12T02:51:11.000Z',
   },
   {
     id: 'incoterms-2025-explained',
@@ -17490,7 +17490,7 @@ Incoterms 2025 clarifies which party handles customs formalities, documentation,
     metaTitle: `Incoterms 2025 Explained: Complete Guide to New Rules for Global Trade | Upfreights`,
     metaDescription: `Navigating international trade can feel like deciphering a foreign language, but understanding Incoterms 2025 will give you a significant advantage. These in...`,
     author: 'blogadmin',
-    publishedAt: '"2025-05-26T02:11:44.000Z"',
+    publishedAt: '2025-05-26T02:11:44.000Z',
   },
   {
     id: 'logistics-hubs-in-the-middle-east',
@@ -17601,7 +17601,7 @@ The future looks promising as Middle Eastern logistics centers leverage their un
     metaTitle: `Top 8 Middle East Logistics Hubs Transforming Global Supply Chains | Upfreights`,
     metaDescription: `The Middle East has emerged as a critical player in global supply chains, with its strategic location bridging Europe, Asia, and Africa. This geographical ad...`,
     author: 'support',
-    publishedAt: '"2025-05-28T08:29:44.000Z"',
+    publishedAt: '2025-05-28T08:29:44.000Z',
   },
   {
     id: 'sea-freight-cost-calculator-1755597559.886140',
@@ -17670,7 +17670,7 @@ Accurate sea freight cost calculation requires comprehensive understanding of al
     metaTitle: `Sea Freight Cost Calculator: Estimate Shipping Expenses & Save Money`,
     metaDescription: `Master sea freight calculations with our comprehensive guide. Learn to estimate shipping costs accurately, compare rates, and optimize your logistics budget for maximum savings.`,
     author: 'Upfreights Team',
-    publishedAt: '"2025-08-19T09:59:19.886Z"',
+    publishedAt: '2025-08-19T09:59:19.886Z',
   },
   {
     id: 'top-product-categories-to-source-from-china',
@@ -17954,7 +17954,7 @@ Chinese manufacturers produce high-quality fitness equipment at 30-60% lower cos
     metaTitle: `10 Most Profitable Product Categories to Source from China in 2025 | Importer's Guide | Upfreights`,
     metaDescription: `Looking to expand your product line with profitable imports? China remains the world's manufacturing powerhouse, offering countless opportunities for busines...`,
     author: 'editor',
-    publishedAt: '"2025-05-26T02:01:41.000Z"',
+    publishedAt: '2025-05-26T02:01:41.000Z',
   },
 ];
 

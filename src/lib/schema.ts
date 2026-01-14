@@ -205,7 +205,7 @@ export function generateBlogPostingSchema(post: {
   title: string;
   excerpt: string;
   slug: string;
-  category: string;
+  category?: string;
   content: string;
   readingTime?: string;
 }) {
@@ -228,7 +228,7 @@ export function generateBlogPostingSchema(post: {
       '@type': 'WebPage',
       '@id': `${ORGANIZATION_INFO.url}/blog/${post.slug}`,
     },
-    articleSection: post.category,
+    ...(post.category && { articleSection: post.category }),
     wordCount: wordCount,
     inLanguage: 'en-US',
     isAccessibleForFree: true,

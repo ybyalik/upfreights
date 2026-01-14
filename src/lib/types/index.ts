@@ -165,14 +165,16 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content: string;
-  author: Author;
-  category: string;
-  tags: string[];
+  author?: string | Author;
+  category?: string;
+  tags?: string[];
   publishedAt: string;
-  updatedAt: string;
-  readingTime: string;
-  image: string;
-  featured: boolean;
+  updatedAt?: string;
+  readingTime?: string;
+  image?: string;
+  featured?: boolean;
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export interface Author {

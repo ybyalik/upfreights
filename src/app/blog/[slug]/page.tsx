@@ -200,6 +200,23 @@ function formatContent(content: string): string {
     return '<p class="text-muted-foreground">No content available.</p>';
   }
 
+  // First, decode HTML entities that may be in the source content
+  function decodeHtmlEntities(text: string): string {
+    const htmlEntities: Record<string, string> = {
+      '&#39;': "'",
+      '&apos;': "'",
+      '&quot;': '"',
+      '&amp;': '&',
+      '&lt;': '<',
+      '&gt;': '>',
+      '&nbsp;': ' ',
+    };
+    return text.replace(/&#?\w+;/g, (entity) => htmlEntities[entity] || entity);
+  }
+
+  // Decode entities in the source content first
+  content = decodeHtmlEntities(content);
+
   const lines = content.split('\n');
   const result: string[] = [];
   let inList = false;
@@ -207,16 +224,14 @@ function formatContent(content: string): string {
   let inTable = false;
   let tableRows: string[][] = [];
 
-  // Helper to escape HTML entities to prevent XSS
+  // Helper to escape HTML entities to prevent XSS (for user-generated content)
   function escapeHtml(text: string): string {
     const htmlEntities: Record<string, string> = {
-      '&': '&amp;',
       '<': '&lt;',
       '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;',
     };
-    return text.replace(/[&<>"']/g, (char) => htmlEntities[char] || char);
+    // Only escape angle brackets to prevent HTML injection, preserve quotes and apostrophes
+    return text.replace(/[<>]/g, (char) => htmlEntities[char] || char);
   }
 
   // Helper to validate URLs - only allow safe protocols
@@ -234,10 +249,21 @@ function formatContent(content: string): string {
     }
   }
 
-  // Helper to process inline markdown (bold, links, etc.)
+  // Helper to process inline markdown (bold, links, images, etc.)
   function processInline(text: string): string {
     // First escape HTML to prevent injection
     text = escapeHtml(text);
+
+    // Images ![alt](url) - must process before links since syntax is similar
+    text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, altText, url) => {
+      if (isValidUrl(url)) {
+        const safeUrl = escapeHtml(url);
+        const safeAlt = altText || 'Blog image';
+        return `<img src="${safeUrl}" alt="${safeAlt}" class="rounded-lg my-6 w-full" loading="lazy" />`;
+      }
+      // Invalid URL - show alt text
+      return altText || '';
+    });
 
     // Bold (using escaped asterisks pattern)
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -305,8 +331,9 @@ function formatContent(content: string): string {
       continue;
     }
 
-    // Check for table row (starts with |)
-    if (trimmedLine.startsWith('|') || (trimmedLine.includes('|') && !trimmedLine.startsWith('-') && !trimmedLine.startsWith('#'))) {
+    // Check for table row (starts with | or has | for multi-column tables)
+    // Handle both formats: "| Col1 | Col2 | Col3 |" and single-line cells "| Cell "
+    if (trimmedLine.startsWith('|')) {
       closeList();
 
       // Skip separator rows (|---|---|)
@@ -315,14 +342,35 @@ function formatContent(content: string): string {
       }
 
       inTable = true;
-      // Parse table cells
+      // Parse table cells - split by | and filter empty
       const cells = trimmedLine
         .split('|')
         .map(cell => cell.trim())
         .filter(cell => cell !== '');
 
       if (cells.length > 0) {
-        tableRows.push(cells);
+        // Check if this is a multi-column format (has multiple cells)
+        if (cells.length > 1) {
+          // Standard markdown table row: | Col1 | Col2 | Col3 |
+          tableRows.push(cells);
+        } else {
+          // Single cell per line format - accumulate into current row
+          // Check if we need to start a new row based on pattern
+          if (tableRows.length === 0) {
+            // First cell, start accumulating
+            tableRows.push([cells[0]]);
+          } else {
+            const lastRow = tableRows[tableRows.length - 1];
+            const firstRow = tableRows[0];
+            // If current row is same length as header or we're building first row
+            if (tableRows.length === 1 || lastRow.length < firstRow.length) {
+              lastRow.push(cells[0]);
+            } else {
+              // Start a new row
+              tableRows.push([cells[0]]);
+            }
+          }
+        }
       }
       continue;
     }
@@ -377,6 +425,21 @@ function formatContent(content: string): string {
         listType = 'ol';
       }
       result.push(`<li class="text-muted-foreground">${processInline(trimmedLine.replace(/^\d+\.\s/, ''))}</li>`);
+      continue;
+    }
+
+    // Blockquotes
+    if (trimmedLine.startsWith('> ')) {
+      closeList();
+      const quoteText = trimmedLine.slice(2).trim();
+      result.push(`<blockquote class="border-l-4 border-orange pl-4 my-6 italic text-muted-foreground">${processInline(quoteText)}</blockquote>`);
+      continue;
+    }
+
+    // Standalone images (line starts with ![)
+    if (trimmedLine.startsWith('![')) {
+      closeList();
+      result.push(`<div class="my-6">${processInline(trimmedLine)}</div>`);
       continue;
     }
 
