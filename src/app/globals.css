@@ -88,10 +88,10 @@
 :root {
   --radius: 0.5rem;
 
-  /* Brand: Modern Blue (trust, stability, maritime) */
-  --slate: #1e4a7a;
-  --slate-dark: #0d3158;
-  --slate-light: #3a6b9c;
+  /* Brand: Deep Navy Blue (trust, stability, maritime) */
+  --slate: #1a365d;
+  --slate-dark: #0f2442;
+  --slate-light: #2a4a7a;
 
   /* Brand: Vibrant Orange (energy, movement, CTA) */
   --copper: #e07b3a;
@@ -99,31 +99,31 @@
   --copper-dark: #c45f20;
 
   /* Brand: Ocean Blue (contrast, maritime, calm) */
-  --teal: #2a8fbd;
-  --teal-light: #4eb3db;
+  --teal: #2c5282;
+  --teal-light: #3a6b9c;
 
   /* Clean Light Backgrounds */
-  --cream: #f5f8fb;
-  --cream-dark: #e8eef4;
+  --cream: #f7fafc;
+  --cream-dark: #edf2f7;
 
   /* Semantic mappings */
-  --background: #f8fafc;
-  --foreground: #1e4a7a;
+  --background: #f7fafc;
+  --foreground: #1a365d;
 
   --card: #ffffff;
-  --card-foreground: #1e4a7a;
+  --card-foreground: #1a365d;
 
   --popover: #ffffff;
-  --popover-foreground: #1e4a7a;
+  --popover-foreground: #1a365d;
 
-  --primary: #1e4a7a;
+  --primary: #1a365d;
   --primary-foreground: #ffffff;
 
-  --secondary: #e8eef4;
-  --secondary-foreground: #1e4a7a;
+  --secondary: #edf2f7;
+  --secondary-foreground: #1a365d;
 
   --muted: #f0f4f8;
-  --muted-foreground: #5a7da0;
+  --muted-foreground: #4a6b8a;
 
   --accent: #e07b3a;
   --accent-foreground: #ffffff;
@@ -131,50 +131,50 @@
   --destructive: #dc3545;
 
   --border: #d1dce6;
-  --input: #e8eef4;
-  --ring: #2a8fbd;
+  --input: #edf2f7;
+  --ring: #2c5282;
 
   /* Chart colors */
-  --chart-1: #1e4a7a;
+  --chart-1: #1a365d;
   --chart-2: #e07b3a;
-  --chart-3: #2a8fbd;
-  --chart-4: #5a7da0;
+  --chart-3: #2c5282;
+  --chart-4: #4a6b8a;
   --chart-5: #f09a5e;
 }
 
 .dark {
-  --background: #0a1929;
+  --background: #0a1628;
   --foreground: #e8f0f8;
 
-  --card: #0d3158;
+  --card: #0f2442;
   --card-foreground: #e8f0f8;
 
-  --popover: #0d3158;
+  --popover: #0f2442;
   --popover-foreground: #e8f0f8;
 
   --primary: #e8f0f8;
-  --primary-foreground: #0d3158;
+  --primary-foreground: #0f2442;
 
-  --secondary: #1e4a7a;
+  --secondary: #1a365d;
   --secondary-foreground: #e8f0f8;
 
-  --muted: #1e4a7a;
+  --muted: #1a365d;
   --muted-foreground: #a0b8d0;
 
   --accent: #f09a5e;
-  --accent-foreground: #0d3158;
+  --accent-foreground: #0f2442;
 
   --destructive: #ef6461;
 
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.08);
-  --ring: #4eb3db;
+  --ring: #3a6b9c;
 
-  --chart-1: #4eb3db;
+  --chart-1: #3a6b9c;
   --chart-2: #f09a5e;
   --chart-3: #7c9ab8;
   --chart-4: #c45f20;
-  --chart-5: #2a8fbd;
+  --chart-5: #2c5282;
 }
 
 @layer base {
@@ -307,8 +307,8 @@
   .card-lift:hover {
     transform: translateY(-4px) rotate(-0.5deg);
     box-shadow:
-      0 20px 40px -12px rgba(30, 74, 122, 0.15),
-      0 4px 6px -2px rgba(30, 74, 122, 0.05);
+      0 20px 40px -12px rgba(26, 54, 93, 0.15),
+      0 4px 6px -2px rgba(26, 54, 93, 0.05);
   }
 
   /* Border accent */
@@ -349,14 +349,14 @@
   /* Grid pattern overlay */
   .pattern-grid {
     background-image:
-      linear-gradient(rgba(30, 74, 122, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30, 74, 122, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(26, 54, 93, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 54, 93, 0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
   /* Dot pattern */
   .pattern-dots {
-    background-image: radial-gradient(circle, rgba(30, 74, 122, 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(26, 54, 93, 0.06) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 
