@@ -89,9 +89,9 @@
   --radius: 0.5rem;
 
   /* Brand: Deep Navy Blue (trust, stability, maritime) */
-  --slate: #1a365d;
-  --slate-dark: #0f2442;
-  --slate-light: #2a4a7a;
+  --slate: #1e3a5f;
+  --slate-dark: #152a45;
+  --slate-light: #264b73;
 
   /* Brand: Vibrant Orange (energy, movement, CTA) */
   --copper: #e07b3a;
@@ -99,8 +99,8 @@
   --copper-dark: #c45f20;
 
   /* Brand: Ocean Blue (contrast, maritime, calm) */
-  --teal: #2c5282;
-  --teal-light: #3a6b9c;
+  --teal: #1e3a5f;
+  --teal-light: #264b73;
 
   /* Clean Light Backgrounds */
   --cream: #f7fafc;
@@ -108,19 +108,19 @@
 
   /* Semantic mappings */
   --background: #f7fafc;
-  --foreground: #1a365d;
+  --foreground: #1e3a5f;
 
   --card: #ffffff;
-  --card-foreground: #1a365d;
+  --card-foreground: #1e3a5f;
 
   --popover: #ffffff;
-  --popover-foreground: #1a365d;
+  --popover-foreground: #1e3a5f;
 
-  --primary: #1a365d;
+  --primary: #1e3a5f;
   --primary-foreground: #ffffff;
 
   --secondary: #edf2f7;
-  --secondary-foreground: #1a365d;
+  --secondary-foreground: #1e3a5f;
 
   --muted: #f0f4f8;
   --muted-foreground: #4a6b8a;
@@ -132,12 +132,12 @@
 
   --border: #d1dce6;
   --input: #edf2f7;
-  --ring: #2c5282;
+  --ring: #1e3a5f;
 
   /* Chart colors */
-  --chart-1: #1a365d;
+  --chart-1: #1e3a5f;
   --chart-2: #e07b3a;
-  --chart-3: #2c5282;
+  --chart-3: #1e3a5f;
   --chart-4: #4a6b8a;
   --chart-5: #f09a5e;
 }
