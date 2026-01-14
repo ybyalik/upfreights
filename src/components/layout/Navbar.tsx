@@ -69,6 +69,12 @@ export function Navbar() {
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                       {services.map((service) => {
                         const Icon = serviceIcons[service.slug] || Ship;
+                        const summaries: Record<string, string> = {
+                          'sea-freight': 'FCL & LCL ocean shipping',
+                          'air-freight': 'Express air cargo delivery',
+                          'door-to-door': 'Full-service logistics',
+                          'customs-clearance': 'Import/export brokerage',
+                        };
                         return (
                           <li key={service.id}>
                             <NavigationMenuLink asChild>
@@ -82,8 +88,8 @@ export function Navbar() {
                                     {service.shortTitle}
                                   </span>
                                 </div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-white/80 mt-2">
-                                  {service.shortDescription}
+                                <p className="text-xs leading-snug text-foreground/60 group-hover:text-white/80 mt-1.5">
+                                  {summaries[service.slug]}
                                 </p>
                               </Link>
                             </NavigationMenuLink>
@@ -110,23 +116,18 @@ export function Navbar() {
                     Destinations
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:grid-cols-3">
+                    <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:grid-cols-3">
                       {destinations.map((destination) => (
                         <li key={destination.id}>
                           <NavigationMenuLink asChild>
                             <Link
                               href={`/shipping-${destination.slug}`}
-                              className="group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-orange hover:text-white focus:bg-orange focus:text-white"
+                              className="group flex items-center space-x-2 rounded-md p-2.5 leading-none no-underline outline-none transition-colors hover:bg-orange hover:text-white focus:bg-orange focus:text-white"
                             >
-                              <div className="flex items-center space-x-2">
-                                <span className="text-2xl">{destination.flag}</span>
-                                <span className="text-sm font-medium leading-none">
-                                  {destination.country}
-                                </span>
-                              </div>
-                              <p className="text-xs text-muted-foreground group-hover:text-white/80 mt-1">
-                                {destination.transitTimeAir} by air
-                              </p>
+                              <span className="text-xl">{destination.flag}</span>
+                              <span className="text-sm font-medium leading-none">
+                                {destination.country}
+                              </span>
                             </Link>
                           </NavigationMenuLink>
                         </li>

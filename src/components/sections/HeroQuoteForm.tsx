@@ -120,11 +120,11 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
   }
 
   return (
-    <Card data-hero-quote-form className={cn('bg-white/10 backdrop-blur-sm border-white/20', className)}>
+    <Card data-hero-quote-form className={cn('bg-white shadow-2xl border-0', className)}>
       <CardContent className="p-6">
         {/* Step Indicator */}
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-lg font-semibold text-white">Get a Quick Quote</h3>
+          <h3 className="text-lg font-semibold text-slate">Get a Quick Quote</h3>
           <div className="flex items-center gap-1">
             {[1, 2, 3].map((step) => (
               <div
@@ -135,7 +135,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                     ? 'bg-orange w-4'
                     : step < currentStep
                     ? 'bg-green-500'
-                    : 'bg-white/30'
+                    : 'bg-slate/20'
                 )}
               />
             ))}
@@ -147,7 +147,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
           {currentStep === 1 && (
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label className="text-white/80 text-sm">Service Type</Label>
+                <Label className="text-slate/70 text-sm">Service Type</Label>
                 <div className="grid grid-cols-2 gap-2">
                   {serviceTypes.map((type) => {
                     const Icon = type.icon;
@@ -161,7 +161,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                           'flex items-center gap-2 p-2.5 rounded-lg border transition-all text-left',
                           isSelected
                             ? 'bg-orange border-orange text-white'
-                            : 'bg-white/5 border-white/20 text-white/80 hover:bg-white/10 hover:border-white/30'
+                            : 'bg-slate/5 border-slate/20 text-slate/80 hover:bg-slate/10 hover:border-slate/30'
                         )}
                       >
                         <Icon className="h-4 w-4 shrink-0" />
@@ -178,7 +178,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
           {currentStep === 2 && (
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label className="text-white/80 text-sm flex items-center gap-2">
+                <Label className="text-slate/70 text-sm flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   When do you need it?
                 </Label>
@@ -192,7 +192,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                         'flex items-center gap-2 p-2.5 rounded-lg border transition-all text-left',
                         formData.timeline === option
                           ? 'bg-orange border-orange text-white'
-                          : 'bg-white/5 border-white/20 text-white/80 hover:bg-white/10 hover:border-white/30'
+                          : 'bg-slate/5 border-slate/20 text-slate/80 hover:bg-slate/10 hover:border-slate/30'
                       )}
                     >
                       <div
@@ -200,7 +200,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                           'w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0',
                           formData.timeline === option
                             ? 'border-white bg-white'
-                            : 'border-white/40'
+                            : 'border-slate/30'
                         )}
                       >
                         {formData.timeline === option && (
@@ -214,7 +214,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="hero-requirements" className="text-white/80 text-sm">
+                <Label htmlFor="hero-requirements" className="text-slate/70 text-sm">
                   Special Requirements (optional)
                 </Label>
                 <Textarea
@@ -223,7 +223,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                   onChange={(e) => handleChange('specialRequirements', e.target.value)}
                   placeholder="Any special handling needs..."
                   rows={2}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 resize-none text-sm"
+                  className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 resize-none text-sm"
                 />
               </div>
             </div>
@@ -233,8 +233,8 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
           {currentStep === 3 && (
             <div className="space-y-3">
               <div className="flex items-center gap-2 mb-2">
-                <User className="h-4 w-4 text-white/80" />
-                <Label className="text-white/80 text-sm">Contact Information</Label>
+                <User className="h-4 w-4 text-slate/70" />
+                <Label className="text-slate/70 text-sm">Contact Information</Label>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -243,14 +243,14 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                   onChange={(e) => handleChange('firstName', e.target.value)}
                   placeholder="First Name *"
                   required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-9 text-sm"
+                  className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 h-9 text-sm"
                 />
                 <Input
                   value={formData.lastName}
                   onChange={(e) => handleChange('lastName', e.target.value)}
                   placeholder="Last Name *"
                   required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-9 text-sm"
+                  className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 h-9 text-sm"
                 />
               </div>
 
@@ -260,7 +260,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                 onChange={(e) => handleChange('email', e.target.value)}
                 placeholder="Email *"
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-9 text-sm"
+                className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 h-9 text-sm"
               />
 
               <Input
@@ -269,14 +269,14 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                 onChange={(e) => handleChange('phone', e.target.value)}
                 placeholder="Phone *"
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-9 text-sm"
+                className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 h-9 text-sm"
               />
 
               <Input
                 value={formData.company}
                 onChange={(e) => handleChange('company', e.target.value)}
                 placeholder="Company (optional)"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-9 text-sm"
+                className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 h-9 text-sm"
               />
             </div>
           )}
@@ -289,7 +289,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                 variant="outline"
                 size="sm"
                 onClick={prevStep}
-                className="!border-white/30 !text-white !bg-transparent hover:!bg-white/10 flex-1"
+                className="!border-slate/30 !text-slate !bg-transparent hover:!bg-slate/10 flex-1"
               >
                 <ArrowLeft className="h-4 w-4 mr-1" />
                 Back

@@ -121,7 +121,7 @@ export function CTASection({
                 <div className="flex items-center gap-4">
                   <div className={cn(
                     'text-3xl font-heading font-bold',
-                    variant === 'default' ? 'text-teal' : 'text-teal-light'
+                    variant === 'default' ? 'text-teal' : 'text-white'
                   )}>
                     50+
                   </div>
