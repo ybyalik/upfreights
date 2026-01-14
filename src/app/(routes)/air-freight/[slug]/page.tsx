@@ -89,15 +89,19 @@ export async function generateMetadata({
     return { title: 'Route Not Found' };
   }
 
+  // Extract days from transit time (e.g., "3-5 days" -> "3-5")
+  const daysMatch = route.transitTime?.match(/(\d+[-–]\d+|\d+)/);
+  const days = daysMatch ? daysMatch[1] : '3-5';
+
   return {
     title: `Air Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-    description: `Fast air freight shipping from ${route.originCity} to ${route.destinationCity}. Express, standard, and economy options with ${route.transitTime} transit time.`,
+    description: `Urgent shipping from ${route.originCity} to ${route.destinationCity}? Delivery in ${days} days via Express air freight. Secure, reliable & fast. Check rates now.`,
     alternates: {
       canonical: `/air-freight-${slug}`,
     },
     openGraph: {
       title: `Air Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-      description: `Ship by air from ${route.originCity} to ${route.destinationCity} with ${route.transitTime} transit time.`,
+      description: `Urgent shipping from ${route.originCity} to ${route.destinationCity}? Delivery in ${days} days via Express air freight. Secure, reliable & fast. Check rates now.`,
     },
   };
 }

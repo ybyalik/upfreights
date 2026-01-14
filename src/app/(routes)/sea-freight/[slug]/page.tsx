@@ -96,13 +96,13 @@ export async function generateMetadata({
 
   return {
     title: `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-    description: `Reliable sea freight shipping from ${route.originCity} to ${route.destinationCity}. FCL and LCL container shipping with competitive rates and door-to-door service.`,
+    description: `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`,
     alternates: {
       canonical: `/sea-freight-${slug}`,
     },
     openGraph: {
       title: `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-      description: `Ship from ${route.originCity} to ${route.destinationCity} with ${route.transitTime} transit time. FCL and LCL options available.`,
+      description: `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`,
     },
   };
 }
