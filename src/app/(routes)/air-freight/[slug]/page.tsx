@@ -326,8 +326,20 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
                 <div className="grid lg:grid-cols-12 gap-8">
                   {/* Main Content */}
                   <div className="lg:col-span-8">
-                    <div className="prose prose-lg max-w-none text-muted-foreground">
-                      <p className="leading-relaxed">{airFreightContent.benefits}</p>
+                    <div className="prose prose-xl max-w-none text-muted-foreground space-y-6">
+                      {(() => {
+                        const text = airFreightContent.benefits;
+                        const sentences = text.split(/(?<=[.!?])\s+/);
+                        const midpoint = Math.ceil(sentences.length / 2);
+                        const firstParagraph = sentences.slice(0, midpoint).join(' ');
+                        const secondParagraph = sentences.slice(midpoint).join(' ');
+                        return (
+                          <>
+                            <p className="leading-relaxed">{firstParagraph}</p>
+                            {secondParagraph && <p className="leading-relaxed">{secondParagraph}</p>}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
 
