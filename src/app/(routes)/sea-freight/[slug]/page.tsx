@@ -333,10 +333,73 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                 </Card>
               </div>
 
-              {/* Detailed Text */}
+              {/* Detailed Text with Highlights Sidebar */}
               <div className="bg-cream rounded-2xl p-8 lg:p-10">
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p className="leading-relaxed">{seaFreightContent.benefits}</p>
+                <div className="grid lg:grid-cols-12 gap-8">
+                  {/* Main Content */}
+                  <div className="lg:col-span-8">
+                    <div className="prose prose-lg max-w-none text-muted-foreground">
+                      <p className="leading-relaxed">{seaFreightContent.benefits}</p>
+                    </div>
+                  </div>
+
+                  {/* Highlights Sidebar */}
+                  <div className="lg:col-span-4">
+                    <div className="bg-white rounded-xl p-6 border border-border/50 lg:sticky lg:top-24">
+                      <h4 className="font-heading font-bold text-foreground mb-4 text-sm uppercase tracking-wider">
+                        Route Highlights
+                      </h4>
+
+                      <div className="space-y-4 mb-6">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-copper/10 flex items-center justify-center flex-shrink-0">
+                            <Clock className="h-4 w-4 text-copper" />
+                          </div>
+                          <div>
+                            <p className="font-bold text-foreground">{route.transitTime}</p>
+                            <p className="text-xs text-muted-foreground">Transit Time</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-copper/10 flex items-center justify-center flex-shrink-0">
+                            <Calendar className="h-4 w-4 text-copper" />
+                          </div>
+                          <div>
+                            <p className="font-bold text-foreground">{route.frequency}</p>
+                            <p className="text-xs text-muted-foreground">Sailing Frequency</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-copper/10 flex items-center justify-center flex-shrink-0">
+                            <Shield className="h-4 w-4 text-copper" />
+                          </div>
+                          <div>
+                            <p className="font-bold text-foreground">&lt;0.1%</p>
+                            <p className="text-xs text-muted-foreground">Cargo Damage Rate</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-copper/10 flex items-center justify-center flex-shrink-0">
+                            <Ship className="h-4 w-4 text-copper" />
+                          </div>
+                          <div>
+                            <p className="font-bold text-foreground">FCL & LCL</p>
+                            <p className="text-xs text-muted-foreground">Container Options</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <Button asChild className="w-full bg-copper hover:bg-copper-dark text-white">
+                        <Link href="/quote">
+                          Get a Quote
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
