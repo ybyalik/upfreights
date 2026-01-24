@@ -89,6 +89,7 @@ export default function QuotePage() {
     email: '',
     phone: '',
     company: '',
+    website: '', // Honeypot field - should remain empty
   });
 
   const handleChange = (name: string, value: string) => {
@@ -137,6 +138,7 @@ export default function QuotePage() {
           origin: 'China',
           destination: 'To be discussed',
           message: `Timeline: ${formData.timeline}\n\nSpecial Requirements:\n${formData.specialRequirements}`,
+          website: formData.website, // Honeypot field
         }),
       });
 
@@ -198,6 +200,7 @@ export default function QuotePage() {
                       email: '',
                       phone: '',
                       company: '',
+                      website: '',
                     });
                   }}
                 >
@@ -527,6 +530,20 @@ export default function QuotePage() {
                         {errors.company && (
                           <p className="text-sm text-red-500">{errors.company}</p>
                         )}
+                      </div>
+
+                      {/* Honeypot field - hidden from real users */}
+                      <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
+                        <label htmlFor="quote-website">Website</label>
+                        <input
+                          type="text"
+                          id="quote-website"
+                          name="website"
+                          value={formData.website}
+                          onChange={(e) => handleChange('website', e.target.value)}
+                          tabIndex={-1}
+                          autoComplete="off"
+                        />
                       </div>
                     </div>
                   </CardContent>

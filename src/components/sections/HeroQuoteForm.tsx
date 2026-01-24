@@ -53,6 +53,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
     email: '',
     phone: '',
     company: '',
+    website: '', // Honeypot field - should remain empty
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -86,6 +87,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
           company: formData.company,
           shippingType: formData.serviceType,
           message: `Timeline: ${formData.timeline}\n\nSpecial Requirements:\n${formData.specialRequirements}`,
+          website: formData.website, // Honeypot field
         }),
       });
 
@@ -278,6 +280,20 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                 placeholder="Company (optional)"
                 className="bg-slate/5 border-slate/20 text-slate placeholder:text-slate/40 h-9 text-sm"
               />
+
+              {/* Honeypot field - hidden from real users */}
+              <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
+                  onChange={(e) => handleChange('website', e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
             </div>
           )}
 

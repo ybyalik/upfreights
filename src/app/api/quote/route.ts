@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendQuoteEmail } from '@/lib/email';
+import { sendQuoteEmail, sendQuoteAutoResponse } from '@/lib/email';
 import { sanitizeInput, validateEmail, validatePhone } from '@/lib/validation';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+
+    // Honeypot spam check - if this field is filled, it's likely a bot
+    if (body.website && body.website.trim() !== '') {
+      // Silently reject but return success to not alert bots
+      console.log('Spam detected: honeypot field filled');
+      return NextResponse.json(
+        { success: true, message: 'Quote request sent successfully' },
+        { status: 200 }
+      );
+    }
 
     // Sanitize inputs
     const sanitizedData = {
@@ -51,8 +61,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email
+    // Send email to business
     await sendQuoteEmail(sanitizedData);
+
+    // Send auto-response to customer
+    try {
+      await sendQuoteAutoResponse({
+        name: sanitizedData.name,
+        email: sanitizedData.email,
+      });
+    } catch (autoResponseError) {
+      // Log but don't fail the request if auto-response fails
+      console.error('Failed to send auto-response email:', autoResponseError);
+    }
 
     return NextResponse.json(
       { success: true, message: 'Quote request sent successfully' },

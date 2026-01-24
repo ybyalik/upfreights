@@ -138,3 +138,63 @@ ${message ? `\nAdditional Notes:\n${message}` : ''}
     throw new Error(`Failed to send email: ${error.message}`);
   }
 }
+
+interface QuoteAutoResponseData {
+  name: string;
+  email: string;
+}
+
+export async function sendQuoteAutoResponse(data: QuoteAutoResponseData): Promise<void> {
+  const { name, email } = data;
+
+  // Use first name for greeting
+  const firstName = name.split(' ')[0];
+
+  const htmlContent = `
+    <p>Hi ${firstName},</p>
+
+    <p>Thanks for reaching out to Upfreights!</p>
+
+    <p>We've received your freight forwarding quote request and our team is reviewing the details now.</p>
+
+    <p>We'll get back to you as soon as possible with pricing and next steps.</p>
+
+    <p>If your shipment is time-sensitive or you need to add more information, feel free to reply to this email.</p>
+
+    <p>Thank you,<br>
+    <strong>The Upfreights Team</strong><br>
+    China Freight Forwarding Solutions</p>
+  `;
+
+  const textContent = `
+Hi ${firstName},
+
+Thanks for reaching out to Upfreights!
+
+We've received your freight forwarding quote request and our team is reviewing the details now.
+
+We'll get back to you as soon as possible with pricing and next steps.
+
+If your shipment is time-sensitive or you need to add more information, feel free to reply to this email.
+
+Thank you,
+The Upfreights Team
+China Freight Forwarding Solutions
+  `.trim();
+
+  const contactEmails = getContactEmails();
+  const replyToEmail = contactEmails[0] || 'info@upfreights.com';
+
+  const { error } = await resend.emails.send({
+    from: process.env.RESEND_FROM_EMAIL || 'UpFreights <noreply@upfreights.com>',
+    to: email,
+    replyTo: replyToEmail,
+    subject: 'We received your quote request - Upfreights',
+    text: textContent,
+    html: htmlContent,
+  });
+
+  if (error) {
+    throw new Error(`Failed to send auto-response email: ${error.message}`);
+  }
+}
