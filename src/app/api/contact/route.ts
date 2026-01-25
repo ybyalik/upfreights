@@ -6,6 +6,15 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
+    // Honeypot check - if filled, silently accept but don't process
+    if (body.website) {
+      console.log('Honeypot triggered - bot submission detected');
+      return NextResponse.json(
+        { success: true, message: 'Message sent successfully' },
+        { status: 200 }
+      );
+    }
+
     // Sanitize inputs
     const sanitizedData = {
       name: sanitizeInput(body.name || ''),

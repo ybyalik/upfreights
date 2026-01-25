@@ -44,6 +44,7 @@ export default function ContactPage() {
     company: '',
     subject: '',
     message: '',
+    website: '', // Honeypot field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -72,6 +73,7 @@ export default function ContactPage() {
           phone: formData.phone,
           company: formData.company,
           message: `Subject: ${formData.subject}\n\n${formData.message}`,
+          website: formData.website, // Honeypot field
         }),
       });
 
@@ -193,6 +195,23 @@ export default function ContactPage() {
                             value={formData.company}
                             onChange={handleChange}
                             placeholder="Your Company Name"
+                          />
+                        </div>
+
+                        {/* Honeypot field - hidden from real users, bots will fill it */}
+                        <div
+                          className="absolute -left-[9999px]"
+                          aria-hidden="true"
+                        >
+                          <Label htmlFor="website">Website</Label>
+                          <Input
+                            id="website"
+                            name="website"
+                            type="text"
+                            value={formData.website}
+                            onChange={handleChange}
+                            tabIndex={-1}
+                            autoComplete="off"
                           />
                         </div>
 
