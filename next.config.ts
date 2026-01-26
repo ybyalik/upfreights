@@ -1,6 +1,30 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/blog/freight-forwarding-terminology-glossary',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blog/insurance-options-for-international-shipping',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blog/freight-class-codes-and-their-meanings',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-shipping-method-for-shopify-stores',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
