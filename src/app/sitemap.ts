@@ -160,27 +160,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  // Country destination pages (flat URLs like /shipping-china-to-usa)
+  // Country destination pages (only pages that actually exist)
   const countryDestinations = [
     'shipping-china-to-australia',
-    'shipping-china-to-belgium',
-    'shipping-china-to-brazil',
     'shipping-china-to-canada',
-    'shipping-china-to-france',
     'shipping-china-to-germany',
-    'shipping-china-to-india',
-    'shipping-china-to-italy',
-    'shipping-china-to-japan',
-    'shipping-china-to-mexico',
     'shipping-china-to-netherlands',
-    'shipping-china-to-new-zealand',
-    'shipping-china-to-singapore',
-    'shipping-china-to-south-korea',
-    'shipping-china-to-spain',
-    'shipping-china-to-uk',
     'shipping-china-to-united-kingdom',
     'shipping-china-to-united-states',
-    'shipping-china-to-usa',
   ];
 
   const countryPages: MetadataRoute.Sitemap = countryDestinations.map((dest) => ({
