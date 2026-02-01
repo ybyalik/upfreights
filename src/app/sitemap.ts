@@ -34,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${BASE_URL}/contact`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${BASE_URL}/blog`,
       lastModified: currentDate,
       changeFrequency: 'daily',
@@ -41,6 +47,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/all-routes`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/case-studies`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/incoterms`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/shipping-routes-china-to-usa`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/shipping-routes-china`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -85,7 +115,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/warehousing`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/trade-agency`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
   ];
+
+  // Case study pages
+  const caseStudyPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/case-studies/nigerian-sesame-to-qingdao`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/case-studies/baby-carriages-china-to-los-angeles`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/case-studies/oversized-equipment-japan-to-hangzhou`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ];
+
+  // Incoterms pages
+  const incotermsSlugs = ['exw', 'fca', 'fas', 'fob', 'cfr', 'cif', 'cpt', 'cip', 'dap', 'dpu', 'ddp'];
+  const incotermsPages: MetadataRoute.Sitemap = incotermsSlugs.map((term) => ({
+    url: `${BASE_URL}/incoterms/${term}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
 
   // Country destination pages (flat URLs like /shipping-china-to-usa)
   const countryDestinations = [
@@ -149,6 +222,52 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/sea-freight-from-china-to-netherlands`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+  ];
+
+  // Air freight country pages (like /air-freight-from-china-to-usa)
+  const airFreightCountryPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/air-freight-from-china-to-usa`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/air-freight-from-china-to-canada`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/air-freight-from-china-to-uk`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/air-freight-from-china-to-australia`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/air-freight-from-china-to-germany`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/air-freight-from-china-to-netherlands`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ];
 
   // Blog posts
@@ -180,8 +299,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...servicePages,
+    ...caseStudyPages,
+    ...incotermsPages,
     ...countryPages,
     ...seaFreightCountryPages,
+    ...airFreightCountryPages,
     ...blogPages,
     ...seaFreightRoutes,
     ...airFreightRoutes,

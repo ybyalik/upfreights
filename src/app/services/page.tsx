@@ -5,6 +5,8 @@ import {
   Plane,
   Home,
   FileCheck,
+  Warehouse,
+  Handshake,
   Globe,
   Clock,
   Shield,
@@ -57,6 +59,20 @@ const services = [
     tagline: 'Expert customs brokerage',
     description: 'Professional customs documentation and clearance services for smooth imports.',
   },
+  {
+    slug: 'warehousing',
+    icon: Warehouse,
+    title: 'Warehousing',
+    tagline: 'Secure storage in China',
+    description: 'Professional storage, packing, labeling, and quality inspection services across China.',
+  },
+  {
+    slug: 'trade-agency',
+    icon: Handshake,
+    title: 'Trade Agency',
+    tagline: 'Sourcing & procurement',
+    description: 'Complete trade services from product sourcing to delivery with a single-vendor approach.',
+  },
 ];
 
 const benefits = [
@@ -105,6 +121,20 @@ const comparisonData = [
     costLevel: 'Service Fee',
     bestFor: 'Complex regulations',
     coverage: 'All countries',
+  },
+  {
+    service: 'Warehousing',
+    transitTime: 'Flexible',
+    costLevel: 'Low',
+    bestFor: 'Inventory management',
+    coverage: '6 China locations',
+  },
+  {
+    service: 'Trade Agency',
+    transitTime: 'Varies',
+    costLevel: 'Medium',
+    bestFor: 'End-to-end sourcing',
+    coverage: 'All industries',
   },
 ];
 

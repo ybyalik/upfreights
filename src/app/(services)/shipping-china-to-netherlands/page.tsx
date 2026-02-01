@@ -13,14 +13,14 @@ import {
 } from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to Netherlands | Sea & Air Freight Guide 2025',
-  description: 'Complete guide to shipping from China to Netherlands. Current rates, transit times, customs requirements, and expert tips for sea and air freight in 2025.',
+  title: 'Shipping from China to Netherlands | Sea & Air Freight Guide 2026',
+  description: 'Complete guide to shipping from China to Netherlands. Current rates, transit times, customs requirements, and expert tips for sea and air freight in 2026.',
   alternates: {
     canonical: '/shipping-china-to-netherlands',
   },
   openGraph: {
     title: 'Shipping from China to Netherlands | UpFreights',
-    description: 'Complete guide to shipping from China to Netherlands. Current rates, transit times, and customs requirements for 2025.',
+    description: 'Complete guide to shipping from China to Netherlands. Current rates, transit times, and customs requirements for 2026.',
   },
 };
 
@@ -172,8 +172,8 @@ export default function ShippingToNetherlandsPage() {
 
                 <div className="flex items-center justify-between">
                   <Button asChild variant="outline">
-                    <Link href="/air-freight">
-                      View All Air Freight Routes
+                    <Link href="/air-freight-from-china-to-netherlands">
+                      View Air Freight to Netherlands
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -216,8 +216,8 @@ export default function ShippingToNetherlandsPage() {
 
                 <div className="flex items-center justify-between">
                   <Button asChild variant="outline">
-                    <Link href="/sea-freight">
-                      View All Sea Freight Routes
+                    <Link href="/sea-freight-from-china-to-netherlands">
+                      View Sea Freight to Netherlands
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -255,14 +255,17 @@ export default function ShippingToNetherlandsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Shipping From China to Netherlands
+              </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Shipping from China to the Netherlands can seem daunting, especially with 2025&apos;s volatile market conditions. Current geopolitical tensions and Red Sea disruptions have created significant rate fluctuations, making expert guidance essential for cost-effective international shipping. This comprehensive guide will help you understand your options, optimize costs, and ensure smooth delivery to the Netherlands.
+                Shipping from China to the Netherlands can seem daunting, especially with 2026&apos;s volatile market conditions. Current geopolitical tensions and Red Sea disruptions have created significant rate fluctuations, making expert guidance essential for cost-effective international shipping. This comprehensive guide will help you understand your options, optimize costs, and ensure smooth delivery to the Netherlands.
               </p>
 
               {/* Current Market Conditions */}
               <div className="mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                  Current Market Conditions and Rates for 2025
+                  Current Market Conditions and Rates for 2026
                 </h2>
                 <p className="text-muted-foreground mb-6">
                   Understanding the current shipping landscape is crucial for planning your logistics strategy. The China to Netherlands route has experienced dramatic rate swings throughout 2025, with Shanghai to Rotterdam rates jumping 41% in June alone before stabilizing in July.
@@ -270,7 +273,7 @@ export default function ShippingToNetherlandsPage() {
 
                 <h3 className="text-xl font-semibold text-foreground mb-4">Sea Freight Rates Show Signs of Stabilization</h3>
                 <p className="text-muted-foreground mb-4">
-                  After a turbulent first half of 2025, sea freight rates are showing more stability. Here&apos;s what you need to know about current pricing:
+                  After a turbulent first half of 2026, sea freight rates are showing more stability. Here&apos;s what you need to know about current pricing:
                 </p>
                 <div className="overflow-x-auto mb-8">
                   <table className="w-full border-collapse bg-background rounded-lg overflow-hidden">
@@ -313,7 +316,7 @@ export default function ShippingToNetherlandsPage() {
 
                 <h3 className="text-xl font-semibold text-foreground mb-4">Air Freight Maintains Premium Pricing</h3>
                 <p className="text-muted-foreground mb-4">
-                  Air freight rates have stabilized at elevated levels after experiencing an 88% year-over-year increase in April 2025. Red Sea crisis impacts continue to drive demand as shippers seek faster alternatives.
+                  Air freight rates have stabilized at elevated levels after experiencing an 88% year-over-year increase in April 2026. Red Sea crisis impacts continue to drive demand as shippers seek faster alternatives.
                 </p>
                 <div className="overflow-x-auto mb-8">
                   <table className="w-full border-collapse bg-background rounded-lg overflow-hidden">

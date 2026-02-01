@@ -54,7 +54,7 @@ ${message}
   `.trim();
 
   const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL || 'UpFreights <noreply@upfreights.com>',
+    from: 'UpFreights <davidfan@upfreights.com>',
     to: getContactEmails(),
     replyTo: email,
     subject: `Contact Form: ${name}`,
@@ -126,7 +126,7 @@ ${message ? `\nAdditional Notes:\n${message}` : ''}
   `.trim();
 
   const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL || 'UpFreights <noreply@upfreights.com>',
+    from: 'UpFreights <quote@upfreights.com>',
     to: getContactEmails(),
     replyTo: email,
     subject: `Quote Request: ${shippingTypeName}`,
@@ -186,7 +186,7 @@ China Freight Forwarding Solutions
   const replyToEmail = contactEmails[0] || 'info@upfreights.com';
 
   const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL || 'UpFreights <noreply@upfreights.com>',
+    from: 'UpFreights <quote@upfreights.com>',
     to: email,
     replyTo: replyToEmail,
     subject: 'We received your quote request - Upfreights',

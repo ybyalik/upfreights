@@ -2,17 +2,8 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown, Ship, Plane, Home, FileCheck } from 'lucide-react';
+import { Menu, ChevronDown, Ship, Plane, Home, FileCheck, Warehouse, Handshake, Phone, BookOpen, FileText, Briefcase, Globe, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { services } from '@/lib/data/services';
@@ -23,10 +14,110 @@ const serviceIcons: Record<string, React.ElementType> = {
   'air-freight': Plane,
   'door-to-door': Home,
   'customs-clearance': FileCheck,
+  'warehousing': Warehouse,
+  'trade-agency': Handshake,
 };
 
-export function Navbar() {
+const serviceSummaries: Record<string, string> = {
+  'sea-freight': 'FCL & LCL ocean shipping',
+  'air-freight': 'Express air cargo delivery',
+  'door-to-door': 'Full-service logistics',
+  'customs-clearance': 'Import/export brokerage',
+  'warehousing': 'Secure storage in China',
+  'trade-agency': 'Sourcing & procurement',
+};
+
+// Simple dropdown component
+function Dropdown({
+  trigger,
+  children,
+  className,
+}: {
+  trigger: React.ReactNode;
+  children: React.ReactNode;
+  className?: string;
+}) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setIsOpen(false), 150);
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button
+        className="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        {trigger}
+        <ChevronDown
+          className={cn(
+            "ml-1 h-3 w-3 transition-transform duration-200",
+            isOpen && "rotate-180"
+          )}
+        />
+      </button>
+      {isOpen && (
+        <div
+          className={cn(
+            "absolute left-0 top-full z-50 mt-1 rounded-md border bg-white shadow-lg",
+            className
+          )}
+        >
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Dropdown link item
+function DropdownLink({
+  href,
+  icon: Icon,
+  title,
+  description,
+}: {
+  href: string;
+  icon?: React.ElementType;
+  title: string;
+  description?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group flex items-start gap-3 rounded-md p-3 transition-colors hover:bg-orange"
+    >
+      {Icon && (
+        <Icon className="h-5 w-5 text-orange group-hover:text-white shrink-0 mt-0.5" />
+      )}
+      <div>
+        <div className="text-sm font-medium text-slate-800 group-hover:text-white">
+          {title}
+        </div>
+        {description && (
+          <p className="text-xs text-muted-foreground group-hover:text-white/80 mt-0.5">
+            {description}
+          </p>
+        )}
+      </div>
+    </Link>
+  );
+}
+
+export function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -57,105 +148,113 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-1">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {/* Services Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
-                    Services
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                      {services.map((service) => {
-                        const Icon = serviceIcons[service.slug] || Ship;
-                        const summaries: Record<string, string> = {
-                          'sea-freight': 'FCL & LCL ocean shipping',
-                          'air-freight': 'Express air cargo delivery',
-                          'door-to-door': 'Full-service logistics',
-                          'customs-clearance': 'Import/export brokerage',
-                        };
-                        return (
-                          <li key={service.id}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                href={`/${service.slug}`}
-                                className="group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-orange hover:text-white focus:bg-orange focus:text-white"
-                              >
-                                <div className="flex items-center space-x-2">
-                                  <Icon className="h-5 w-5 text-orange group-hover:text-white" />
-                                  <span className="text-sm font-medium leading-none">
-                                    {service.shortTitle}
-                                  </span>
-                                </div>
-                                <p className="text-xs leading-snug text-foreground/60 group-hover:text-white/80 mt-1.5">
-                                  {summaries[service.slug]}
-                                </p>
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        );
-                      })}
-                      <li className="col-span-2 border-t border-border/50 pt-3 mt-1">
-                        <NavigationMenuLink asChild>
-                          <Link
-                            href="/services"
-                            className="block select-none rounded-md p-3 text-center font-medium text-orange hover:bg-orange hover:text-white transition-colors"
-                          >
-                            View All Services
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+          <div className="hidden lg:flex lg:items-center lg:gap-1">
+            {/* Services Dropdown */}
+            <Dropdown trigger="Services" className="w-[500px] p-4">
+              <div className="grid grid-cols-2 gap-2">
+                {services.map((service) => {
+                  const Icon = serviceIcons[service.slug] || Ship;
+                  return (
+                    <DropdownLink
+                      key={service.id}
+                      href={`/${service.slug}`}
+                      icon={Icon}
+                      title={service.shortTitle}
+                      description={serviceSummaries[service.slug]}
+                    />
+                  );
+                })}
+              </div>
+              <div className="border-t border-border/50 mt-3 pt-3">
+                <Link
+                  href="/services"
+                  className="block rounded-md p-3 text-center text-sm font-medium text-orange hover:bg-orange hover:text-white transition-colors"
+                >
+                  View All Services
+                </Link>
+              </div>
+            </Dropdown>
 
-                {/* Destinations Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
-                    Destinations
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] lg:grid-cols-3">
-                      {destinations.map((destination) => (
-                        <li key={destination.id}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={`/shipping-${destination.slug}`}
-                              className="group flex items-center space-x-2 rounded-md p-2.5 leading-none no-underline outline-none transition-colors hover:bg-orange hover:text-white focus:bg-orange focus:text-white"
-                            >
-                              <span className="text-xl">{destination.flag}</span>
-                              <span className="text-sm font-medium leading-none">
-                                {destination.country}
-                              </span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+            {/* Destinations Dropdown */}
+            <Dropdown trigger="Destinations" className="w-[500px] p-4">
+              <div className="grid grid-cols-3 gap-2">
+                {destinations.map((destination) => (
+                  <Link
+                    key={destination.id}
+                    href={`/shipping-${destination.slug}`}
+                    className="group flex items-center gap-2 rounded-md p-2.5 transition-colors hover:bg-orange"
+                  >
+                    <span className="text-xl">{destination.flag}</span>
+                    <span className="text-sm font-medium text-slate-800 group-hover:text-white">
+                      {destination.country}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </Dropdown>
 
-                {/* About Link */}
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}>
-                    <Link href="/about">About</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+            {/* About Link */}
+            <Link
+              href="/about"
+              className="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              About
+            </Link>
 
-                {/* Blog Link */}
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}>
-                    <Link href="/blog">Blog</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            {/* Resources Dropdown */}
+            <Dropdown trigger="Resources" className="w-[320px] p-4">
+              <div className="space-y-1">
+                <DropdownLink
+                  href="/blog"
+                  icon={BookOpen}
+                  title="Blog"
+                  description="Industry insights & guides"
+                />
+                <DropdownLink
+                  href="/incoterms"
+                  icon={FileText}
+                  title="Incoterms 2020"
+                  description="Trade terms explained"
+                />
+                <DropdownLink
+                  href="/case-studies"
+                  icon={Briefcase}
+                  title="Case Studies"
+                  description="Success stories"
+                />
+                <div className="border-t border-border/50 my-2 pt-2">
+                  <p className="text-xs text-muted-foreground px-3 mb-2">Shipping Guides</p>
+                  <DropdownLink
+                    href="/shipping-routes-china-to-usa"
+                    icon={MapPin}
+                    title="China to USA Routes"
+                    description="Complete shipping guide"
+                  />
+                  <DropdownLink
+                    href="/shipping-routes-china"
+                    icon={Globe}
+                    title="China to Worldwide"
+                    description="Global routes & carriers"
+                  />
+                </div>
+              </div>
+            </Dropdown>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="hidden lg:flex lg:items-center lg:space-x-4">
-            <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="tel:+8657382600785"
+              className="flex items-center text-muted-foreground hover:text-foreground transition-colors"
+              rel="nofollow"
+              aria-label="Call us"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
               Contact
             </Link>
             <Button asChild className="bg-orange hover:bg-orange-dark text-white">
@@ -164,7 +263,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
@@ -186,7 +285,7 @@ export function Navbar() {
                         <Link
                           key={service.id}
                           href={`/${service.slug}`}
-                          onClick={() => setIsOpen(false)}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
                         >
                           <Icon className="h-5 w-5 text-orange" />
@@ -196,7 +295,7 @@ export function Navbar() {
                     })}
                     <Link
                       href="/services"
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block px-3 py-2 text-sm font-medium text-orange rounded-md hover:bg-accent transition-colors"
                     >
                       View All Services
@@ -214,7 +313,7 @@ export function Navbar() {
                       <Link
                         key={destination.id}
                         href={`/shipping-${destination.slug}`}
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-accent transition-colors"
                       >
                         <span className="text-lg">{destination.flag}</span>
@@ -224,25 +323,67 @@ export function Navbar() {
                   </div>
                 </div>
 
+                {/* Mobile Resources */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                    Resources
+                  </h3>
+                  <div className="space-y-2">
+                    <Link
+                      href="/blog"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                    >
+                      <BookOpen className="h-5 w-5 text-orange" />
+                      <span className="text-sm font-medium">Blog</span>
+                    </Link>
+                    <Link
+                      href="/incoterms"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                    >
+                      <FileText className="h-5 w-5 text-orange" />
+                      <span className="text-sm font-medium">Incoterms 2020</span>
+                    </Link>
+                    <Link
+                      href="/case-studies"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                    >
+                      <Briefcase className="h-5 w-5 text-orange" />
+                      <span className="text-sm font-medium">Case Studies</span>
+                    </Link>
+                    <Link
+                      href="/shipping-routes-china-to-usa"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                    >
+                      <MapPin className="h-5 w-5 text-orange" />
+                      <span className="text-sm font-medium">China to USA Routes</span>
+                    </Link>
+                    <Link
+                      href="/shipping-routes-china"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                    >
+                      <Globe className="h-5 w-5 text-orange" />
+                      <span className="text-sm font-medium">China to Worldwide</span>
+                    </Link>
+                  </div>
+                </div>
+
                 {/* Mobile Links */}
                 <div className="space-y-2">
                   <Link
                     href="/about"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="block px-3 py-2 text-sm font-medium rounded-md hover:bg-accent transition-colors"
                   >
                     About
                   </Link>
                   <Link
-                    href="/blog"
-                    onClick={() => setIsOpen(false)}
-                    className="block px-3 py-2 text-sm font-medium rounded-md hover:bg-accent transition-colors"
-                  >
-                    Blog
-                  </Link>
-                  <Link
                     href="/contact"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="block px-3 py-2 text-sm font-medium rounded-md hover:bg-accent transition-colors"
                   >
                     Contact
@@ -254,7 +395,7 @@ export function Navbar() {
                   asChild
                   className="w-full bg-orange hover:bg-orange-dark text-white"
                 >
-                  <Link href="/quote" onClick={() => setIsOpen(false)}>
+                  <Link href="/quote" onClick={() => setMobileMenuOpen(false)}>
                     Get Quote
                   </Link>
                 </Button>

@@ -166,8 +166,8 @@ export default function ShippingToAustraliaPage() {
 
                 <div className="flex items-center justify-between">
                   <Button asChild variant="outline">
-                    <Link href="/air-freight">
-                      View All Air Freight Routes
+                    <Link href="/air-freight-from-china-to-australia">
+                      View Air Freight to Australia
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -210,8 +210,8 @@ export default function ShippingToAustraliaPage() {
 
                 <div className="flex items-center justify-between">
                   <Button asChild variant="outline">
-                    <Link href="/sea-freight">
-                      View All Sea Freight Routes
+                    <Link href="/sea-freight-from-china-to-australia">
+                      View Sea Freight to Australia
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

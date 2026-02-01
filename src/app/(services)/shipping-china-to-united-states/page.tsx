@@ -168,8 +168,8 @@ export default function ShippingToUSPage() {
 
                 <div className="flex items-center justify-between">
                   <Button asChild variant="outline">
-                    <Link href="/air-freight">
-                      View All Air Freight Routes
+                    <Link href="/air-freight-from-china-to-usa">
+                      View Air Freight to USA
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -212,8 +212,8 @@ export default function ShippingToUSPage() {
 
                 <div className="flex items-center justify-between">
                   <Button asChild variant="outline">
-                    <Link href="/sea-freight">
-                      View All Sea Freight Routes
+                    <Link href="/sea-freight-from-china-to-usa">
+                      View Sea Freight to USA
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

@@ -18,3 +18,4 @@ export { CorridorAnalysis } from './CorridorAnalysis';
 export { FilterableRoutesList } from './FilterableRoutesList';
 export { AllRoutesClient } from './AllRoutesClient';
 export { FAQSchema } from './FAQSchema';
+export { CaseStudyCard } from './CaseStudyCard';

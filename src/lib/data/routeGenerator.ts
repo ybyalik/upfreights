@@ -1,6 +1,24 @@
 import { Route, ContainerOption } from '@/lib/types';
 import { routes as csvRoutes } from './routes';
 
+// ============================================================================
+// MEMOIZATION CACHE
+// These caches ensure routes are only generated ONCE during the entire build,
+// not once per page. This reduces build time from O(n²) to O(n).
+// ============================================================================
+let cachedSeaRoutes: Route[] | null = null;
+let cachedAirRoutes: Route[] | null = null;
+let cachedAllRoutes: Route[] | null = null;
+let cachedFlatSlugs: Array<{ type: 'sea' | 'air'; slug: string }> | null = null;
+
+// Route lookup maps for O(1) access instead of O(n) array filtering
+let seaRoutesBySlug: Map<string, Route> | null = null;
+let airRoutesBySlug: Map<string, Route> | null = null;
+let seaRoutesByOrigin: Map<string, Route[]> | null = null;
+let airRoutesByOrigin: Map<string, Route[]> | null = null;
+let seaRoutesByDestination: Map<string, Route[]> | null = null;
+let airRoutesByDestination: Map<string, Route[]> | null = null;
+
 // Sea freight origins (8 cities)
 const seaOrigins = [
   { city: 'Shanghai', port: 'Port of Shanghai (CNSHA)', code: 'CNSHA' },
@@ -171,7 +189,10 @@ function findCsvRoute(originSlug: string, destSlug: string, serviceType: 'sea' |
 }
 
 // Generate sea freight routes (259 routes matching existing site)
+// MEMOIZED: Routes are only generated once and cached
 export function generateSeaRoutes(): Route[] {
+  if (cachedSeaRoutes) return cachedSeaRoutes;
+
   const routes: Route[] = [];
 
   for (const [originSlug, destSlugs] of Object.entries(seaRouteMatrix)) {
@@ -218,11 +239,15 @@ export function generateSeaRoutes(): Route[] {
     }
   }
 
+  cachedSeaRoutes = routes;
   return routes;
 }
 
 // Generate air freight routes (161 routes matching existing site)
+// MEMOIZED: Routes are only generated once and cached
 export function generateAirRoutes(): Route[] {
+  if (cachedAirRoutes) return cachedAirRoutes;
+
   const routes: Route[] = [];
 
   for (const [originSlug, destSlugs] of Object.entries(airRouteMatrix)) {
@@ -265,24 +290,79 @@ export function generateAirRoutes(): Route[] {
     }
   }
 
+  cachedAirRoutes = routes;
   return routes;
 }
 
-// Generate all routes
+// Generate all routes - MEMOIZED
 export function generateAllRoutes(): Route[] {
-  return [...generateSeaRoutes(), ...generateAirRoutes()];
+  if (cachedAllRoutes) return cachedAllRoutes;
+  cachedAllRoutes = [...generateSeaRoutes(), ...generateAirRoutes()];
+  return cachedAllRoutes;
 }
 
-// Get route by flat slug (e.g., "shanghai-to-new-york")
+// Build lookup maps for O(1) access - called once, then cached
+function buildLookupMaps(): void {
+  if (seaRoutesBySlug) return; // Already built
+
+  const seaRoutes = generateSeaRoutes();
+  const airRoutes = generateAirRoutes();
+
+  // Build slug lookup maps
+  seaRoutesBySlug = new Map(seaRoutes.map(r => [r.slug, r]));
+  airRoutesBySlug = new Map(airRoutes.map(r => [r.slug, r]));
+
+  // Build origin lookup maps
+  seaRoutesByOrigin = new Map<string, Route[]>();
+  airRoutesByOrigin = new Map<string, Route[]>();
+
+  for (const route of seaRoutes) {
+    const key = route.originCity.toLowerCase();
+    const existing = seaRoutesByOrigin.get(key) || [];
+    existing.push(route);
+    seaRoutesByOrigin.set(key, existing);
+  }
+
+  for (const route of airRoutes) {
+    const key = route.originCity.toLowerCase();
+    const existing = airRoutesByOrigin.get(key) || [];
+    existing.push(route);
+    airRoutesByOrigin.set(key, existing);
+  }
+
+  // Build destination lookup maps
+  seaRoutesByDestination = new Map<string, Route[]>();
+  airRoutesByDestination = new Map<string, Route[]>();
+
+  for (const route of seaRoutes) {
+    const key = route.destinationCity.toLowerCase();
+    const existing = seaRoutesByDestination.get(key) || [];
+    existing.push(route);
+    seaRoutesByDestination.set(key, existing);
+  }
+
+  for (const route of airRoutes) {
+    const key = route.destinationCity.toLowerCase();
+    const existing = airRoutesByDestination.get(key) || [];
+    existing.push(route);
+    airRoutesByDestination.set(key, existing);
+  }
+}
+
+// Get route by flat slug (e.g., "shanghai-to-new-york") - O(1) lookup
 export function getRouteByFlatSlug(slug: string, serviceType: 'sea' | 'air'): Route | undefined {
-  const allRoutes = generateAllRoutes();
-  return allRoutes.find((r) => r.slug === slug && r.serviceType === serviceType);
+  buildLookupMaps();
+  return serviceType === 'sea'
+    ? seaRoutesBySlug!.get(slug)
+    : airRoutesBySlug!.get(slug);
 }
 
-// Get all route slugs for static generation
+// Get all route slugs for static generation - MEMOIZED
 export function getAllFlatRouteSlugs(): Array<{ type: 'sea' | 'air'; slug: string }> {
+  if (cachedFlatSlugs) return cachedFlatSlugs;
   const allRoutes = generateAllRoutes();
-  return allRoutes.map((r) => ({ type: r.serviceType, slug: r.slug }));
+  cachedFlatSlugs = allRoutes.map((r) => ({ type: r.serviceType, slug: r.slug }));
+  return cachedFlatSlugs;
 }
 
 // Get routes by destination country
@@ -301,14 +381,20 @@ export function getAllAirRoutes(): Route[] {
   return generateAirRoutes();
 }
 
-// Get routes by origin city
+// Get routes by origin city - O(1) lookup
 export function getRoutesByOrigin(originCity: string, serviceType: 'sea' | 'air'): Route[] {
-  const routes = serviceType === 'sea' ? generateSeaRoutes() : generateAirRoutes();
-  return routes.filter((r) => r.originCity.toLowerCase() === originCity.toLowerCase());
+  buildLookupMaps();
+  const key = originCity.toLowerCase();
+  return serviceType === 'sea'
+    ? seaRoutesByOrigin!.get(key) || []
+    : airRoutesByOrigin!.get(key) || [];
 }
 
-// Get routes by destination city
+// Get routes by destination city - O(1) lookup
 export function getRoutesByDestination(destinationCity: string, serviceType: 'sea' | 'air'): Route[] {
-  const routes = serviceType === 'sea' ? generateSeaRoutes() : generateAirRoutes();
-  return routes.filter((r) => r.destinationCity.toLowerCase() === destinationCity.toLowerCase());
+  buildLookupMaps();
+  const key = destinationCity.toLowerCase();
+  return serviceType === 'sea'
+    ? seaRoutesByDestination!.get(key) || []
+    : airRoutesByDestination!.get(key) || [];
 }

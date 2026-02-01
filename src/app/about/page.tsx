@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import {
   Globe,
   MapPin,
   Ship,
-  Users,
   Award,
   CheckCircle,
   Building,
@@ -58,21 +58,25 @@ const team = [
     name: 'David Fan',
     role: 'Co-founder & CEO',
     description: 'Strategic leadership and business development with extensive experience in international trade and logistics operations.',
+    image: '/images/team/David.png',
   },
   {
     name: 'Victoria Lang',
     role: 'Chief Operational Officer',
     description: 'Operational excellence and process optimization expert, ensuring smooth logistics operations across all service lines.',
+    image: '/images/team/Victoria.png',
   },
   {
     name: 'Kaylee Zhang',
     role: 'Sales Manager',
     description: 'Client relationship management and business development specialist with deep understanding of market dynamics.',
+    image: '/images/team/Kaylee.png',
   },
   {
     name: 'Richard Wang',
     role: 'Senior Sales',
     description: 'Senior sales professional with expertise in complex logistics solutions and international market development.',
+    image: '/images/team/Richard.png',
   },
 ];
 
@@ -270,8 +274,14 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <Card key={index} className="border-border/50">
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-primary" />
+                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 relative">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="96px"
+                    />
                   </div>
                   <h3 className="font-bold text-foreground mb-1">{member.name}</h3>
                   <p className="text-sm text-orange mb-3">{member.role}</p>
