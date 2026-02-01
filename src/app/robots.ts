@@ -15,10 +15,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         // Block aggressive/less useful bots to save bandwidth
-        userAgent: 'AhrefsBot',
-        disallow: '/',
-      },
-      {
+        // Note: AhrefsBot is allowed since we use Ahrefs for SEO
         userAgent: 'SemrushBot',
         disallow: '/',
       },
