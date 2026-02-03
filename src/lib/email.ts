@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Parse CONTACT_EMAIL which may contain multiple comma-separated addresses
 function getContactEmails(): string[] {
-  const contactEmail = process.env.CONTACT_EMAIL || 'info@upfreights.com';
+  const contactEmail = process.env.CONTACT_EMAIL || 'quote@upfreights.com';
   return contactEmail.split(',').map(email => email.trim()).filter(Boolean);
 }
 
@@ -183,7 +183,7 @@ China Freight Forwarding Solutions
   `.trim();
 
   const contactEmails = getContactEmails();
-  const replyToEmail = contactEmails[0] || 'info@upfreights.com';
+  const replyToEmail = contactEmails[0] || 'quote@upfreights.com';
 
   const { error } = await resend.emails.send({
     from: 'UpFreights <quote@upfreights.com>',

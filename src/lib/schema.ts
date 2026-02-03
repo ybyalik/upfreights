@@ -20,7 +20,7 @@ export const ORGANIZATION_INFO = {
     longitude: 120.7530,
   },
   telephone: '+86-573-82600785',
-  email: 'info@upfreights.com',
+  email: 'quote@upfreights.com',
   sameAs: [
     'https://www.linkedin.com/company/upfreights',
   ],

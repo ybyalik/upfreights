@@ -62,11 +62,11 @@ export function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:info@upfreights.com"
+                href="mailto:quote@upfreights.com"
                 className="flex items-center space-x-3 text-sm text-primary-foreground/80 hover:text-orange transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span>info@upfreights.com</span>
+                <span>quote@upfreights.com</span>
               </a>
               <a
                 href="tel:+86-573-82600785"

@@ -15,9 +15,9 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'info@upfreights.com',
+    value: 'quote@upfreights.com',
     description: 'We respond within 24 hours',
-    href: 'mailto:info@upfreights.com',
+    href: 'mailto:quote@upfreights.com',
   },
   {
     icon: Phone,
