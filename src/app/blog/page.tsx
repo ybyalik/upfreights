@@ -12,6 +12,11 @@ const blogCollectionSchema = generateBlogCollectionSchema(
   blogPosts.map((post) => ({ title: post.title, slug: post.slug }))
 );
 
+// Force static generation - pre-render at build time instead of on-demand
+// Revalidate every 24 hours to pick up new blog posts from webhook
+export const revalidate = 86400; // 24 hours in seconds
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Blog - Shipping Insights & Guides',
   description:
