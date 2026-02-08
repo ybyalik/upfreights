@@ -16,7 +16,6 @@ interface BlogPostPageProps {
 
 // Force static generation - pre-render at build time instead of on-demand
 export const dynamic = 'force-static';
-export const revalidate = 86400; // Revalidate every 24 hours
 
 export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({
