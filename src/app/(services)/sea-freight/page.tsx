@@ -78,6 +78,14 @@ const destinationCountries = [
     description: 'Gateway to Europe via Hamburg and Bremerhaven with excellent infrastructure.',
     highlights: ['EU market gateway', 'Central European location', 'Advanced logistics'],
   },
+  {
+    country: 'Italy',
+    flag: '🇮🇹',
+    slug: 'china-to-italy',
+    transitTime: '40-65 days',
+    description: 'Strategic Mediterranean access via Trieste, gateway to Central and Southern Europe.',
+    highlights: ['Mediterranean gateway', 'Central Europe access', 'Major carrier coverage'],
+  },
 ];
 
 const seaFreightServiceSchema = generateServiceSchema({

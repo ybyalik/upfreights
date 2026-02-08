@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bitter, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -93,6 +94,18 @@ export default function RootLayout({
             __html: JSON.stringify(generateWebSiteSchema()),
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CBNKQW3M71"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CBNKQW3M71');
+          `}
+        </Script>
       </head>
       <body
         className={`${bitter.variable} ${jakarta.variable} font-body antialiased min-h-screen flex flex-col`}

@@ -9,6 +9,7 @@
 
 export interface CarrierRate {
   carrier: string;
+  price20GP?: number;
   price40GP: number;
   price40HQ: number;
   transitTime: number; // in days
@@ -1172,6 +1173,506 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Felixstowe',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 45 },
+    ],
+  },
+  // ==========================================
+  // ITALY ROUTES (Trieste)
+  // ==========================================
+
+  // Shanghai to Trieste
+  {
+    origin: 'Shanghai',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 42 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Ningbo to Trieste
+  {
+    origin: 'Ningbo',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 55 },
+      { carrier: 'ONE', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 51 },
+    ],
+  },
+  // Shenzhen to Trieste
+  {
+    origin: 'Shenzhen',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 40 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Qingdao to Trieste
+  {
+    origin: 'Qingdao',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 64 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Xiamen to Trieste
+  {
+    origin: 'Xiamen',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 62 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Guangzhou to Trieste
+  {
+    origin: 'Guangzhou',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+    ],
+  },
+  // Tianjin to Trieste
+  {
+    origin: 'Tianjin',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 65 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 63 },
+    ],
+  },
+  // Hong Kong to Trieste
+  {
+    origin: 'Hong Kong',
+    destination: 'Trieste',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 42 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+    ],
+  },
+  // ==========================================
+  // ITALY ROUTES (Naples)
+  // ==========================================
+
+  // Shanghai to Naples
+  {
+    origin: 'Shanghai',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 58 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 53 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 59 },
+    ],
+  },
+  // Ningbo to Naples
+  {
+    origin: 'Ningbo',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'ONE', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 51 },
+    ],
+  },
+  // Shenzhen to Naples
+  {
+    origin: 'Shenzhen',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 50 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Qingdao to Naples
+  {
+    origin: 'Qingdao',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 64 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Xiamen to Naples
+  {
+    origin: 'Xiamen',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 62 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Guangzhou to Naples
+  {
+    origin: 'Guangzhou',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 58 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 53 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 59 },
+    ],
+  },
+  // Tianjin to Naples
+  {
+    origin: 'Tianjin',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 65 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 63 },
+    ],
+  },
+  // Hong Kong to Naples
+  {
+    origin: 'Hong Kong',
+    destination: 'Naples',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 58 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 58 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 53 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 59 },
+    ],
+  },
+  // ==========================================
+  // ITALY ROUTES (La Spezia)
+  // ==========================================
+
+  // Shanghai to La Spezia
+  {
+    origin: 'Shanghai',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 48 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Ningbo to La Spezia
+  {
+    origin: 'Ningbo',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'ONE', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 48 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Shenzhen to La Spezia
+  {
+    origin: 'Shenzhen',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 40 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Qingdao to La Spezia
+  {
+    origin: 'Qingdao',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 64 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Xiamen to La Spezia
+  {
+    origin: 'Xiamen',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 62 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Guangzhou to La Spezia
+  {
+    origin: 'Guangzhou',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+    ],
+  },
+  // Tianjin to La Spezia
+  {
+    origin: 'Tianjin',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 65 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 63 },
+    ],
+  },
+  // Hong Kong to La Spezia
+  {
+    origin: 'Hong Kong',
+    destination: 'La Spezia',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 42 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+    ],
+  },
+  // ==========================================
+  // ITALY ROUTES (Venice)
+  // ==========================================
+
+  // Shanghai to Venice
+  {
+    origin: 'Shanghai',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 48 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Ningbo to Venice
+  {
+    origin: 'Ningbo',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'ONE', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 48 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Shenzhen to Venice
+  {
+    origin: 'Shenzhen',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 40 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Qingdao to Venice
+  {
+    origin: 'Qingdao',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 64 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Xiamen to Venice
+  {
+    origin: 'Xiamen',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 62 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Guangzhou to Venice
+  {
+    origin: 'Guangzhou',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+    ],
+  },
+  // Tianjin to Venice
+  {
+    origin: 'Tianjin',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 65 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 63 },
+    ],
+  },
+  // Hong Kong to Venice
+  {
+    origin: 'Hong Kong',
+    destination: 'Venice',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 42 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+    ],
+  },
+  // ==========================================
+  // ITALY ROUTES (Genoa)
+  // ==========================================
+
+  // Shanghai to Genoa
+  {
+    origin: 'Shanghai',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 48 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Ningbo to Genoa
+  {
+    origin: 'Ningbo',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+      { carrier: 'ONE', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 48 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Shenzhen to Genoa
+  {
+    origin: 'Shenzhen',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 40 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 40 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 50 },
+    ],
+  },
+  // Qingdao to Genoa
+  {
+    origin: 'Qingdao',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'EMC', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 60 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 64 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Xiamen to Genoa
+  {
+    origin: 'Xiamen',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 62 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+    ],
+  },
+  // Guangzhou to Genoa
+  {
+    origin: 'Guangzhou',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 52 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 52 },
+    ],
+  },
+  // Tianjin to Genoa
+  {
+    origin: 'Tianjin',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 62 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 65 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 60 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 63 },
+    ],
+  },
+  // Hong Kong to Genoa
+  {
+    origin: 'Hong Kong',
+    destination: 'Genoa',
+    rates: [
+      { carrier: 'CMA', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'OOCL', price20GP: 2000, price40GP: 2500, price40HQ: 2500, transitTime: 42 },
+      { carrier: 'COSCO', price20GP: 2100, price40GP: 2600, price40HQ: 2600, transitTime: 42 },
+      { carrier: 'MSC', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
+      { carrier: 'MAERSK', price20GP: 1900, price40GP: 2500, price40HQ: 2500, transitTime: 45 },
     ],
   },
 ];

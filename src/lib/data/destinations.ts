@@ -232,6 +232,48 @@ export const destinations: Destination[] = [
     ],
     image: '/images/destinations/netherlands.jpg',
   },
+  {
+    id: 'italy',
+    slug: 'china-to-italy',
+    country: 'Italy',
+    countryCode: 'IT',
+    flag: '🇮🇹',
+    description: 'Italy is a key Mediterranean trading partner for China, with Trieste serving as a strategic gateway to Central and Southern Europe. Strong demand for machinery, electronics, textiles, and fashion goods drives consistent shipping volumes on this route.',
+    transitTimeAir: '3-5 days',
+    transitTimeSea: '40-65 days',
+    majorPorts: ['Genoa', 'Trieste', 'Naples', 'La Spezia', 'Venice'],
+    majorAirports: ['Milan Malpensa (MXP)', 'Rome Fiumicino (FCO)', 'Venice Marco Polo (VCE)'],
+    customsInfo: 'Italian customs operates within the EU customs union. AIDA system used for electronic customs declarations. EORI number required for all importers. VAT and duties payable before goods release.',
+    documentation: [
+      'Commercial Invoice',
+      'Packing List',
+      'Bill of Lading / Air Waybill',
+      'EORI Number',
+      'EU Customs Declaration',
+      'CE marking documentation (where applicable)',
+      'Certificate of Origin',
+    ],
+    routes: [],
+    faqs: [
+      {
+        question: 'What is the transit time for sea freight from China to Italy?',
+        answer: 'Sea freight from major Chinese ports to Trieste typically takes 40-65 days depending on the origin port and carrier. Shanghai and Shenzhen offer the fastest transit times at around 40-42 days, while northern ports like Qingdao and Tianjin may take 60-65 days.',
+      },
+      {
+        question: 'Why is Trieste a strategic port for European imports?',
+        answer: 'Trieste is the northernmost Mediterranean port and serves as a key gateway for Central and Eastern European distribution. It offers excellent rail and road connections to Austria, Germany, and the Balkans, reducing inland transportation costs.',
+      },
+      {
+        question: 'What duties and taxes apply to Italian imports from China?',
+        answer: 'Italy applies EU common external tariff duties based on HS code classification, plus Italian VAT at 22% on most goods. An EORI number is required for all commercial imports. We provide duty estimation as part of our quote process.',
+      },
+      {
+        question: 'Which carriers operate on the China to Trieste route?',
+        answer: 'Major carriers including CMA CGM, MSC, Maersk, COSCO, OOCL, Evergreen (EMC), and ONE operate regular services from Chinese ports to Trieste, with weekly departures from most origin ports.',
+      },
+    ],
+    image: '/images/destinations/italy.jpg',
+  },
 ];
 
 export function getDestinationBySlug(slug: string): Destination | undefined {

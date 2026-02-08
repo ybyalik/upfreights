@@ -619,6 +619,9 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                   <thead>
                     <tr className="bg-slate text-white">
                       <th className="px-6 py-4 text-left font-heading font-bold text-sm uppercase tracking-wider">Carrier</th>
+                      {routePricing.rates.some(r => r.price20GP != null) && (
+                        <th className="px-6 py-4 text-right font-heading font-bold text-sm uppercase tracking-wider">20GP (USD)</th>
+                      )}
                       <th className="px-6 py-4 text-right font-heading font-bold text-sm uppercase tracking-wider">40GP (USD)</th>
                       <th className="px-6 py-4 text-right font-heading font-bold text-sm uppercase tracking-wider">40HQ (USD)</th>
                       <th className="px-6 py-4 text-right font-heading font-bold text-sm uppercase tracking-wider">Transit Time</th>
@@ -633,6 +636,11 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                         <td className="px-6 py-4">
                           <span className="font-heading font-bold text-foreground">{rate.carrier}</span>
                         </td>
+                        {routePricing.rates.some(r => r.price20GP != null) && (
+                          <td className="px-6 py-4 text-right">
+                            <span className="text-2xl font-bold text-copper">{rate.price20GP != null ? formatPrice(rate.price20GP) : '—'}</span>
+                          </td>
+                        )}
                         <td className="px-6 py-4 text-right">
                           <span className="text-2xl font-bold text-copper">{formatPrice(rate.price40GP)}</span>
                         </td>
@@ -670,7 +678,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
               {/* Additional container options */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  { type: '20ft FCL', label: 'Standard', dimensions: '6.1m × 2.4m × 2.6m', note: 'Contact for pricing' },
+                  { type: '20ft FCL', label: 'Standard', dimensions: '6.1m × 2.4m × 2.6m', note: routePricing.rates.some(r => r.price20GP != null) ? 'See 20GP rates above' : 'Contact for pricing' },
                   { type: '40ft High Cube', label: 'Extra Height', dimensions: '12.2m × 2.4m × 2.9m', note: 'See 40HQ rates above' },
                   { type: 'LCL Shipment', label: 'Less than Container', dimensions: 'Per CBM', note: 'From $45/CBM' },
                   { type: 'Special Cargo', label: 'Custom', dimensions: 'Various', note: 'Get custom quote' },
