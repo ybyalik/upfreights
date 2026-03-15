@@ -1,0 +1,3 @@
+{
+  "/(routes)/sea-freight/[slug]/page": "app/(routes)/sea-freight/[slug]/page.js"
+}

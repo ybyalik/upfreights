@@ -1,0 +1,15 @@
+{
+  "/(routes)/sea-freight/[slug]/page": "app/(routes)/sea-freight/[slug]/page.js",
+  "/(services)/sea-freight-from-china-to-australia/page": "app/(services)/sea-freight-from-china-to-australia/page.js",
+  "/(services)/sea-freight-from-china-to-canada/page": "app/(services)/sea-freight-from-china-to-canada/page.js",
+  "/(services)/sea-freight-from-china-to-germany/page": "app/(services)/sea-freight-from-china-to-germany/page.js",
+  "/(services)/sea-freight-from-china-to-italy/page": "app/(services)/sea-freight-from-china-to-italy/page.js",
+  "/(services)/sea-freight-from-china-to-uk/page": "app/(services)/sea-freight-from-china-to-uk/page.js",
+  "/(services)/sea-freight-from-china-to-usa/page": "app/(services)/sea-freight-from-china-to-usa/page.js",
+  "/(services)/sea-freight/page": "app/(services)/sea-freight/page.js",
+  "/(services)/shipping-china-to-italy/page": "app/(services)/shipping-china-to-italy/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/all-routes/page": "app/all-routes/page.js",
+  "/page": "app/page.js",
+  "/services/page": "app/services/page.js"
+}
