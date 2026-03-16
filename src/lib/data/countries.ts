@@ -145,15 +145,6 @@ export const countryDestinations: CountryDestination[] = [
     popularGoods: ['Textiles', 'Electronics', 'Furniture', 'Consumer Goods', 'Machinery'],
   },
   {
-    slug: 'shipping-china-to-uk',
-    name: 'United Kingdom',
-    code: 'GB',
-    description: 'Comprehensive shipping from China to UK with expert customs clearance.',
-    majorPorts: ['Felixstowe', 'Southampton', 'London Gateway'],
-    transitTime: '28-35 days',
-    popularGoods: ['Textiles', 'Electronics', 'Furniture', 'Consumer Goods', 'Machinery'],
-  },
-  {
     slug: 'shipping-china-to-united-kingdom',
     name: 'United Kingdom',
     code: 'GB',
@@ -165,15 +156,6 @@ export const countryDestinations: CountryDestination[] = [
   {
     slug: 'shipping-china-to-united-states',
     name: 'United States',
-    code: 'US',
-    description: 'Full-service freight forwarding from China to USA with nationwide coverage.',
-    majorPorts: ['Los Angeles', 'Long Beach', 'New York', 'Seattle', 'Savannah'],
-    transitTime: '12-32 days',
-    popularGoods: ['Electronics', 'Furniture', 'Textiles', 'Machinery', 'Auto Parts'],
-  },
-  {
-    slug: 'shipping-china-to-usa',
-    name: 'USA',
     code: 'US',
     description: 'Full-service freight forwarding from China to USA with nationwide coverage.',
     majorPorts: ['Los Angeles', 'Long Beach', 'New York', 'Seattle', 'Savannah'],

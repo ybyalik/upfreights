@@ -97,8 +97,6 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
 
       setIsSubmitted(true);
     } catch {
-      // Still show success to user, but log error
-      console.error('Failed to submit quote');
       setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);

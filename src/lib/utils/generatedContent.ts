@@ -40,7 +40,6 @@ try {
   generatedData = require('@/lib/data/generatedRouteContent.json');
 } catch {
   // File doesn't exist yet - that's okay
-  console.log('No generated route content found. Run scripts/generateRouteContent.ts to generate.');
 }
 
 /**

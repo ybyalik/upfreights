@@ -31,7 +31,6 @@ const majorPorts = [
   { name: 'Felixstowe', transit: '28-32 days', volume: "UK's largest container port" },
   { name: 'Southampton', transit: '30-35 days', volume: 'Major South Coast hub' },
   { name: 'London Gateway', transit: '28-32 days', volume: 'Modern deep-water port' },
-  { name: 'Liverpool', transit: '32-36 days', volume: 'Northwest gateway' },
   { name: 'London', transit: '28-32 days', volume: 'Thames port facilities' },
 ];
 

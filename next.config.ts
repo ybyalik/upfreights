@@ -23,6 +23,21 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/shipping-china-to-uk',
+        destination: '/shipping-china-to-united-kingdom',
+        permanent: true,
+      },
+      {
+        source: '/shipping-china-to-usa',
+        destination: '/shipping-china-to-united-states',
+        permanent: true,
+      },
+      {
+        source: '/sea-freight-:slug([a-z0-9-]+)-to-leghorn',
+        destination: '/sea-freight-:slug-to-livorno',
+        permanent: true,
+      },
     ];
   },
   images: {

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 import { Plane, Ship, ArrowRight, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -11,7 +12,7 @@ interface RouteCardProps {
   className?: string;
 }
 
-export function RouteCard({ route, variant = 'default', className }: RouteCardProps) {
+export const RouteCard = memo(function RouteCard({ route, variant = 'default', className }: RouteCardProps) {
   const Icon = route.serviceType === 'air' ? Plane : Ship;
   const serviceLabel = route.serviceType === 'air' ? 'Air Freight' : 'Sea Freight';
 
@@ -123,4 +124,4 @@ export function RouteCard({ route, variant = 'default', className }: RouteCardPr
       </Card>
     </Link>
   );
-}
+});

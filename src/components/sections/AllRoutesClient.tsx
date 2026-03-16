@@ -16,6 +16,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import type { Route } from '@/lib/types';
+import { originSubPortMap, originSubPorts } from '@/lib/data/subPorts';
 
 interface AllRoutesClientProps {
   seaRoutes: Route[];
@@ -31,12 +32,7 @@ export function AllRoutesClient({ seaRoutes, airRoutes }: AllRoutesClientProps) 
 
   const allRoutes = useMemo(() => [...seaRoutes, ...airRoutes], [seaRoutes, airRoutes]);
 
-  // Sub-port mappings: sub-port name -> parent city
-  const subPortMap: Record<string, string> = {
-    'Shekou': 'Shenzhen',
-    'Yantian': 'Shenzhen',
-    'Nansha': 'Guangzhou',
-  };
+  const subPortMap = originSubPortMap;
 
   // Get unique values for filters
   const origins = useMemo(() => {
@@ -89,7 +85,8 @@ export function AllRoutesClient({ seaRoutes, airRoutes }: AllRoutesClientProps) 
         // Sub-ports: match searches to parent city Italy routes
         (query.includes('shekou') && r.originCity === 'Shenzhen' && r.destinationCountry === 'Italy') ||
         (query.includes('yantian') && r.originCity === 'Shenzhen' && r.destinationCountry === 'Italy') ||
-        (query.includes('nansha') && r.originCity === 'Guangzhou' && r.destinationCountry === 'Italy')
+        (query.includes('nansha') && r.originCity === 'Guangzhou' && r.destinationCountry === 'Italy') ||
+        (query.includes('vado') && r.destinationCity === 'Genoa')
       );
     }
 
@@ -365,15 +362,8 @@ export function AllRoutesClient({ seaRoutes, airRoutes }: AllRoutesClientProps) 
                                   </li>
                                 ))}
                                 {/* Sub-port entries for Italy routes */}
-                                {[
-                                  ...(origin === 'Shenzhen' && country === 'Italy' ? [
-                                    { name: 'Shekou', anchor: 'shekou' },
-                                    { name: 'Yantian', anchor: 'yantian' },
-                                  ] : []),
-                                  ...(origin === 'Guangzhou' && country === 'Italy' ? [
-                                    { name: 'Nansha', anchor: 'nansha' },
-                                  ] : []),
-                                ]
+                                {originSubPorts
+                                .filter(sp => sp.parentCity === origin && country === 'Italy')
                                 .filter((subPort) => {
                                   // When a sub-port is selected, only show that specific sub-port
                                   if (isSubPortFilter) return subPort.name === originFilter;
@@ -398,6 +388,25 @@ export function AllRoutesClient({ seaRoutes, airRoutes }: AllRoutesClientProps) 
                                     </li>
                                   ))
                                 )}
+                                {/* Destination sub-port: Vado Ligure for Genoa */}
+                                {!isSubPortFilter && country === 'Italy' && countryRoutes
+                                  .filter(route => route.destinationCity === 'Genoa')
+                                  .map((route) => (
+                                    <li key={`vado-ligure-${route.id}`}>
+                                      <Link
+                                        href={`/sea-freight-${route.slug}#vado-ligure`}
+                                        className="text-sm text-muted-foreground hover:text-ocean transition-colors flex items-center gap-1.5 group"
+                                      >
+                                        <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                                        <span>Vado Ligure</span>
+                                        <Badge variant="outline" className="text-[10px] px-1 py-0 border-copper/30 text-copper ml-1">Genoa</Badge>
+                                        <span className="text-xs text-muted-foreground/60 ml-auto">
+                                          {route.transitTime}
+                                        </span>
+                                      </Link>
+                                    </li>
+                                  ))
+                                }
                               </ul>
                             </CardContent>
                           </Card>
@@ -476,7 +485,7 @@ export function AllRoutesClient({ seaRoutes, airRoutes }: AllRoutesClientProps) 
           {filteredRoutes.map((route) => (
             <Link
               key={route.id}
-              href={`/routes/${route.serviceType}-freight/${route.slug}`}
+              href={`/${route.serviceType === 'sea' ? 'sea' : 'air'}-freight-${route.slug}`}
               className="block"
             >
               <Card className="border-border/50 hover:border-primary/50 hover:shadow-md transition-all">

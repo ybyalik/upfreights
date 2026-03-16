@@ -13,16 +13,13 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import type { Route } from '@/lib/types';
+import { originSubPortMap, originSubPorts } from '@/lib/data/subPorts';
 
 interface SeaRoutesFilterableProps {
   routes: Route[];
 }
 
-const subPortMap: Record<string, string> = {
-  'Shekou': 'Shenzhen',
-  'Yantian': 'Shenzhen',
-  'Nansha': 'Guangzhou',
-};
+const subPortMap = originSubPortMap;
 
 export function SeaRoutesFilterable({ routes }: SeaRoutesFilterableProps) {
   const [originFilter, setOriginFilter] = useState<string>('all');
@@ -167,15 +164,8 @@ export function SeaRoutesFilterable({ routes }: SeaRoutesFilterableProps) {
                   </Link>
                 ))}
                 {/* Sub-port entries */}
-                {[
-                  ...(originCity === 'Shenzhen' ? [
-                    { name: 'Shekou', anchor: 'shekou' },
-                    { name: 'Yantian', anchor: 'yantian' },
-                  ] : []),
-                  ...(originCity === 'Guangzhou' ? [
-                    { name: 'Nansha', anchor: 'nansha' },
-                  ] : []),
-                ]
+                {originSubPorts
+                .filter(sp => sp.parentCity === originCity)
                 .filter((subPort) => {
                   if (isSubPortFilter) return subPort.name === originFilter;
                   return true;
@@ -199,6 +189,25 @@ export function SeaRoutesFilterable({ routes }: SeaRoutesFilterableProps) {
                       </Link>
                     ))
                 )}
+                {/* Destination sub-port: Vado Ligure entries for Genoa routes */}
+                {!isSubPortFilter && cityRoutes
+                  .filter(route => route.destinationCity === 'Genoa')
+                  .map((route) => (
+                    <Link
+                      key={`vado-ligure-${route.id}`}
+                      href={`/sea-freight-${route.slug}#vado-ligure`}
+                      className="p-3 bg-card border border-border/50 rounded-lg hover:border-orange transition-colors flex items-center justify-between group"
+                    >
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-foreground font-medium truncate">Vado Ligure</span>
+                        <Badge variant="outline" className="text-[10px] px-1 py-0 border-copper/30 text-copper flex-shrink-0">
+                          Genoa
+                        </Badge>
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-orange transition-colors flex-shrink-0" />
+                    </Link>
+                  ))
+                }
               </div>
             </div>
           );

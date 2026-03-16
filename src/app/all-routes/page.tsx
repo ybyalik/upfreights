@@ -4,6 +4,8 @@ import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator'
 import { AllRoutesClient } from '@/components/sections';
 import { Breadcrumbs } from '@/components/sections';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'All Shipping Routes | Upfreights',
   description: 'Browse all sea freight and air freight routes from China to destinations worldwide. Find shipping routes from Shanghai, Shenzhen, Guangzhou, and more.',

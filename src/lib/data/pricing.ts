@@ -226,15 +226,6 @@ export const seaFreightPricing: RoutePricing[] = [
       { carrier: 'PN3', price40GP: 3050, price40HQ: 3050, transitTime: 20 },
     ],
   },
-  // Shanghai to Edmonton
-  {
-    origin: 'Shanghai',
-    destination: 'Edmonton',
-    rates: [
-      { carrier: 'PN3', price40GP: 3050, price40HQ: 3050, transitTime: 20 },
-    ],
-  },
-
   // Ningbo to Vancouver
   {
     origin: 'Ningbo',
@@ -267,15 +258,6 @@ export const seaFreightPricing: RoutePricing[] = [
       { carrier: 'PN3', price40GP: 3050, price40HQ: 3050, transitTime: 20 },
     ],
   },
-  // Ningbo to Edmonton
-  {
-    origin: 'Ningbo',
-    destination: 'Edmonton',
-    rates: [
-      { carrier: 'PN3', price40GP: 3050, price40HQ: 3050, transitTime: 20 },
-    ],
-  },
-
   // Qingdao to Vancouver
   {
     origin: 'Qingdao',
@@ -308,15 +290,6 @@ export const seaFreightPricing: RoutePricing[] = [
       { carrier: 'PN3', price40GP: 3050, price40HQ: 3050, transitTime: 21 },
     ],
   },
-  // Qingdao to Edmonton
-  {
-    origin: 'Qingdao',
-    destination: 'Edmonton',
-    rates: [
-      { carrier: 'PN3', price40GP: 3050, price40HQ: 3050, transitTime: 21 },
-    ],
-  },
-
   // ============ ADDITIONAL US ROUTES (from extended rate sheet) ============
 
   // Shanghai to Chicago
@@ -1784,74 +1757,6 @@ export const seaFreightPricing: RoutePricing[] = [
     ],
   },
   // ==========================================
-  // ITALY ROUTES (Genoa Vado Ligure)
-  // ==========================================
-
-  // Shanghai to Genoa Vado Ligure
-  {
-    origin: 'Shanghai',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 42 },
-    ],
-  },
-  // Ningbo to Genoa Vado Ligure
-  {
-    origin: 'Ningbo',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 48 },
-    ],
-  },
-  // Tianjin to Genoa Vado Ligure
-  {
-    origin: 'Tianjin',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 52 },
-    ],
-  },
-  // Qingdao to Genoa Vado Ligure
-  {
-    origin: 'Qingdao',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 52 },
-    ],
-  },
-  // Dalian to Genoa Vado Ligure
-  {
-    origin: 'Dalian',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 55 },
-    ],
-  },
-  // Hong Kong to Genoa Vado Ligure
-  {
-    origin: 'Hong Kong',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 },
-    ],
-  },
-  // Xiamen to Genoa Vado Ligure
-  {
-    origin: 'Xiamen',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 },
-    ],
-  },
-  // Shenzhen to Genoa Vado Ligure
-  {
-    origin: 'Shenzhen',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 },
-    ],
-  },
-  // ==========================================
   // ITALY ROUTES (Cagliari)
   // ==========================================
 
@@ -1988,69 +1893,69 @@ export const seaFreightPricing: RoutePricing[] = [
     ],
   },
   // ==========================================
-  // ITALY ROUTES (Leghorn)
+  // ITALY ROUTES (Livorno)
   // ==========================================
 
-  // Shanghai to Leghorn
+  // Shanghai to Livorno
   {
     origin: 'Shanghai',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 42 },
     ],
   },
-  // Ningbo to Leghorn
+  // Ningbo to Livorno
   {
     origin: 'Ningbo',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 48 },
     ],
   },
-  // Tianjin to Leghorn
+  // Tianjin to Livorno
   {
     origin: 'Tianjin',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 52 },
     ],
   },
-  // Qingdao to Leghorn
+  // Qingdao to Livorno
   {
     origin: 'Qingdao',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 52 },
     ],
   },
-  // Dalian to Leghorn
+  // Dalian to Livorno
   {
     origin: 'Dalian',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 55 },
     ],
   },
-  // Hong Kong to Leghorn
+  // Hong Kong to Livorno
   {
     origin: 'Hong Kong',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 40 },
     ],
   },
-  // Xiamen to Leghorn
+  // Xiamen to Livorno
   {
     origin: 'Xiamen',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 45 },
     ],
   },
-  // Shenzhen to Leghorn
+  // Shenzhen to Livorno
   {
     origin: 'Shenzhen',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 40 },
     ],
@@ -2247,14 +2152,6 @@ export const seaFreightPricing: RoutePricing[] = [
       { carrier: 'MSK', price20GP: 2275, price40GP: 3250, price40HQ: 3250, transitTime: 48 },
     ],
   },
-  // Guangzhou to Genoa Vado Ligure
-  {
-    origin: 'Guangzhou',
-    destination: 'Genoa Vado Ligure',
-    rates: [
-      { carrier: 'MSK', price20GP: 2170, price40GP: 3100, price40HQ: 3100, transitTime: 45 },
-    ],
-  },
   // Guangzhou to Cagliari
   {
     origin: 'Guangzhou',
@@ -2271,10 +2168,10 @@ export const seaFreightPricing: RoutePricing[] = [
       { carrier: 'MSK', price20GP: 2485, price40GP: 3550, price40HQ: 3550, transitTime: 48 },
     ],
   },
-  // Guangzhou to Leghorn
+  // Guangzhou to Livorno
   {
     origin: 'Guangzhou',
-    destination: 'Leghorn',
+    destination: 'Livorno',
     rates: [
       { carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 },
     ],
@@ -2314,11 +2211,10 @@ export const subPortPricing: SubPortPricing[] = [
   // SHEKOU (Shenzhen) - Italy Routes
   // ==========================================
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Ancona', rates: [{ carrier: 'MSK', price20GP: 2345, price40GP: 3350, price40HQ: 3350, transitTime: 43 }] },
-  { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Genoa Vado Ligure', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Cagliari', rates: [{ carrier: 'MSK', price20GP: 2552, price40GP: 3645, price40HQ: 3645, transitTime: 43 }] },
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Civitavecchia', rates: [{ carrier: 'MSK', price20GP: 2555, price40GP: 3650, price40HQ: 3650, transitTime: 43 }] },
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Genoa', rates: [{ carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 40 }] },
-  { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Leghorn', rates: [{ carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 40 }] },
+  { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Livorno', rates: [{ carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 40 }] },
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'La Spezia', rates: [{ carrier: 'MSK', price20GP: 2310, price40GP: 3300, price40HQ: 3300, transitTime: 40 }] },
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Naples', rates: [{ carrier: 'MSK', price20GP: 2520, price40GP: 3600, price40HQ: 3600, transitTime: 42 }] },
   { subPort: 'Shekou', parentCity: 'Shenzhen', destination: 'Ravenna', rates: [{ carrier: 'MSK', price20GP: 2293, price40GP: 3275, price40HQ: 3275, transitTime: 43 }] },
@@ -2330,11 +2226,10 @@ export const subPortPricing: SubPortPricing[] = [
   // YANTIAN (Shenzhen) - Italy Routes
   // ==========================================
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Ancona', rates: [{ carrier: 'MSK', price20GP: 2275, price40GP: 3250, price40HQ: 3250, transitTime: 43 }] },
-  { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Genoa Vado Ligure', rates: [{ carrier: 'MSK', price20GP: 2170, price40GP: 3100, price40HQ: 3100, transitTime: 40 }] },
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Cagliari', rates: [{ carrier: 'MSK', price20GP: 2482, price40GP: 3545, price40HQ: 3545, transitTime: 43 }] },
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Civitavecchia', rates: [{ carrier: 'MSK', price20GP: 2485, price40GP: 3550, price40HQ: 3550, transitTime: 43 }] },
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Genoa', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
-  { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Leghorn', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
+  { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Livorno', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'La Spezia', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Naples', rates: [{ carrier: 'MSK', price20GP: 2450, price40GP: 3500, price40HQ: 3500, transitTime: 42 }] },
   { subPort: 'Yantian', parentCity: 'Shenzhen', destination: 'Ravenna', rates: [{ carrier: 'MSK', price20GP: 2223, price40GP: 3175, price40HQ: 3175, transitTime: 43 }] },
@@ -2346,11 +2241,10 @@ export const subPortPricing: SubPortPricing[] = [
   // NANSHA NEW PORT (Guangzhou) - Italy Routes
   // ==========================================
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Ancona', rates: [{ carrier: 'MSK', price20GP: 2275, price40GP: 3250, price40HQ: 3250, transitTime: 48 }] },
-  { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Genoa Vado Ligure', rates: [{ carrier: 'MSK', price20GP: 2170, price40GP: 3100, price40HQ: 3100, transitTime: 45 }] },
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Cagliari', rates: [{ carrier: 'MSK', price20GP: 2482, price40GP: 3545, price40HQ: 3545, transitTime: 48 }] },
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Civitavecchia', rates: [{ carrier: 'MSK', price20GP: 2485, price40GP: 3550, price40HQ: 3550, transitTime: 48 }] },
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Genoa', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 }] },
-  { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Leghorn', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 }] },
+  { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Livorno', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 }] },
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'La Spezia', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 }] },
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Naples', rates: [{ carrier: 'MSK', price20GP: 2450, price40GP: 3500, price40HQ: 3500, transitTime: 48 }] },
   { subPort: 'Nansha', parentCity: 'Guangzhou', destination: 'Ravenna', rates: [{ carrier: 'MSK', price20GP: 2223, price40GP: 3175, price40HQ: 3175, transitTime: 48 }] },
@@ -2378,6 +2272,43 @@ export function getSubPortPricingByParent(parentCity: string, destination: strin
     (p) =>
       p.parentCity.toLowerCase() === parentCity.toLowerCase() &&
       p.destination.toLowerCase() === destination.toLowerCase()
+  );
+}
+
+/**
+ * Destination sub-port pricing for terminals within larger destination port complexes.
+ * e.g. Vado Ligure is a terminal near Genoa.
+ */
+export interface DestSubPortPricing {
+  destSubPort: string;     // e.g. 'Vado Ligure'
+  parentCity: string;      // e.g. 'Genoa'
+  origin: string;
+  rates: CarrierRate[];
+}
+
+export const destSubPortPricing: DestSubPortPricing[] = [
+  // ==========================================
+  // VADO LIGURE (Genoa) - All Origins
+  // ==========================================
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Shanghai', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 42 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Ningbo', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 48 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Tianjin', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 52 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Qingdao', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 52 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Dalian', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 55 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Hong Kong', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Xiamen', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 45 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Shenzhen', rates: [{ carrier: 'MSK', price20GP: 2240, price40GP: 3200, price40HQ: 3200, transitTime: 40 }] },
+  { destSubPort: 'Vado Ligure', parentCity: 'Genoa', origin: 'Guangzhou', rates: [{ carrier: 'MSK', price20GP: 2170, price40GP: 3100, price40HQ: 3100, transitTime: 45 }] },
+];
+
+/**
+ * Get destination sub-port pricing for a specific origin and parent destination city
+ */
+export function getDestSubPortPricing(origin: string, parentCity: string): DestSubPortPricing[] {
+  return destSubPortPricing.filter(
+    (p) =>
+      p.origin.toLowerCase() === origin.toLowerCase() &&
+      p.parentCity.toLowerCase() === parentCity.toLowerCase()
   );
 }
 

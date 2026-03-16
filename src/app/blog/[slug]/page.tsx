@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -14,14 +15,18 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
-
-  const { data: post } = await supabase
+const getPost = cache(async (slug: string) => {
+  const { data } = await supabase
     .from('blog_posts')
-    .select('title, excerpt, meta_title, meta_description, image')
+    .select('*')
     .eq('slug', slug)
     .single();
+  return data;
+});
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     return { title: 'Post Not Found' };
@@ -90,12 +95,7 @@ function calculateReadingTime(content: string): string {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-
-  const { data: postData } = await supabase
-    .from('blog_posts')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  const postData = await getPost(slug);
 
   if (!postData) {
     notFound();

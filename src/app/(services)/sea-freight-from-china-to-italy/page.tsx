@@ -8,8 +8,8 @@ import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
 import { generateSeaRoutes } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
-  title: 'Sea Freight from China to Italy | Ocean Shipping to Genoa, Trieste, Naples & 9 More Ports',
-  description: 'Reliable sea freight services from China to Italy. FCL and LCL shipping with 40-65 days transit to Genoa, Trieste, Naples, La Spezia, Venice, Ancona, Cagliari, Civitavecchia, Leghorn, Ravenna, Salerno and more.',
+  title: 'Sea Freight from China to Italy | Ocean Shipping to Genoa, Trieste, Naples & 8 More Ports',
+  description: 'Reliable sea freight services from China to Italy. FCL and LCL shipping with 40-65 days transit to Genoa, Trieste, Naples, La Spezia, Venice, Ancona, Cagliari, Civitavecchia, Livorno, Ravenna, and Salerno.',
   alternates: {
     canonical: '/sea-freight-from-china-to-italy',
   },
@@ -34,10 +34,9 @@ const majorPorts = [
   { name: 'La Spezia', transit: '40-65 days', volume: "Northern Italy's Ligurian gateway" },
   { name: 'Venice', transit: '40-65 days', volume: "Northeastern Italy's Adriatic gateway" },
   { name: 'Ancona', transit: '40-65 days', volume: "Central Italy's Adriatic port" },
-  { name: 'Genoa Vado Ligure', transit: '40-65 days', volume: "Ligurian automated container terminal" },
   { name: 'Cagliari', transit: '40-65 days', volume: "Sardinia's main transshipment hub" },
   { name: 'Civitavecchia', transit: '40-65 days', volume: "Rome's gateway port" },
-  { name: 'Leghorn', transit: '40-65 days', volume: "Tuscany's main commercial port" },
+  { name: 'Livorno', transit: '40-65 days', volume: "Tuscany's main commercial port" },
   { name: 'Ravenna', transit: '40-65 days', volume: "Northern Adriatic commercial hub" },
   { name: 'Salerno', transit: '40-65 days', volume: "Southern Italy's Tyrrhenian gateway" },
 ];
@@ -263,7 +262,7 @@ export default function SeaFreightChinaToItalyPage() {
                       </div>
                     </Link>
                   ))}
-                  {/* Sub-port entries linking to parent city pages with anchor */}
+                  {/* Origin sub-port entries linking to parent city pages with anchor */}
                   {[
                     { name: 'Shekou', anchor: 'shekou', parentCity: 'Shenzhen' },
                     { name: 'Yantian', anchor: 'yantian', parentCity: 'Shenzhen' },
@@ -293,6 +292,30 @@ export default function SeaFreightChinaToItalyPage() {
                       </Link>
                     ))
                   )}
+                  {/* Destination sub-port: Vado Ligure links on Genoa routes */}
+                  {destination === 'Genoa' && routes.map((route) => (
+                    <Link
+                      key={`vado-ligure-${route.id}`}
+                      href={`/sea-freight-${route.slug}#vado-ligure`}
+                      className="group block p-4 rounded-lg border border-border/50 hover:border-ocean/50 hover:bg-ocean/5 transition-all"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge variant="outline" className="text-xs border-ocean/30 text-ocean">
+                          Sea
+                        </Badge>
+                        <Badge variant="outline" className="text-xs border-copper/30 text-copper">
+                          Vado Ligure
+                        </Badge>
+                        <span className="text-xs text-muted-foreground">{route.transitTime}</span>
+                      </div>
+                      <div className="font-medium text-foreground group-hover:text-ocean transition-colors">
+                        {route.originCity} &rarr; Vado Ligure
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        {route.frequency}
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
             ))}

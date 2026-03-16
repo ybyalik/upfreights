@@ -15,6 +15,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import type { Route } from '@/lib/types';
+import { originSubPortMap, destSubPortMap, originSubPorts } from '@/lib/data/subPorts';
 
 interface FilterableRoutesListProps {
   seaRoutes: Route[];
@@ -37,12 +38,7 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
     return allRoutes;
   }, [seaRoutes, airRoutes, allRoutes, serviceTypeFilter]);
 
-  // Sub-port mappings: sub-port name -> parent city
-  const subPortMap: Record<string, string> = {
-    'Shekou': 'Shenzhen',
-    'Yantian': 'Shenzhen',
-    'Nansha': 'Guangzhou',
-  };
+  const subPortMap = originSubPortMap;
 
   const origins = useMemo(() => {
     const uniqueOrigins = [...new Set(routesForFilters.map(r => r.originCity))];
@@ -57,9 +53,17 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
     return [...uniqueOrigins, ...subPorts].sort();
   }, [routesForFilters]);
 
+  const isDestSubPortFilter = destinationFilter in destSubPortMap;
+  const destSubPortParentCity = isDestSubPortFilter ? destSubPortMap[destinationFilter] : null;
+
   const destinations = useMemo(() => {
     const uniqueDestinations = [...new Set(routesForFilters.map(r => r.destinationCity))];
-    return uniqueDestinations.sort();
+    // Add destination sub-ports if parent city exists in routes
+    const destSubPorts: string[] = [];
+    if (routesForFilters.some(r => r.destinationCity === 'Genoa')) {
+      destSubPorts.push('Vado Ligure');
+    }
+    return [...uniqueDestinations, ...destSubPorts].sort();
   }, [routesForFilters]);
 
   // Check if the origin filter is a sub-port
@@ -76,10 +80,17 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
       } else if (originFilter !== 'all' && route.originCity !== originFilter) {
         return false;
       }
-      if (destinationFilter !== 'all' && route.destinationCity !== destinationFilter) return false;
+      if (destinationFilter !== 'all') {
+        if (isDestSubPortFilter) {
+          // When dest sub-port selected, show parent city routes
+          if (route.destinationCity !== destSubPortParentCity) return false;
+        } else {
+          if (route.destinationCity !== destinationFilter) return false;
+        }
+      }
       return true;
     });
-  }, [seaRoutes, serviceTypeFilter, originFilter, destinationFilter, isSubPortFilter, subPortParentCity]);
+  }, [seaRoutes, serviceTypeFilter, originFilter, destinationFilter, isSubPortFilter, subPortParentCity, isDestSubPortFilter, destSubPortParentCity]);
 
   const filteredAirRoutes = useMemo(() => {
     if (serviceTypeFilter === 'sea') return [];
@@ -211,7 +222,7 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {!isSubPortFilter && filteredSeaRoutes.map((route) => (
+            {!isSubPortFilter && !isDestSubPortFilter && filteredSeaRoutes.map((route) => (
               <Link
                 key={route.id}
                 href={`/sea-freight-${route.slug}`}
@@ -249,11 +260,7 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
               </Link>
             ))}
             {/* Sub-port entries for Italy routes */}
-            {[
-              { name: 'Shekou', anchor: 'shekou', parentCity: 'Shenzhen' },
-              { name: 'Yantian', anchor: 'yantian', parentCity: 'Shenzhen' },
-              { name: 'Nansha', anchor: 'nansha', parentCity: 'Guangzhou' },
-            ]
+            {[...originSubPorts]
             .filter((subPort) => {
               // When a sub-port is selected, only show that specific sub-port
               if (isSubPortFilter) return subPort.name === originFilter;
@@ -307,6 +314,51 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
                 </Link>
               ))
             )}
+            {/* Destination sub-port: Vado Ligure entries for Genoa routes */}
+            {!isSubPortFilter && filteredSeaRoutes
+              .filter(route => route.destinationCity === 'Genoa')
+              .map((route) => (
+              <Link
+                key={`vado-ligure-${route.id}`}
+                href={`/sea-freight-${route.slug}#vado-ligure`}
+                className="group"
+              >
+                <Card className={cn(
+                  "border-border/50 h-full transition-all duration-200",
+                  "hover:shadow-md hover:border-ocean hover:-translate-y-0.5"
+                )}>
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-1.5">
+                        <Badge variant="outline" className="text-xs bg-ocean/5 border-ocean/20 text-ocean">
+                          <Ship className="h-3 w-3 mr-1" />
+                          Sea Freight
+                        </Badge>
+                        <Badge variant="outline" className="text-xs border-copper/30 text-copper">
+                          Vado Ligure
+                        </Badge>
+                      </div>
+                      <span className="text-xs text-muted-foreground flex items-center">
+                        <Clock className="h-3 w-3 mr-1" />
+                        {route.transitTime}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-foreground truncate">{route.originCity}</p>
+                        <p className="text-xs text-muted-foreground truncate">China</p>
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-ocean shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                      <div className="flex-1 min-w-0 text-right">
+                        <p className="font-semibold text-foreground truncate">Vado Ligure</p>
+                        <p className="text-xs text-muted-foreground truncate">Italy</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       )}

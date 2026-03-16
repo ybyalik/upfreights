@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Plane, Ship } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -10,7 +11,7 @@ interface DestinationCardProps {
   className?: string;
 }
 
-export function DestinationCard({ destination, variant = 'default', className }: DestinationCardProps) {
+export const DestinationCard = memo(function DestinationCard({ destination, variant = 'default', className }: DestinationCardProps) {
   if (variant === 'compact') {
     return (
       <Link href={`/shipping-${destination.slug}`}>
@@ -133,4 +134,4 @@ export function DestinationCard({ destination, variant = 'default', className }:
       </Card>
     </Link>
   );
-}
+});

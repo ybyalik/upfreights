@@ -66,6 +66,7 @@ import {
 import {
   getRoutePricing,
   getSubPortPricingByParent,
+  getDestSubPortPricing,
   formatPrice,
 } from '@/lib/data/pricing';
 import {
@@ -133,6 +134,9 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
 
   // Get sub-port pricing (Shekou/Yantian for Shenzhen, Nansha for Guangzhou)
   const subPortPricingData = getSubPortPricingByParent(route.originCity, route.destinationCity);
+
+  // Get destination sub-port pricing (Vado Ligure for Genoa)
+  const destSubPortPricingData = getDestSubPortPricing(route.originCity, route.destinationCity);
 
   // Generate FAQs for this route
   const faqs = generateSeaFreightFAQs(route);
@@ -877,6 +881,118 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                   <p className="text-sm text-muted-foreground">
                     {spPricing.subPort} is a terminal within {spPricing.parentCity}, offering competitive FCL rates
                     for shipments to {route.destinationCity}.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        );
+      })}
+
+      {/* Destination Sub-port Sections (e.g. Vado Ligure for Genoa) */}
+      {destSubPortPricingData.map((dspPricing) => {
+        const destSubPortDescriptions: Record<string, { description: string; locode: string; location: string }> = {
+          'Vado Ligure': {
+            description: 'a modern automated container terminal located approximately 50km west of Genoa, part of the wider Ligurian port system. Operated by APM Terminals, it features state-of-the-art automated handling equipment and is one of the most technologically advanced container terminals in the Mediterranean.',
+            locode: 'ITVDL',
+            location: 'Vado Ligure, Liguria, Italy',
+          },
+        };
+        const info = destSubPortDescriptions[dspPricing.destSubPort] || { description: `a terminal near ${dspPricing.parentCity}.`, locode: '', location: dspPricing.parentCity };
+        const anchorId = dspPricing.destSubPort.toLowerCase().replace(/\s+/g, '-');
+
+        return (
+        <section key={anchorId} id={anchorId} className="py-20 lg:py-28 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-12 gap-8 mb-12">
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Sea Freight from {route.originCity} to {dspPricing.destSubPort}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {dspPricing.destSubPort} is {info.description}{' '}
+                  Shipments to {dspPricing.destSubPort} are available
+                  as an alternative discharge port for importers in the {dspPricing.parentCity} and wider Ligurian region.
+                </p>
+              </div>
+            </div>
+
+            {/* Destination sub-port pricing table */}
+            <div className="bg-card border border-border/50 rounded-xl overflow-hidden mb-8">
+              <div className="bg-ocean/5 border-b border-border/50 p-4">
+                <h3 className="font-heading font-bold text-foreground flex items-center gap-2">
+                  <Anchor className="h-5 w-5 text-ocean" />
+                  {route.originCity} to {dspPricing.destSubPort} — MSK Rates
+                </h3>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border/50 bg-secondary/30">
+                      <th className="px-4 py-3 text-left font-medium text-muted-foreground">Carrier</th>
+                      <th className="px-4 py-3 text-right font-medium text-muted-foreground">20GP</th>
+                      <th className="px-4 py-3 text-right font-medium text-muted-foreground">40GP</th>
+                      <th className="px-4 py-3 text-right font-medium text-muted-foreground">40HQ</th>
+                      <th className="px-4 py-3 text-right font-medium text-muted-foreground">Transit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dspPricing.rates.map((rate, idx) => (
+                      <tr key={idx} className="border-b border-border/30 last:border-0">
+                        <td className="px-4 py-3 font-medium text-foreground">{rate.carrier}</td>
+                        <td className="px-4 py-3 text-right text-foreground">{rate.price20GP ? formatPrice(rate.price20GP) : '—'}</td>
+                        <td className="px-4 py-3 text-right text-foreground">{formatPrice(rate.price40GP)}</td>
+                        <td className="px-4 py-3 text-right text-foreground">{formatPrice(rate.price40HQ)}</td>
+                        <td className="px-4 py-3 text-right text-muted-foreground">{rate.transitTime} days</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Info cards */}
+            <div className="grid sm:grid-cols-3 gap-4">
+              <Card className="border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-ocean/10 flex items-center justify-center">
+                      <Anchor className="h-5 w-5 text-ocean" />
+                    </div>
+                    <h3 className="font-heading font-bold text-foreground">Port of {dspPricing.destSubPort}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    UN/LOCODE: {info.locode}. Located in {info.location}. Automated container handling.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-ocean/10 flex items-center justify-center">
+                      <Clock className="h-5 w-5 text-ocean" />
+                    </div>
+                    <h3 className="font-heading font-bold text-foreground">Transit Time</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {dspPricing.rates[0]?.transitTime} days from {route.originCity} to {dspPricing.destSubPort}.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-ocean/10 flex items-center justify-center">
+                      <Ship className="h-5 w-5 text-ocean" />
+                    </div>
+                    <h3 className="font-heading font-bold text-foreground">Discharge Port</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {dspPricing.destSubPort} is a terminal near {dspPricing.parentCity}, offering competitive FCL rates
+                    from {route.originCity}.
                   </p>
                 </CardContent>
               </Card>

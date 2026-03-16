@@ -89,7 +89,7 @@ export const destinations: Destination[] = [
     description: 'The United Kingdom remains a major trading partner with China, especially for e-commerce, fashion, and technology products. Post-Brexit customs procedures require experienced handling, which our team provides.',
     transitTimeAir: '3-5 days',
     transitTimeSea: '28-35 days',
-    majorPorts: ['Felixstowe', 'Southampton', 'London Gateway', 'Liverpool'],
+    majorPorts: ['Felixstowe', 'Southampton', 'London Gateway'],
     majorAirports: ['London Heathrow (LHR)', 'East Midlands (EMA)', 'Manchester (MAN)'],
     customsInfo: 'UK customs declarations are processed through the Customs Declaration Service (CDS). EORI number required for all importers. VAT and duties payable before goods release.',
     documentation: [
@@ -241,7 +241,7 @@ export const destinations: Destination[] = [
     description: 'Italy is a key Mediterranean trading partner for China, with Trieste serving as a strategic gateway to Central and Southern Europe. Strong demand for machinery, electronics, textiles, and fashion goods drives consistent shipping volumes on this route.',
     transitTimeAir: '3-5 days',
     transitTimeSea: '40-65 days',
-    majorPorts: ['Genoa', 'Trieste', 'Naples', 'La Spezia', 'Venice', 'Ancona', 'Genoa Vado Ligure', 'Cagliari', 'Civitavecchia', 'Leghorn', 'Ravenna', 'Salerno'],
+    majorPorts: ['Genoa', 'Trieste', 'Naples', 'La Spezia', 'Venice', 'Ancona', 'Cagliari', 'Civitavecchia', 'Livorno', 'Ravenna', 'Salerno'],
     majorAirports: ['Milan Malpensa (MXP)', 'Rome Fiumicino (FCO)', 'Venice Marco Polo (VCE)'],
     customsInfo: 'Italian customs operates within the EU customs union. AIDA system used for electronic customs declarations. EORI number required for all importers. VAT and duties payable before goods release.',
     documentation: [
