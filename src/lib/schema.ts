@@ -324,7 +324,7 @@ export function generateRouteServiceSchema(route: {
   frequency?: string;
 }) {
   const serviceName = route.serviceType === 'sea-freight' ? 'Sea Freight' : 'Air Freight';
-  const url = `${ORGANIZATION_INFO.url}/${route.serviceType}/${route.slug}`;
+  const url = `${ORGANIZATION_INFO.url}/${route.serviceType}-${route.slug}`;
 
   return {
     '@context': 'https://schema.org',
