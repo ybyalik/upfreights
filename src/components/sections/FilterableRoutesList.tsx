@@ -133,19 +133,25 @@ export function FilterableRoutesList({ seaRoutes, airRoutes, countryName }: Filt
                   <SelectValue placeholder="Service Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Services</SelectItem>
-                  <SelectItem value="sea">
-                    <span className="flex items-center gap-2">
-                      <Ship className="h-4 w-4" />
-                      Sea Freight
-                    </span>
-                  </SelectItem>
-                  <SelectItem value="air">
-                    <span className="flex items-center gap-2">
-                      <Plane className="h-4 w-4" />
-                      Air Freight
-                    </span>
-                  </SelectItem>
+                  {seaRoutes.length > 0 && airRoutes.length > 0 && (
+                    <SelectItem value="all">All Services</SelectItem>
+                  )}
+                  {seaRoutes.length > 0 && (
+                    <SelectItem value="sea">
+                      <span className="flex items-center gap-2">
+                        <Ship className="h-4 w-4" />
+                        Sea Freight
+                      </span>
+                    </SelectItem>
+                  )}
+                  {airRoutes.length > 0 && (
+                    <SelectItem value="air">
+                      <span className="flex items-center gap-2">
+                        <Plane className="h-4 w-4" />
+                        Air Freight
+                      </span>
+                    </SelectItem>
+                  )}
                 </SelectContent>
               </Select>
 

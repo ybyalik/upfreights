@@ -885,7 +885,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 40 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 42 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 42 },
     ],
   },
   // Shanghai to Felixstowe (UK)
@@ -921,7 +921,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 42 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 44 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 44 },
     ],
   },
   // Shenzhen to Felixstowe (UK)
@@ -957,7 +957,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 42 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 44 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 44 },
     ],
   },
   // Guangzhou to Felixstowe (UK)
@@ -993,7 +993,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 41 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 43 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 43 },
     ],
   },
   // Ningbo to Felixstowe (UK)
@@ -1029,7 +1029,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 43 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 45 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 45 },
     ],
   },
   // Qingdao to Felixstowe (UK)
@@ -1065,7 +1065,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 44 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 46 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 46 },
     ],
   },
   // Tianjin to Felixstowe (UK)
@@ -1101,7 +1101,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 41 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 43 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 43 },
     ],
   },
   // Xiamen to Felixstowe (UK)
@@ -1137,7 +1137,7 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Southampton',
     rates: [
       { carrier: 'MSC', price40GP: 1650, price40HQ: 1650, transitTime: 40 },
-      { carrier: 'Maersk', price40GP: 1700, price40HQ: 1700, transitTime: 42 },
+      { carrier: 'Maersk', price20GP: 2115, price40GP: 3250, price40HQ: 3250, transitTime: 42 },
     ],
   },
   // Hong Kong to Felixstowe (UK)
@@ -2190,6 +2190,2170 @@ export const seaFreightPricing: RoutePricing[] = [
     destination: 'Salerno',
     rates: [
       { carrier: 'MSK', price20GP: 2450, price40GP: 3500, price40HQ: 3500, transitTime: 48 },
+    ],
+  },
+  // ============ SWEDEN ============
+  // Shanghai to Gothenburg
+  {
+    origin: 'Shanghai',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 32 },
+    ],
+  },
+  // Shanghai to Helsingborg
+  {
+    origin: 'Shanghai',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Norrkoeping
+  {
+    origin: 'Shanghai',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shanghai to Gaevle
+  {
+    origin: 'Shanghai',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 36 },
+    ],
+  },
+  // Shanghai to Halmstad
+  {
+    origin: 'Shanghai',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 34 },
+    ],
+  },
+  // Ningbo to Gothenburg
+  {
+    origin: 'Ningbo',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 33 },
+    ],
+  },
+  // Ningbo to Helsingborg
+  {
+    origin: 'Ningbo',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Norrkoeping
+  {
+    origin: 'Ningbo',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Ningbo to Gaevle
+  {
+    origin: 'Ningbo',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 37 },
+    ],
+  },
+  // Ningbo to Halmstad
+  {
+    origin: 'Ningbo',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Qingdao to Gothenburg
+  {
+    origin: 'Qingdao',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 34 },
+    ],
+  },
+  // Qingdao to Helsingborg
+  {
+    origin: 'Qingdao',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Norrkoeping
+  {
+    origin: 'Qingdao',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Qingdao to Gaevle
+  {
+    origin: 'Qingdao',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 38 },
+    ],
+  },
+  // Qingdao to Halmstad
+  {
+    origin: 'Qingdao',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 36 },
+    ],
+  },
+  // Dalian to Gothenburg
+  {
+    origin: 'Dalian',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 36 },
+    ],
+  },
+  // Dalian to Helsingborg
+  {
+    origin: 'Dalian',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 38 },
+    ],
+  },
+  // Dalian to Norrkoeping
+  {
+    origin: 'Dalian',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 39 },
+    ],
+  },
+  // Dalian to Gaevle
+  {
+    origin: 'Dalian',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 40 },
+    ],
+  },
+  // Dalian to Halmstad
+  {
+    origin: 'Dalian',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 38 },
+    ],
+  },
+  // Hong Kong to Gothenburg
+  {
+    origin: 'Hong Kong',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 33 },
+    ],
+  },
+  // Hong Kong to Helsingborg
+  {
+    origin: 'Hong Kong',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Norrkoeping
+  {
+    origin: 'Hong Kong',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Hong Kong to Gaevle
+  {
+    origin: 'Hong Kong',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 37 },
+    ],
+  },
+  // Hong Kong to Halmstad
+  {
+    origin: 'Hong Kong',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Gothenburg
+  {
+    origin: 'Xiamen',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 33 },
+    ],
+  },
+  // Xiamen to Helsingborg
+  {
+    origin: 'Xiamen',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Norrkoeping
+  {
+    origin: 'Xiamen',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Xiamen to Gaevle
+  {
+    origin: 'Xiamen',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 37 },
+    ],
+  },
+  // Xiamen to Halmstad
+  {
+    origin: 'Xiamen',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Gothenburg
+  {
+    origin: 'Shenzhen',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 33 },
+    ],
+  },
+  // Shenzhen to Helsingborg
+  {
+    origin: 'Shenzhen',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Norrkoeping
+  {
+    origin: 'Shenzhen',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Shenzhen to Gaevle
+  {
+    origin: 'Shenzhen',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 37 },
+    ],
+  },
+  // Shenzhen to Halmstad
+  {
+    origin: 'Shenzhen',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Gothenburg
+  {
+    origin: 'Guangzhou',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 33 },
+    ],
+  },
+  // Guangzhou to Helsingborg
+  {
+    origin: 'Guangzhou',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Norrkoeping
+  {
+    origin: 'Guangzhou',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Guangzhou to Gaevle
+  {
+    origin: 'Guangzhou',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 37 },
+    ],
+  },
+  // Guangzhou to Halmstad
+  {
+    origin: 'Guangzhou',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Tianjin to Gothenburg
+  {
+    origin: 'Tianjin',
+    destination: 'Gothenburg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 35 },
+    ],
+  },
+  // Tianjin to Helsingborg
+  {
+    origin: 'Tianjin',
+    destination: 'Helsingborg',
+    rates: [
+      { carrier: 'MSK', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Norrkoeping
+  {
+    origin: 'Tianjin',
+    destination: 'Norrkoeping',
+    rates: [
+      { carrier: 'MSK', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Tianjin to Gaevle
+  {
+    origin: 'Tianjin',
+    destination: 'Gaevle',
+    rates: [
+      { carrier: 'MSK', price20GP: 1595, price40GP: 2450, price40HQ: 2450, transitTime: 39 },
+    ],
+  },
+  // Tianjin to Halmstad
+  {
+    origin: 'Tianjin',
+    destination: 'Halmstad',
+    rates: [
+      { carrier: 'MSK', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 37 },
+    ],
+  },
+  // ============ CZECH REPUBLIC ============
+  // Shanghai to Awt Paskov
+  {
+    origin: 'Shanghai',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 37 },
+    ],
+  },
+  // Shanghai to Melnik
+  {
+    origin: 'Shanghai',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 37 },
+    ],
+  },
+  // Ningbo to Awt Paskov
+  {
+    origin: 'Ningbo',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 38 },
+    ],
+  },
+  // Ningbo to Melnik
+  {
+    origin: 'Ningbo',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 38 },
+    ],
+  },
+  // Qingdao to Awt Paskov
+  {
+    origin: 'Qingdao',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 39 },
+    ],
+  },
+  // Qingdao to Melnik
+  {
+    origin: 'Qingdao',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 39 },
+    ],
+  },
+  // Dalian to Awt Paskov
+  {
+    origin: 'Dalian',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 41 },
+    ],
+  },
+  // Dalian to Melnik
+  {
+    origin: 'Dalian',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 41 },
+    ],
+  },
+  // Hong Kong to Awt Paskov
+  {
+    origin: 'Hong Kong',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 38 },
+    ],
+  },
+  // Hong Kong to Melnik
+  {
+    origin: 'Hong Kong',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 38 },
+    ],
+  },
+  // Xiamen to Awt Paskov
+  {
+    origin: 'Xiamen',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 38 },
+    ],
+  },
+  // Xiamen to Melnik
+  {
+    origin: 'Xiamen',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 38 },
+    ],
+  },
+  // Shenzhen to Awt Paskov
+  {
+    origin: 'Shenzhen',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 38 },
+    ],
+  },
+  // Shenzhen to Melnik
+  {
+    origin: 'Shenzhen',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 38 },
+    ],
+  },
+  // Guangzhou to Awt Paskov
+  {
+    origin: 'Guangzhou',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 38 },
+    ],
+  },
+  // Guangzhou to Melnik
+  {
+    origin: 'Guangzhou',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 38 },
+    ],
+  },
+  // Tianjin to Awt Paskov
+  {
+    origin: 'Tianjin',
+    destination: 'Awt Paskov',
+    rates: [
+      { carrier: 'MSK', price20GP: 1644, price40GP: 2525, price40HQ: 2525, transitTime: 40 },
+    ],
+  },
+  // Tianjin to Melnik
+  {
+    origin: 'Tianjin',
+    destination: 'Melnik',
+    rates: [
+      { carrier: 'MSK', price20GP: 1563, price40GP: 2400, price40HQ: 2400, transitTime: 40 },
+    ],
+  },
+  // ============ UNITED KINGDOM (NEW PORTS) ============
+  // Shanghai to London Gateway
+  {
+    origin: 'Shanghai',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 30 },
+    ],
+  },
+  // Shanghai to Teesport
+  {
+    origin: 'Shanghai',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 32 },
+    ],
+  },
+  // Shanghai to Belfast
+  {
+    origin: 'Shanghai',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Grangemouth
+  {
+    origin: 'Shanghai',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 32 },
+    ],
+  },
+  // Shanghai to Liverpool
+  {
+    origin: 'Shanghai',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 32 },
+    ],
+  },
+  // Shanghai to South Shields
+  {
+    origin: 'Shanghai',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 32 },
+    ],
+  },
+  // Ningbo to London Gateway
+  {
+    origin: 'Ningbo',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 31 },
+    ],
+  },
+  // Ningbo to Teesport
+  {
+    origin: 'Ningbo',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 33 },
+    ],
+  },
+  // Ningbo to Belfast
+  {
+    origin: 'Ningbo',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Grangemouth
+  {
+    origin: 'Ningbo',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 33 },
+    ],
+  },
+  // Ningbo to Liverpool
+  {
+    origin: 'Ningbo',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 33 },
+    ],
+  },
+  // Ningbo to South Shields
+  {
+    origin: 'Ningbo',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 33 },
+    ],
+  },
+  // Qingdao to London Gateway
+  {
+    origin: 'Qingdao',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 33 },
+    ],
+  },
+  // Qingdao to Teesport
+  {
+    origin: 'Qingdao',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 35 },
+    ],
+  },
+  // Qingdao to Belfast
+  {
+    origin: 'Qingdao',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 37 },
+    ],
+  },
+  // Qingdao to Grangemouth
+  {
+    origin: 'Qingdao',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Qingdao to Liverpool
+  {
+    origin: 'Qingdao',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 35 },
+    ],
+  },
+  // Qingdao to South Shields
+  {
+    origin: 'Qingdao',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Dalian to London Gateway
+  {
+    origin: 'Dalian',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 35 },
+    ],
+  },
+  // Dalian to Teesport
+  {
+    origin: 'Dalian',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 37 },
+    ],
+  },
+  // Dalian to Belfast
+  {
+    origin: 'Dalian',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 39 },
+    ],
+  },
+  // Dalian to Grangemouth
+  {
+    origin: 'Dalian',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 37 },
+    ],
+  },
+  // Dalian to Liverpool
+  {
+    origin: 'Dalian',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 37 },
+    ],
+  },
+  // Dalian to South Shields
+  {
+    origin: 'Dalian',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 37 },
+    ],
+  },
+  // Hong Kong to London Gateway
+  {
+    origin: 'Hong Kong',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 31 },
+    ],
+  },
+  // Hong Kong to Teesport
+  {
+    origin: 'Hong Kong',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 33 },
+    ],
+  },
+  // Hong Kong to Belfast
+  {
+    origin: 'Hong Kong',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Grangemouth
+  {
+    origin: 'Hong Kong',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 33 },
+    ],
+  },
+  // Hong Kong to Liverpool
+  {
+    origin: 'Hong Kong',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 33 },
+    ],
+  },
+  // Hong Kong to South Shields
+  {
+    origin: 'Hong Kong',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 33 },
+    ],
+  },
+  // Xiamen to London Gateway
+  {
+    origin: 'Xiamen',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 31 },
+    ],
+  },
+  // Xiamen to Teesport
+  {
+    origin: 'Xiamen',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 33 },
+    ],
+  },
+  // Xiamen to Belfast
+  {
+    origin: 'Xiamen',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Grangemouth
+  {
+    origin: 'Xiamen',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 33 },
+    ],
+  },
+  // Xiamen to Liverpool
+  {
+    origin: 'Xiamen',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 33 },
+    ],
+  },
+  // Xiamen to South Shields
+  {
+    origin: 'Xiamen',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 33 },
+    ],
+  },
+  // Shenzhen to London Gateway
+  {
+    origin: 'Shenzhen',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 31 },
+    ],
+  },
+  // Shenzhen to Teesport
+  {
+    origin: 'Shenzhen',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 33 },
+    ],
+  },
+  // Shenzhen to Belfast
+  {
+    origin: 'Shenzhen',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Grangemouth
+  {
+    origin: 'Shenzhen',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 33 },
+    ],
+  },
+  // Shenzhen to Liverpool
+  {
+    origin: 'Shenzhen',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 33 },
+    ],
+  },
+  // Shenzhen to South Shields
+  {
+    origin: 'Shenzhen',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 33 },
+    ],
+  },
+  // Guangzhou to London Gateway
+  {
+    origin: 'Guangzhou',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 31 },
+    ],
+  },
+  // Guangzhou to Teesport
+  {
+    origin: 'Guangzhou',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 33 },
+    ],
+  },
+  // Guangzhou to Belfast
+  {
+    origin: 'Guangzhou',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Grangemouth
+  {
+    origin: 'Guangzhou',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 33 },
+    ],
+  },
+  // Guangzhou to Liverpool
+  {
+    origin: 'Guangzhou',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 33 },
+    ],
+  },
+  // Guangzhou to South Shields
+  {
+    origin: 'Guangzhou',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 33 },
+    ],
+  },
+  // Tianjin to London Gateway
+  {
+    origin: 'Tianjin',
+    destination: 'London Gateway',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1465, price40GP: 2250, price40HQ: 2250, transitTime: 34 },
+    ],
+  },
+  // Tianjin to Teesport
+  {
+    origin: 'Tianjin',
+    destination: 'Teesport',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 36 },
+    ],
+  },
+  // Tianjin to Belfast
+  {
+    origin: 'Tianjin',
+    destination: 'Belfast',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 38 },
+    ],
+  },
+  // Tianjin to Grangemouth
+  {
+    origin: 'Tianjin',
+    destination: 'Grangemouth',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 36 },
+    ],
+  },
+  // Tianjin to Liverpool
+  {
+    origin: 'Tianjin',
+    destination: 'Liverpool',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2018, price40GP: 3100, price40HQ: 3100, transitTime: 36 },
+    ],
+  },
+  // Tianjin to South Shields
+  {
+    origin: 'Tianjin',
+    destination: 'South Shields',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1920, price40GP: 2950, price40HQ: 2950, transitTime: 36 },
+    ],
+  },
+  // ============ NORWAY ============
+  // Shanghai to Drammen
+  {
+    origin: 'Shanghai',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Oslo
+  {
+    origin: 'Shanghai',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Aalesund
+  {
+    origin: 'Shanghai',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Bergen
+  {
+    origin: 'Shanghai',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Brevik
+  {
+    origin: 'Shanghai',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Floroe
+  {
+    origin: 'Shanghai',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Fredrikstad
+  {
+    origin: 'Shanghai',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Haugesund
+  {
+    origin: 'Shanghai',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Kristiansand
+  {
+    origin: 'Shanghai',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Larvik
+  {
+    origin: 'Shanghai',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Maaloey
+  {
+    origin: 'Shanghai',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Moss
+  {
+    origin: 'Shanghai',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Mo I Rana
+  {
+    origin: 'Shanghai',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Orkanger
+  {
+    origin: 'Shanghai',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Straumen
+  {
+    origin: 'Shanghai',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Stavanger
+  {
+    origin: 'Shanghai',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 34 },
+    ],
+  },
+  // Shanghai to Svelgen
+  {
+    origin: 'Shanghai',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 34 },
+    ],
+  },
+  // Ningbo to Drammen
+  {
+    origin: 'Ningbo',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Oslo
+  {
+    origin: 'Ningbo',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Aalesund
+  {
+    origin: 'Ningbo',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Bergen
+  {
+    origin: 'Ningbo',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Brevik
+  {
+    origin: 'Ningbo',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Floroe
+  {
+    origin: 'Ningbo',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Fredrikstad
+  {
+    origin: 'Ningbo',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Haugesund
+  {
+    origin: 'Ningbo',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Kristiansand
+  {
+    origin: 'Ningbo',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Larvik
+  {
+    origin: 'Ningbo',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Maaloey
+  {
+    origin: 'Ningbo',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Moss
+  {
+    origin: 'Ningbo',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Mo I Rana
+  {
+    origin: 'Ningbo',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Orkanger
+  {
+    origin: 'Ningbo',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Straumen
+  {
+    origin: 'Ningbo',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Stavanger
+  {
+    origin: 'Ningbo',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Ningbo to Svelgen
+  {
+    origin: 'Ningbo',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 35 },
+    ],
+  },
+  // Qingdao to Drammen
+  {
+    origin: 'Qingdao',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Oslo
+  {
+    origin: 'Qingdao',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Aalesund
+  {
+    origin: 'Qingdao',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Bergen
+  {
+    origin: 'Qingdao',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Brevik
+  {
+    origin: 'Qingdao',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Floroe
+  {
+    origin: 'Qingdao',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Fredrikstad
+  {
+    origin: 'Qingdao',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Haugesund
+  {
+    origin: 'Qingdao',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Kristiansand
+  {
+    origin: 'Qingdao',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Larvik
+  {
+    origin: 'Qingdao',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Maaloey
+  {
+    origin: 'Qingdao',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Moss
+  {
+    origin: 'Qingdao',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Mo I Rana
+  {
+    origin: 'Qingdao',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Orkanger
+  {
+    origin: 'Qingdao',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Straumen
+  {
+    origin: 'Qingdao',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Stavanger
+  {
+    origin: 'Qingdao',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 36 },
+    ],
+  },
+  // Qingdao to Svelgen
+  {
+    origin: 'Qingdao',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 36 },
+    ],
+  },
+  // Dalian to Drammen
+  {
+    origin: 'Dalian',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 38 },
+    ],
+  },
+  // Dalian to Oslo
+  {
+    origin: 'Dalian',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 38 },
+    ],
+  },
+  // Dalian to Aalesund
+  {
+    origin: 'Dalian',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Bergen
+  {
+    origin: 'Dalian',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Brevik
+  {
+    origin: 'Dalian',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Floroe
+  {
+    origin: 'Dalian',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Fredrikstad
+  {
+    origin: 'Dalian',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 38 },
+    ],
+  },
+  // Dalian to Haugesund
+  {
+    origin: 'Dalian',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Kristiansand
+  {
+    origin: 'Dalian',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 38 },
+    ],
+  },
+  // Dalian to Larvik
+  {
+    origin: 'Dalian',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 38 },
+    ],
+  },
+  // Dalian to Maaloey
+  {
+    origin: 'Dalian',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 38 },
+    ],
+  },
+  // Dalian to Moss
+  {
+    origin: 'Dalian',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 38 },
+    ],
+  },
+  // Dalian to Mo I Rana
+  {
+    origin: 'Dalian',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 38 },
+    ],
+  },
+  // Dalian to Orkanger
+  {
+    origin: 'Dalian',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Straumen
+  {
+    origin: 'Dalian',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 38 },
+    ],
+  },
+  // Dalian to Stavanger
+  {
+    origin: 'Dalian',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 38 },
+    ],
+  },
+  // Dalian to Svelgen
+  {
+    origin: 'Dalian',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 38 },
+    ],
+  },
+  // Hong Kong to Drammen
+  {
+    origin: 'Hong Kong',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Oslo
+  {
+    origin: 'Hong Kong',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Aalesund
+  {
+    origin: 'Hong Kong',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Bergen
+  {
+    origin: 'Hong Kong',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Brevik
+  {
+    origin: 'Hong Kong',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Floroe
+  {
+    origin: 'Hong Kong',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Fredrikstad
+  {
+    origin: 'Hong Kong',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Haugesund
+  {
+    origin: 'Hong Kong',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Kristiansand
+  {
+    origin: 'Hong Kong',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Larvik
+  {
+    origin: 'Hong Kong',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Maaloey
+  {
+    origin: 'Hong Kong',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Moss
+  {
+    origin: 'Hong Kong',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Mo I Rana
+  {
+    origin: 'Hong Kong',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Orkanger
+  {
+    origin: 'Hong Kong',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Straumen
+  {
+    origin: 'Hong Kong',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Stavanger
+  {
+    origin: 'Hong Kong',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Hong Kong to Svelgen
+  {
+    origin: 'Hong Kong',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Drammen
+  {
+    origin: 'Xiamen',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Oslo
+  {
+    origin: 'Xiamen',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Aalesund
+  {
+    origin: 'Xiamen',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Bergen
+  {
+    origin: 'Xiamen',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Brevik
+  {
+    origin: 'Xiamen',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Floroe
+  {
+    origin: 'Xiamen',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Fredrikstad
+  {
+    origin: 'Xiamen',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Haugesund
+  {
+    origin: 'Xiamen',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Kristiansand
+  {
+    origin: 'Xiamen',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Larvik
+  {
+    origin: 'Xiamen',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Maaloey
+  {
+    origin: 'Xiamen',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Moss
+  {
+    origin: 'Xiamen',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Mo I Rana
+  {
+    origin: 'Xiamen',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Orkanger
+  {
+    origin: 'Xiamen',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Straumen
+  {
+    origin: 'Xiamen',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Stavanger
+  {
+    origin: 'Xiamen',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Xiamen to Svelgen
+  {
+    origin: 'Xiamen',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Drammen
+  {
+    origin: 'Shenzhen',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Oslo
+  {
+    origin: 'Shenzhen',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Aalesund
+  {
+    origin: 'Shenzhen',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Bergen
+  {
+    origin: 'Shenzhen',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Brevik
+  {
+    origin: 'Shenzhen',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Floroe
+  {
+    origin: 'Shenzhen',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Fredrikstad
+  {
+    origin: 'Shenzhen',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Haugesund
+  {
+    origin: 'Shenzhen',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Kristiansand
+  {
+    origin: 'Shenzhen',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Larvik
+  {
+    origin: 'Shenzhen',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Maaloey
+  {
+    origin: 'Shenzhen',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Moss
+  {
+    origin: 'Shenzhen',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Mo I Rana
+  {
+    origin: 'Shenzhen',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Orkanger
+  {
+    origin: 'Shenzhen',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Straumen
+  {
+    origin: 'Shenzhen',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Stavanger
+  {
+    origin: 'Shenzhen',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Shenzhen to Svelgen
+  {
+    origin: 'Shenzhen',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Drammen
+  {
+    origin: 'Guangzhou',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Oslo
+  {
+    origin: 'Guangzhou',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Aalesund
+  {
+    origin: 'Guangzhou',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Bergen
+  {
+    origin: 'Guangzhou',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Brevik
+  {
+    origin: 'Guangzhou',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Floroe
+  {
+    origin: 'Guangzhou',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Fredrikstad
+  {
+    origin: 'Guangzhou',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Haugesund
+  {
+    origin: 'Guangzhou',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Kristiansand
+  {
+    origin: 'Guangzhou',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Larvik
+  {
+    origin: 'Guangzhou',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Maaloey
+  {
+    origin: 'Guangzhou',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Moss
+  {
+    origin: 'Guangzhou',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Mo I Rana
+  {
+    origin: 'Guangzhou',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Orkanger
+  {
+    origin: 'Guangzhou',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Straumen
+  {
+    origin: 'Guangzhou',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Stavanger
+  {
+    origin: 'Guangzhou',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 35 },
+    ],
+  },
+  // Guangzhou to Svelgen
+  {
+    origin: 'Guangzhou',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 35 },
+    ],
+  },
+  // Tianjin to Drammen
+  {
+    origin: 'Tianjin',
+    destination: 'Drammen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1725, price40GP: 2650, price40HQ: 2650, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Oslo
+  {
+    origin: 'Tianjin',
+    destination: 'Oslo',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1758, price40GP: 2700, price40HQ: 2700, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Aalesund
+  {
+    origin: 'Tianjin',
+    destination: 'Aalesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Bergen
+  {
+    origin: 'Tianjin',
+    destination: 'Bergen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Brevik
+  {
+    origin: 'Tianjin',
+    destination: 'Brevik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Floroe
+  {
+    origin: 'Tianjin',
+    destination: 'Floroe',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Fredrikstad
+  {
+    origin: 'Tianjin',
+    destination: 'Fredrikstad',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Haugesund
+  {
+    origin: 'Tianjin',
+    destination: 'Haugesund',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Kristiansand
+  {
+    origin: 'Tianjin',
+    destination: 'Kristiansand',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Larvik
+  {
+    origin: 'Tianjin',
+    destination: 'Larvik',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1660, price40GP: 2550, price40HQ: 2550, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Maaloey
+  {
+    origin: 'Tianjin',
+    destination: 'Maaloey',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Moss
+  {
+    origin: 'Tianjin',
+    destination: 'Moss',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1855, price40GP: 2850, price40HQ: 2850, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Mo I Rana
+  {
+    origin: 'Tianjin',
+    destination: 'Mo I Rana',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2505, price40GP: 3850, price40HQ: 3850, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Orkanger
+  {
+    origin: 'Tianjin',
+    destination: 'Orkanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Straumen
+  {
+    origin: 'Tianjin',
+    destination: 'Straumen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2960, price40GP: 4550, price40HQ: 4550, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Stavanger
+  {
+    origin: 'Tianjin',
+    destination: 'Stavanger',
+    rates: [
+      { carrier: 'Maersk', price20GP: 1790, price40GP: 2750, price40HQ: 2750, transitTime: 37 },
+    ],
+  },
+  // Tianjin to Svelgen
+  {
+    origin: 'Tianjin',
+    destination: 'Svelgen',
+    rates: [
+      { carrier: 'Maersk', price20GP: 2310, price40GP: 3550, price40HQ: 3550, transitTime: 37 },
     ],
   },
 ];

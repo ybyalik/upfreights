@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
+import { getAllCountrySlugs, getAllSeaFreightCountrySlugs } from '@/lib/data/countries';
 
 const BASE_URL = 'https://upfreights.com';
 
@@ -160,62 +161,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Country destination pages (only pages that actually exist)
-  const countryDestinations = [
-    'shipping-china-to-australia',
-    'shipping-china-to-canada',
-    'shipping-china-to-germany',
-    'shipping-china-to-netherlands',
-    'shipping-china-to-united-kingdom',
-    'shipping-china-to-united-states',
-  ];
-
-  const countryPages: MetadataRoute.Sitemap = countryDestinations.map((dest) => ({
-    url: `${BASE_URL}/${dest}`,
+  // Country destination pages — dynamically generated from countries.ts
+  const countryPages: MetadataRoute.Sitemap = getAllCountrySlugs().map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  // Sea freight country pages (like /sea-freight-from-china-to-usa)
-  const seaFreightCountryPages: MetadataRoute.Sitemap = [
-    {
-      url: `${BASE_URL}/sea-freight-from-china-to-usa`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/sea-freight-from-china-to-canada`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/sea-freight-from-china-to-uk`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/sea-freight-from-china-to-australia`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/sea-freight-from-china-to-germany`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/sea-freight-from-china-to-netherlands`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-  ];
+  // Sea freight country pages — dynamically generated from countries.ts
+  const seaFreightCountryPages: MetadataRoute.Sitemap = getAllSeaFreightCountrySlugs().map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
 
   // Air freight country pages (like /air-freight-from-china-to-usa)
   const airFreightCountryPages: MetadataRoute.Sitemap = [

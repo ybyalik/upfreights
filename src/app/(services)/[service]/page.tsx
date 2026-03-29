@@ -239,14 +239,18 @@ function CountryDestinationPage({ country }: { country: CountryDestination }) {
                 <Clock className="h-5 w-5 text-orange" />
                 <span>{country.transitTime} transit</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Ship className="h-5 w-5 text-orange" />
-                <span>{seaRoutes.length} sea routes</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Plane className="h-5 w-5 text-orange" />
-                <span>{airRoutes.length} air routes</span>
-              </div>
+              {seaRoutes.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <Ship className="h-5 w-5 text-orange" />
+                  <span>{seaRoutes.length} sea routes</span>
+                </div>
+              )}
+              {airRoutes.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <Plane className="h-5 w-5 text-orange" />
+                  <span>{airRoutes.length} air routes</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -279,27 +283,29 @@ function CountryDestinationPage({ country }: { country: CountryDestination }) {
               </CardContent>
             </Card>
 
-            <Card className="border-border/50">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center mb-4">
-                  <Plane className="h-6 w-6 text-orange" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Air Freight</h3>
-                <p className="text-sm text-muted-foreground mb-3">
-                  Fast express delivery for time-sensitive shipments.
-                </p>
-                <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-3.5 w-3.5 text-green-500" />
-                    {airRoutes.length} routes available
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-3.5 w-3.5 text-green-500" />
-                    Daily flights
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            {airRoutes.length > 0 && (
+              <Card className="border-border/50">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center mb-4">
+                    <Plane className="h-6 w-6 text-orange" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Air Freight</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Fast express delivery for time-sensitive shipments.
+                  </p>
+                  <ul className="space-y-1 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-green-500" />
+                      {airRoutes.length} routes available
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-green-500" />
+                      Daily flights
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            )}
 
             <Card className="border-border/50">
               <CardContent className="p-6">

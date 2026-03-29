@@ -27,6 +27,7 @@ export const ORGANIZATION_INFO = {
   areaServed: [
     'United States', 'Canada', 'United Kingdom', 'Germany', 'Australia',
     'Netherlands', 'France', 'Italy', 'Spain', 'Japan', 'South Korea',
+    'Sweden', 'Czech Republic', 'Norway',
   ],
 };
 

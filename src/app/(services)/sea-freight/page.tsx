@@ -86,6 +86,30 @@ const destinationCountries = [
     description: 'Strategic Mediterranean access via Trieste, gateway to Central and Southern Europe.',
     highlights: ['Mediterranean gateway', 'Central Europe access', 'Major carrier coverage'],
   },
+  {
+    country: 'Sweden',
+    flag: '🇸🇪',
+    slug: 'sea-freight-from-china-to-sweden',
+    transitTime: '30-39 days',
+    description: 'Reliable services to Gothenburg, Helsingborg, and other major Swedish ports.',
+    highlights: ['Scandinavian gateway', '5 destination ports', 'Competitive MSK rates'],
+  },
+  {
+    country: 'Czech Republic',
+    flag: '🇨🇿',
+    slug: 'sea-freight-from-china-to-czech-republic',
+    transitTime: '35-42 days',
+    description: 'Intermodal services to inland terminals at Paskov and Melnik via European seaports.',
+    highlights: ['Central Europe hub', 'Rail-connected terminals', 'Automotive corridor'],
+  },
+  {
+    country: 'Norway',
+    flag: '🇳🇴',
+    slug: 'sea-freight-from-china-to-norway',
+    transitTime: '32-40 days',
+    description: 'Comprehensive coverage with 18 Norwegian ports from Oslo to Mo I Rana.',
+    highlights: ['18 destination ports', 'Full coastline coverage', 'Maersk direct services'],
+  },
 ];
 
 const seaFreightServiceSchema = generateServiceSchema({
