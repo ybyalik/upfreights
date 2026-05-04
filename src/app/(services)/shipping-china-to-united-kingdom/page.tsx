@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/components/sections';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
+import { getCountryBySlug } from '@/lib/data/countries';
+import { generateCountryServiceSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Shipping from China to United Kingdom | UpFreights',
@@ -43,8 +45,23 @@ export default function ShippingToUKPage() {
     r.destinationCountry.toLowerCase().includes('kingdom')
   );
 
+  const country = getCountryBySlug('shipping-china-to-united-kingdom');
+  const serviceSchema = country ? generateCountryServiceSchema({
+    name: country.name,
+    slug: country.slug,
+    description: country.description,
+    majorPorts: country.majorPorts,
+    transitTime: country.transitTime,
+  }) : null;
+
   return (
     <>
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      )}
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">

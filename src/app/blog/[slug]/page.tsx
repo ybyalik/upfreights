@@ -17,6 +17,8 @@ interface BlogPostPageProps {
 
 // Revalidate every hour. Webhook publishes also call revalidatePath for instant refresh.
 export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 const getPost = cache(async (slug: string) => {
   const { data } = await supabase

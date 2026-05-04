@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/components/sections';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
+import { getCountryBySlug } from '@/lib/data/countries';
+import { generateCountryServiceSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Shipping from China to Canada | UpFreights',
@@ -32,6 +34,8 @@ const whyShipWithUs = [
   'Real-time tracking and shipment updates',
 ];
 
+const COUNTRY_SLUG = 'shipping-china-to-canada';
+
 export default function ShippingToCanadaPage() {
   // Get routes for Canada
   const seaRoutes = generateSeaRoutes().filter(r =>
@@ -41,8 +45,23 @@ export default function ShippingToCanadaPage() {
     r.destinationCountry.toLowerCase() === 'canada'
   );
 
+  const country = getCountryBySlug(COUNTRY_SLUG);
+  const serviceSchema = country ? generateCountryServiceSchema({
+    name: country.name,
+    slug: country.slug,
+    description: country.description,
+    majorPorts: country.majorPorts,
+    transitTime: country.transitTime,
+  }) : null;
+
   return (
     <>
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      )}
       {/* Hero Section */}
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
