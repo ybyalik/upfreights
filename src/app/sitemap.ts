@@ -3,6 +3,8 @@ import { supabase } from '@/lib/supabase';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 import { getAllCountrySlugs, getAllSeaFreightCountrySlugs } from '@/lib/data/countries';
 
+export const revalidate = 3600;
+
 const BASE_URL = 'https://upfreights.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
