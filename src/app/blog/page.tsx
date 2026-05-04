@@ -8,22 +8,37 @@ import { generateBlogCollectionSchema } from '@/lib/schema';
 
 const POSTS_PER_PAGE = 20;
 
-export const metadata: Metadata = {
-  title: 'Blog - Shipping Insights & Guides',
-  description:
-    'Expert insights on international shipping, customs clearance, freight forwarding, and logistics. Stay informed with UpFreights blog.',
-  alternates: {
-    canonical: '/blog',
-  },
-  openGraph: {
-    title: 'Blog - Shipping Insights & Guides | UpFreights',
-    description:
-      'Expert insights on international shipping, customs clearance, and logistics.',
-  },
-};
-
 interface BlogPageProps {
   searchParams: Promise<{ page?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: BlogPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const pageNum = Math.max(1, parseInt(params.page || '1', 10));
+  const isPaginated = pageNum > 1;
+
+  const baseTitle = 'Blog - Shipping Insights & Guides';
+  const title = isPaginated ? `${baseTitle} - Page ${pageNum}` : baseTitle;
+  const description =
+    'Expert insights on international shipping, customs clearance, freight forwarding, and logistics. Stay informed with UpFreights blog.';
+  const canonical = isPaginated ? `/blog?page=${pageNum}` : '/blog';
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title: `${title} | UpFreights`,
+      description,
+      images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | UpFreights`,
+      description,
+      images: ['/og-image.png'],
+    },
+  };
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
