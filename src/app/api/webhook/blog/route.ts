@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { supabase } from '@/lib/supabase';
 
 export const maxDuration = 30;
@@ -126,6 +127,12 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
 
     console.log(`Upserted ${rows.length} articles to Supabase`);
+
+    revalidatePath('/blog');
+    revalidatePath('/sitemap.xml');
+    for (const article of payload.data.articles) {
+      revalidatePath(`/blog/${article.slug}`);
+    }
 
     return NextResponse.json({
       message: 'Webhook processed successfully',

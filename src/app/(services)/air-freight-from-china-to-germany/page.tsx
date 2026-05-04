@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Air Freight from China to Germany | UpFreights',
     description: 'Fast air freight services from China to Germany with 3-5 day delivery.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Air Freight from China to Germany | UpFreights',
+    description: 'Fast air freight services from China to Germany with 3-5 day delivery.',
+    images: ['/og-image.png'],
   },
 };
 

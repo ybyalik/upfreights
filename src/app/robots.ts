@@ -6,12 +6,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/', '/private/'],
+        disallow: ['/admin/', '/api/', '/private/'],
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/', '/private/'],
+        disallow: ['/admin/', '/api/', '/private/'],
       },
       {
         // Block aggressive/less useful bots to save bandwidth
@@ -38,7 +38,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/private/'],
+        disallow: ['/admin/', '/api/', '/private/'],
       },
     ],
     sitemap: 'https://upfreights.com/sitemap.xml',

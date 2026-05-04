@@ -13,14 +13,21 @@ import {
 } from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to Netherlands | Sea & Air Freight Guide 2026',
-  description: 'Complete guide to shipping from China to Netherlands. Current rates, transit times, customs requirements, and expert tips for sea and air freight in 2026.',
+  title: 'Shipping from China to Netherlands | UpFreights',
+  description: 'Sea and air freight from China to the Netherlands via Rotterdam and Amsterdam. 28-32 day transit. FCL, LCL, customs clearance, and door-to-door delivery.',
   alternates: {
     canonical: '/shipping-china-to-netherlands',
   },
   openGraph: {
     title: 'Shipping from China to Netherlands | UpFreights',
-    description: 'Complete guide to shipping from China to Netherlands. Current rates, transit times, and customs requirements for 2026.',
+    description: 'Sea and air freight from China to the Netherlands via Rotterdam and Amsterdam. 28-32 day transit. FCL, LCL, customs, and door-to-door delivery.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shipping from China to Netherlands | UpFreights',
+    description: 'Sea and air freight from China to the Netherlands. 28-32 day transit. FCL, LCL, customs, and door-to-door delivery.',
+    images: ['/og-image.png'],
   },
 };
 

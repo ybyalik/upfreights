@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Air Freight from China to Canada | UpFreights',
     description: 'Fast air freight services from China to Canada with 2-4 day delivery.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Air Freight from China to Canada | UpFreights',
+    description: 'Fast air freight services from China to Canada with 2-4 day delivery.',
+    images: ['/og-image.png'],
   },
 };
 

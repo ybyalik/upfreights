@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'China Trade Agency Services | UpFreights',
     description: 'Comprehensive China trade agency services including product sourcing, procurement, export transportation, customs clearance, and LC negotiation.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'China Trade Agency Services | UpFreights',
+    description: 'Comprehensive China trade agency services including product sourcing, procurement, export transportation, customs clearance, and LC negotiation.',
+    images: ['/og-image.png'],
   },
 };
 

@@ -98,15 +98,25 @@ export async function generateMetadata({
     return { title: 'Route Not Found' };
   }
 
+  const title = `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`;
+  const description = `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`;
+
   return {
-    title: `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-    description: `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`,
+    title,
+    description,
     alternates: {
       canonical: `/sea-freight-${slug}`,
     },
     openGraph: {
-      title: `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-      description: `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`,
+      title,
+      description,
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
     },
   };
 }

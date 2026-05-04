@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Door-to-Door Delivery Services | UpFreights',
     description: 'Complete end-to-end logistics solutions from your supplier\'s door in China to your warehouse or business address worldwide.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Door-to-Door Delivery Services | UpFreights',
+    description: 'Complete end-to-end logistics solutions from your supplier\'s door in China to your warehouse or business address worldwide.',
+    images: ['/og-image.png'],
   },
 };
 

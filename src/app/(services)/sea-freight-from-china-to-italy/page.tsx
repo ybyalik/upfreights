@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sea Freight from China to Italy | UpFreights',
     description: 'Reliable sea freight services from China to Italy with FCL and LCL options via Genoa, Trieste, Naples, La Spezia, and Venice.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sea Freight from China to Italy | UpFreights',
+    description: 'Reliable sea freight services from China to Italy with FCL and LCL options via Genoa, Trieste, Naples, La Spezia, and Venice.',
+    images: ['/og-image.png'],
   },
 };
 

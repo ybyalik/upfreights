@@ -95,15 +95,25 @@ export async function generateMetadata({
   const daysMatch = route.transitTime?.match(/(\d+[-–]\d+|\d+)/);
   const days = daysMatch ? daysMatch[1] : '3-5';
 
+  const title = `Air Freight Shipping from ${route.originCity} to ${route.destinationCity}`;
+  const description = `Urgent shipping from ${route.originCity} to ${route.destinationCity}? Delivery in ${days} days via Express air freight. Secure, reliable & fast. Check rates now.`;
+
   return {
-    title: `Air Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-    description: `Urgent shipping from ${route.originCity} to ${route.destinationCity}? Delivery in ${days} days via Express air freight. Secure, reliable & fast. Check rates now.`,
+    title,
+    description,
     alternates: {
       canonical: `/air-freight-${slug}`,
     },
     openGraph: {
-      title: `Air Freight Shipping from ${route.originCity} to ${route.destinationCity}`,
-      description: `Urgent shipping from ${route.originCity} to ${route.destinationCity}? Delivery in ${days} days via Express air freight. Secure, reliable & fast. Check rates now.`,
+      title,
+      description,
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
     },
   };
 }

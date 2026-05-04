@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'China Warehousing Services | UpFreights',
     description: 'Professional warehousing services in China including secure storage, loading/unloading, weighing, packing, palletizing, labeling, and quality inspection.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'China Warehousing Services | UpFreights',
+    description: 'Professional warehousing services in China including secure storage, loading/unloading, weighing, packing, palletizing, labeling, and quality inspection.',
+    images: ['/og-image.png'],
   },
 };
 

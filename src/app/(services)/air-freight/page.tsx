@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Air Freight Services from China | UpFreights',
     description: 'Fast, reliable air cargo services for time-sensitive shipments with express delivery options and premium handling.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Air Freight Services from China | UpFreights',
+    description: 'Fast, reliable air cargo services for time-sensitive shipments with express delivery options and premium handling.',
+    images: ['/og-image.png'],
   },
 };
 

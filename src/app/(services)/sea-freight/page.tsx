@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sea Freight Services from China | UpFreights',
     description: 'Cost-effective ocean shipping solutions for FCL and LCL shipments from China to worldwide destinations.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sea Freight Services from China | UpFreights',
+    description: 'Cost-effective ocean shipping solutions for FCL and LCL shipments from China to worldwide destinations.',
+    images: ['/og-image.png'],
   },
 };
 

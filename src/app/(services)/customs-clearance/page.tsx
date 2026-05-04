@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Customs Clearance Services | UpFreights',
     description: 'Expert customs brokerage services for smooth import/export processes with full regulatory compliance and documentation handling.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Customs Clearance Services | UpFreights',
+    description: 'Expert customs brokerage services for smooth import/export processes with full regulatory compliance and documentation handling.',
+    images: ['/og-image.png'],
   },
 };
 

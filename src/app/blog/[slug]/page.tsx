@@ -15,6 +15,9 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Revalidate every hour. Webhook publishes also call revalidatePath for instant refresh.
+export const revalidate = 3600;
+
 const getPost = cache(async (slug: string) => {
   const { data } = await supabase
     .from('blog_posts')
@@ -35,19 +38,31 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  const ogTitle = `${post.meta_title || post.title} | UpFreights Blog`;
+  const description = post.meta_description || post.excerpt;
+  const images = post.image
+    ? [{ url: post.image, alt: post.meta_title || post.title }]
+    : [{ url: '/og-image.png', alt: post.meta_title || post.title }];
+
   return {
     title: post.meta_title || post.title,
-    description: post.meta_description || post.excerpt,
+    description,
     alternates: {
       canonical: `/blog/${slug}`,
     },
     openGraph: {
-      title: `${post.meta_title || post.title} | UpFreights Blog`,
-      description: post.meta_description || post.excerpt,
+      title: ogTitle,
+      description,
       type: 'article',
-      ...(post.image && {
-        images: [{ url: post.image, alt: post.meta_title || post.title }],
-      }),
+      images,
+      ...(post.published_at && { publishedTime: post.published_at }),
+      ...(post.updated_at && { modifiedTime: post.updated_at }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: images.map((i) => i.url),
     },
   };
 }
@@ -148,6 +163,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     content: post.content,
     readingTime,
     image: post.image,
+    publishedAt: postData.published_at,
+    updatedAt: postData.updated_at,
   });
 
   return (

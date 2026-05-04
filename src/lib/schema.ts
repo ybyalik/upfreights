@@ -210,6 +210,8 @@ export function generateBlogPostingSchema(post: {
   content: string;
   readingTime?: string;
   image?: string;
+  publishedAt?: string;
+  updatedAt?: string;
 }) {
   const wordCount = (post.content || '').split(/\s+/).filter(Boolean).length;
 
@@ -226,11 +228,21 @@ export function generateBlogPostingSchema(post: {
         url: post.image,
       },
     }),
+    ...(post.publishedAt && { datePublished: post.publishedAt }),
+    ...(post.updatedAt || post.publishedAt
+      ? { dateModified: post.updatedAt || post.publishedAt }
+      : {}),
     author: {
+      '@type': 'Organization',
       '@id': `${ORGANIZATION_INFO.url}/#organization`,
+      name: ORGANIZATION_INFO.name,
+      url: ORGANIZATION_INFO.url,
     },
     publisher: {
+      '@type': 'Organization',
       '@id': `${ORGANIZATION_INFO.url}/#organization`,
+      name: ORGANIZATION_INFO.name,
+      url: ORGANIZATION_INFO.url,
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -345,5 +357,39 @@ export function generateRouteServiceSchema(route: {
     ...(route.transitTime && {
       termsOfService: `Transit time: ${route.transitTime}`,
     }),
+  };
+}
+
+// Country-scoped Service schema for /shipping-china-to-{country} pages
+export function generateCountryServiceSchema(country: {
+  name: string;
+  slug: string;
+  description: string;
+  majorPorts: string[];
+  transitTime: string;
+}) {
+  const url = `${ORGANIZATION_INFO.url}/${country.slug}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}/#service`,
+    name: `Freight Forwarding from China to ${country.name}`,
+    description: country.description,
+    url,
+    provider: { '@id': `${ORGANIZATION_INFO.url}/#organization` },
+    serviceType: 'Freight Forwarding',
+    areaServed: { '@type': 'Country', name: country.name },
+    termsOfService: `Transit time: ${country.transitTime}`,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Shipping services to ${country.name}`,
+      itemListElement: country.majorPorts.slice(0, 10).map((port) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: `Shipping to ${port}`,
+        },
+      })),
+    },
   };
 }

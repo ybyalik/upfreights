@@ -7,14 +7,21 @@ import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to United Kingdom',
-  description: 'Comprehensive freight forwarding services with air and sea shipping options. Reliable, cost-effective solutions for businesses of all sizes.',
+  title: 'Shipping from China to United Kingdom | UpFreights',
+  description: 'Sea and air freight from China to the UK. 28-35 day transit via Felixstowe, Southampton, London Gateway, and Liverpool. FCL, LCL, customs, and door-to-door.',
   alternates: {
     canonical: '/shipping-china-to-united-kingdom',
   },
   openGraph: {
     title: 'Shipping from China to United Kingdom | UpFreights',
-    description: 'Comprehensive freight forwarding services with air and sea shipping options to the UK.',
+    description: 'Sea and air freight from China to the UK. 28-35 day transit via Felixstowe, Southampton, London Gateway, and Liverpool. FCL, LCL, customs, and door-to-door.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shipping from China to United Kingdom | UpFreights',
+    description: 'Sea and air freight from China to the UK. 28-35 day transit. FCL, LCL, customs, and door-to-door delivery.',
+    images: ['/og-image.png'],
   },
 };
 

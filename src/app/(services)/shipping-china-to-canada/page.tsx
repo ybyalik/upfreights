@@ -7,14 +7,21 @@ import { Breadcrumbs, CTASection, FilterableRoutesList, HeroQuoteForm } from '@/
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to Canada',
-  description: 'Comprehensive freight forwarding services with air and sea shipping options. Reliable, cost-effective solutions for businesses of all sizes.',
+  title: 'Shipping from China to Canada | UpFreights',
+  description: 'Sea and air freight from China to Canada. 14-30 day transit to Vancouver, Toronto, Montreal, and Halifax. FCL, LCL, customs clearance, and door-to-door delivery.',
   alternates: {
     canonical: '/shipping-china-to-canada',
   },
   openGraph: {
     title: 'Shipping from China to Canada | UpFreights',
-    description: 'Comprehensive freight forwarding services with air and sea shipping options to Canada.',
+    description: 'Sea and air freight from China to Canada. 14-30 day transit to Vancouver, Toronto, Montreal, and Halifax. FCL, LCL, customs, and door-to-door delivery.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Shipping from China to Canada | UpFreights' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shipping from China to Canada | UpFreights',
+    description: 'Sea and air freight from China to Canada. 14-30 day transit. FCL, LCL, customs, and door-to-door delivery.',
+    images: ['/og-image.png'],
   },
 };
 

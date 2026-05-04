@@ -16,6 +16,7 @@ import {
   SeaFreightCountry,
 } from '@/lib/data/countries';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
+import { generateCountryServiceSchema } from '@/lib/schema';
 
 const serviceIcons: Record<string, React.ElementType> = {
   'sea-freight': Ship,
@@ -47,18 +48,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { service: serviceSlug } = await params;
 
+  const ogImage = { url: '/og-image.png', width: 1200, height: 630 };
+
   // Check for service page
   const service = getServiceBySlug(serviceSlug);
   if (service) {
+    const title = `${service.title} | UpFreights`;
     return {
       title: service.title,
       description: service.description,
-      alternates: {
-        canonical: `/${serviceSlug}`,
-      },
+      alternates: { canonical: `/${serviceSlug}` },
       openGraph: {
-        title: `${service.title} | UpFreights`,
+        title,
         description: service.shortDescription,
+        images: [{ ...ogImage, alt: title }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description: service.shortDescription,
+        images: [ogImage.url],
       },
     };
   }
@@ -66,15 +75,21 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   // Check for sea freight country page
   const seaFreightCountry = getSeaFreightCountryBySlug(serviceSlug);
   if (seaFreightCountry) {
+    const title = `Sea Freight Shipping from China to ${seaFreightCountry.country}`;
     return {
-      title: `Sea Freight Shipping from China to ${seaFreightCountry.country}`,
+      title,
       description: seaFreightCountry.description,
-      alternates: {
-        canonical: `/${serviceSlug}`,
-      },
+      alternates: { canonical: `/${serviceSlug}` },
       openGraph: {
-        title: `Sea Freight Shipping from China to ${seaFreightCountry.country}`,
+        title,
         description: seaFreightCountry.description,
+        images: [{ ...ogImage, alt: title }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description: seaFreightCountry.description,
+        images: [ogImage.url],
       },
     };
   }
@@ -82,21 +97,28 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   // Check for country destination page
   const country = getCountryBySlug(serviceSlug);
   if (country) {
+    const title = `Shipping from China to ${country.name} | UpFreights`;
     return {
       title: `Shipping from China to ${country.name}`,
       description: country.description,
-      alternates: {
-        canonical: `/${serviceSlug}`,
-      },
+      alternates: { canonical: `/${serviceSlug}` },
       openGraph: {
-        title: `Shipping from China to ${country.name} | UpFreights`,
+        title,
         description: country.description,
+        images: [{ ...ogImage, alt: title }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description: country.description,
+        images: [ogImage.url],
       },
     };
   }
 
   return {
     title: 'Page Not Found',
+    robots: { index: false, follow: false },
   };
 }
 
@@ -106,8 +128,20 @@ function SeaFreightCountryPage({ country }: { country: SeaFreightCountry }) {
     r.destinationCountry.toLowerCase().includes(country.country.toLowerCase().split(' ')[0])
   );
 
+  const serviceSchema = generateCountryServiceSchema({
+    name: country.country,
+    slug: country.slug,
+    description: country.description,
+    majorPorts: country.majorPorts,
+    transitTime: country.transitTime,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">
@@ -215,8 +249,20 @@ function CountryDestinationPage({ country }: { country: CountryDestination }) {
     r.destinationCountry.toLowerCase().includes(countryNameLower.split(' ')[0])
   );
 
+  const serviceSchema = generateCountryServiceSchema({
+    name: country.name,
+    slug: country.slug,
+    description: country.description,
+    majorPorts: country.majorPorts,
+    transitTime: country.transitTime,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="bg-gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">

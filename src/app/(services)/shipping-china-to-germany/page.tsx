@@ -13,14 +13,21 @@ import {
 } from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: 'Shipping from China to Germany | Sea, Air & Rail Freight Guide 2026',
-  description: 'Complete guide to shipping from China to Germany. Current rates, transit times, customs requirements, and expert tips for sea, air, and rail freight in 2026.',
+  title: 'Shipping from China to Germany | UpFreights',
+  description: 'Sea and air freight from China to Germany. 28-40 day transit via Hamburg, Bremerhaven, and Frankfurt. FCL, LCL, customs clearance, and door-to-door delivery.',
   alternates: {
     canonical: '/shipping-china-to-germany',
   },
   openGraph: {
     title: 'Shipping from China to Germany | UpFreights',
-    description: 'Complete guide to shipping from China to Germany. Current rates, transit times, and customs requirements for 2026.',
+    description: 'Sea and air freight from China to Germany. 28-40 day transit via Hamburg, Bremerhaven, and Frankfurt. FCL, LCL, customs, and door-to-door delivery.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shipping from China to Germany | UpFreights',
+    description: 'Sea and air freight from China to Germany. 28-40 day transit. FCL, LCL, customs, and door-to-door delivery.',
+    images: ['/og-image.png'],
   },
 };
 
