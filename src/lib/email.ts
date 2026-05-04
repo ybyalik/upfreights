@@ -153,7 +153,7 @@ export async function sendQuoteAutoResponse(data: QuoteAutoResponseData): Promis
   const htmlContent = `
     <p>Hi ${firstName},</p>
 
-    <p>Thanks for reaching out to Upfreights!</p>
+    <p>Thanks for reaching out to UpFreights!</p>
 
     <p>We've received your freight forwarding quote request and our team is reviewing the details now.</p>
 
@@ -162,14 +162,14 @@ export async function sendQuoteAutoResponse(data: QuoteAutoResponseData): Promis
     <p>If your shipment is time-sensitive or you need to add more information, feel free to reply to this email.</p>
 
     <p>Thank you,<br>
-    <strong>The Upfreights Team</strong><br>
+    <strong>The UpFreights Team</strong><br>
     China Freight Forwarding Solutions</p>
   `;
 
   const textContent = `
 Hi ${firstName},
 
-Thanks for reaching out to Upfreights!
+Thanks for reaching out to UpFreights!
 
 We've received your freight forwarding quote request and our team is reviewing the details now.
 
@@ -178,7 +178,7 @@ We'll get back to you as soon as possible with pricing and next steps.
 If your shipment is time-sensitive or you need to add more information, feel free to reply to this email.
 
 Thank you,
-The Upfreights Team
+The UpFreights Team
 China Freight Forwarding Solutions
   `.trim();
 
@@ -189,7 +189,7 @@ China Freight Forwarding Solutions
     from: 'UpFreights <quote@upfreights.com>',
     to: email,
     replyTo: replyToEmail,
-    subject: 'We received your quote request - Upfreights',
+    subject: 'We received your quote request - UpFreights',
     text: textContent,
     html: htmlContent,
   });

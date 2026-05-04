@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendQuoteEmail, sendQuoteAutoResponse } from '@/lib/email';
 import { sanitizeInput, validateEmail, validatePhone } from '@/lib/validation';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = getClientIp(request);
+    const limit = rateLimit({ key: `quote:${ip}`, windowMs: 60_000, max: 3 });
+    if (!limit.ok) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please wait a moment and try again.' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+      );
+    }
+
     const body = await request.json();
 
     // Honeypot spam check - if this field is filled, it's likely a bot

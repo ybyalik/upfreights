@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendContactEmail } from '@/lib/email';
 import { sanitizeInput, validateEmail } from '@/lib/validation';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = getClientIp(request);
+    const limit = rateLimit({ key: `contact:${ip}`, windowMs: 60_000, max: 3 });
+    if (!limit.ok) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please wait a moment and try again.' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+      );
+    }
+
     const body = await request.json();
 
     // Honeypot check - if filled, silently accept but don't process

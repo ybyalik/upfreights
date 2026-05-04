@@ -8,125 +8,61 @@ export const revalidate = 3600;
 const BASE_URL = 'https://upfreights.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const currentDate = new Date().toISOString();
+  // Stable per-page date so search engines don't see every URL "change" on every revalidate.
+  // Bump when the page content materially changes.
+  const STATIC_LAST_MODIFIED = '2026-03-28';
 
-  // Static pages matching existing site
   const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: BASE_URL,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-    {
-      url: `${BASE_URL}/about`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/services`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/quote`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/all-routes`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/case-studies`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/incoterms`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/shipping-routes-china-to-usa`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/shipping-routes-china`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/privacy-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${BASE_URL}/terms-of-service`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+    { url: BASE_URL, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'daily', priority: 1.0 },
+    { url: `${BASE_URL}/about`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/services`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/quote`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/contact`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/blog`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/all-routes`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/case-studies`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/incoterms`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/shipping-routes-china-to-usa`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/shipping-routes-china`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/privacy-policy`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/terms-of-service`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
   // Service pages (flat URLs like /sea-freight, /air-freight, etc.)
   const servicePages: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/sea-freight`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/air-freight`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/door-to-door`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/customs-clearance`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/warehousing`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/trade-agency`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
@@ -136,19 +72,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const caseStudyPages: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/case-studies/nigerian-sesame-to-qingdao`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/case-studies/baby-carriages-china-to-los-angeles`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/case-studies/oversized-equipment-japan-to-hangzhou`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
@@ -158,7 +94,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const incotermsSlugs = ['exw', 'fca', 'fas', 'fob', 'cfr', 'cif', 'cpt', 'cip', 'dap', 'dpu', 'ddp'];
   const incotermsPages: MetadataRoute.Sitemap = incotermsSlugs.map((term) => ({
     url: `${BASE_URL}/incoterms/${term}`,
-    lastModified: currentDate,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
@@ -166,7 +102,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Country destination pages — dynamically generated from countries.ts
   const countryPages: MetadataRoute.Sitemap = getAllCountrySlugs().map((slug) => ({
     url: `${BASE_URL}/${slug}`,
-    lastModified: currentDate,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
@@ -174,7 +110,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Sea freight country pages — dynamically generated from countries.ts
   const seaFreightCountryPages: MetadataRoute.Sitemap = getAllSeaFreightCountrySlugs().map((slug) => ({
     url: `${BASE_URL}/${slug}`,
-    lastModified: currentDate,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
@@ -183,37 +119,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const airFreightCountryPages: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/air-freight-from-china-to-usa`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/air-freight-from-china-to-canada`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/air-freight-from-china-to-uk`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/air-freight-from-china-to-australia`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/air-freight-from-china-to-germany`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/air-freight-from-china-to-netherlands`,
-      lastModified: currentDate,
+      lastModified: STATIC_LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
@@ -226,7 +162,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogPages: MetadataRoute.Sitemap = (blogPostsData || []).map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.updated_at || post.published_at || currentDate,
+    lastModified: post.updated_at || post.published_at || STATIC_LAST_MODIFIED,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
@@ -235,7 +171,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const seaRoutes = generateSeaRoutes();
   const seaFreightRoutes: MetadataRoute.Sitemap = seaRoutes.map((route) => ({
     url: `${BASE_URL}/sea-freight-${route.slug}`,
-    lastModified: currentDate,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
@@ -244,7 +180,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const airRoutes = generateAirRoutes();
   const airFreightRoutes: MetadataRoute.Sitemap = airRoutes.map((route) => ({
     url: `${BASE_URL}/air-freight-${route.slug}`,
-    lastModified: currentDate,
+    lastModified: STATIC_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));

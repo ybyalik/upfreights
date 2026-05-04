@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
         hostname: 'cdnimg.co',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
     ],
     // Optimize images: convert to WebP, set quality, cache for 1 year
     formats: ['image/webp', 'image/avif'],

@@ -2,7 +2,7 @@
  * Generated Route Content Utility
  *
  * This module provides functions to retrieve AI-generated content for shipping routes.
- * Content is generated via scripts/generateRouteContent.ts and stored in JSON.
+ * Content is generated via scripts/generate-route-content.ts and stored in JSON.
  */
 
 // Types matching the generation script

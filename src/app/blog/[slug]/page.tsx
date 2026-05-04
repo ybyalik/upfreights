@@ -29,7 +29,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = await getPost(slug);
 
   if (!post) {
-    return { title: 'Post Not Found' };
+    return {
+      title: 'Post Not Found | UpFreights Blog',
+      robots: { index: false, follow: false },
+    };
   }
 
   return {
@@ -106,7 +109,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     slug: postData.slug,
     title: postData.title,
     excerpt: postData.excerpt,
-    content: postData.content,
+    content: postData.content || '',
     category: postData.category,
     author: postData.author,
     publishedAt: postData.published_at,

@@ -211,7 +211,7 @@ export function generateBlogPostingSchema(post: {
   readingTime?: string;
   image?: string;
 }) {
-  const wordCount = post.content.split(/\s+/).length;
+  const wordCount = (post.content || '').split(/\s+/).filter(Boolean).length;
 
   return {
     '@context': 'https://schema.org',
