@@ -1,5 +1,7 @@
 import { Route, ContainerOption } from '@/lib/types';
 import { routes as csvRoutes } from './routes';
+import { RETIRED_AIR_ROUTE_SLUGS } from './retiredAirRoutes';
+import { RETIRED_SEA_ROUTE_SLUGS } from './retiredSeaRoutes';
 
 // ============================================================================
 // MEMOIZATION CACHE
@@ -255,6 +257,9 @@ export function generateSeaRoutes(): Route[] {
       if (!dest || !dest.seaPort) continue;
 
       const slug = `${originSlug}-to-${destSlug}`;
+      // Skip unpublished routes so they drop out of the sitemap, static
+      // generation, and all internal links. middleware.ts serves them a 410.
+      if (RETIRED_SEA_ROUTE_SLUGS.has(slug)) continue;
       const id = `${slug}-sea`;
       const csvRoute = findCsvRoute(originSlug, destSlug, 'sea');
       const countryKey = dest.countrySlug.replace('china-to-', '');
@@ -310,6 +315,9 @@ export function generateAirRoutes(): Route[] {
       if (!dest || !dest.airPort) continue;
 
       const slug = `${originSlug}-to-${destSlug}`;
+      // Skip unpublished routes so they drop out of the sitemap, static
+      // generation, and all internal links. middleware.ts serves them a 410.
+      if (RETIRED_AIR_ROUTE_SLUGS.has(slug)) continue;
       const id = `${slug}-air`;
       const csvRoute = findCsvRoute(originSlug, destSlug, 'air');
 

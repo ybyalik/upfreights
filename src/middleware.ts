@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
+import { RETIRED_AIR_ROUTE_SLUGS } from '@/lib/data/retiredAirRoutes';
+import { RETIRED_SEA_ROUTE_SLUGS } from '@/lib/data/retiredSeaRoutes';
 
 /**
  * Edge Middleware - runs at the edge, not origin
@@ -41,8 +43,38 @@ const securityHeaders = {
   ].join('; '),
 };
 
+// Body returned for unpublished air-freight routes (HTTP 410 Gone).
+function goneResponse(): NextResponse {
+  const html = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Page no longer available | UpFreights</title></head>
+<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:40rem;margin:6rem auto;padding:0 1.5rem;color:#1f2937;line-height:1.6">
+<h1 style="font-size:1.5rem;margin-bottom:.5rem">This page is no longer available</h1>
+<p style="color:#6b7280">The air freight route you were looking for has been removed. Explore our current services instead.</p>
+<p style="margin-top:1.5rem"><a href="/air-freight" style="color:#0d9488;font-weight:600;text-decoration:none">Air Freight services</a> &nbsp;·&nbsp; <a href="/" style="color:#0d9488;font-weight:600;text-decoration:none">Home</a></p>
+</body></html>`;
+  return new NextResponse(html, {
+    status: 410,
+    headers: { 'content-type': 'text/html; charset=utf-8', 'x-robots-tag': 'noindex' },
+  });
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Unpublished air/sea-freight routes: serve 410 Gone. These flat URLs
+  // (/air-freight-<origin>-to-<dest>, /sea-freight-<origin>-to-<dest>) are
+  // matched before the next.config rewrite to /(air|sea)-freight/<slug>, so
+  // this is authoritative.
+  if (pathname.startsWith('/air-freight-')) {
+    if (RETIRED_AIR_ROUTE_SLUGS.has(pathname.slice('/air-freight-'.length))) {
+      return goneResponse();
+    }
+  }
+  if (pathname.startsWith('/sea-freight-')) {
+    if (RETIRED_SEA_ROUTE_SLUGS.has(pathname.slice('/sea-freight-'.length))) {
+      return goneResponse();
+    }
+  }
 
   // Admin page protection (except login page)
   if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
