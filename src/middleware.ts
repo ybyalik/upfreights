@@ -12,6 +12,13 @@ import { RETIRED_SEA_ROUTE_SLUGS } from '@/lib/data/retiredSeaRoutes';
 
 const COOKIE_NAME = 'admin_token';
 
+// Retired sea-freight routes that 301-redirect to the home page rather than
+// returning 410. Listed by flat slug (origin-to-destination).
+const SEA_ROUTES_REDIRECT_TO_HOME = new Set<string>([
+  'qingdao-to-new-york',
+  'ningbo-to-new-york',
+]);
+
 async function verifyAdminToken(token: string): Promise<boolean> {
   try {
     const secret = process.env.ADMIN_JWT_SECRET;
@@ -71,7 +78,14 @@ export async function middleware(request: NextRequest) {
     }
   }
   if (pathname.startsWith('/sea-freight-')) {
-    if (RETIRED_SEA_ROUTE_SLUGS.has(pathname.slice('/sea-freight-'.length))) {
+    const slug = pathname.slice('/sea-freight-'.length);
+    // A few retired routes 301 to the home page instead of returning 410.
+    // They stay in RETIRED_SEA_ROUTE_SLUGS so the generator still excludes
+    // them from the sitemap and internal links; this just changes the response.
+    if (SEA_ROUTES_REDIRECT_TO_HOME.has(slug)) {
+      return NextResponse.redirect(new URL('/', request.url), 301);
+    }
+    if (RETIRED_SEA_ROUTE_SLUGS.has(slug)) {
       return goneResponse();
     }
   }
