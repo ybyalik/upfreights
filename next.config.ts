@@ -97,42 +97,42 @@ const nextConfig: NextConfig = {
       ...retiredBlogSlugs.map((slug) => ({
         source: `/blog/${slug}`,
         destination: '/',
-        permanent: true,
+        statusCode: 301,
       })),
       {
         source: '/blog/freight-forwarding-terminology-glossary',
         destination: '/',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/blog/insurance-options-for-international-shipping',
         destination: '/',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/blog/freight-class-codes-and-their-meanings',
         destination: '/',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/blog/best-shipping-method-for-shopify-stores',
         destination: '/',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/shipping-china-to-uk',
         destination: '/shipping-china-to-united-kingdom',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/shipping-china-to-usa',
         destination: '/shipping-china-to-united-states',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/sea-freight-:slug([a-z0-9-]+)-to-leghorn',
         destination: '/sea-freight-:slug-to-livorno',
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },
