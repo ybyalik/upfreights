@@ -178,7 +178,7 @@ export function Navbar() {
             {/* Destinations Dropdown */}
             <Dropdown trigger="Destinations" className="w-[500px] p-4">
               <div className="grid grid-cols-3 gap-2">
-                {destinations.map((destination) => (
+                {destinations.slice(0, 9).map((destination) => (
                   <Link
                     key={destination.id}
                     href={`/shipping-${destination.slug}`}
@@ -190,6 +190,15 @@ export function Navbar() {
                     </span>
                   </Link>
                 ))}
+                <Link
+                  href="/all-routes"
+                  className="group col-span-3 mt-1 flex items-center justify-center gap-2 rounded-md border-t border-border/50 p-2.5 pt-3 transition-colors hover:bg-orange"
+                >
+                  <Globe className="h-5 w-5 text-orange group-hover:text-white" />
+                  <span className="text-sm font-semibold text-slate-800 group-hover:text-white">
+                    All Destinations
+                  </span>
+                </Link>
               </div>
             </Dropdown>
 
@@ -309,7 +318,7 @@ export function Navbar() {
                     Destinations
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {destinations.map((destination) => (
+                    {destinations.slice(0, 9).map((destination) => (
                       <Link
                         key={destination.id}
                         href={`/shipping-${destination.slug}`}
@@ -320,6 +329,14 @@ export function Navbar() {
                         <span className="text-sm">{destination.country}</span>
                       </Link>
                     ))}
+                    <Link
+                      href="/all-routes"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="col-span-2 mt-1 flex items-center justify-center space-x-2 px-3 py-2 rounded-md border-t border-border/50 pt-3 hover:bg-accent transition-colors"
+                    >
+                      <Globe className="h-4 w-4 text-orange" />
+                      <span className="text-sm font-semibold">All Destinations</span>
+                    </Link>
                   </div>
                 </div>
 

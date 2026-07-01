@@ -3,6 +3,7 @@ import { Ship, Plane } from 'lucide-react';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 import { AllRoutesClient } from '@/components/sections';
 import { Breadcrumbs } from '@/components/sections';
+import { CountryLinksGrid } from '@/components/sections';
 
 export const dynamic = 'force-static';
 
@@ -53,6 +54,21 @@ export default function AllRoutesPage() {
                 <span>Air Freight Routes</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shipping by Country */}
+      <section className="py-12 lg:py-16 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Shipping From China by Country
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Open any country for its own guide to costs, transit times, ports, and customs for shipping from China.
+            </p>
+            <CountryLinksGrid />
           </div>
         </div>
       </section>

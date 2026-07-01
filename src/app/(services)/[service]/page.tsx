@@ -5,7 +5,7 @@ import { Ship, Plane, Home, FileCheck, CheckCircle, ArrowRight, MapPin, Clock, P
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Breadcrumbs, ProcessTimeline, ServiceCard, CTASection, FilterableRoutesList } from '@/components/sections';
+import { Breadcrumbs, ProcessTimeline, ServiceCard, CTASection, FilterableRoutesList, RichCountryPage } from '@/components/sections';
 import { services, getServiceBySlug, getAllServiceSlugs } from '@/lib/data/services';
 import {
   getCountryBySlug,
@@ -97,20 +97,21 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   // Check for country destination page
   const country = getCountryBySlug(serviceSlug);
   if (country) {
-    const title = `Shipping from China to ${country.name} | UpFreights`;
+    const title = country.content?.metaTitle ?? `Shipping from China to ${country.name}`;
+    const description = country.content?.metaDescription ?? country.description;
     return {
-      title: `Shipping from China to ${country.name}`,
-      description: country.description,
+      title,
+      description,
       alternates: { canonical: `/${serviceSlug}` },
       openGraph: {
         title,
-        description: country.description,
+        description,
         images: [{ ...ogImage, alt: title }],
       },
       twitter: {
         card: 'summary_large_image',
         title,
-        description: country.description,
+        description,
         images: [ogImage.url],
       },
     };
@@ -256,6 +257,17 @@ function CountryDestinationPage({ country }: { country: CountryDestination }) {
     majorPorts: country.majorPorts,
     transitTime: country.transitTime,
   });
+
+  if (country.content) {
+    return (
+      <RichCountryPage
+        country={country}
+        seaRoutes={seaRoutes}
+        airRoutes={airRoutes}
+        serviceSchema={serviceSchema}
+      />
+    );
+  }
 
   return (
     <>

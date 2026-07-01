@@ -9,7 +9,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { CTASection } from '@/components/sections';
+import { CTASection, CountryLinksGrid } from '@/components/sections';
 
 export const metadata: Metadata = {
   title: 'Shipping Companies And Routes From China To Worldwide | Complete Guide | Upfreights',
@@ -859,6 +859,21 @@ export default function ShippingRoutesWorldwidePage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shipping by Country */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Shipping From China by Country
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              We ship from China to destinations worldwide. Open any country below for a full guide to costs, transit times, ports, and customs for that route.
+            </p>
+            <CountryLinksGrid />
           </div>
         </div>
       </section>

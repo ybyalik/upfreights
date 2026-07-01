@@ -153,7 +153,12 @@ export function Footer() {
               Destinations
             </p>
             <ul className="space-y-3">
-              {destinations.map((destination) => (
+              {destinations
+                .filter(
+                  (d) =>
+                    !['china-to-italy', 'china-to-sweden', 'china-to-czech-republic', 'china-to-norway'].includes(d.slug)
+                )
+                .map((destination) => (
                 <li key={destination.id}>
                   <Link
                     href={`/shipping-${destination.slug}`}
