@@ -887,7 +887,7 @@ export default function ShippingRoutesWorldwidePage() {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <Link href="/services/sea-freight" className="block group">
+              <Link href="/sea-freight" className="block group">
                 <Card className="h-full border-border/50 hover:border-orange/50 hover:shadow-md transition-all">
                   <CardContent className="p-6 text-center">
                     <Ship className="h-8 w-8 text-orange mx-auto mb-3" />
@@ -901,7 +901,7 @@ export default function ShippingRoutesWorldwidePage() {
                 </Card>
               </Link>
 
-              <Link href="/services/customs-clearance" className="block group">
+              <Link href="/customs-clearance" className="block group">
                 <Card className="h-full border-border/50 hover:border-orange/50 hover:shadow-md transition-all">
                   <CardContent className="p-6 text-center">
                     <Anchor className="h-8 w-8 text-orange mx-auto mb-3" />
@@ -915,7 +915,7 @@ export default function ShippingRoutesWorldwidePage() {
                 </Card>
               </Link>
 
-              <Link href="/services/door-to-door" className="block group">
+              <Link href="/door-to-door" className="block group">
                 <Card className="h-full border-border/50 hover:border-orange/50 hover:shadow-md transition-all">
                   <CardContent className="p-6 text-center">
                     <Globe className="h-8 w-8 text-orange mx-auto mb-3" />

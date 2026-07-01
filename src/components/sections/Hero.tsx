@@ -84,7 +84,7 @@ export function Hero({ variant = 'default', className, showQuoteForm = true }: H
                   size="lg"
                   className="!border-white/40 !text-white !bg-transparent hover:!bg-white/10 hover:!text-white px-8"
                 >
-                  <Link href="/services/sea-freight">
+                  <Link href="/sea-freight">
                     Explore Services
                   </Link>
                 </Button>
