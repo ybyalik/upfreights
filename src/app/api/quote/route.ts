@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendQuoteEmail, sendQuoteAutoResponse } from '@/lib/email';
-import { sanitizeInput, validateEmail, validatePhone } from '@/lib/validation';
+import { sanitizeInput, validateEmail, validatePhone, sanitizeSourcePath, sanitizeReferrer } from '@/lib/validation';
 import { rateLimit, getClientIp } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
@@ -39,6 +39,8 @@ export async function POST(request: NextRequest) {
       weight: sanitizeInput(body.weight || ''),
       dimensions: sanitizeInput(body.dimensions || ''),
       message: sanitizeInput(body.message || ''),
+      sourcePage: sanitizeSourcePath(body.sourcePage || ''),
+      referrer: sanitizeReferrer(body.referrer || ''),
     };
 
     // Basic validation

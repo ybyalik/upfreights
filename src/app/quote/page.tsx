@@ -139,6 +139,8 @@ export default function QuotePage() {
           destination: 'To be discussed',
           message: `Timeline: ${formData.timeline}\n\nSpecial Requirements:\n${formData.specialRequirements}`,
           website: formData.website, // Honeypot field
+          sourcePage: window.location.pathname + window.location.search,
+          referrer: document.referrer,
         }),
       });
 

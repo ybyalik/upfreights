@@ -26,6 +26,8 @@ interface QuoteEmailData {
   weight?: string;
   dimensions?: string;
   message?: string;
+  sourcePage?: string;
+  referrer?: string;
 }
 
 export async function sendContactEmail(data: ContactEmailData): Promise<void> {
@@ -67,6 +69,15 @@ ${message}
   }
 }
 
+// Escape values that end up inside the HTML email body
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 // Map shipping type IDs to display names
 const shippingTypeNames: Record<string, string> = {
   'sea': 'Sea Freight',
@@ -87,10 +98,15 @@ export async function sendQuoteEmail(data: QuoteEmailData): Promise<void> {
     weight,
     dimensions,
     message,
+    sourcePage,
+    referrer,
   } = data;
 
   // Get display name for shipping type
   const shippingTypeName = shippingTypeNames[shippingType] || shippingType;
+
+  // sourcePage is already reduced to a path, so it is safe to rebuild as a link
+  const sourcePageUrl = sourcePage ? `https://upfreights.com${sourcePage}` : '';
 
   const htmlContent = `
     <h2>New Quote Request</h2>
@@ -106,6 +122,10 @@ export async function sendQuoteEmail(data: QuoteEmailData): Promise<void> {
     ${weight ? `<p><strong>Weight:</strong> ${weight}</p>` : ''}
     ${dimensions ? `<p><strong>Dimensions:</strong> ${dimensions}</p>` : ''}
     ${message ? `<p><strong>Additional Notes:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>` : ''}
+
+    <h3>Submitted From</h3>
+    <p><strong>Page:</strong> ${sourcePageUrl ? `<a href="${escapeHtml(sourcePageUrl)}">${escapeHtml(sourcePageUrl)}</a>` : 'Unknown'}</p>
+    ${referrer ? `<p><strong>Arrived from:</strong> ${escapeHtml(referrer)}</p>` : ''}
   `;
 
   const textContent = `
@@ -123,13 +143,17 @@ ${cargoType ? `Cargo Type: ${cargoType}` : ''}
 ${weight ? `Weight: ${weight}` : ''}
 ${dimensions ? `Dimensions: ${dimensions}` : ''}
 ${message ? `\nAdditional Notes:\n${message}` : ''}
+
+SUBMITTED FROM
+Page: ${sourcePageUrl || 'Unknown'}
+${referrer ? `Arrived from: ${referrer}` : ''}
   `.trim();
 
   const { error } = await resend.emails.send({
     from: 'UpFreights <quote@upfreights.com>',
     to: getContactEmails(),
     replyTo: email,
-    subject: `Quote Request: ${shippingTypeName}`,
+    subject: `Quote Request: ${name} - ${shippingTypeName}`,
     text: textContent,
     html: htmlContent,
   });

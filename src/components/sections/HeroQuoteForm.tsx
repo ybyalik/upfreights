@@ -88,6 +88,8 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
           shippingType: formData.serviceType,
           message: `Timeline: ${formData.timeline}\n\nSpecial Requirements:\n${formData.specialRequirements}`,
           website: formData.website, // Honeypot field
+          sourcePage: window.location.pathname + window.location.search,
+          referrer: document.referrer,
         }),
       });
 

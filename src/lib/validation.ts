@@ -128,6 +128,34 @@ export function sanitizeInput(input: string): string {
   return sanitized.trim().slice(0, 5000);
 }
 
+// Turn a submitted page URL into a safe path on this site.
+// Only the path and query survive, so a forged domain can never reach our inbox.
+export function sanitizeSourcePath(input: string): string {
+  if (!input) return '';
+
+  try {
+    const url = new URL(input, 'https://upfreights.com');
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return '';
+    return `${url.pathname}${url.search}`.slice(0, 500);
+  } catch {
+    return '';
+  }
+}
+
+// Keep a referrer only if it is a real web address. Returned as host + path and
+// never rendered as a link, because the submitter controls this value.
+export function sanitizeReferrer(input: string): string {
+  if (!input) return '';
+
+  try {
+    const url = new URL(input);
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return '';
+    return `${url.hostname}${url.pathname}`.slice(0, 500);
+  } catch {
+    return '';
+  }
+}
+
 // Validate quote form
 export interface QuoteFormData {
   serviceType: string;
