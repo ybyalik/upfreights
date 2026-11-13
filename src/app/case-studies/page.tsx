@@ -3,7 +3,7 @@ import { Briefcase, Globe, CheckCircle, ArrowRight } from 'lucide-react';
 import { CaseStudyCard, CTASection } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Case Studies | Upfreights Success Stories',
+  title: 'Case Studies and Success Stories',
   description: 'Explore real-world examples of how Upfreights helps businesses navigate complex international logistics challenges. From import agency services to multimodal transportation solutions.',
   alternates: {
     canonical: '/case-studies',

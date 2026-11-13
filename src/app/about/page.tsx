@@ -15,7 +15,7 @@ import { CTASection } from '@/components/sections';
 import { generateAboutPageSchema, generatePersonSchema, TEAM_MEMBERS, generateOrganizationSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'About Us | Upfreights - China Freight Forwarding',
+  title: 'About Us - China Freight Forwarding',
   description:
     'Your Premier China Freight Forwarding Partner in the Yangtze River Delta. 22 years of experience, 11+ million shipments annually, 100+ countries global network.',
   alternates: {

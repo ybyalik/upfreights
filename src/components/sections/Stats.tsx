@@ -11,11 +11,49 @@ interface StatsProps {
 }
 
 function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string }) {
-  const [displayValue, setDisplayValue] = useState('0');
+  // The number as written, minus the "+" or "%" sign. Keeps commas and decimals,
+  // so "99.2%" stays "99.2" and "10,000+" stays "10,000".
+  const finalText = value.replace(/[^0-9.,]/g, '');
+  // The server (and anyone without JavaScript) gets the real figure, never "0".
+  const [displayValue, setDisplayValue] = useState(finalText);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    const target = parseFloat(finalText.replace(/,/g, ''));
+    if (!Number.isFinite(target)) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    const decimals = (finalText.split('.')[1] || '').length;
+    const useCommas = finalText.includes(',');
+    const format = (n: number) =>
+      useCommas
+        ? n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+        : n.toFixed(decimals);
+
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const animateValue = () => {
+      const duration = 2000;
+      const steps = 60;
+      let currentStep = 0;
+
+      timer = setInterval(() => {
+        currentStep++;
+        const progress = currentStep / steps;
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const factor = Math.pow(10, decimals);
+        setDisplayValue(format(Math.floor(target * easeOut * factor) / factor));
+
+        if (currentStep >= steps) {
+          clearInterval(timer);
+          setDisplayValue(finalText);
+        }
+      }, duration / steps);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,35 +70,11 @@ function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string
       observer.observe(ref.current);
     }
 
-    return () => observer.disconnect();
-  }, []);
-
-  const animateValue = () => {
-    const numericValue = parseInt(value.replace(/[^0-9]/g, ''), 10);
-    const duration = 2000;
-    const steps = 60;
-    const stepDuration = duration / steps;
-    let currentStep = 0;
-
-    const timer = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      const currentValue = Math.floor(numericValue * easeOut);
-
-      // Format with commas if needed
-      if (value.includes(',')) {
-        setDisplayValue(currentValue.toLocaleString());
-      } else {
-        setDisplayValue(currentValue.toString());
-      }
-
-      if (currentStep >= steps) {
-        clearInterval(timer);
-        setDisplayValue(value.replace(/[^0-9,]/g, ''));
-      }
-    }, stepDuration);
-  };
+    return () => {
+      observer.disconnect();
+      if (timer) clearInterval(timer);
+    };
+  }, [finalText]);
 
   return (
     <span ref={ref}>

@@ -19,7 +19,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Nigerian Sesame Import to Qingdao, China | Case Study | Upfreights',
+  title: 'Nigerian Sesame Import to Qingdao, China | Case Study',
   description: 'Learn how Upfreights provided full-service import agency for Nigerian sesame to Qingdao, China. From supplier sourcing to customs clearance and delivery.',
   alternates: {
     canonical: '/case-studies/nigerian-sesame-to-qingdao',

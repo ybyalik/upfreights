@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import {
   Ship,
   Plane,
@@ -20,6 +19,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { trackLead } from '@/lib/analytics';
 
 const serviceTypes = [
   { id: 'sea', title: 'Sea Freight', icon: Ship },
@@ -57,6 +57,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitFailed, setSubmitFailed] = useState(false);
 
   const handleChange = (name: string, value: string) => {
     setFormData({ ...formData, [name]: value });
@@ -73,6 +74,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitFailed(false);
 
     try {
       const response = await fetch('/api/quote', {
@@ -97,9 +99,12 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
         throw new Error('Failed to submit');
       }
 
+      trackLead('hero_quote', { service_type: formData.serviceType });
       setIsSubmitted(true);
     } catch {
-      setIsSubmitted(true);
+      // The request did not go through. Say so, and keep what they typed,
+      // instead of showing a success message for a lead we never received.
+      setSubmitFailed(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -114,7 +119,7 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
           </div>
           <h3 className="text-lg font-semibold text-white mb-2">Request Received!</h3>
           <p className="text-white/70 text-sm">
-            We'll send you a quote within 24 hours.
+            We&apos;ll send you a quote within 24 hours.
           </p>
         </CardContent>
       </Card>
@@ -295,6 +300,16 @@ export function HeroQuoteForm({ className, defaultService = '' }: HeroQuoteFormP
                 />
               </div>
             </div>
+          )}
+
+          {submitFailed && (
+            <p role="alert" className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              Sorry, we could not send your request. Please try again in a moment, or email us at{' '}
+              <a href="mailto:quote@upfreights.com" className="font-medium underline">
+                quote@upfreights.com
+              </a>
+              .
+            </p>
           )}
 
           {/* Navigation Buttons */}

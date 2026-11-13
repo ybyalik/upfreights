@@ -8,7 +8,7 @@ import { CountryLinksGrid } from '@/components/sections';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'All Shipping Routes | Upfreights',
+  title: 'All Shipping Routes from China',
   description: 'Browse all sea freight and air freight routes from China to destinations worldwide. Find shipping routes from Shanghai, Shenzhen, Guangzhou, and more.',
   alternates: {
     canonical: '/all-routes',

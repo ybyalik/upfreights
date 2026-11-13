@@ -8,6 +8,16 @@ function getContactEmails(): string[] {
   return contactEmail.split(',').map(email => email.trim()).filter(Boolean);
 }
 
+// Escape visitor-typed values before they go into an HTML email body, so
+// nothing a visitor types can change how the email is displayed.
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 interface ContactEmailData {
   name: string;
   email: string;
@@ -28,6 +38,7 @@ interface QuoteEmailData {
   message?: string;
   sourcePage?: string;
   referrer?: string;
+  reference?: string;
 }
 
 export async function sendContactEmail(data: ContactEmailData): Promise<void> {
@@ -35,12 +46,12 @@ export async function sendContactEmail(data: ContactEmailData): Promise<void> {
 
   const htmlContent = `
     <h2>New Contact Form Submission</h2>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-    ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    ${phone ? `<p><strong>Phone:</strong> ${escapeHtml(phone)}</p>` : ''}
+    ${company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : ''}
     <p><strong>Message:</strong></p>
-    <p>${message.replace(/\n/g, '<br>')}</p>
+    <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
   `;
 
   const textContent = `
@@ -69,15 +80,6 @@ ${message}
   }
 }
 
-// Escape values that end up inside the HTML email body
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
 // Map shipping type IDs to display names
 const shippingTypeNames: Record<string, string> = {
   'sea': 'Sea Freight',
@@ -100,6 +102,7 @@ export async function sendQuoteEmail(data: QuoteEmailData): Promise<void> {
     message,
     sourcePage,
     referrer,
+    reference,
   } = data;
 
   // Get display name for shipping type
@@ -110,18 +113,19 @@ export async function sendQuoteEmail(data: QuoteEmailData): Promise<void> {
 
   const htmlContent = `
     <h2>New Quote Request</h2>
+    ${reference ? `<p><strong>Reference:</strong> ${escapeHtml(reference)}</p>` : ''}
     <h3>Contact Information</h3>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-    ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    ${phone ? `<p><strong>Phone:</strong> ${escapeHtml(phone)}</p>` : ''}
+    ${company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : ''}
 
     <h3>Shipment Details</h3>
-    <p><strong>Service Type:</strong> ${shippingTypeName}</p>
-    ${cargoType ? `<p><strong>Cargo Type:</strong> ${cargoType}</p>` : ''}
-    ${weight ? `<p><strong>Weight:</strong> ${weight}</p>` : ''}
-    ${dimensions ? `<p><strong>Dimensions:</strong> ${dimensions}</p>` : ''}
-    ${message ? `<p><strong>Additional Notes:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>` : ''}
+    <p><strong>Service Type:</strong> ${escapeHtml(shippingTypeName)}</p>
+    ${cargoType ? `<p><strong>Cargo Type:</strong> ${escapeHtml(cargoType)}</p>` : ''}
+    ${weight ? `<p><strong>Weight:</strong> ${escapeHtml(weight)}</p>` : ''}
+    ${dimensions ? `<p><strong>Dimensions:</strong> ${escapeHtml(dimensions)}</p>` : ''}
+    ${message ? `<p><strong>Additional Notes:</strong></p><p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>` : ''}
 
     <h3>Submitted From</h3>
     <p><strong>Page:</strong> ${sourcePageUrl ? `<a href="${escapeHtml(sourcePageUrl)}">${escapeHtml(sourcePageUrl)}</a>` : 'Unknown'}</p>
@@ -130,6 +134,7 @@ export async function sendQuoteEmail(data: QuoteEmailData): Promise<void> {
 
   const textContent = `
 New Quote Request
+${reference ? `Reference: ${reference}` : ''}
 
 CONTACT INFORMATION
 Name: ${name}
@@ -175,7 +180,7 @@ export async function sendQuoteAutoResponse(data: QuoteAutoResponseData): Promis
   const firstName = name.split(' ')[0];
 
   const htmlContent = `
-    <p>Hi ${firstName},</p>
+    <p>Hi ${escapeHtml(firstName)},</p>
 
     <p>Thanks for reaching out to UpFreights!</p>
 

@@ -18,7 +18,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Baby Carriages from China to Los Angeles | Case Study | Upfreights',
+  title: 'Baby Carriages from China to Los Angeles | Case Study',
   description: 'Learn how Upfreights delivered door-to-door logistics for baby carriages from Pinghu, China to Los Angeles. Full container shipping with customs clearance.',
   alternates: {
     canonical: '/case-studies/baby-carriages-china-to-los-angeles',

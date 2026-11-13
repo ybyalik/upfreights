@@ -17,7 +17,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Freight Forwarding Services | Upfreights',
+  title: 'Freight Forwarding Services from China',
   description:
     'Comprehensive logistics solutions connecting Chinese manufacturers with global markets. Sea freight, air freight, door-to-door delivery, and customs clearance services.',
   alternates: {

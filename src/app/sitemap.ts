@@ -11,6 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Stable per-page date so search engines don't see every URL "change" on every revalidate.
   // Bump when the page content materially changes.
   const STATIC_LAST_MODIFIED = '2026-03-28';
+  // The 48 country guides were fully rewritten on this date.
+  const COUNTRY_LAST_MODIFIED = '2026-07-01';
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'daily', priority: 1.0 },
@@ -102,7 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Country destination pages — dynamically generated from countries.ts
   const countryPages: MetadataRoute.Sitemap = getAllCountrySlugs().map((slug) => ({
     url: `${BASE_URL}/${slug}`,
-    lastModified: STATIC_LAST_MODIFIED,
+    lastModified: COUNTRY_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));

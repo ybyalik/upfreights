@@ -18,7 +18,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Oversized Equipment from Japan to Hangzhou for GREE | Case Study | Upfreights',
+  title: 'Oversized Equipment from Japan to Hangzhou for GREE | Case Study',
   description: 'Learn how Upfreights managed import clearance and oversized cargo delivery from Japan to GREE Group\'s Hangzhou facility with expert customs coordination.',
   alternates: {
     canonical: '/case-studies/oversized-equipment-japan-to-hangzhou',

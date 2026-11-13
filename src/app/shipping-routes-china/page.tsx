@@ -12,7 +12,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CTASection, CountryLinksGrid } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Shipping Companies And Routes From China To Worldwide | Complete Guide | Upfreights',
+  title: 'Shipping Companies and Routes from China: Complete Guide',
   description: 'Complete guide to global shipping routes from China covering North America, Europe, South America, Africa, Middle East, Asia-Pacific. Learn about the best shipping companies and base ports for each destination.',
   alternates: {
     canonical: '/shipping-routes-china',

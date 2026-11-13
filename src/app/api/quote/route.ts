@@ -73,8 +73,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // One reference per request, created here so the number the customer
+    // sees on screen is the same one that lands in our inbox.
+    const reference = `QR-${Date.now().toString(36).toUpperCase()}`;
+
     // Send email to business
-    await sendQuoteEmail(sanitizedData);
+    await sendQuoteEmail({ ...sanitizedData, reference });
 
     // Send auto-response to customer
     try {
@@ -88,7 +92,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, message: 'Quote request sent successfully' },
+      { success: true, message: 'Quote request sent successfully', reference },
       { status: 200 }
     );
   } catch (error) {

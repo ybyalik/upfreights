@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BlogCard, CTASection } from '@/components/sections';
 import { supabase } from '@/lib/supabase';
@@ -12,9 +13,16 @@ interface BlogPageProps {
   searchParams: Promise<{ page?: string }>;
 }
 
+// Read the ?page= value safely. Anything that is not a whole number of 1 or
+// more (missing, text, zero, negative) counts as page 1.
+function parsePageNumber(raw?: string): number {
+  const n = parseInt(raw || '1', 10);
+  return Number.isFinite(n) && n >= 1 ? n : 1;
+}
+
 export async function generateMetadata({ searchParams }: BlogPageProps): Promise<Metadata> {
   const params = await searchParams;
-  const pageNum = Math.max(1, parseInt(params.page || '1', 10));
+  const pageNum = parsePageNumber(params.page);
   const isPaginated = pageNum > 1;
 
   const baseTitle = 'Blog - Shipping Insights & Guides';
@@ -43,7 +51,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const params = await searchParams;
-  const currentPage = Math.max(1, parseInt(params.page || '1', 10));
+  const currentPage = parsePageNumber(params.page);
 
   // Get total count
   const { count } = await supabase
@@ -52,6 +60,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   const total = count || 0;
   const totalPages = Math.ceil(total / POSTS_PER_PAGE);
+
+  // A page number past the last real page used to render an empty, indexable
+  // page (for example /blog?page=99). Return a proper 404 instead.
+  if (currentPage > 1 && currentPage > totalPages) {
+    notFound();
+  }
 
   // Get paginated posts sorted by newest first
   const { data: posts } = await supabase

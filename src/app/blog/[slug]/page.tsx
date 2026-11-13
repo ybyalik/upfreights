@@ -40,14 +40,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const ogTitle = `${post.meta_title || post.title} | UpFreights Blog`;
+  // Some posts were saved with the brand already on the end of the title.
+  // The site-wide title template adds "| UpFreights", so strip it here to
+  // avoid "... | Upfreights | UpFreights" in search results.
+  const cleanTitle = (post.meta_title || post.title).replace(/\s*\|\s*upfreights\s*$/i, '');
+  const ogTitle = `${cleanTitle} | UpFreights Blog`;
   const description = post.meta_description || post.excerpt;
   const images = post.image
-    ? [{ url: post.image, alt: post.meta_title || post.title }]
-    : [{ url: '/og-image.png', alt: post.meta_title || post.title }];
+    ? [{ url: post.image, alt: cleanTitle }]
+    : [{ url: '/og-image.png', alt: cleanTitle }];
 
   return {
-    title: post.meta_title || post.title,
+    title: cleanTitle,
     description,
     alternates: {
       canonical: `/blog/${slug}`,

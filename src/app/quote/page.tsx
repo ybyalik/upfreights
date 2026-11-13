@@ -21,6 +21,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { validateQuoteForm, sanitizeInput } from '@/lib/validation';
+import { trackLead } from '@/lib/analytics';
 
 const steps = [
   { id: 1, title: 'Service Type', icon: Ship },
@@ -78,6 +79,7 @@ export default function QuotePage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [reference, setReference] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState({
@@ -149,6 +151,10 @@ export default function QuotePage() {
         throw new Error(data.error || 'Failed to submit quote request');
       }
 
+      const result = await response.json().catch(() => ({}));
+      setReference(typeof result.reference === 'string' ? result.reference : '');
+
+      trackLead('quote_page', { service_type: formData.serviceType });
       setIsSubmitted(true);
     } catch (error) {
       setErrors({
@@ -175,14 +181,16 @@ export default function QuotePage() {
                 Thank you for your inquiry. Our team will review your request and
                 send you a detailed quote within 24 hours.
               </p>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
-                <p className="text-white/90 mb-2">
-                  <strong>Reference Number:</strong> QR-{Date.now().toString(36).toUpperCase()}
-                </p>
-                <p className="text-white/70 text-sm">
-                  Please save this reference for your records.
-                </p>
-              </div>
+              {reference && (
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
+                  <p className="text-white/90 mb-2">
+                    <strong>Reference Number:</strong> {reference}
+                  </p>
+                  <p className="text-white/70 text-sm">
+                    Please save this reference for your records.
+                  </p>
+                </div>
+              )}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="bg-orange hover:bg-orange-dark text-white">
                   <Link href="/">Return Home</Link>
@@ -434,7 +442,7 @@ export default function QuotePage() {
                     Your Contact Information
                   </h2>
                   <p className="text-muted-foreground">
-                    We'll use this information to send you your personalized quote
+                    We&apos;ll use this information to send you your personalized quote
                   </p>
                 </div>
 

@@ -5,7 +5,8 @@ export const ORGANIZATION_INFO = {
   name: 'UpFreights',
   legalName: 'Zhejiang Twings Supply Chain Co., Ltd.',
   url: 'https://upfreights.com',
-  logo: 'https://upfreights.com/logo.png',
+  // /logo.png never existed (404). /icon.png is the real brand mark file.
+  logo: 'https://upfreights.com/icon.png',
   description: 'International freight forwarding services from China. Sea freight, air freight, door-to-door delivery, and customs clearance solutions.',
   foundingDate: '2016',
   address: {

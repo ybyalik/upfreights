@@ -12,6 +12,9 @@ import { RETIRED_SEA_ROUTE_SLUGS } from '@/lib/data/retiredSeaRoutes';
 
 const COOKIE_NAME = 'admin_token';
 
+const CANONICAL_HOST = 'upfreights.com';
+const VERCEL_ALIAS_HOST = 'upfreights.vercel.app';
+
 // Retired sea-freight routes that 301-redirect to the home page rather than
 // returning 410. Listed by flat slug (origin-to-destination).
 const SEA_ROUTES_REDIRECT_TO_HOME = new Set<string>([
@@ -39,11 +42,13 @@ const securityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    // googletagmanager.com serves the Google Analytics script (gtag.js)
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+    // The google-analytics / analytics.google hosts receive the Analytics hits
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
@@ -66,7 +71,15 @@ function goneResponse(): NextResponse {
 }
 
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, search } = request.nextUrl;
+
+  // The production deployment is also reachable at upfreights.vercel.app, which
+  // is a full public copy of the site. Send it to the real domain so search
+  // engines only ever see one address per page.
+  const host = request.headers.get('host') || '';
+  if (host === VERCEL_ALIAS_HOST) {
+    return NextResponse.redirect(`https://${CANONICAL_HOST}${pathname}${search}`, 301);
+  }
 
   // Unpublished air/sea-freight routes: serve 410 Gone. These flat URLs
   // (/air-freight-<origin>-to-<dest>, /sea-freight-<origin>-to-<dest>) are

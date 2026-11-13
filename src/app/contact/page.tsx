@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
 import { sanitizeInput } from '@/lib/validation';
+import { trackLead } from '@/lib/analytics';
 
 const contactInfo = [
   {
@@ -82,6 +83,7 @@ export default function ContactPage() {
         throw new Error(data.error || 'Failed to send message');
       }
 
+      trackLead('contact');
       setIsSubmitted(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.');
