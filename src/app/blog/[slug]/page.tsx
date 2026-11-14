@@ -10,6 +10,7 @@ import { Breadcrumbs, BlogCard, CTASection } from '@/components/sections';
 import { supabase } from '@/lib/supabase';
 import { TableOfContents } from './TableOfContents';
 import { generateBlogPostingSchema } from '@/lib/schema';
+import { REMOVED_BLOG_SLUGS_FILTER } from '@/lib/data/blogCleanup';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -143,6 +144,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .from('blog_posts')
     .select('id, slug, title, excerpt, image, published_at, category, author, content')
     .neq('slug', slug)
+    .not('slug', 'in', REMOVED_BLOG_SLUGS_FILTER)
     .order('published_at', { ascending: false })
     .limit(3);
 

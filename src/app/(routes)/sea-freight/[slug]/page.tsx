@@ -24,6 +24,7 @@ import {
   CTASection,
   FAQSchema,
   HeroQuoteForm,
+  RoutePackSections,
 } from '@/components/sections';
 import { generateSeaFreightFAQs } from '@/lib/utils/generateFAQ';
 import {
@@ -62,6 +63,7 @@ import {
   getAllFlatRouteSlugs,
   getRoutesByOrigin,
   getRoutesByDestination,
+  getAllSeaRoutes,
 } from '@/lib/data/routeGenerator';
 import {
   getRoutePricing,
@@ -76,6 +78,10 @@ import {
   getSeaFreightSectionTitles,
 } from '@/lib/utils/seaFreightContent';
 import { generateRouteServiceSchema } from '@/lib/schema';
+import { getRoutePack, ROUTE_PAGE_AUTHOR } from '@/lib/data/routePacks';
+import type { PricedRouteLink } from '@/components/sections/RoutePackSections';
+import type { Route } from '@/lib/types';
+import type { FAQItem } from '@/lib/utils/generateFAQ';
 
 interface SeaFreightPageProps {
   params: Promise<{ slug: string }>;
@@ -100,8 +106,20 @@ export async function generateMetadata({
     return { title: 'Route Not Found' };
   }
 
-  const title = `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`;
-  const description = `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`;
+  const metaPack = getRoutePack(slug);
+  const metaPricing = getRoutePricing(route.originCity, route.destinationCity);
+  const title = metaPack
+    ? metaPricing
+      ? `${route.originCity} to ${route.destinationCity} Sea Freight: Rates and ${route.transitTime.replace('days', 'Days')}`
+      : `${route.originCity} to ${route.destinationCity} Sea Freight: Port, Distance and Quote`
+    : `Sea Freight Shipping from ${route.originCity} to ${route.destinationCity}`;
+  const metaLowest = metaPricing ? Math.min(...metaPricing.rates.map((r) => r.price40GP)) : null;
+  const description =
+    metaPack && metaLowest != null
+      ? `Sea freight from ${route.originCity} to ${route.destinationCity}: from ${formatPrice(metaLowest)} per 40-foot container on our rate sheet, ${route.transitTime} port to port. Rates by shipping line, the port, the distance and a worked cost example.`
+      : metaPack
+      ? `Sea freight from ${route.originCity} to ${route.destinationCity}: the sea distance, how the container gets there, the port, road distances inland and how to get a quote.`
+      : `Ship from ${route.originCity} to ${route.destinationCity}. Compare FCL/LCL rates, get door-to-door delivery, and 24/7 tracking. Get a free quote today!`;
 
   return {
     title,
@@ -150,8 +168,109 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
   // Get destination sub-port pricing (Vado Ligure for Genoa)
   const destSubPortPricingData = getDestSubPortPricing(route.originCity, route.destinationCity);
 
-  // Generate FAQs for this route
-  const faqs = generateSeaFreightFAQs(route);
+  // Routes with a fact pack show the new route page layout
+  const pack = getRoutePack(slug);
+  const lowestRate = routePricing
+    ? routePricing.rates.reduce((best, r) => (r.price40GP < best.price40GP ? r : best))
+    : null;
+  const rateDateLine = getRateDateLine(routePricing);
+  // A pack route with no rates on the sheet: no price and no transit figure is shown
+  const noPricePack = !!pack && !lowestRate;
+
+  // Priced links to nearby routes (pack routes only)
+  const toLink = (r: Route, label: string): PricedRouteLink => {
+    const p = getRoutePricing(r.originCity, r.destinationCity);
+    return {
+      label,
+      href: `/sea-freight-${r.slug}`,
+      price40: p ? Math.min(...p.rates.map((x) => x.price40GP)) : undefined,
+      // days only where the rate sheet backs them
+      days: p ? r.transitTime : undefined,
+    };
+  };
+  const byPriceFirst = (a: PricedRouteLink, b: PricedRouteLink) =>
+    (a.price40 == null ? 1 : 0) - (b.price40 == null ? 1 : 0) || a.label.localeCompare(b.label);
+  const packFromOrigin: PricedRouteLink[] = pack
+    ? getRoutesByOrigin(route.originCity, 'sea')
+        .filter((r) => r.id !== route.id && r.destinationCountry === route.destinationCountry)
+        .map((r) => toLink(r, `${r.originCity} to ${r.destinationCity}`))
+        .sort(byPriceFirst)
+        .slice(0, 10)
+    : [];
+  const packIntoDestination: PricedRouteLink[] = pack
+    ? getRoutesByDestination(route.destinationCity, 'sea')
+        .filter((r) => r.id !== route.id)
+        .map((r) => toLink(r, `${r.originCity} to ${r.destinationCity}`))
+        .sort(byPriceFirst)
+        .slice(0, 10)
+    : [];
+
+  // For routes with no rate: the cheapest priced route into the same port, or from the same origin to the same country
+  const nearestPriced =
+    [...packIntoDestination, ...packFromOrigin]
+      .filter((l) => l.price40 != null)
+      .sort((a, b) => (a.price40 as number) - (b.price40 as number))[0] ?? null;
+
+  // Country-wide figures from the rate sheet, for the general questions Google shows
+  const countryPriced = pack
+    ? getAllSeaRoutes()
+        .filter((r) => r.destinationCountry === route.destinationCountry)
+        .map((r) => getRoutePricing(r.originCity, r.destinationCity))
+        .filter((p): p is NonNullable<typeof p> => !!p && p.rates.length > 0)
+    : [];
+  const countryDays = countryPriced.flatMap((p) => p.rates.map((r) => r.transitTime));
+  const countryPrices = countryPriced.flatMap((p) => p.rates.map((r) => r.price40GP));
+  const countryName = route.destinationCountry === 'United Kingdom' || route.destinationCountry === 'United States'
+    ? `the ${route.destinationCountry}`
+    : route.destinationCountry;
+  const countryFaqs: FAQItem[] =
+    countryPriced.length >= 2
+      ? [
+          {
+            question: `How long does sea freight take from China to ${countryName}?`,
+            answer: `Across the ${countryPriced.length} China to ${countryName} port pairs on our rate sheet, port-to-port transit runs from ${Math.min(...countryDays)} to ${Math.max(...countryDays)} days.${routePricing ? ` ${route.originCity} to ${route.destinationCity} is ${route.transitTime}.` : ''} Add time for customs and delivery.`,
+          },
+          {
+            question: `How much does it cost to ship a 40-foot container from China to ${countryName}?`,
+            answer: `Across those ${countryPriced.length} port pairs, our rate sheet shows 40-foot rates from ${formatPrice(Math.min(...countryPrices))} to ${formatPrice(Math.max(...countryPrices))}, port to port, before duty, tax and local charges. ${rateDateLine}`,
+          },
+        ]
+      : [];
+
+  // FAQs: pack routes get two answers worked out from the rate table, then
+  // the route's own questions. Other routes keep the generated set.
+  const packFaqs: FAQItem[] | null =
+    pack && routePricing && lowestRate
+      ? [
+          {
+            question: `How much does a 40-foot container cost from ${route.originCity} to ${route.destinationCity}?`,
+            answer:
+              routePricing.rates.length === 1
+                ? `Our rate sheet shows ${formatPrice(lowestRate.price40GP)} for a 40-foot container with ${lowestRate.carrier}, port to port. ${rateDateLine}`
+                : `Our rate sheet shows 40-foot rates from ${formatPrice(lowestRate.price40GP)} (${lowestRate.carrier}) to ${formatPrice(Math.max(...routePricing.rates.map((r) => r.price40GP)))}, port to port, across ${routePricing.rates.length} shipping lines. ${rateDateLine}`,
+          },
+          {
+            question: `How long does sea freight take from ${route.originCity} to ${route.destinationCity}?`,
+            answer: `${route.transitTime} port to port, by the transit days on our rate sheet. Add time for customs and for delivery from the port.`,
+          },
+          ...pack.faqs,
+          ...countryFaqs,
+        ]
+      : pack
+      ? [
+          {
+            question: `How much does a container cost from ${route.originCity} to ${route.destinationCity}?`,
+            answer: `Our rate sheet has no price for ${route.originCity} to ${route.destinationCity}, so we quote it for your dates.${
+              nearestPriced
+                ? ` For comparison, it shows ${nearestPriced.label} from ${formatPrice(nearestPriced.price40 as number)} for a 40-foot container, port to port. ${rateDateLine}`
+                : ''
+            }`,
+          },
+          ...pack.faqs,
+          ...countryFaqs,
+        ]
+      : null;
+  const faqs = packFaqs ?? generateSeaFreightFAQs(route);
 
   // Get common goods for this route
   const commonGoods = getCommonGoods(route.originCity, route.destinationCity, route.destinationCountry);
@@ -203,7 +322,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
     destinationCountry: route.destinationCountry,
     slug: slug,
     serviceType: 'sea-freight',
-    transitTime: route.transitTime,
+    transitTime: noPricePack ? undefined : route.transitTime,
     frequency: route.frequency,
   });
 
@@ -215,6 +334,22 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
           __html: JSON.stringify(routeServiceSchema),
         }}
       />
+      {pack && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebPage',
+              name: `Sea freight from ${route.originCity} to ${route.destinationCity}`,
+              url: `https://upfreights.com/sea-freight-${slug}`,
+              dateModified: pack.updated,
+              author: { '@type': 'Person', name: ROUTE_PAGE_AUTHOR.name, jobTitle: ROUTE_PAGE_AUTHOR.role },
+              publisher: { '@type': 'Organization', name: 'UpFreights', url: 'https://upfreights.com' },
+            }),
+          }}
+        />
+      )}
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent transform skew-x-[-12deg] origin-top-right" />
@@ -247,27 +382,91 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                 Sea Freight from {route.originCity} to {route.destinationCity}
               </h1>
 
-              <p className="text-lg lg:text-xl text-white/75 mb-8 max-w-2xl leading-relaxed">
-                Cost-effective ocean shipping service from {route.originCity} port to {route.destinationCity}.
-                Comprehensive FCL and LCL container shipping solutions with reliable transit times
-                and professional cargo handling throughout the journey.
-              </p>
-
-              {/* Feature Badges */}
-              <div className="flex flex-wrap gap-3 mb-10">
-                {['Cost-Effective', 'FCL & LCL Options', 'Port-to-Port', 'Reliable Transit'].map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-md px-4 py-2.5 border border-white/10"
-                  >
-                    <CheckCircle className="h-4 w-4 text-copper-light" />
-                    <span className="text-white text-sm font-medium">{feature}</span>
+              {pack ? (
+                <div className="mb-10 max-w-2xl">
+                  <p className="text-sm text-white/70 mb-5">
+                    By {ROUTE_PAGE_AUTHOR.name}, {ROUTE_PAGE_AUTHOR.role}. Updated{' '}
+                    {new Date(`${pack.updated}T12:00:00Z`).toLocaleDateString('en-GB', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                      timeZone: 'UTC',
+                    })}
+                    .
+                  </p>
+                  <div className="bg-white/10 border border-white/15 rounded-lg p-5">
+                    <p className="text-copper-light text-xs font-semibold uppercase tracking-wider mb-3">Quick answer</p>
+                    <dl className="space-y-2 text-white">
+                      <div className="flex gap-3">
+                        <dt className="w-16 flex-shrink-0 text-white/60 text-sm pt-0.5">Cost</dt>
+                        {lowestRate ? (
+                          <dd>
+                            From <span className="font-bold">{formatPrice(lowestRate.price40GP)}</span> for a 40-foot
+                            container with {lowestRate.carrier}, port to port.
+                          </dd>
+                        ) : (
+                          <dd>
+                            Quoted for your dates. Our rate sheet has no price for this pair yet.
+                            {nearestPriced && (
+                              <>
+                                {' '}Nearest on the sheet: {nearestPriced.label} from{' '}
+                                <span className="font-bold">{formatPrice(nearestPriced.price40 as number)}</span>.
+                              </>
+                            )}
+                          </dd>
+                        )}
+                      </div>
+                      {lowestRate ? (
+                        <div className="flex gap-3">
+                          <dt className="w-16 flex-shrink-0 text-white/60 text-sm pt-0.5">Time</dt>
+                          <dd>
+                            <span className="font-bold">{route.transitTime}</span> port to port.
+                          </dd>
+                        </div>
+                      ) : (
+                        <div className="flex gap-3">
+                          <dt className="w-16 flex-shrink-0 text-white/60 text-sm pt-0.5">Distance</dt>
+                          <dd>
+                            About <span className="font-bold">{pack.distance.nauticalMiles.toLocaleString('en-US')} nautical miles</span> by {pack.distance.via}.
+                          </dd>
+                        </div>
+                      )}
+                      <div className="flex gap-3">
+                        <dt className="w-16 flex-shrink-0 text-white/60 text-sm pt-0.5">Route</dt>
+                        <dd>{pack.quickRoute}</dd>
+                      </div>
+                    </dl>
+                    {(lowestRate || nearestPriced) && (
+                      <p className="text-xs text-white/60 leading-relaxed mt-4">{rateDateLine}</p>
+                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              ) : (
+                <>
+                  <p className="text-lg lg:text-xl text-white/75 mb-8 max-w-2xl leading-relaxed">
+                    Cost-effective ocean shipping service from {route.originCity} port to {route.destinationCity}.
+                    Comprehensive FCL and LCL container shipping solutions with reliable transit times
+                    and professional cargo handling throughout the journey.
+                  </p>
+
+                  {/* Feature Badges */}
+                  <div className="flex flex-wrap gap-3 mb-10">
+                    {['Cost-Effective', 'FCL & LCL Options', 'Port-to-Port', 'Reliable Transit'].map((feature, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-md px-4 py-2.5 border border-white/10"
+                      >
+                        <CheckCircle className="h-4 w-4 text-copper-light" />
+                        <span className="text-white text-sm font-medium">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
 
               {/* Stats */}
               <div className="flex flex-wrap items-center gap-8 pt-8 border-t border-white/20">
+                {!noPricePack && (
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-copper/20 flex items-center justify-center">
                     <Clock className="h-5 w-5 text-copper-light" />
@@ -277,15 +476,30 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                     <p className="text-white font-semibold">{route.transitTime}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-teal/20 flex items-center justify-center">
-                    <Calendar className="h-5 w-5 text-teal-light" />
+                )}
+                {pack ? (
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-teal/20 flex items-center justify-center">
+                      <Anchor className="h-5 w-5 text-teal-light" />
+                    </div>
+                    <div>
+                      <p className="text-white/60 text-xs uppercase tracking-wider">Shortest sea route</p>
+                      <p className="text-white font-semibold">
+                        {pack.distance.nauticalMiles.toLocaleString('en-US')} nautical miles
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white/60 text-xs uppercase tracking-wider">Departures</p>
-                    <p className="text-white font-semibold">{route.frequency}</p>
+                ) : (
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-teal/20 flex items-center justify-center">
+                      <Calendar className="h-5 w-5 text-teal-light" />
+                    </div>
+                    <div>
+                      <p className="text-white/60 text-xs uppercase tracking-wider">Departures</p>
+                      <p className="text-white font-semibold">{route.frequency}</p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
 
@@ -298,7 +512,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
       </section>
 
       {/* AI-Generated Content Sections - Benefits, Rates, Transit Times */}
-      {seaFreightContent && (
+      {seaFreightContent && !pack && (
         <>
           {/* Benefits Section - Feature Grid Layout */}
           <section className="py-20 lg:py-28 bg-background">
@@ -431,7 +645,8 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
         </>
       )}
 
-      {/* Container Options & Pricing */}
+      {/* Container Options & Pricing (left out on pack pages with no rates) */}
+      {!noPricePack && (
       <section className="py-20 lg:py-28 pattern-dots">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-12 gap-8 mb-12">
@@ -443,7 +658,9 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
             </div>
             <div className="lg:col-span-5 lg:col-start-7 flex items-end">
               <p className="text-muted-foreground">
-                Transparent pricing for FCL and LCL shipments. All rates include standard handling.
+                {pack
+                  ? 'Rates by shipping line from our own rate sheet, port to port, for a full container.'
+                  : 'Transparent pricing for FCL and LCL shipments. All rates include standard handling.'}
               </p>
             </div>
           </div>
@@ -494,7 +711,8 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
               </div>
               <p className="text-sm text-muted-foreground mb-8">{getRateDateLine(routePricing)}</p>
 
-              {/* Price disclaimer */}
+              {/* Price disclaimer (pack pages carry the date line instead) */}
+              {!pack && (
               <Card className="border-copper/30 bg-copper/5 mb-8">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
@@ -512,8 +730,10 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                   </div>
                 </CardContent>
               </Card>
+              )}
 
               {/* Additional container options */}
+              {!pack && (
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { type: '20ft FCL', label: 'Standard', dimensions: '6.1m × 2.4m × 2.6m', note: routePricing.rates.some(r => r.price20GP != null) ? 'See 20GP rates above' : 'Contact for pricing' },
@@ -535,6 +755,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                   </Card>
                 ))}
               </div>
+              )}
             </>
           ) : (
             <>
@@ -586,6 +807,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
           )}
         </div>
       </section>
+      )}
 
       {/* Sub-port Sections (Shekou, Yantian for Shenzhen; Nansha for Guangzhou) */}
       {subPortPricingData.map((spPricing) => {
@@ -758,7 +980,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
               <div className="bg-ocean/5 border-b border-border/50 p-4">
                 <h3 className="font-heading font-bold text-foreground flex items-center gap-2">
                   <Anchor className="h-5 w-5 text-ocean" />
-                  {route.originCity} to {dspPricing.destSubPort} — MSK Rates
+                  {route.originCity} to {dspPricing.destSubPort}: MSK rates
                 </h3>
               </div>
               <div className="overflow-x-auto">
@@ -838,6 +1060,22 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
         );
       })}
 
+      {/* New layout: the route-only sections */}
+      {pack && (
+        <RoutePackSections
+          pack={pack}
+          originCity={route.originCity}
+          destinationCity={route.destinationCity}
+          destinationCountry={route.destinationCountry}
+          fromOrigin={packFromOrigin}
+          intoDestination={packIntoDestination}
+          pricing={routePricing}
+        />
+      )}
+
+      {/* General sections, the same on every route. Pack routes link to the shared guides instead. */}
+      {!pack && (
+      <>
       {/* Container Types */}
       <section className="py-20 lg:py-28 bg-cream pattern-dots">
         <div className="container mx-auto px-4">
@@ -1222,6 +1460,9 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
         </div>
       </section>
 
+      </>
+      )}
+
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
 
@@ -1251,7 +1492,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
       </section>
 
       {/* Explore Other Routes */}
-      {(routesFromOrigin.length > 0 || routesToDestination.length > 0) && (
+      {!pack && (routesFromOrigin.length > 0 || routesToDestination.length > 0) && (
         <section className="py-16 lg:py-24 bg-cream border-t border-border">
           <div className="container mx-auto px-4">
             <div className="mb-12">

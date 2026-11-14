@@ -6,6 +6,7 @@ import { BlogCard, CTASection } from '@/components/sections';
 import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { generateBlogCollectionSchema } from '@/lib/schema';
+import { REMOVED_BLOG_SLUGS_FILTER } from '@/lib/data/blogCleanup';
 
 const POSTS_PER_PAGE = 20;
 
@@ -56,7 +57,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   // Get total count
   const { count } = await supabase
     .from('blog_posts')
-    .select('*', { count: 'exact', head: true });
+    .select('*', { count: 'exact', head: true })
+    .not('slug', 'in', REMOVED_BLOG_SLUGS_FILTER);
 
   const total = count || 0;
   const totalPages = Math.ceil(total / POSTS_PER_PAGE);
@@ -71,6 +73,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const { data: posts } = await supabase
     .from('blog_posts')
     .select('id, slug, title, excerpt, image, published_at, category, author, content')
+    .not('slug', 'in', REMOVED_BLOG_SLUGS_FILTER)
     .order('published_at', { ascending: false })
     .range((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE - 1);
 
@@ -89,7 +92,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   // For schema - get all post titles/slugs
   const { data: allPosts } = await supabase
     .from('blog_posts')
-    .select('title, slug');
+    .select('title, slug')
+    .not('slug', 'in', REMOVED_BLOG_SLUGS_FILTER);
 
   const blogCollectionSchema = generateBlogCollectionSchema(
     (allPosts || []).map((post) => ({ title: post.title, slug: post.slug }))

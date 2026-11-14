@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
 import { getAllCountrySlugs, getAllSeaFreightCountrySlugs } from '@/lib/data/countries';
+import { REMOVED_BLOG_SLUGS_FILTER } from '@/lib/data/blogCleanup';
 
 export const revalidate = 3600;
 
@@ -160,7 +161,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Blog posts from Supabase
   const { data: blogPostsData } = await supabase
     .from('blog_posts')
-    .select('slug, published_at, updated_at');
+    .select('slug, published_at, updated_at')
+    .not('slug', 'in', REMOVED_BLOG_SLUGS_FILTER);
 
   const blogPages: MetadataRoute.Sitemap = (blogPostsData || []).map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,

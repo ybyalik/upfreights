@@ -17,8 +17,6 @@ import {
   RouteCard,
   CTASection,
   Stats,
-  TestimonialCard,
-  sampleTestimonials,
 } from '@/components/sections';
 import { services } from '@/lib/data/services';
 import { destinations } from '@/lib/data/destinations';
@@ -196,27 +194,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 lg:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What Our Customers Say
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Don&apos;t just take our word for it. Here&apos;s what businesses like yours
-              have to say about working with UpFreights.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sampleTestimonials.slice(0, 3).map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
           </div>
         </div>
       </section>

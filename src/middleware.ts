@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 import { RETIRED_AIR_ROUTE_SLUGS } from '@/lib/data/retiredAirRoutes';
 import { RETIRED_SEA_ROUTE_SLUGS } from '@/lib/data/retiredSeaRoutes';
+import { BLOG_GONE_SLUGS, BLOG_REDIRECTS } from '@/lib/data/blogCleanup';
 
 /**
  * Edge Middleware - runs at the edge, not origin
@@ -56,14 +57,14 @@ const securityHeaders = {
 };
 
 // Body returned for unpublished air-freight and sea-freight routes (HTTP 410 Gone).
-function goneResponse(kind: 'air' | 'sea'): NextResponse {
-  const label = kind === 'air' ? 'Air Freight' : 'Sea Freight';
+function goneResponse(kind: 'air' | 'sea' | 'blog'): NextResponse {
+  const label = kind === 'air' ? 'Air Freight' : kind === 'sea' ? 'Sea Freight' : 'Blog';
   const html = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Page no longer available | UpFreights</title></head>
 <body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:40rem;margin:6rem auto;padding:0 1.5rem;color:#1f2937;line-height:1.6">
 <h1 style="font-size:1.5rem;margin-bottom:.5rem">This page is no longer available</h1>
-<p style="color:#6b7280">The ${label.toLowerCase()} route you were looking for has been removed. Explore our current services instead.</p>
-<p style="margin-top:1.5rem"><a href="/${kind}-freight" style="color:#0d9488;font-weight:600;text-decoration:none">${label} services</a> &nbsp;·&nbsp; <a href="/" style="color:#0d9488;font-weight:600;text-decoration:none">Home</a></p>
+<p style="color:#6b7280">${kind === 'blog' ? 'The article you were looking for has been removed. Explore our current guides instead.' : `The ${label.toLowerCase()} route you were looking for has been removed. Explore our current services instead.`}</p>
+<p style="margin-top:1.5rem"><a href="${kind === 'blog' ? '/blog' : `/${kind}-freight`}" style="color:#0d9488;font-weight:600;text-decoration:none">${kind === 'blog' ? 'Blog' : `${label} services`}</a> &nbsp;·&nbsp; <a href="/" style="color:#0d9488;font-weight:600;text-decoration:none">Home</a></p>
 </body></html>`;
   return new NextResponse(html, {
     status: 410,
@@ -101,6 +102,18 @@ export async function middleware(request: NextRequest) {
     }
     if (RETIRED_SEA_ROUTE_SLUGS.has(slug)) {
       return goneResponse('sea');
+    }
+  }
+
+  // Blog cleanup (14 Nov 2026): removed posts answer 410, merged ones 301.
+  if (pathname.startsWith('/blog/')) {
+    const slug = pathname.slice('/blog/'.length).replace(/\/$/, '');
+    if (BLOG_GONE_SLUGS.has(slug)) {
+      return goneResponse('blog');
+    }
+    const target = BLOG_REDIRECTS[slug];
+    if (target) {
+      return NextResponse.redirect(new URL(target, request.url), 301);
     }
   }
 
