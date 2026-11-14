@@ -385,16 +385,6 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
 
                         <div className="flex items-start gap-3">
                           <div className="w-8 h-8 rounded-lg bg-teal/10 flex items-center justify-center flex-shrink-0">
-                            <Shield className="h-4 w-4 text-teal" />
-                          </div>
-                          <div>
-                            <p className="font-bold text-foreground">99%+</p>
-                            <p className="text-xs text-muted-foreground">On-Time Delivery</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-teal/10 flex items-center justify-center flex-shrink-0">
                             <Plane className="h-4 w-4 text-teal" />
                           </div>
                           <div>
@@ -532,7 +522,7 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
                     {[
                       { step: 'Cargo Acceptance', time: '4-8 hrs', icon: Package, description: 'Security screening at origin' },
                       { step: 'Flight Transit', time: '12-14 hrs', icon: Plane, description: 'Direct flight to destination' },
-                      { step: 'Customs Clearance', time: '4-24 hrs', icon: FileText, description: 'TSA and CBP inspection' },
+                      { step: 'Customs Clearance', time: '4-24 hrs', icon: FileText, description: route.destinationCountry === 'United States' ? 'TSA and CBP inspection' : 'Customs inspection at destination' },
                       { step: 'Release & Sort', time: '2-4 hrs', icon: CheckCircle, description: 'Cargo release and sorting' },
                       { step: 'Final Delivery', time: 'Same/Next day', icon: ArrowRight, description: 'Door delivery' },
                     ].map((item, index) => {
@@ -610,7 +600,7 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
                 {[
                   { step: 1, title: 'Quote & Booking', description: 'Get a quote and book your air freight shipment.', timeline: 'Same day' },
                   { step: 2, title: 'Collection', description: 'We collect cargo from your location.', timeline: '1 day' },
-                  { step: 3, title: 'Flight Transit', description: 'Your cargo flies to the destination.', timeline: '1-5 days' },
+                  { step: 3, title: 'Flight Transit', description: 'Your cargo flies to the destination.', timeline: route.transitTime },
                   { step: 4, title: 'Customs Clearance', description: 'Fast customs processing at destination.', timeline: '1 day' },
                   { step: 5, title: 'Final Delivery', description: 'Cargo delivered to your door.', timeline: 'Same day' },
                 ].map((step, index) => (
@@ -635,29 +625,22 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
 
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-24">
-                <div className="bg-slate rounded-2xl p-8 lg:p-10">
-                  <div className="mb-6">
-                    <p className="text-teal-light font-medium text-sm uppercase tracking-wider mb-2">Track Record</p>
-                    <h4 className="font-heading font-bold text-xl text-white">Reliable Service</h4>
+                <div className="bg-slate rounded-2xl p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-teal/20 flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-teal-light" />
+                    </div>
+                    <h4 className="font-heading font-bold text-white">Key Documents</h4>
                   </div>
-                  <div className="grid grid-cols-2 gap-5">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-                      <p className="font-heading text-3xl lg:text-4xl font-bold text-teal-light mb-2">15+</p>
-                      <p className="text-white/70 text-sm">Years Experience</p>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-                      <p className="font-heading text-3xl lg:text-4xl font-bold text-white mb-2">50K+</p>
-                      <p className="text-white/70 text-sm">Shipments</p>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-                      <p className="font-heading text-3xl lg:text-4xl font-bold text-copper-light mb-2">99%</p>
-                      <p className="text-white/70 text-sm">On-Time Delivery</p>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-                      <p className="font-heading text-3xl lg:text-4xl font-bold text-white mb-2">24/7</p>
-                      <p className="text-white/70 text-sm">Support Available</p>
-                    </div>
+                  <div className="space-y-3">
+                    {[...requiredDocs.universal.slice(0, 3), ...requiredDocs.airSpecific.slice(0, 2)].map((doc, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-teal-light flex-shrink-0" />
+                        <span className="text-sm text-white/80">{doc.name}</span>
+                      </div>
+                    ))}
                   </div>
+                  <p className="text-xs text-white/60 mt-4">See full documentation requirements below</p>
                 </div>
               </div>
             </div>

@@ -55,14 +55,15 @@ const securityHeaders = {
   ].join('; '),
 };
 
-// Body returned for unpublished air-freight routes (HTTP 410 Gone).
-function goneResponse(): NextResponse {
+// Body returned for unpublished air-freight and sea-freight routes (HTTP 410 Gone).
+function goneResponse(kind: 'air' | 'sea'): NextResponse {
+  const label = kind === 'air' ? 'Air Freight' : 'Sea Freight';
   const html = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Page no longer available | UpFreights</title></head>
 <body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:40rem;margin:6rem auto;padding:0 1.5rem;color:#1f2937;line-height:1.6">
 <h1 style="font-size:1.5rem;margin-bottom:.5rem">This page is no longer available</h1>
-<p style="color:#6b7280">The air freight route you were looking for has been removed. Explore our current services instead.</p>
-<p style="margin-top:1.5rem"><a href="/air-freight" style="color:#0d9488;font-weight:600;text-decoration:none">Air Freight services</a> &nbsp;·&nbsp; <a href="/" style="color:#0d9488;font-weight:600;text-decoration:none">Home</a></p>
+<p style="color:#6b7280">The ${label.toLowerCase()} route you were looking for has been removed. Explore our current services instead.</p>
+<p style="margin-top:1.5rem"><a href="/${kind}-freight" style="color:#0d9488;font-weight:600;text-decoration:none">${label} services</a> &nbsp;·&nbsp; <a href="/" style="color:#0d9488;font-weight:600;text-decoration:none">Home</a></p>
 </body></html>`;
   return new NextResponse(html, {
     status: 410,
@@ -87,7 +88,7 @@ export async function middleware(request: NextRequest) {
   // this is authoritative.
   if (pathname.startsWith('/air-freight-')) {
     if (RETIRED_AIR_ROUTE_SLUGS.has(pathname.slice('/air-freight-'.length))) {
-      return goneResponse();
+      return goneResponse('air');
     }
   }
   if (pathname.startsWith('/sea-freight-')) {
@@ -99,7 +100,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL('/', request.url), 301);
     }
     if (RETIRED_SEA_ROUTE_SLUGS.has(slug)) {
-      return goneResponse();
+      return goneResponse('sea');
     }
   }
 

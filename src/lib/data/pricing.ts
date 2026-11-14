@@ -1,11 +1,22 @@
 /**
  * Sea Freight FCL Pricing Data
  * China to US & Canada Container Rates
- * Last Updated: May 15th - May 31th
+ * Last Updated: May 15th - May 31th (the year was never recorded)
  *
  * Note: These prices are subject to change based on market conditions.
  * Contact us for the most up-to-date pricing.
+ *
+ * RATE DATES: every price table on the site shows a date line under it.
+ * The dates come from RATE_SHEET_PERIOD at the bottom of this file.
+ * When a new rate sheet is loaded, set its two dates there. A single
+ * route can carry its own dates with an optional `period` field.
  */
+
+/** The dates a rate sheet covers, written as YYYY-MM-DD. */
+export interface RatePeriod {
+  from: string;
+  to: string;
+}
 
 export interface CarrierRate {
   carrier: string;
@@ -19,6 +30,7 @@ export interface RoutePricing {
   origin: string;
   destination: string;
   rates: CarrierRate[];
+  period?: RatePeriod; // only if this route's dates differ from RATE_SHEET_PERIOD
 }
 
 // Pricing data from China-US container FCL rates spreadsheet
@@ -4368,6 +4380,7 @@ export interface SubPortPricing {
   parentCity: string;     // e.g. 'Shenzhen', 'Guangzhou'
   destination: string;
   rates: CarrierRate[];
+  period?: RatePeriod;
 }
 
 export const subPortPricing: SubPortPricing[] = [
@@ -4448,6 +4461,7 @@ export interface DestSubPortPricing {
   parentCity: string;      // e.g. 'Genoa'
   origin: string;
   rates: CarrierRate[];
+  period?: RatePeriod;
 }
 
 export const destSubPortPricing: DestSubPortPricing[] = [
@@ -4521,4 +4535,63 @@ export function formatPrice(price: number): string {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(price);
+}
+
+/**
+ * RATE SHEET DATES
+ *
+ * The dates the rates in this file cover. Set both dates every time a new
+ * rate sheet is loaded, for example { from: '2026-11-16', to: '2026-11-30' }.
+ * Every price table then shows "Rates valid 16 to 30 November 2026".
+ *
+ * It is null today because the sheets in this file were loaded without a
+ * confirmed date. While it is null, the tables say the rates come from an
+ * earlier rate sheet. Do not guess a date here.
+ */
+export const RATE_SHEET_PERIOD: RatePeriod | null = null;
+
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+function splitIsoDate(iso: string): { year: number; month: number; day: number } {
+  const [year, month, day] = iso.split('-').map(Number);
+  return { year, month, day };
+}
+
+/**
+ * Write a rate period in words, e.g. "16 to 30 November 2026"
+ */
+export function formatRatePeriod(period: RatePeriod): string {
+  const a = splitIsoDate(period.from);
+  const b = splitIsoDate(period.to);
+  const end = `${b.day} ${MONTH_NAMES[b.month - 1]} ${b.year}`;
+  if (a.year === b.year && a.month === b.month) return `${a.day} to ${end}`;
+  if (a.year === b.year) return `${a.day} ${MONTH_NAMES[a.month - 1]} to ${end}`;
+  return `${a.day} ${MONTH_NAMES[a.month - 1]} ${a.year} to ${end}`;
+}
+
+/**
+ * The date line shown under a price table.
+ * Uses the route's own dates if it has them, otherwise the sheet's dates.
+ */
+export function getRateDateLine(pricing?: { period?: RatePeriod } | null): string {
+  const period = pricing?.period ?? RATE_SHEET_PERIOD;
+  if (period) {
+    return `Rates valid ${formatRatePeriod(period)}. Freight prices change often, so ask us for today's rate.`;
+  }
+  return "These rates are from an earlier rate sheet and are shown as a guide. Freight prices change often, so ask us for today's rate.";
+}
+
+/**
+ * One transit figure for a set of carrier rates, e.g. "32-37 days" or "45 days".
+ * This is the single source for the transit time shown on a route page.
+ */
+export function getTransitDaysLabel(rates: CarrierRate[]): string | null {
+  if (rates.length === 0) return null;
+  const days = rates.map((r) => r.transitTime);
+  const fastest = Math.min(...days);
+  const slowest = Math.max(...days);
+  return fastest === slowest ? `${fastest} days` : `${fastest}-${slowest} days`;
 }

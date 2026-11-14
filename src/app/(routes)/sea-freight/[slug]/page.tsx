@@ -67,6 +67,8 @@ import {
   getRoutePricing,
   getSubPortPricingByParent,
   getDestSubPortPricing,
+  getRateDateLine,
+  getTransitDaysLabel,
   formatPrice,
 } from '@/lib/data/pricing';
 import {
@@ -405,16 +407,6 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
 
                         <div className="flex items-start gap-3">
                           <div className="w-8 h-8 rounded-lg bg-copper/10 flex items-center justify-center flex-shrink-0">
-                            <Shield className="h-4 w-4 text-copper" />
-                          </div>
-                          <div>
-                            <p className="font-bold text-foreground">&lt;0.1%</p>
-                            <p className="text-xs text-muted-foreground">Cargo Damage Rate</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-copper/10 flex items-center justify-center flex-shrink-0">
                             <Ship className="h-4 w-4 text-copper" />
                           </div>
                           <div>
@@ -432,177 +424,6 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                       </Button>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Rates Section - Sidebar Summary Layout */}
-          <section className="py-20 lg:py-28 bg-cream">
-            <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-12 gap-8 mb-12">
-                <div className="lg:col-span-8">
-                  <p className="text-copper font-medium text-sm uppercase tracking-wider mb-2">Pricing Guide</p>
-                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
-                    {seaFreightTitles.rates}
-                  </h2>
-                </div>
-              </div>
-
-              <div className="grid lg:grid-cols-12 gap-8">
-                {/* Main Content */}
-                <div className="lg:col-span-7">
-                  <div className="bg-white rounded-2xl p-8 lg:p-10 border border-border/50">
-                    <div className="prose prose-lg max-w-none text-muted-foreground">
-                      <p className="leading-relaxed">{seaFreightContent.rates}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Sticky Sidebar */}
-                <div className="lg:col-span-5">
-                  <div className="lg:sticky lg:top-24 space-y-6">
-                    {/* Quick Rates Card */}
-                    <Card className="border-copper border-2 bg-white">
-                      <CardContent className="p-6">
-                        <h4 className="font-heading font-bold text-lg text-foreground mb-4">Quick Rate Guide</h4>
-                        <div className="space-y-4">
-                          <div className="flex justify-between items-center pb-3 border-b border-border/50">
-                            <div>
-                              <p className="font-medium text-foreground">20ft Container</p>
-                              <p className="text-xs text-muted-foreground">Standard dry</p>
-                            </div>
-                            <p className="font-bold text-copper">$1,800-2,800</p>
-                          </div>
-                          <div className="flex justify-between items-center pb-3 border-b border-border/50">
-                            <div>
-                              <p className="font-medium text-foreground">40ft Container</p>
-                              <p className="text-xs text-muted-foreground">Standard dry</p>
-                            </div>
-                            <p className="font-bold text-copper">$2,400-4,200</p>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <div>
-                              <p className="font-medium text-foreground">LCL Shipment</p>
-                              <p className="text-xs text-muted-foreground">Per cubic meter</p>
-                            </div>
-                            <p className="font-bold text-copper">$45-85/CBM</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* Additional Costs Card */}
-                    <Card className="border-border/50 bg-slate/5">
-                      <CardContent className="p-6">
-                        <h4 className="font-heading font-bold text-foreground mb-3">Additional Costs</h4>
-                        <div className="space-y-2 text-sm">
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Origin THC</span>
-                            <span className="font-medium">$150-250</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Destination THC</span>
-                            <span className="font-medium">$200-350</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">BAF Surcharge</span>
-                            <span className="font-medium">$300-500</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Customs Brokerage</span>
-                            <span className="font-medium">$150-400</span>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* CTA */}
-                    <Button asChild className="w-full bg-copper hover:bg-copper-dark text-white">
-                      <Link href="/quote">
-                        Get Exact Quote
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Transit Times Section - Timeline Layout */}
-          <section className="py-20 lg:py-28 bg-background">
-            <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-12 gap-8 mb-12">
-                <div className="lg:col-span-8">
-                  <p className="text-copper font-medium text-sm uppercase tracking-wider mb-2">Delivery Timeline</p>
-                  <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground">
-                    {seaFreightTitles.transitTimes}
-                  </h2>
-                </div>
-              </div>
-
-              {/* Visual Timeline */}
-              <div className="mb-12">
-                <div className="relative">
-                  {/* Timeline Line */}
-                  <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-copper/20 -translate-y-1/2" />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
-                    {[
-                      { step: 'Cargo Loading', time: '1-2 days', icon: Package, description: 'Container stuffing at origin' },
-                      { step: 'Export Clearance', time: '1-2 days', icon: FileText, description: 'Documentation and customs' },
-                      { step: 'Ocean Transit', time: '15-25 days', icon: Ship, description: 'Sailing to destination port' },
-                      { step: 'Import Clearance', time: '1-3 days', icon: CheckCircle, description: 'Customs inspection and release' },
-                      { step: 'Final Delivery', time: '1-5 days', icon: ArrowRight, description: 'Transport to final destination' },
-                    ].map((item, index) => {
-                      const Icon = item.icon;
-                      return (
-                        <div key={index} className="relative">
-                          {/* Timeline dot - hidden on mobile */}
-                          <div className="hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-copper border-4 border-background z-10" />
-
-                          <Card className="border-border/50 h-full lg:mt-6">
-                            <CardContent className="p-5 text-center">
-                              <div className="w-10 h-10 rounded-lg bg-copper/10 flex items-center justify-center mx-auto mb-3">
-                                <Icon className="h-5 w-5 text-copper" />
-                              </div>
-                              <p className="text-xs text-copper font-semibold uppercase tracking-wider mb-1">Step {index + 1}</p>
-                              <h4 className="font-heading font-bold text-foreground text-sm mb-1">{item.step}</h4>
-                              <p className="text-lg font-bold text-copper mb-1">{item.time}</p>
-                              <p className="text-xs text-muted-foreground">{item.description}</p>
-                            </CardContent>
-                          </Card>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
-              {/* Service Level Summary */}
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
-                <div className="bg-copper text-white rounded-xl p-6">
-                  <p className="text-copper-light text-xs uppercase tracking-wider mb-1">Express</p>
-                  <p className="text-3xl font-bold mb-2">20-25 Days</p>
-                  <p className="text-white/80 text-sm">Direct service with priority handling</p>
-                </div>
-                <div className="bg-slate text-white rounded-xl p-6">
-                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Standard</p>
-                  <p className="text-3xl font-bold mb-2">25-35 Days</p>
-                  <p className="text-white/80 text-sm">Regular service with full tracking</p>
-                </div>
-                <div className="bg-cream-dark rounded-xl p-6">
-                  <p className="text-muted-foreground text-xs uppercase tracking-wider mb-1">Economy</p>
-                  <p className="text-3xl font-bold text-foreground mb-2">35-45 Days</p>
-                  <p className="text-muted-foreground text-sm">Consolidated for maximum savings</p>
-                </div>
-              </div>
-
-              {/* Detailed Text */}
-              <div className="bg-cream rounded-2xl p-8 lg:p-10">
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p className="leading-relaxed">{seaFreightContent.transitTimes}</p>
                 </div>
               </div>
             </div>
@@ -630,7 +451,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
           {/* Show real carrier pricing if available */}
           {routePricing ? (
             <>
-              <div className="overflow-x-auto mb-8">
+              <div className="overflow-x-auto mb-3">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-slate text-white">
@@ -671,6 +492,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                   </tbody>
                 </table>
               </div>
+              <p className="text-sm text-muted-foreground mb-8">{getRateDateLine(routePricing)}</p>
 
               {/* Price disclaimer */}
               <Card className="border-copper/30 bg-copper/5 mb-8">
@@ -808,7 +630,8 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
 
             {/* Sub-port pricing table */}
             {spPricing.rates.length > 0 && (
-              <div className="overflow-x-auto mb-8">
+              <>
+              <div className="overflow-x-auto mb-3">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-slate text-white">
@@ -849,6 +672,8 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                   </tbody>
                 </table>
               </div>
+              <p className="text-sm text-muted-foreground mb-8">{getRateDateLine(spPricing)}</p>
+              </>
             )}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -875,7 +700,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                     <h3 className="font-heading font-bold text-foreground">Transit Time</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    {route.transitTime} from {spPricing.subPort} to {route.destinationCity}.
+                    {getTransitDaysLabel(spPricing.rates) ?? route.transitTime} from {spPricing.subPort} to {route.destinationCity}.
                   </p>
                 </CardContent>
               </Card>
@@ -929,7 +754,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
             </div>
 
             {/* Destination sub-port pricing table */}
-            <div className="bg-card border border-border/50 rounded-xl overflow-hidden mb-8">
+            <div className="bg-card border border-border/50 rounded-xl overflow-hidden mb-3">
               <div className="bg-ocean/5 border-b border-border/50 p-4">
                 <h3 className="font-heading font-bold text-foreground flex items-center gap-2">
                   <Anchor className="h-5 w-5 text-ocean" />
@@ -961,6 +786,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                 </table>
               </div>
             </div>
+            <p className="text-sm text-muted-foreground mb-8">{getRateDateLine(dspPricing)}</p>
 
             {/* Info cards */}
             <div className="grid sm:grid-cols-3 gap-4">
@@ -1052,48 +878,6 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
         </div>
       </section>
 
-      {/* Service Stats */}
-      <section className="py-20 lg:py-28 bg-slate relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-copper/20 transform skew-x-[-6deg] origin-top-right hidden lg:block" />
-
-        <div className="container mx-auto px-4 relative">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <p className="text-copper-light font-medium text-sm uppercase tracking-wider mb-2">Track Record</p>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-white mb-4">
-                Reliable Service
-              </h2>
-              <p className="text-white/70 leading-relaxed">
-                Our {route.originCity} to {route.destinationCity} corridor represents years of
-                refined expertise and thousands of successful shipments.
-              </p>
-            </div>
-
-            <div className="lg:col-span-6 lg:col-start-7 grid grid-cols-2 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-copper-light mb-2">15+</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">Years Experience</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 mt-6">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-white mb-2">25K+</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">Containers Shipped</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-teal-light mb-2">99.5%</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">On-Time Delivery</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 mt-6">
-                <p className="font-heading text-4xl lg:text-5xl font-bold text-white mb-2">24/7</p>
-                <p className="text-white/60 text-sm uppercase tracking-wider">Support Available</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Shipping Process */}
       <section className="py-20 lg:py-28 bg-cream-dark">
         <div className="container mx-auto px-4">
@@ -1114,7 +898,7 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                 {[
                   { step: 1, title: 'Quote & Booking', description: 'Get a customized quote and book your container.', timeline: '1-2 days' },
                   { step: 2, title: 'Collection & Export', description: 'We collect cargo and handle export documentation.', timeline: '2-3 days' },
-                  { step: 3, title: 'Ocean Transit', description: 'Your cargo travels safely across the ocean.', timeline: '12-20 days' },
+                  { step: 3, title: 'Ocean Transit', description: 'Your cargo travels safely across the ocean.', timeline: route.transitTime },
                   { step: 4, title: 'Port Handling', description: 'Customs clearance and port procedures completed.', timeline: '2-3 days' },
                   { step: 5, title: 'Final Delivery', description: 'Cargo delivered to your specified destination.', timeline: '1-2 days' },
                 ].map((step, index) => (

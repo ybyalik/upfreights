@@ -574,6 +574,23 @@ function shuffleWithSeed<T>(arr: T[], seed: number): T[] {
   return result;
 }
 
+// Key considerations that are about aircraft or airports only.
+const AIR_ONLY_CONSIDERATIONS: ReadonlySet<string> = new Set([
+  'Lithium batteries >100Wh are Cargo Aircraft Only',
+  'CAA conducts random documentation audits',
+  'CASA enforces strict lithium battery regulations',
+  'Section II labeling required for all battery-containing devices',
+  'Frankfurt (FRA) is the main air cargo DG hub',
+]);
+
+// Key considerations that are about ships or sea ports only.
+const SEA_ONLY_CONSIDERATIONS: ReadonlySet<string> = new Set([
+  'ISF filing must include complete DG details 24 hours before departure',
+  '24-hour advance port notification required for DG',
+  'Hamburg and Bremerhaven are primary DG ports',
+  'Rotterdam is Europe\'s primary DG gateway port',
+]);
+
 // Get DG rules for a specific route and freight type
 export function getDangerousGoodsRules(
   originCity: string,
@@ -587,7 +604,9 @@ export function getDangerousGoodsRules(
   // Find matching country
   let countryData = defaultDGData;
   for (const [country, data] of Object.entries(countryDGData)) {
-    if (normalizedCountry.includes(country) || country.includes(normalizedCountry.split(' ')[0])) {
+    // Match on the full country name. Matching on the first word alone sent
+    // "United Kingdom" to the "united states" rules.
+    if (normalizedCountry.includes(country)) {
       countryData = data;
       break;
     }
@@ -604,8 +623,14 @@ export function getDangerousGoodsRules(
   // Shuffle the rules order based on route
   const shuffledRules = shuffleWithSeed(rules, seed);
 
-  // Shuffle key considerations
-  const shuffledConsiderations = shuffleWithSeed([...countryData.keyConsiderations], seed);
+  // Shuffle key considerations, leaving out notes that only apply to the
+  // other way of shipping (an aircraft rule on a sea page, a port rule on an
+  // air page).
+  const wrongMode = freightType === 'sea' ? AIR_ONLY_CONSIDERATIONS : SEA_ONLY_CONSIDERATIONS;
+  const shuffledConsiderations = shuffleWithSeed(
+    countryData.keyConsiderations.filter((note) => !wrongMode.has(note)),
+    seed
+  );
 
   return {
     regulatoryBody: countryData.regulatoryBody,

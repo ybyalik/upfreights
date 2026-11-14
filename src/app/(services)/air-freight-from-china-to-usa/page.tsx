@@ -46,7 +46,7 @@ export default function AirFreightChinaToUSAPage() {
   // Get air routes for United States only
   const airRoutes = generateAirRoutes().filter(r =>
     r.destinationCountry.toLowerCase() === 'united states' ||
-    r.destinationCountry.toLowerCase().includes('united')
+    r.destinationCountry.toLowerCase().includes('united states')
   );
 
   // Group routes by destination city

@@ -432,8 +432,9 @@ export function getCommonGoods(
   let countryData: GoodsCategory[] | undefined;
 
   for (const [country, data] of Object.entries(countryGoodsData)) {
-    if (normalizedCountry.includes(country.toLowerCase()) ||
-        country.toLowerCase().includes(normalizedCountry.split(' ')[0])) {
+    // Match on the full country name. Matching on the first word alone sent
+    // "United Kingdom" to the "United States" list.
+    if (normalizedCountry.includes(country.toLowerCase())) {
       countryData = data;
       break;
     }

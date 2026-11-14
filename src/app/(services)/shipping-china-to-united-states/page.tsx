@@ -34,12 +34,12 @@ export default function ShippingToUSPage() {
   const seaRoutes = generateSeaRoutes().filter(
     (r) =>
       r.destinationCountry.toLowerCase() === 'united states' ||
-      r.destinationCountry.toLowerCase().includes('united')
+      r.destinationCountry.toLowerCase().includes('united states')
   );
   const airRoutes = generateAirRoutes().filter(
     (r) =>
       r.destinationCountry.toLowerCase() === 'united states' ||
-      r.destinationCountry.toLowerCase().includes('united')
+      r.destinationCountry.toLowerCase().includes('united states')
   );
 
   const serviceSchema = generateCountryServiceSchema({

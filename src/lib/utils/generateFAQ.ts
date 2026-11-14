@@ -52,8 +52,8 @@ export function generateSeaFreightFAQs(route: Route): FAQItem[] {
     {
       question: `What is the estimated cost of shipping a container from ${originCity} to ${destinationCity}?`,
       answer: hasPricing
-        ? `The estimated cost of shipping a 40ft container from ${originCity} to ${destinationCity} ranges from ${formatPrice(lowestRate!)} to ${formatPrice(highestRate!)} depending on the carrier and service level. LCL rates typically start around $45-85 per CBM. Contact us for current rates and a customized quote.`
-        : `The cost of shipping a container from ${originCity} to ${destinationCity} varies based on container size, carrier, and current market conditions. FCL rates typically range from $2,800-$4,500 for a 40ft container, while LCL rates start around $45-85 per CBM. Request a quote for accurate pricing.`
+        ? `The estimated cost of shipping a 40ft container from ${originCity} to ${destinationCity} ${lowestRate === highestRate ? `is about ${formatPrice(lowestRate!)}` : `ranges from ${formatPrice(lowestRate!)} to ${formatPrice(highestRate!)} depending on the carrier`}. LCL rates typically start around $45-85 per CBM. Contact us for current rates and a customized quote.`
+        : `The cost of shipping a container from ${originCity} to ${destinationCity} varies based on container size, carrier, and current market conditions. LCL rates start around $45-85 per CBM. Request a quote for accurate pricing.`
     },
     {
       question: `Should I choose FCL or LCL for my ${originCity} to ${destinationCity} shipment?`,
@@ -77,7 +77,7 @@ export function generateSeaFreightFAQs(route: Route): FAQItem[] {
     },
     {
       question: `How can I calculate import duty from ${originCity}, ${originRegion} to ${destinationCity}?`,
-      answer: `Import duty from ${originCity} to ${destinationCity} is calculated based on the HS code of your goods, the declared value (CIF), and ${destinationCountry}'s tariff rates. ${destinationCountry === 'United States' ? 'US import duties vary from 0-25% depending on product classification. Use the USITC database or consult a customs broker for accurate duty calculations.' : destinationCountry === 'Canada' ? 'Canadian duties range from 0-20% based on the product. The CBSA tariff finder can help estimate costs.' : `${destinationCountry} applies duties based on product classification. A customs broker can provide accurate duty estimates.`}`
+      answer: `Import duty from ${originCity} to ${destinationCity} is calculated based on the HS code of your goods, the declared value (CIF), and ${destinationCountry}'s tariff rates. ${destinationCountry === 'United States' ? 'US import duties depend on the product classification and on any extra tariffs that apply to goods from China. Use the USITC tariff database or consult a customs broker for the current rate.' : destinationCountry === 'Canada' ? 'Canadian duties range from 0-20% based on the product. The CBSA tariff finder can help estimate costs.' : `${destinationCountry} applies duties based on product classification. A customs broker can provide accurate duty estimates.`}`
     },
     {
       question: `Do I need insurance to ship from ${originCity}, ${originRegion} to ${destinationCity}?`,

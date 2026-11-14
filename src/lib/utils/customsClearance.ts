@@ -596,7 +596,9 @@ export function getCustomsClearance(
   // Find matching country
   let countryData = defaultClearanceData;
   for (const [country, data] of Object.entries(countryClearanceData)) {
-    if (normalizedCountry.includes(country) || country.includes(normalizedCountry.split(' ')[0])) {
+    // Match on the full country name. Matching on the first word alone sent
+    // "United Kingdom" to the "united states" rules.
+    if (normalizedCountry.includes(country)) {
       countryData = data;
       break;
     }

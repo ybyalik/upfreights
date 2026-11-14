@@ -46,7 +46,7 @@ export default function SeaFreightChinaToUSAPage() {
   // Get sea routes for United States only
   const seaRoutes = generateSeaRoutes().filter(r =>
     r.destinationCountry.toLowerCase() === 'united states' ||
-    r.destinationCountry.toLowerCase().includes('united')
+    r.destinationCountry.toLowerCase().includes('united states')
   );
 
   // Group routes by destination city

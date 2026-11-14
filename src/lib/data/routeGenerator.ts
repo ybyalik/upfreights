@@ -2,6 +2,7 @@ import { Route, ContainerOption } from '@/lib/types';
 import { routes as csvRoutes } from './routes';
 import { RETIRED_AIR_ROUTE_SLUGS } from './retiredAirRoutes';
 import { RETIRED_SEA_ROUTE_SLUGS } from './retiredSeaRoutes';
+import { getRoutePricing, getTransitDaysLabel } from './pricing';
 
 // ============================================================================
 // MEMOIZATION CACHE
@@ -275,7 +276,12 @@ export function generateSeaRoutes(): Route[] {
         destinationCountry: dest.country,
         destinationSlug: dest.countrySlug,
         serviceType: 'sea',
-        transitTime: `${dest.seaTransit} days`,
+        // One transit figure per route. If the route has carrier rates, the
+        // figure comes from those rates, so the top of the page and the price
+        // table always agree. Otherwise it is the destination's usual range.
+        transitTime:
+          getTransitDaysLabel(getRoutePricing(origin.city, dest.city)?.rates ?? []) ??
+          `${dest.seaTransit} days`,
         frequency: 'Weekly departures',
         containerOptions: standardContainerOptions,
         pricingStructure: seaPricingStructure,
