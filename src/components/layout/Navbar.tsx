@@ -234,7 +234,7 @@ export function Navbar() {
                 <div className="border-t border-border/50 my-2 pt-2">
                   <p className="text-xs text-muted-foreground px-3 mb-2">Shipping Guides</p>
                   <DropdownLink
-                    href="/shipping-routes-china-to-usa"
+                    href="/shipping-china-to-united-states"
                     icon={MapPin}
                     title="China to USA Routes"
                     description="Complete shipping guide"
@@ -371,7 +371,7 @@ export function Navbar() {
                       <span className="text-sm font-medium">Case Studies</span>
                     </Link>
                     <Link
-                      href="/shipping-routes-china-to-usa"
+                      href="/shipping-china-to-united-states"
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
                     >

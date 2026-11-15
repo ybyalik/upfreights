@@ -11,7 +11,6 @@ import {
   getCountryBySlug,
   getAllCountrySlugs,
   getSeaFreightCountryBySlug,
-  getAllSeaFreightCountrySlugs,
   CountryDestination,
   SeaFreightCountry,
 } from '@/lib/data/countries';
@@ -39,10 +38,8 @@ export async function generateStaticParams() {
   const countryParams = getAllCountrySlugs().map((slug) => ({
     service: slug,
   }));
-  const seaFreightCountryParams = getAllSeaFreightCountrySlugs().map((slug) => ({
-    service: slug,
-  }));
-  return [...serviceParams, ...countryParams, ...seaFreightCountryParams];
+  // The "sea freight from China to X" pages now 301 to the country guides (next.config.ts), so they are not built.
+  return [...serviceParams, ...countryParams];
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {

@@ -48,7 +48,7 @@ const destinationCountries = [
   {
     country: 'United States',
     flag: '🇺🇸',
-    slug: 'sea-freight-from-china-to-usa',
+    slug: 'shipping-china-to-united-states',
     transitTime: '15-25 days',
     description: 'Professional sea freight to major US ports including Long Beach, Los Angeles, New York, and more.',
     highlights: ['Multiple port options', 'FCL & LCL services', 'Reliable schedules'],
@@ -56,7 +56,7 @@ const destinationCountries = [
   {
     country: 'Canada',
     flag: '🇨🇦',
-    slug: 'sea-freight-from-china-to-canada',
+    slug: 'shipping-china-to-canada',
     transitTime: '15-30 days',
     description: 'Efficient shipping to Vancouver, Montreal, Halifax, and other major Canadian ports.',
     highlights: ['Pacific & Atlantic access', 'NAFTA benefits', 'Fast customs processing'],
@@ -64,7 +64,7 @@ const destinationCountries = [
   {
     country: 'Australia',
     flag: '🇦🇺',
-    slug: 'sea-freight-from-china-to-australia',
+    slug: 'shipping-china-to-australia',
     transitTime: '18-28 days',
     description: 'Direct services to Sydney, Melbourne, Brisbane, and Fremantle with competitive rates.',
     highlights: ['Close Asia proximity', 'Modern port facilities', 'Strong bilateral trade'],
@@ -72,7 +72,7 @@ const destinationCountries = [
   {
     country: 'United Kingdom',
     flag: '🇬🇧',
-    slug: 'sea-freight-from-china-to-uk',
+    slug: 'shipping-china-to-united-kingdom',
     transitTime: '25-35 days',
     description: 'Reliable shipping to Felixstowe, Southampton, and London Gateway ports.',
     highlights: ['Financial services hub', 'European market access', 'Premium consumer base'],
@@ -80,7 +80,7 @@ const destinationCountries = [
   {
     country: 'Germany',
     flag: '🇩🇪',
-    slug: 'sea-freight-from-china-to-germany',
+    slug: 'shipping-china-to-germany',
     transitTime: '25-35 days',
     description: 'Gateway to Europe via Hamburg and Bremerhaven with excellent infrastructure.',
     highlights: ['EU market gateway', 'Central European location', 'Advanced logistics'],
@@ -88,7 +88,7 @@ const destinationCountries = [
   {
     country: 'Italy',
     flag: '🇮🇹',
-    slug: 'sea-freight-from-china-to-italy',
+    slug: 'shipping-china-to-italy',
     transitTime: '40-65 days',
     description: 'Strategic Mediterranean access via Trieste, gateway to Central and Southern Europe.',
     highlights: ['Mediterranean gateway', 'Central Europe access', 'Major carrier coverage'],
@@ -96,7 +96,7 @@ const destinationCountries = [
   {
     country: 'Sweden',
     flag: '🇸🇪',
-    slug: 'sea-freight-from-china-to-sweden',
+    slug: 'shipping-china-to-sweden',
     transitTime: '30-39 days',
     description: 'Reliable services to Gothenburg, Helsingborg, and other major Swedish ports.',
     highlights: ['Scandinavian gateway', '5 destination ports', 'Competitive MSK rates'],
@@ -104,7 +104,7 @@ const destinationCountries = [
   {
     country: 'Czech Republic',
     flag: '🇨🇿',
-    slug: 'sea-freight-from-china-to-czech-republic',
+    slug: 'shipping-china-to-czech-republic',
     transitTime: '35-42 days',
     description: 'Intermodal services to inland terminals at Paskov and Melnik via European seaports.',
     highlights: ['Central Europe hub', 'Rail-connected terminals', 'Automotive corridor'],
@@ -112,7 +112,7 @@ const destinationCountries = [
   {
     country: 'Norway',
     flag: '🇳🇴',
-    slug: 'sea-freight-from-china-to-norway',
+    slug: 'shipping-china-to-norway',
     transitTime: '32-40 days',
     description: 'Comprehensive coverage with 18 Norwegian ports from Oslo to Mo I Rana.',
     highlights: ['18 destination ports', 'Full coastline coverage', 'Maersk direct services'],

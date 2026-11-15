@@ -359,7 +359,8 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
             <div className="lg:col-span-7">
               <Breadcrumbs
                 items={[
-                  { label: 'Sea Freight', href: '/sea-freight' },
+                  // The country guide is the parent of every route into that country
+                  { label: `China to ${route.destinationCountry}`, href: `/shipping-${route.destinationSlug}` },
                   { label: `${route.originCity} to ${route.destinationCity}` },
                 ]}
                 variant="light"
@@ -434,6 +435,16 @@ export default async function SeaFreightRoutePage({ params }: SeaFreightPageProp
                       <div className="flex gap-3">
                         <dt className="w-16 flex-shrink-0 text-white/60 text-sm pt-0.5">Route</dt>
                         <dd>{pack.quickRoute}</dd>
+                      </div>
+                      <div className="flex gap-3">
+                        <dt className="w-16 flex-shrink-0 text-white/60 text-sm pt-0.5">Customs</dt>
+                        <dd>
+                          Duty, tax and the papers you need are in our{' '}
+                          <Link href={pack.countryGuide.href} className="underline underline-offset-2 hover:text-copper-light">
+                            China to {route.destinationCountry} guide
+                          </Link>
+                          .
+                        </dd>
                       </div>
                     </dl>
                     {(lowestRate || nearestPriced) && (

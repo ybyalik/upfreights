@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
 import { generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
-import { getAllCountrySlugs, getAllSeaFreightCountrySlugs } from '@/lib/data/countries';
+import { getAllCountrySlugs } from '@/lib/data/countries';
 import { REMOVED_BLOG_SLUGS_FILTER } from '@/lib/data/blogCleanup';
 
 export const revalidate = 3600;
@@ -25,7 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/all-routes`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/case-studies`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/incoterms`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/shipping-routes-china-to-usa`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/shipping-routes-china`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/terms-of-service`, lastModified: STATIC_LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
@@ -110,53 +109,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Sea freight country pages — dynamically generated from countries.ts
-  const seaFreightCountryPages: MetadataRoute.Sitemap = getAllSeaFreightCountrySlugs().map((slug) => ({
-    url: `${BASE_URL}/${slug}`,
-    lastModified: STATIC_LAST_MODIFIED,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
-
-  // Air freight country pages (like /air-freight-from-china-to-usa)
-  const airFreightCountryPages: MetadataRoute.Sitemap = [
-    {
-      url: `${BASE_URL}/air-freight-from-china-to-usa`,
-      lastModified: STATIC_LAST_MODIFIED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/air-freight-from-china-to-canada`,
-      lastModified: STATIC_LAST_MODIFIED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/air-freight-from-china-to-uk`,
-      lastModified: STATIC_LAST_MODIFIED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/air-freight-from-china-to-australia`,
-      lastModified: STATIC_LAST_MODIFIED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/air-freight-from-china-to-germany`,
-      lastModified: STATIC_LAST_MODIFIED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/air-freight-from-china-to-netherlands`,
-      lastModified: STATIC_LAST_MODIFIED,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-  ];
+  // The "sea/air freight from China to X" country pages were merged into the country guides (301s in next.config.ts).
 
   // Blog posts from Supabase
   const { data: blogPostsData } = await supabase
@@ -195,8 +148,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...caseStudyPages,
     ...incotermsPages,
     ...countryPages,
-    ...seaFreightCountryPages,
-    ...airFreightCountryPages,
     ...blogPages,
     ...seaFreightRoutes,
     ...airFreightRoutes,

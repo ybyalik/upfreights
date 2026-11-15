@@ -3,7 +3,7 @@ import { Ship, MapPin, Clock, ArrowRight, CheckCircle, FileCheck } from 'lucide-
 import { Button } from '@/components/ui/button';
 import { Breadcrumbs } from './Breadcrumbs';
 import { CTASection } from './CTASection';
-import { FilterableRoutesList } from './FilterableRoutesList';
+import { CountryPortTable } from './CountryPortTable';
 import { HeroQuoteForm } from './HeroQuoteForm';
 import type { Route } from '@/lib/types';
 import type { CountryDestination } from '@/lib/data/countries';
@@ -213,17 +213,13 @@ export function RichCountryPage({
             {seaRoutes.length + airRoutes.length > 0 && (
               <div id="all-routes" className="mb-4 scroll-mt-24">
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  Browse Our Routes to {country.name}
+                  Ports in {country.name} we ship to, and what they cost
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Open any of the {seaRoutes.length + airRoutes.length} city-to-city routes we run from
-                  China to {country.name} for its own transit times and details.
+                  One row per port. Open a route for its rates by shipping line, the sea distance, the port and
+                  a worked cost example.
                 </p>
-                <FilterableRoutesList
-                  seaRoutes={seaRoutes}
-                  airRoutes={airRoutes}
-                  countryName={country.name}
-                />
+                <CountryPortTable countryName={country.name} seaRoutes={seaRoutes} airRoutes={airRoutes} />
               </div>
             )}
 

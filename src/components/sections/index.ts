@@ -23,3 +23,4 @@ export { SeaRoutesFilterable } from './SeaRoutesFilterable';
 export { FAQSchema } from './FAQSchema';
 export { CaseStudyCard } from './CaseStudyCard';
 export { RoutePackSections } from './RoutePackSections';
+export { CountryPortTable } from './CountryPortTable';
