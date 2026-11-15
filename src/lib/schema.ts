@@ -380,7 +380,7 @@ export function generateCountryServiceSchema(country: {
     provider: { '@id': `${ORGANIZATION_INFO.url}/#organization` },
     serviceType: 'Freight Forwarding',
     areaServed: { '@type': 'Country', name: country.name },
-    termsOfService: `Transit time: ${country.transitTime}`,
+    ...(country.transitTime ? { termsOfService: `Transit time: ${country.transitTime}` } : {}),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `Shipping services to ${country.name}`,

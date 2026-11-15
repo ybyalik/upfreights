@@ -8,8 +8,11 @@ import { HeroQuoteForm } from './HeroQuoteForm';
 import type { Route } from '@/lib/types';
 import type { CountryDestination } from '@/lib/data/countries';
 import { generateFaqSchema } from '@/lib/schema';
+import { getRoutePricing, formatPrice, getRateDateLine, getTransitDaysLabel } from '@/lib/data/pricing';
+import type { CarrierRate } from '@/lib/data/pricing';
 
 function RateTable({ title, rows }: { title: string; rows: { label: string; range: string }[] }) {
+  if (rows.length === 0) return null;
   return (
     <div className="mb-6">
       <h3 className="font-semibold text-foreground mb-2">{title}</h3>
@@ -51,6 +54,23 @@ export function RichCountryPage({
   const faqSchema = generateFaqSchema(c.faqs);
   const h2 = 'text-2xl md:text-3xl font-bold text-foreground mb-4 mt-12';
 
+  // Prices and days from the company rate sheet, for countries we hold rates for.
+  // Typed-in ranges were removed from the guides in November 2026.
+  const sheetRates: CarrierRate[] = seaRoutes.flatMap((r) => getRoutePricing(r.originCity, r.destinationCity)?.rates ?? []);
+  const hasSheet = sheetRates.length > 0;
+  const sheetDays = hasSheet ? getTransitDaysLabel(sheetRates) : null;
+  const p40 = sheetRates.map((r) => r.price40GP);
+  const p20 = sheetRates.flatMap((r) => (r.price20GP != null ? [r.price20GP] : []));
+  const range = (xs: number[]) =>
+    Math.min(...xs) === Math.max(...xs) ? formatPrice(Math.min(...xs)) : `${formatPrice(Math.min(...xs))} - ${formatPrice(Math.max(...xs))}`;
+  const fclRows = hasSheet
+    ? [
+        ...(p20.length ? [{ label: '20-foot container, port to port', range: range(p20) }] : []),
+        { label: '40-foot container, port to port', range: range(p40) },
+      ]
+    : c.cost.fcl;
+  const heroTransit = sheetDays ? `${sheetDays} port to port` : country.transitTime ? `${country.transitTime} transit` : null;
+
   return (
     <>
       {serviceSchema && (
@@ -80,10 +100,12 @@ export function RichCountryPage({
               </h1>
               <p className="text-lg text-white/80 mb-8">{country.description}</p>
               <div className="flex flex-wrap gap-4 text-white/80 mb-8">
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-orange" />
-                  <span>{country.transitTime} transit</span>
-                </div>
+                {heroTransit && (
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-orange" />
+                    <span>{heroTransit}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                   <Ship className="h-5 w-5 text-orange" />
                   <span>Sea, air &amp; express</span>
@@ -131,18 +153,20 @@ export function RichCountryPage({
               ))}
             </ul>
             <div className="grid md:grid-cols-2 md:gap-x-8">
-              <RateTable title="Sea freight, full container (FCL)" rows={c.cost.fcl} />
+              <RateTable title="Sea freight, full container (FCL)" rows={fclRows} />
               <RateTable title="Sea freight, shared container (LCL)" rows={c.cost.lcl} />
               <RateTable title="Air freight" rows={c.cost.air} />
               <RateTable title="Express courier" rows={c.cost.express} />
             </div>
             <p className="text-sm text-muted-foreground mb-3">{c.cost.note}</p>
             <p className="text-sm font-medium text-foreground">
-              Indicative ranges only.{' '}
+              {hasSheet
+                ? `Container prices are the lowest and highest 40-foot (and 20-foot) rates across the ${seaRoutes.length} routes to ${country.name} on our rate sheet. ${getRateDateLine(null)} `
+                : 'We price each shipment for your dates. '}
               <Link href="/quote" className="text-orange hover:underline">
                 Request a live quote
               </Link>{' '}
-              for pricing on your exact shipment.
+              for your exact shipment.
             </p>
 
             {/* Sea freight */}
@@ -173,7 +197,9 @@ export function RichCountryPage({
                   {c.transitComparison.map((row) => (
                     <tr key={row.mode} className="border-t border-border/50">
                       <td className="px-4 py-3 font-medium text-foreground">{row.mode}</td>
-                      <td className="px-4 py-3 text-muted-foreground whitespace-nowrap">{row.time}</td>
+                      <td className="px-4 py-3 text-muted-foreground whitespace-nowrap">
+                        {sheetDays && /^sea freight, fcl/i.test(row.mode) ? `${sheetDays} (rate sheet)` : row.time}
+                      </td>
                       <td className="px-4 py-3 text-muted-foreground">{row.indicativeCost}</td>
                       <td className="px-4 py-3 text-muted-foreground">{row.bestFor}</td>
                     </tr>
@@ -262,6 +288,23 @@ export function RichCountryPage({
                 </div>
               ))}
             </div>
+            {/* Sources */}
+            {(hasSheet || (c.sources && c.sources.length > 0)) && (
+              <div className="mt-12 pt-8 border-t border-border">
+                <h2 className="text-xl font-bold text-foreground mb-3">Where these facts come from</h2>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {hasSheet && <li>Container prices and days: our own rate sheet.</li>}
+                  {(c.sources ?? []).map((src) => (
+                    <li key={src.url}>
+                      <a href={src.url} target="_blank" rel="noopener noreferrer" className="hover:text-orange underline underline-offset-2">
+                        {src.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground mt-3">Checked in {c.lastUpdated}.</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
