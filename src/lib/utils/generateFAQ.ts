@@ -98,58 +98,32 @@ export function generateSeaFreightFAQs(route: Route): FAQItem[] {
 
 // Generate air freight FAQs for a route
 export function generateAirFreightFAQs(route: Route): FAQItem[] {
-  const { originCity, destinationCity, destinationCountry, transitTime } = route;
+  // Rewritten 15 Nov 2026: no typed transit days, no unsourced carrier, insurance or tracking claims.
+  // The one price guide stays (owner's option B, 14 Nov 2026) until real air rates arrive.
+  const { originCity, destinationCity, destinationCountry } = route;
   const originCountry = getOriginCountry(originCity);
-  const originRegion = getOriginRegion(originCity);
-
-  // Extract numeric transit time for answers
-  const transitDays = transitTime.replace(' days', '');
 
   const faqs: FAQItem[] = [
     {
       question: `How long does air freight take from ${originCity} to ${destinationCity}?`,
-      answer: `Air freight from ${originCity} to ${destinationCity} typically takes ${transitDays} days for airport-to-airport transit. Express services can deliver in 1-2 days, while economy options may take 5-7 days. Add 1-2 days for customs clearance and final delivery.`
+      answer: `We quote the transit time for each shipment. It depends on the airline and flight you book, whether the cargo flies direct or changes planes at a hub, and how quickly it clears customs in ${destinationCountry}. Send us your dates and we will give you the options.`
     },
     {
       question: `What is the estimated cost of air freight from ${originCity} to ${destinationCity}?`,
-      answer: `The estimated cost of air freight from ${originCity} to ${destinationCity} ranges from $3-12 per kg depending on service level. Express service costs $8-12/kg with 1-2 day delivery, standard service is $4.50-7/kg with 3-5 days, and economy service runs $3-5/kg with 5-7 days transit.`
+      answer: `As a rough guide until we publish air rates: express about $8-12 per kg, standard about $4.50-7 per kg and economy about $3-5 per kg. Your price depends on the chargeable weight, the season and the airline, so ask us for a quote.`
     },
     {
-      question: `Should I choose air freight or sea freight for shipping from ${originCity} to ${destinationCity}?`,
-      answer: `Choosing between air and sea freight from ${originCity} to ${destinationCity} depends on your priorities. Air freight (${transitDays} days) is ideal for urgent, high-value, or time-sensitive goods. Sea freight (15-35 days) is more economical for large shipments where speed is less critical. Air is best for cargo under 500kg.`
+      question: `How is the air freight price worked out from ${originCity} to ${destinationCity}?`,
+      answer: `Airlines charge on the higher of the actual weight and the volume weight. Volume weight is length × width × height in centimetres divided by 6,000, the IATA standard (Maersk explains it on its air cargo page). Light, bulky goods are charged on their size.`
     },
     {
       question: `What documents do I need for air freight from ${originCountry} to ${destinationCountry}?`,
-      answer: `Documents required for air freight from ${originCountry} to ${destinationCountry} include: Air Waybill (AWB), Commercial Invoice, Packing List, and Export Declaration. ${destinationCountry === 'United States' ? 'US-bound shipments require advance cargo information filing.' : ''} Dangerous goods require MSDS and special documentation.`
+      answer: `Every air shipment travels on an air waybill, with a commercial invoice and a packing list. The import rules and taxes for ${destinationCountry} are in our China to ${destinationCountry} guide, with links to the official pages.`
     },
     {
-      question: `What items cannot be shipped by air freight from ${originCity}?`,
-      answer: `Items that cannot be shipped by air freight from ${originCity} include explosives, flammable gases and liquids, toxic substances, radioactive materials, and certain lithium batteries. Restricted items like perfumes, aerosols, and some electronics require special handling and documentation. Contact us to verify if your goods qualify.`
+      question: `Should I send this shipment from ${originCity} to ${destinationCity} by air or by sea?`,
+      answer: `Air suits goods that are urgent, valuable or light for their size. Sea suits large or heavy loads where time matters less. We can quote both for the same goods so you can compare.`
     },
-    {
-      question: `Which airport in ${originRegion} offers the best air freight services to ${destinationCity}?`,
-      answer: `${originCity}'s airport offers excellent air freight connectivity to ${destinationCity} with ${transitDays} days transit time. ${originCity === 'Shanghai' ? 'Shanghai Pudong (PVG) is China\'s largest air cargo hub with extensive carrier options.' : originCity === 'Guangzhou' ? 'Guangzhou Baiyun (CAN) provides strong service for South China cargo.' : originCity === 'Shenzhen' ? 'Shenzhen Bao\'an (SZX) offers competitive rates and good connectivity.' : 'This airport provides reliable service with multiple weekly flights.'}`
-    },
-    {
-      question: `Are there direct flights for cargo from ${originCity} to ${destinationCity}?`,
-      answer: `Yes, there are direct cargo flights from ${originCity} to ${destinationCity} operated by carriers including Cathay Pacific, Singapore Airlines, EVA Air, and China Airlines. Direct flights offer the fastest transit at ${transitDays} days. Connecting flights via hub airports may be available at lower rates.`
-    },
-    {
-      question: `How is air freight calculated from ${originCity} to ${destinationCity}?`,
-      answer: `Air freight from ${originCity} to ${destinationCity} is calculated using either actual weight or volumetric weight (L x W x H cm / 6000), whichever is greater. This is called chargeable weight. Rates are then applied per kg based on your chosen service level. Fuel surcharges and security fees may also apply.`
-    },
-    {
-      question: `Do I need insurance for air freight from ${originCity} to ${destinationCity}?`,
-      answer: `Insurance for air freight from ${originCity} to ${destinationCity} is recommended for valuable cargo. While airlines provide limited liability coverage, comprehensive cargo insurance (typically 0.5-1% of value) protects against loss, damage, or delays during the ${transitDays}-day transit.`
-    },
-    {
-      question: `What factors affect air freight costs from ${originCity} to ${destinationCity}?`,
-      answer: `Air freight costs from ${originCity} to ${destinationCity} are affected by cargo weight and dimensions, service level (express vs economy), fuel surcharges, peak season demand, and special handling requirements. Rates are typically higher during Q4 holiday season and Chinese New Year.`
-    },
-    {
-      question: `How can I track my air freight shipment from ${originCity} to ${destinationCity}?`,
-      answer: `The best way to track your air freight from ${originCity} to ${destinationCity} is using your Air Waybill (AWB) number on our tracking portal or the carrier's website. You'll receive real-time updates on flight status, customs clearance, and delivery. SMS and email notifications keep you informed at each milestone.`
-    }
   ];
 
   return faqs;
