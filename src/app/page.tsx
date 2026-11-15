@@ -20,6 +20,7 @@ import {
 } from '@/components/sections';
 import { services } from '@/lib/data/services';
 import { destinations } from '@/lib/data/destinations';
+import { getCountrySeaDays } from '@/lib/data/routeGenerator';
 import { getPopularRoutes } from '@/lib/data/routes';
 import type { Statistic } from '@/lib/types';
 
@@ -114,7 +115,12 @@ export default function HomePage() {
             {destinations.map((destination) => (
               <DestinationCard
                 key={destination.id}
-                destination={destination}
+                destination={{
+                  ...destination,
+                  // days only from the rate sheet; otherwise quoted
+                  transitTimeSea: getCountrySeaDays(destination.country) ?? 'Quoted per sailing',
+                  transitTimeAir: 'Quoted per shipment',
+                }}
                 variant="featured"
               />
             ))}

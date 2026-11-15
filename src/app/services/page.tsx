@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CTASection } from '@/components/sections';
+import { getCountrySeaDays } from '@/lib/data/routeGenerator';
 
 export const metadata: Metadata = {
   title: 'Freight Forwarding Services from China',
@@ -96,28 +97,28 @@ const benefits = [
 const comparisonData = [
   {
     service: 'Sea Freight',
-    transitTime: '15-35 days',
+    transitTime: 'Slowest, quoted per sailing',
     costLevel: 'Lowest',
     bestFor: 'Large volumes, heavy goods',
     coverage: 'All major ports',
   },
   {
     service: 'Air Freight',
-    transitTime: '1-5 days',
+    transitTime: 'Fastest, quoted per shipment',
     costLevel: 'Highest',
     bestFor: 'Urgent, high-value items',
     coverage: '500+ airports',
   },
   {
     service: 'Door to Door',
-    transitTime: '3-35 days',
+    transitTime: 'Depends on sea or air',
     costLevel: 'Medium',
     bestFor: 'Complete convenience',
     coverage: 'Worldwide addresses',
   },
   {
     service: 'Customs Clearance',
-    transitTime: '1-3 days',
+    transitTime: 'Depends on the goods',
     costLevel: 'Service Fee',
     bestFor: 'Complex regulations',
     coverage: 'All countries',
@@ -141,33 +142,28 @@ const comparisonData = [
 const popularRoutes = [
   {
     destination: 'USA',
+    country: 'United States',
     slug: 'china-to-united-states',
-    seaFreight: '14-28 days',
-    airFreight: '1-3 days',
   },
   {
     destination: 'UK',
+    country: 'United Kingdom',
     slug: 'china-to-united-kingdom',
-    seaFreight: '25-35 days',
-    airFreight: '2-4 days',
   },
   {
     destination: 'Australia',
+    country: 'Australia',
     slug: 'china-to-australia',
-    seaFreight: '12-18 days',
-    airFreight: '2-3 days',
   },
   {
     destination: 'Canada',
+    country: 'Canada',
     slug: 'china-to-canada',
-    seaFreight: '15-25 days',
-    airFreight: '1-3 days',
   },
   {
     destination: 'Germany',
+    country: 'Germany',
     slug: 'china-to-germany',
-    seaFreight: '28-35 days',
-    airFreight: '2-4 days',
   },
 ];
 
@@ -327,11 +323,11 @@ export default function ServicesPage() {
                     <div className="space-y-3">
                       <div>
                         <p className="text-sm text-muted-foreground">Sea Freight:</p>
-                        <p className="font-semibold text-foreground">{route.seaFreight}</p>
+                        <p className="font-semibold text-foreground">{getCountrySeaDays(route.country) ?? 'Quoted per sailing'}</p>
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Air Freight:</p>
-                        <p className="font-semibold text-foreground">{route.airFreight}</p>
+                        <p className="font-semibold text-foreground">Quoted per shipment</p>
                       </div>
                     </div>
                   </CardContent>

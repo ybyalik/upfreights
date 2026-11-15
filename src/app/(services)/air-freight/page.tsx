@@ -49,7 +49,6 @@ const destinationCountries = [
     country: 'United States',
     flag: '🇺🇸',
     slug: 'china-to-united-states',
-    transitTime: '2-4 days',
     description: 'Express air freight to major US airports including LAX, JFK, ORD, and ATL with daily departures.',
     highlights: ['Daily flights available', 'Multiple airport options', 'Fast customs clearance'],
   },
@@ -57,15 +56,13 @@ const destinationCountries = [
     country: 'Canada',
     flag: '🇨🇦',
     slug: 'china-to-canada',
-    transitTime: '2-4 days',
     description: 'Fast air cargo to Toronto, Vancouver, Montreal, and Calgary with efficient customs processing.',
-    highlights: ['Direct connections', 'NAFTA facilitation', 'Express customs'],
+    highlights: ['Toronto, Vancouver, Montreal', 'Calgary option', 'Customs clearance'],
   },
   {
     country: 'Australia',
     flag: '🇦🇺',
     slug: 'china-to-australia',
-    transitTime: '2-3 days',
     description: 'Quick delivery to Sydney, Melbourne, Brisbane, and Perth leveraging Asia-Pacific proximity.',
     highlights: ['Short transit times', 'Frequent departures', 'Time zone advantage'],
   },
@@ -73,7 +70,6 @@ const destinationCountries = [
     country: 'United Kingdom',
     flag: '🇬🇧',
     slug: 'china-to-united-kingdom',
-    transitTime: '3-4 days',
     description: 'Reliable air freight to London Heathrow and other UK airports with seamless customs.',
     highlights: ['Heathrow direct', 'UK customs expertise', 'Next-day delivery options'],
   },
@@ -81,7 +77,6 @@ const destinationCountries = [
     country: 'Germany',
     flag: '🇩🇪',
     slug: 'china-to-germany',
-    transitTime: '3-5 days',
     description: 'Premium air cargo to Frankfurt, Munich, and Hamburg connecting to all of Europe.',
     highlights: ['EU gateway hub', 'Frankfurt direct', 'Pan-European distribution'],
   },
@@ -230,7 +225,7 @@ export default function AirFreightPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Service Options</h3>
-                    <p className="text-muted-foreground text-sm">Express (1-2 days), Standard (3-5 days), Economy (5-7 days)</p>
+                    <p className="text-muted-foreground text-sm">Express, standard and economy, each quoted for your shipment and dates</p>
                   </div>
                 </div>
               </div>
@@ -279,7 +274,7 @@ export default function AirFreightPage() {
                       <span className="text-3xl">{dest.flag}</span>
                       <div>
                         <h3 className="text-lg font-bold text-foreground">{dest.country}</h3>
-                        <p className="text-sm text-orange font-medium">{dest.transitTime} transit time</p>
+                        <p className="text-sm text-orange font-medium">Transit quoted per shipment</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-sm mb-4">
@@ -332,9 +327,6 @@ export default function AirFreightPage() {
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <span className="text-foreground font-medium truncate">{route.destinationCity}</span>
-                          <span className="text-xs text-muted-foreground flex-shrink-0">
-                            {route.transitTime}
-                          </span>
                         </div>
                         <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-orange transition-colors flex-shrink-0" />
                       </Link>

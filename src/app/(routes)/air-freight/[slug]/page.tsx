@@ -91,12 +91,8 @@ export async function generateMetadata({
     return { title: 'Route Not Found' };
   }
 
-  // Extract days from transit time (e.g., "3-5 days" -> "3-5")
-  const daysMatch = route.transitTime?.match(/(\d+[-–]\d+|\d+)/);
-  const days = daysMatch ? daysMatch[1] : '3-5';
-
   const title = `Air Freight Shipping from ${route.originCity} to ${route.destinationCity}`;
-  const description = `Urgent shipping from ${route.originCity} to ${route.destinationCity}? Delivery in ${days} days via Express air freight. Secure, reliable & fast. Check rates now.`;
+  const description = `Air freight from ${route.originCity} to ${route.destinationCity}: express, standard and economy options, airport to airport or door to door, quoted for your shipment and dates.`;
 
   return {
     title,
@@ -181,7 +177,7 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
     destinationCountry: route.destinationCountry,
     slug: slug,
     serviceType: 'air-freight',
-    transitTime: route.transitTime,
+    transitTime: undefined, // no air rates on the sheet, so no transit claim in the schema
     frequency: route.frequency,
   });
 
@@ -299,7 +295,7 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
                       <Zap className="h-6 w-6 text-teal" />
                     </div>
                     <h4 className="font-heading font-bold text-foreground mb-2">Fast Delivery</h4>
-                    <p className="text-sm text-muted-foreground">2-3 days vs 15-18 days by ocean freight</p>
+                    <p className="text-sm text-muted-foreground">Much faster than ocean freight, quoted per shipment</p>
                   </CardContent>
                 </Card>
 
@@ -430,10 +426,10 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
                     {[
-                      { step: 'Cargo Acceptance', time: '4-8 hrs', icon: Package, description: 'Security screening at origin' },
-                      { step: 'Flight Transit', time: '12-14 hrs', icon: Plane, description: 'Direct flight to destination' },
-                      { step: 'Customs Clearance', time: '4-24 hrs', icon: FileText, description: route.destinationCountry === 'United States' ? 'TSA and CBP inspection' : 'Customs inspection at destination' },
-                      { step: 'Release & Sort', time: '2-4 hrs', icon: CheckCircle, description: 'Cargo release and sorting' },
+                      { step: 'Cargo Acceptance', time: 'Before the flight', icon: Package, description: 'Security screening at origin' },
+                      { step: 'Flight Transit', time: 'Per airline schedule', icon: Plane, description: 'Direct or via a hub airport' },
+                      { step: 'Customs Clearance', time: 'On arrival', icon: FileText, description: route.destinationCountry === 'United States' ? 'TSA and CBP inspection' : 'Customs inspection at destination' },
+                      { step: 'Release & Sort', time: 'After release', icon: CheckCircle, description: 'Cargo release and sorting' },
                       { step: 'Final Delivery', time: 'Same/Next day', icon: ArrowRight, description: 'Door delivery' },
                     ].map((item, index) => {
                       const Icon = item.icon;

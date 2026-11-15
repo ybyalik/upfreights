@@ -4,7 +4,7 @@ import { Ship, CheckCircle, ArrowRight, Anchor, Clock, Shield, Package, Globe } 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Breadcrumbs, CTASection, HeroQuoteForm, SeaRoutesFilterable } from '@/components/sections';
-import { generateSeaRoutes } from '@/lib/data/routeGenerator';
+import { generateSeaRoutes, getCountrySeaDays } from '@/lib/data/routeGenerator';
 import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -49,7 +49,6 @@ const destinationCountries = [
     country: 'United States',
     flag: '🇺🇸',
     slug: 'shipping-china-to-united-states',
-    transitTime: '15-25 days',
     description: 'Professional sea freight to major US ports including Long Beach, Los Angeles, New York, and more.',
     highlights: ['Multiple port options', 'FCL & LCL services', 'Reliable schedules'],
   },
@@ -57,15 +56,13 @@ const destinationCountries = [
     country: 'Canada',
     flag: '🇨🇦',
     slug: 'shipping-china-to-canada',
-    transitTime: '15-30 days',
     description: 'Efficient shipping to Vancouver, Montreal, Halifax, and other major Canadian ports.',
-    highlights: ['Pacific & Atlantic access', 'NAFTA benefits', 'Fast customs processing'],
+    highlights: ['Pacific & Atlantic access', 'FCL & LCL services', 'Customs clearance'],
   },
   {
     country: 'Australia',
     flag: '🇦🇺',
     slug: 'shipping-china-to-australia',
-    transitTime: '18-28 days',
     description: 'Direct services to Sydney, Melbourne, Brisbane, and Fremantle with competitive rates.',
     highlights: ['Close Asia proximity', 'Modern port facilities', 'Strong bilateral trade'],
   },
@@ -73,7 +70,6 @@ const destinationCountries = [
     country: 'United Kingdom',
     flag: '🇬🇧',
     slug: 'shipping-china-to-united-kingdom',
-    transitTime: '25-35 days',
     description: 'Reliable shipping to Felixstowe, Southampton, and London Gateway ports.',
     highlights: ['Financial services hub', 'European market access', 'Premium consumer base'],
   },
@@ -81,7 +77,6 @@ const destinationCountries = [
     country: 'Germany',
     flag: '🇩🇪',
     slug: 'shipping-china-to-germany',
-    transitTime: '25-35 days',
     description: 'Gateway to Europe via Hamburg and Bremerhaven with excellent infrastructure.',
     highlights: ['EU market gateway', 'Central European location', 'Advanced logistics'],
   },
@@ -89,7 +84,6 @@ const destinationCountries = [
     country: 'Italy',
     flag: '🇮🇹',
     slug: 'shipping-china-to-italy',
-    transitTime: '40-65 days',
     description: 'Strategic Mediterranean access via Trieste, gateway to Central and Southern Europe.',
     highlights: ['Mediterranean gateway', 'Central Europe access', 'Major carrier coverage'],
   },
@@ -97,15 +91,13 @@ const destinationCountries = [
     country: 'Sweden',
     flag: '🇸🇪',
     slug: 'shipping-china-to-sweden',
-    transitTime: '30-39 days',
     description: 'Reliable services to Gothenburg, Helsingborg, and other major Swedish ports.',
-    highlights: ['Scandinavian gateway', '5 destination ports', 'Competitive MSK rates'],
+    highlights: ['Scandinavian gateway', 'FCL & LCL services', 'Rates on our sheet'],
   },
   {
     country: 'Czech Republic',
     flag: '🇨🇿',
     slug: 'shipping-china-to-czech-republic',
-    transitTime: '35-42 days',
     description: 'Intermodal services to inland terminals at Paskov and Melnik via European seaports.',
     highlights: ['Central Europe hub', 'Rail-connected terminals', 'Automotive corridor'],
   },
@@ -113,9 +105,8 @@ const destinationCountries = [
     country: 'Norway',
     flag: '🇳🇴',
     slug: 'shipping-china-to-norway',
-    transitTime: '32-40 days',
-    description: 'Comprehensive coverage with 18 Norwegian ports from Oslo to Mo I Rana.',
-    highlights: ['18 destination ports', 'Full coastline coverage', 'Maersk direct services'],
+    description: 'Routes to 17 Norwegian ports, from Oslo in the south to Mo i Rana in the north.',
+    highlights: ['Oslo to Mo i Rana', 'Full coastline coverage', 'Rates on our sheet'],
   },
 ];
 
@@ -300,7 +291,7 @@ export default function SeaFreightPage() {
                       <span className="text-3xl">{dest.flag}</span>
                       <div>
                         <h3 className="text-lg font-bold text-foreground">{dest.country}</h3>
-                        <p className="text-sm text-orange font-medium">{dest.transitTime} transit time</p>
+                        <p className="text-sm text-orange font-medium">{getCountrySeaDays(dest.country) ? `${getCountrySeaDays(dest.country)} port to port (rate sheet)` : 'Transit quoted per sailing'}</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-sm mb-4">

@@ -244,6 +244,17 @@ function findCsvRoute(originSlug: string, destSlug: string, serviceType: 'sea' |
 
 // Generate sea freight routes (259 routes matching existing site)
 // MEMOIZED: Routes are only generated once and cached
+export const SEA_DAYS_FALLBACK = 'Quoted per sailing';
+export const AIR_DAYS_FALLBACK = 'Quoted per shipment';
+
+/** Port-to-port days from the rate sheet across every sea route into a country, or null if the sheet has none. */
+export function getCountrySeaDays(country: string): string | null {
+  const rates = generateSeaRoutes()
+    .filter((r) => r.destinationCountry === country)
+    .flatMap((r) => getRoutePricing(r.originCity, r.destinationCity)?.rates ?? []);
+  return getTransitDaysLabel(rates);
+}
+
 export function generateSeaRoutes(): Route[] {
   if (cachedSeaRoutes) return cachedSeaRoutes;
 
@@ -278,10 +289,10 @@ export function generateSeaRoutes(): Route[] {
         serviceType: 'sea',
         // One transit figure per route. If the route has carrier rates, the
         // figure comes from those rates, so the top of the page and the price
-        // table always agree. Otherwise it is the destination's usual range.
+        // table always agree. Otherwise we quote it per sailing (no typed ranges).
         transitTime:
           getTransitDaysLabel(getRoutePricing(origin.city, dest.city)?.rates ?? []) ??
-          `${dest.seaTransit} days`,
+          SEA_DAYS_FALLBACK,
         frequency: 'Weekly departures',
         containerOptions: standardContainerOptions,
         pricingStructure: seaPricingStructure,
@@ -338,7 +349,7 @@ export function generateAirRoutes(): Route[] {
         destinationCountry: dest.country,
         destinationSlug: dest.countrySlug,
         serviceType: 'air',
-        transitTime: `${dest.airTransit} days`,
+        transitTime: AIR_DAYS_FALLBACK, // no air rates on the sheet, so no typed days
         frequency: 'Daily flights',
         airCargoOptions: [
           { type: 'General Cargo', maxWeight: '1000+ kg', description: 'Standard air freight for general goods' },
