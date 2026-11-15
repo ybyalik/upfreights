@@ -227,6 +227,13 @@ export default function DDPIncotermsPage() {
               <p>
                 Risk transfers from seller to buyer at the moment of delivery at your designated location. The seller maintains responsibility for goods during loading, main transportation, customs procedures, and final mile delivery.
               </p>
+              <p>
+                Buying DDP from a Chinese supplier for delivery in the US? Our guide{' '}
+                <Link href="/ddp-shipping-from-china" className="text-orange hover:underline">
+                  DDP shipping from China to the US
+                </Link>{' '}
+                shows how to check whether a DDP price can really cover the duty, before you pay.
+              </p>
             </div>
 
             <div className="mt-8 p-6 bg-orange/10 rounded-xl">

@@ -1,0 +1,82 @@
+{
+  "kit_version": 4,
+  "name": "UpFreights",
+  "domain": "upfreights.com",
+  "one_line": "the site of UpFreights, a China freight forwarder that ships by sea and air for businesses importing goods from China",
+  "country": "the US",
+  "serp_location_code": 2840,
+  "serp_language_code": "en",
+  "ahrefs_country": "us",
+  "repo_root": "..",
+  "env_files": [
+    ".env.local"
+  ],
+  "sections": {},
+  "authors": {
+    "default": {
+      "name": "David Fan",
+      "bio": "Owner of UpFreights"
+    }
+  },
+  "elements_checked": true,
+  "second_editor": true,
+  "source_check": true,
+  "min_words": 2500,
+  "max_list_items": 17,
+  "blocks": {
+    "image_briefs": true,
+    "author_experience": false,
+    "headline_no_colon": true
+  },
+  "originals": {
+    "enabled": true,
+    "tiktok": true,
+    "subreddits": {
+      "default": [
+        "FulfillmentByAmazon",
+        "AmazonSeller",
+        "importing",
+        "logistics",
+        "smallbusiness",
+        "ecommerce"
+      ]
+    },
+    "expert_terms": {
+      "default": [
+        "freight forwarder",
+        "customs broker",
+        "Amazon FBA seller",
+        "importer"
+      ]
+    },
+    "public_data": {
+      "default": "Official customs and tariff pages (US CBP and USITC, UK HMRC and GOV.UK, the EU, Canada CBSA, Australia ABF), IATA, and the container and carrier specification pages of the shipping lines themselves"
+    }
+  },
+  "site_data": {
+    "command": "",
+    "default": false
+  },
+  "publish": {
+    "command": "python3 content-workflow/publish.py {article_json} {article_md}"
+  },
+  "pictures": {
+    "enabled": true,
+    "stock": true,
+    "install_command": "python3 content-workflow/install_pictures.py {pictures_json} {slug}",
+    "opener": "",
+    "closer": "",
+    "max_px": 1400,
+    "webp_quality": 82,
+    "gallery_sections": [],
+    "gallery_opener": "",
+    "cover_command": "",
+    "women_only": false,
+    "check_rules": "",
+    "remake_flagged": false,
+    "hold_command": "",
+    "used_command": "",
+    "one_per_photographer": false,
+    "cover_from_items": false
+  }
+}

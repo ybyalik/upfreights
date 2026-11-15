@@ -35,3 +35,12 @@ next-env.d.ts
 
 # claude
 .claude/
+.env*
+
+# content kit run files
+content-workflow/topics/
+content-workflow/originals/
+content-workflow/run.log
+content-workflow/recent-patterns.md
+content-workflow/.*
+content-workflow/out/

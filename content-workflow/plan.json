@@ -1,0 +1,137 @@
+[
+  {
+    "n": 1,
+    "title": "DDP Shipping From China",
+    "primary": "ddp shipping from china",
+    "supporting": [
+      "ddp shipping",
+      "ddp vs dap",
+      "delivered duty paid from china"
+    ],
+    "type": "guide",
+    "slug": "ddp-shipping-from-china",
+    "why": "Core page: buyers search for DDP; we offer door-to-door DDP. Becomes /ddp-shipping-from-china."
+  },
+  {
+    "n": 2,
+    "title": "Amazon FBA Freight Forwarding From China",
+    "primary": "freight forwarder for amazon fba",
+    "supporting": [
+      "shipping from china to amazon fba",
+      "amazon fba shipping from china"
+    ],
+    "type": "guide",
+    "slug": "amazon-fba-freight-forwarding",
+    "why": "Core page for Amazon sellers shipping stock from China into FBA warehouses. Becomes /amazon-fba-freight-forwarding."
+  },
+  {
+    "n": 3,
+    "title": "CBM Calculator",
+    "primary": "cbm calculator",
+    "supporting": [
+      "how to calculate cbm",
+      "cbm calculation for shipping"
+    ],
+    "type": "guide",
+    "slug": "cbm-calculator",
+    "notes": "The text that sits under a working CBM calculator tool on the page: how CBM is worked out, how it sets sea and air freight cost, and worked examples. The tool itself is built separately.",
+    "why": "4,400 US searches a month, easy to rank, high value. Becomes /cbm-calculator."
+  },
+  {
+    "n": 4,
+    "title": "Chargeable Weight Calculator for Air Freight",
+    "primary": "chargeable weight calculator",
+    "supporting": [
+      "volumetric weight air freight",
+      "dimensional weight air cargo"
+    ],
+    "type": "guide",
+    "slug": "chargeable-weight-calculator",
+    "notes": "The text that sits under a working chargeable weight calculator on the page. The tool itself is built separately.",
+    "why": "590 US searches a month, no real competition. Becomes /chargeable-weight-calculator."
+  },
+  {
+    "n": 5,
+    "title": "20 ft Container Dimensions",
+    "primary": "20 ft container dimensions",
+    "supporting": [
+      "20ft container size",
+      "20 foot container internal dimensions"
+    ],
+    "type": "guide",
+    "slug": "dimension-of-20-ft-container",
+    "why": "Rebuild of a kept blog post: 766 Google impressions in 90 days, 8 sites link to it."
+  },
+  {
+    "n": 6,
+    "title": "40 HC Container Dimensions",
+    "primary": "40 hc container dimensions",
+    "supporting": [
+      "40ft high cube container dimensions",
+      "40 high cube internal dimensions"
+    ],
+    "type": "guide",
+    "slug": "dimensions-of-a-40-hc-container",
+    "why": "Rebuild of a kept blog post: 785 impressions, ChatGPT cited it."
+  },
+  {
+    "n": 7,
+    "title": "How Many CBM in a 40 ft Container",
+    "primary": "how many cbm in a 40 ft container",
+    "supporting": [
+      "40ft container cbm",
+      "40 ft container capacity in cbm"
+    ],
+    "type": "guide",
+    "slug": "how-many-cbm-in-a-40-ft-container",
+    "why": "Rebuild of a kept blog post ChatGPT cited."
+  },
+  {
+    "n": 8,
+    "title": "1 CBM to KG",
+    "primary": "1 cbm to kg",
+    "supporting": [
+      "cbm to kg conversion",
+      "how many kg in 1 cbm"
+    ],
+    "type": "guide",
+    "slug": "1-cbm-to-kg",
+    "why": "Rebuild of a kept blog post ChatGPT cited."
+  },
+  {
+    "n": 9,
+    "title": "Commercial Invoice vs Invoice",
+    "primary": "commercial invoice",
+    "supporting": [
+      "commercial invoice vs invoice",
+      "commercial invoice for customs"
+    ],
+    "type": "guide",
+    "slug": "commercial-invoice-and-invoice",
+    "why": "Rebuild of a kept blog post at position 19, the closest to page one. For people importing from China."
+  },
+  {
+    "n": 10,
+    "title": "HTS Code Search",
+    "primary": "hts code search",
+    "supporting": [
+      "how to find hts code",
+      "hts code lookup"
+    ],
+    "type": "guide",
+    "slug": "hts-code-search",
+    "why": "Rebuild of a kept blog post at position 11, for US importers."
+  },
+  {
+    "n": 11,
+    "title": "Air Freight Packaging Requirements",
+    "primary": "air freight packaging requirements",
+    "supporting": [
+      "air cargo packaging",
+      "how to pack for air freight"
+    ],
+    "type": "guide",
+    "slug": "air-freight-packaging-requirements",
+    "why": "Rebuild of a kept blog post; 7 sites link to it, the most of any post."
+  }
+]
