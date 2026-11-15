@@ -67,6 +67,9 @@ import {
   getRoutesByDestination,
 } from '@/lib/data/routeGenerator';
 import { generateRouteServiceSchema } from '@/lib/schema';
+import { getAirPack } from '@/lib/data/airPacks';
+import { AirPackPage } from '@/components/sections/AirPackPage';
+import { getAllAirRoutes } from '@/lib/data/routeGenerator';
 
 interface AirFreightPageProps {
   params: Promise<{ slug: string }>;
@@ -180,6 +183,26 @@ export default async function AirFreightRoutePage({ params }: AirFreightPageProp
     transitTime: undefined, // no air rates on the sheet, so no transit claim in the schema
     frequency: route.frequency,
   });
+
+  // Rebuilt layout (15 Nov 2026) for routes whose airports have researched facts
+  const airPack = getAirPack(slug);
+  if (airPack) {
+    const allAir = getAllAirRoutes().filter((r) => r.slug !== route.slug);
+    const sameDestination = allAir.filter((r) => r.destinationCity === route.destinationCity);
+    const sameCountry = allAir
+      .filter((r) => r.destinationCountry === route.destinationCountry && r.destinationCity !== route.destinationCity)
+      .slice(0, 8);
+    return (
+      <AirPackPage
+        route={route}
+        pack={airPack}
+        faqs={faqs}
+        schema={routeServiceSchema}
+        sameDestination={sameDestination}
+        sameCountry={sameCountry}
+      />
+    );
+  }
 
   return (
     <>

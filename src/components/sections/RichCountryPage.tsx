@@ -208,7 +208,7 @@ export function RichCountryPage({
               </table>
             </div>
             <p className="text-sm text-muted-foreground mt-3">
-              Transit times are port to port. Add a few days for customs clearance and final delivery.
+              Sea times from our rate sheet are port to port. Customs clearance and delivery to your door come on top.
             </p>
 
             {/* Ports and routes */}
@@ -250,7 +250,7 @@ export function RichCountryPage({
             )}
 
             {/* Customs */}
-            <h2 className={h2}>Customs, Duties and Taxes in {country.name}</h2>
+            <h2 id="customs" className={`${h2} scroll-mt-24`}>Customs, Duties and Taxes in {country.name}</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">{c.customs.summary}</p>
             <ul className="space-y-3">
               {c.customs.points.map((pt) => (
