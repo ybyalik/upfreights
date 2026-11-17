@@ -12,6 +12,14 @@ import { TableOfContents } from './TableOfContents';
 import { generateBlogPostingSchema } from '@/lib/schema';
 import { REMOVED_BLOG_SLUGS_FILTER } from '@/lib/data/blogCleanup';
 import { formatContent } from '@/lib/markdown';
+import { CbmCalculator } from '@/components/tools/CbmCalculator';
+import { ChargeableWeightCalculator } from '@/components/tools/ChargeableWeightCalculator';
+
+// Posts that carry a working calculator above the article text.
+const POST_TOOLS: Record<string, React.ReactNode> = {
+  'cbm-calculator': <CbmCalculator />,
+  'chargeable-weight-calculator': <ChargeableWeightCalculator />,
+};
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -218,6 +226,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </section>
+
+      {POST_TOOLS[slug] && (
+        <section className="pt-12 bg-background">
+          <div className="container mx-auto px-4 max-w-5xl">{POST_TOOLS[slug]}</div>
+        </section>
+      )}
 
       {/* Article Content */}
       <section className="py-16 lg:py-24">

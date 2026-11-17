@@ -130,6 +130,26 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       })),
       {
+        source: '/ddp-shipping-from-china',
+        destination: '/blog/ddp-shipping-from-china',
+        statusCode: 301,
+      },
+      {
+        source: '/amazon-fba-freight-forwarding',
+        destination: '/blog/amazon-fba-freight-forwarding',
+        statusCode: 301,
+      },
+      {
+        source: '/cbm-calculator',
+        destination: '/blog/cbm-calculator',
+        statusCode: 301,
+      },
+      {
+        source: '/chargeable-weight-calculator',
+        destination: '/blog/chargeable-weight-calculator',
+        statusCode: 301,
+      },
+      {
         source: '/shipping-china-to-uk',
         destination: '/shipping-china-to-united-kingdom',
         statusCode: 301,

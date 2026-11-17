@@ -161,7 +161,7 @@ export function AirPackPage({
             which one your {origin.code} to {destination.code} shipment will be charged on.
           </p>
           <ChargeableWeightCalculator />
-          <Link href="/chargeable-weight-calculator" className="inline-flex items-center gap-2 mt-4 text-copper font-medium hover:underline">
+          <Link href="/blog/chargeable-weight-calculator" className="inline-flex items-center gap-2 mt-4 text-copper font-medium hover:underline">
             More on chargeable weight <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

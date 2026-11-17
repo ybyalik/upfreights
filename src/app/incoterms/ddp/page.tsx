@@ -229,7 +229,7 @@ export default function DDPIncotermsPage() {
               </p>
               <p>
                 Buying DDP from a Chinese supplier for delivery in the US? Our guide{' '}
-                <Link href="/ddp-shipping-from-china" className="text-orange hover:underline">
+                <Link href="/blog/ddp-shipping-from-china" className="text-orange hover:underline">
                   DDP shipping from China to the US
                 </Link>{' '}
                 shows how to check whether a DDP price can really cover the duty, before you pay.

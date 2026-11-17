@@ -226,7 +226,7 @@ export function generateBlogPostingSchema(post: {
     ...(post.image && {
       image: {
         '@type': 'ImageObject',
-        url: post.image,
+        url: post.image.startsWith('/') ? `${ORGANIZATION_INFO.url}${post.image}` : post.image,
       },
     }),
     ...(post.publishedAt && { datePublished: post.publishedAt }),
