@@ -44,3 +44,4 @@ content-workflow/run.log
 content-workflow/recent-patterns.md
 content-workflow/.*
 content-workflow/out/
+content-workflow/backups/
