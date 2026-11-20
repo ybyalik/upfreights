@@ -133,7 +133,7 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       })),
       {
-        source: '/all-routes',
+        source: '/shipping-routes-china',
         destination: '/all-routes',
         statusCode: 301,
       },
