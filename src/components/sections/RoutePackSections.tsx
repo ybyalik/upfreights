@@ -411,6 +411,8 @@ export function RoutePackSections({
                 {[
                   { label: `${pack.countryGuide.label}: customs, duty and tax`, href: pack.countryGuide.href },
                   { label: 'Sea freight: container sizes and how a shipment works', href: '/sea-freight' },
+                  { label: 'CBM calculator: work out your shipment volume', href: '/blog/cbm-calculator' },
+                  { label: 'How many CBM fit in a 40 ft container', href: '/blog/how-many-cbm-in-a-40-ft-container' },
                   { label: 'Customs clearance: the documents you need', href: '/customs-clearance' },
                   { label: 'Shipping terms (Incoterms): who pays for what', href: '/incoterms' },
                   { label: 'Door-to-door delivery', href: '/door-to-door' },

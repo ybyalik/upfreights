@@ -43,7 +43,7 @@ const buyerResponsibilities = [
 const commonMistakes = [
   {
     title: 'Documentation Errors',
-    description: 'Missing export declarations cause 35% of EXW shipment delays. Incorrect HS codes on customs forms result in penalties ranging from $1,000 to $10,000 per violation.',
+    description: 'Missing export declarations are a common cause of EXW shipment delays, and incorrect HS codes on customs forms can lead to penalties.',
   },
   {
     title: 'Risk Transfer Misconceptions',

@@ -240,10 +240,10 @@ export function Navbar() {
                     description="Complete shipping guide"
                   />
                   <DropdownLink
-                    href="/shipping-routes-china"
+                    href="/shipping-china-to-united-kingdom"
                     icon={Globe}
-                    title="China to Worldwide"
-                    description="Global routes & carriers"
+                    title="China to UK Routes"
+                    description="Complete shipping guide"
                   />
                 </div>
               </div>
@@ -379,12 +379,12 @@ export function Navbar() {
                       <span className="text-sm font-medium">China to USA Routes</span>
                     </Link>
                     <Link
-                      href="/shipping-routes-china"
+                      href="/shipping-china-to-united-kingdom"
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-accent transition-colors"
                     >
                       <Globe className="h-5 w-5 text-orange" />
-                      <span className="text-sm font-medium">China to Worldwide</span>
+                      <span className="text-sm font-medium">China to UK Routes</span>
                     </Link>
                   </div>
                 </div>

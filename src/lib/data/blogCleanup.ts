@@ -23,7 +23,6 @@ export const BLOG_GONE_SLUGS = new Set<string>([
   'china-shipping-one-stop-services',
   'garment-clothing-manufacturers',
   'international-air-transport',
-  'letter-of-credit',
   'lianyungang-jiangsu-china',
   'oem-odm-definition',
   'proof-of-origin',
@@ -36,7 +35,6 @@ export const BLOG_GONE_SLUGS = new Set<string>([
   'brazil-freight-forwarders',
   'canadian-freight-forwarders',
   'canton-fair-dates',
-  'china-sea-freight-rates',
   'federal-express-tracking-by-tracking-number',
   'foire-de-canton',
   'fx-tracking-number',
@@ -57,6 +55,9 @@ export const BLOG_GONE_SLUGS = new Set<string>([
 
 /** Posts that answer 301 to another page. */
 export const BLOG_REDIRECTS: Record<string, string> = {
+  // removed on 14 Nov as having no backlinks; Ahrefs (17 Nov) shows live links, so 301 instead
+  'letter-of-credit': '/incoterms',
+  'china-sea-freight-rates': '/sea-freight',
   // merged into a kept post (near-duplicates)
   'size-of-20-ft-container': '/blog/dimension-of-20-ft-container',
   '40-ft-container': '/blog/dimensions-of-a-40-hc-container',
@@ -72,7 +73,7 @@ export const BLOG_REDIRECTS: Record<string, string> = {
   'ex-work-price-definition': '/incoterms/exw',
   'ex-works-price-meaning': '/incoterms/exw',
   'china-vat-tax': '/shipping-china-to-united-kingdom',
-  'fba-on-amazon': '/warehousing',
+  'fba-on-amazon': '/blog/amazon-fba-freight-forwarding',
   // merged into an existing guide or service page
   'meaning-of-fob': '/incoterms/fob',
   'delivery-duty-paid-shipping': '/incoterms/ddp',
@@ -82,7 +83,7 @@ export const BLOG_REDIRECTS: Record<string, string> = {
   'sourcing-agents-in-china': '/trade-agency',
   'sourcing-agent-in-china': '/trade-agency',
   'yiwu-wholesale-marketplace': '/trade-agency',
-  'amz-fulfillment-center': '/warehousing',
+  'amz-fulfillment-center': '/blog/amazon-fba-freight-forwarding',
   'shipping-from-china-to-us': '/shipping-china-to-united-states',
   'dhl-express-from-china': '/air-freight',
   'bill-of-lading': '/customs-clearance',

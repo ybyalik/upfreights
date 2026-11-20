@@ -1,3 +1,4 @@
+import { RelatedGuides } from '@/components/sections/RelatedGuides';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
@@ -80,12 +81,12 @@ const benefits = [
   {
     icon: Globe,
     title: 'Global Network',
-    description: 'Extensive partnerships with carriers, ports, and customs brokers across 100+ countries for reliable worldwide shipping coverage.',
+    description: 'Extensive partnerships with carriers, ports, and customs brokers in the countries we ship to, for reliable worldwide coverage.',
   },
   {
     icon: Clock,
     title: 'Proven Experience',
-    description: 'Over 15 years of expertise in China-origin shipping with deep understanding of local markets, suppliers, and logistics infrastructure.',
+    description: 'Based in Jiaxing, between Shanghai and Ningbo, with a working knowledge of local markets, suppliers and logistics infrastructure.',
   },
   {
     icon: Shield,
@@ -339,6 +340,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
+      <RelatedGuides
+        links={[
+          { label: 'Shipping from China to Amazon FBA', href: '/blog/amazon-fba-freight-forwarding' },
+          { label: 'DDP shipping from China: what the price covers', href: '/blog/ddp-shipping-from-china' },
+          { label: 'CBM calculator', href: '/blog/cbm-calculator' },
+          { label: 'Chargeable weight calculator', href: '/blog/chargeable-weight-calculator' },
+        ]}
+      />
+
       <CTASection
         variant="gradient"
         title="Ready to Ship From China?"

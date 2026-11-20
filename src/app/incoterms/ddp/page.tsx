@@ -52,7 +52,7 @@ const costBreakdown = [
   { item: 'Insurance (full journey)', seller: true, buyer: false },
   { item: 'Import Clearance', seller: true, buyer: false },
   { item: 'Import Duties (2-35%)', seller: true, buyer: false },
-  { item: 'VAT/GST (5-27%)', seller: true, buyer: false },
+  { item: 'VAT/GST', seller: true, buyer: false },
   { item: 'Final Delivery', seller: true, buyer: false },
   { item: 'Unloading at Premises', seller: false, buyer: true },
 ];
@@ -88,7 +88,7 @@ const advantages = [
 const disadvantages = [
   {
     title: 'Financial Risk for Sellers',
-    description: 'Import duties (0-25%) and VAT (5-27%) can significantly impact margins. Currency fluctuations add uncertainty.',
+    description: 'Import duties and VAT, which vary by product and country, can significantly impact margins. Currency fluctuations add uncertainty.',
   },
   {
     title: 'Complex Regulations',

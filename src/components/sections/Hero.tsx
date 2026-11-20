@@ -3,6 +3,7 @@ import { ArrowRight, Ship, Plane, Package, Shield, Clock, Globe } from 'lucide-r
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { HeroQuoteForm } from './HeroQuoteForm';
+import { COUNTRY_GUIDE_COUNT } from '@/lib/data/siteCounts';
 
 interface HeroProps {
   variant?: 'default' | 'simple';
@@ -48,7 +49,7 @@ export function Hero({ variant = 'default', className, showQuoteForm = true }: H
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm text-white/90">Trusted by 1,000+ businesses worldwide</span>
+              <span className="text-sm text-white/90">China freight forwarder, based in Jiaxing</span>
             </div>
 
             {/* Main Heading */}
@@ -62,7 +63,7 @@ export function Hero({ variant = 'default', className, showQuoteForm = true }: H
             {/* Subheading */}
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
               UpFreights provides reliable, cost-effective freight forwarding services.
-              Sea freight, air freight, and door-to-door delivery to over 50 countries.
+              Sea freight, air freight, and door-to-door delivery from China.
             </p>
 
             {/* CTA Buttons - only show if no quote form */}
@@ -116,8 +117,8 @@ export function Hero({ variant = 'default', className, showQuoteForm = true }: H
                   <Globe className="h-6 w-6 text-orange" />
                 </div>
                 <div>
-                  <p className="font-semibold text-white">50+ Countries</p>
-                  <p className="text-sm text-white/60">Global shipping network</p>
+                  <p className="font-semibold text-white">{COUNTRY_GUIDE_COUNT} Country Guides</p>
+                  <p className="text-sm text-white/60">Customs and tax rules, sourced</p>
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { RelatedGuides } from '@/components/sections/RelatedGuides';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Ship, CheckCircle, ArrowRight, Anchor, Clock, Shield, Package, Globe } from 'lucide-react';
@@ -242,7 +243,7 @@ export default function SeaFreightPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Global Destinations</h3>
-                    <p className="text-muted-foreground text-sm">United States, Europe, Australia, Canada, and 100+ countries worldwide</p>
+                    <p className="text-muted-foreground text-sm">United States, Europe, Australia, Canada, and the other countries in our country guides</p>
                   </div>
                 </div>
               </div>
@@ -252,7 +253,7 @@ export default function SeaFreightPage() {
               <div className="bg-gradient-hero rounded-2xl p-8 lg:p-12">
                 <div className="space-y-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-white mb-2">{allSeaRoutes.length}+</div>
+                    <div className="text-5xl font-bold text-white mb-2">{allSeaRoutes.length}</div>
                     <div className="text-white/80">Sea Freight Routes</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
@@ -260,7 +261,7 @@ export default function SeaFreightPage() {
                     <div className="text-white/80">Chinese Origin Ports</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-white mb-2">50+</div>
+                    <div className="text-5xl font-bold text-white mb-2">{new Set(allSeaRoutes.map((r) => r.destinationPort)).size}</div>
                     <div className="text-white/80">Destination Ports</div>
                   </div>
                 </div>
@@ -330,6 +331,17 @@ export default function SeaFreightPage() {
       </section>
 
       {/* CTA Section */}
+      <RelatedGuides
+        links={[
+          { label: 'CBM calculator: work out your shipment volume', href: '/blog/cbm-calculator' },
+          { label: '20 ft container dimensions, weight and fit', href: '/blog/dimension-of-20-ft-container' },
+          { label: '40 HC container dimensions and load limits', href: '/blog/dimensions-of-a-40-hc-container' },
+          { label: 'How many CBM fit in a 40 ft container', href: '/blog/how-many-cbm-in-a-40-ft-container' },
+          { label: '1 CBM to kg for sea, air and express', href: '/blog/1-cbm-to-kg' },
+          { label: 'DDP shipping from China: what the price covers', href: '/blog/ddp-shipping-from-china' },
+        ]}
+      />
+
       <CTASection
         variant="gradient"
         title="Ready to Ship with Sea Freight?"

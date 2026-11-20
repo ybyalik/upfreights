@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendQuoteEmail, sendQuoteAutoResponse } from '@/lib/email';
 import { sanitizeInput, validateEmail, validatePhone, sanitizeSourcePath, sanitizeReferrer } from '@/lib/validation';
 import { rateLimit, getClientIp } from '@/lib/rate-limit';
+import { saveLead, markLeadEmail } from '@/lib/leads';
 
 export async function POST(request: NextRequest) {
   try {
@@ -77,8 +78,18 @@ export async function POST(request: NextRequest) {
     // sees on screen is the same one that lands in our inbox.
     const reference = `QR-${Date.now().toString(36).toUpperCase()}`;
 
+    // Backup copy first, so the lead is kept even if the email fails
+    const { name, email, company, phone, sourcePage, ...details } = sanitizedData;
+    const leadId = await saveLead({ form: 'quote', reference, name, email, company, phone, page: sourcePage, details });
+
     // Send email to business
-    await sendQuoteEmail({ ...sanitizedData, reference });
+    try {
+      await sendQuoteEmail({ ...sanitizedData, reference });
+      await markLeadEmail(leadId, true);
+    } catch (emailError) {
+      await markLeadEmail(leadId, false, emailError);
+      throw emailError;
+    }
 
     // Send auto-response to customer
     try {

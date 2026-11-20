@@ -41,12 +41,6 @@ const caseStudies = [
   },
 ];
 
-const stats = [
-  { value: '100+', label: 'Successful Projects' },
-  { value: '50+', label: 'Countries Served' },
-  { value: '15+', label: 'Years Experience' },
-  { value: '98%', label: 'Client Satisfaction' },
-];
 
 export default function CaseStudiesPage() {
   return (
@@ -67,15 +61,6 @@ export default function CaseStudiesPage() {
               Discover how we help businesses navigate complex international logistics challenges. Each case study showcases our comprehensive approach to freight forwarding, customs compliance, and supply chain optimization.
             </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-white/70">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -99,7 +84,7 @@ export default function CaseStudiesPage() {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Global Network</h3>
               <p className="text-sm text-muted-foreground">
-                Extensive partnerships with carriers, customs brokers, and warehouses across 100+ countries.
+                Extensive partnerships with carriers, customs brokers, and warehouses in the countries we ship to.
               </p>
             </div>
 

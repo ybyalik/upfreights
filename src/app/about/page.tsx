@@ -7,7 +7,6 @@ import {
   Award,
   CheckCircle,
   Building,
-  Clock,
   Star,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,21 +16,21 @@ import { generateAboutPageSchema, generatePersonSchema, TEAM_MEMBERS, generateOr
 export const metadata: Metadata = {
   title: 'About Us - China Freight Forwarding',
   description:
-    'Your Premier China Freight Forwarding Partner in the Yangtze River Delta. 22 years of experience, 11+ million shipments annually, 100+ countries global network.',
+    'China freight forwarder headquartered in Jiaxing, Zhejiang, about an hour from Shanghai and Ningbo ports. Meet the team behind UpFreights and Zhejiang Twings Supply Chain.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
     title: 'About Upfreights | China Freight Forwarding Partner',
     description:
-      'Premier China freight forwarding with 22 years experience. Headquartered in Jiaxing with strategic access to Shanghai and Ningbo ports.',
+      'China freight forwarding headquartered in Jiaxing, with access to Shanghai and Ningbo ports.',
   },
 };
 
 const stats = [
-  { value: '22', label: 'Years of Experience' },
-  { value: '11+ Million', label: 'Successful Shipments Annually' },
-  { value: '100+', label: 'Countries Global Network' },
+  { value: 'Jiaxing', label: 'Head office, Zhejiang' },
+  { value: '98.5 km', label: 'To Shanghai' },
+  { value: '148 km', label: 'To Ningbo port' },
 ];
 
 const locations = [
@@ -59,12 +58,6 @@ const team = [
     role: 'Co-founder & CEO',
     description: 'Strategic leadership and business development with extensive experience in international trade and logistics operations.',
     image: '/images/team/David.png',
-  },
-  {
-    name: 'Victoria Lang',
-    role: 'Chief Operational Officer',
-    description: 'Operational excellence and process optimization expert, ensuring smooth logistics operations across all service lines.',
-    image: '/images/team/Victoria.png',
   },
   {
     name: 'Kaylee Zhang',
@@ -98,14 +91,9 @@ const economicAdvantages = [
 
 const whyChoose = [
   {
-    icon: Clock,
-    title: '22 Years of Excellence',
-    description: 'Nearly two decades of logistics industry expertise with partners who understand the complexities of international trade and shipping.',
-  },
-  {
     icon: Globe,
     title: 'Global Network Coverage',
-    description: 'Comprehensive reach spanning South Asia, Middle East, Africa, Central Asia, Europe, and the Americas with over 100 countries in our network.',
+    description: 'Comprehensive reach spanning South Asia, Middle East, Africa, Central Asia, Europe, and the Americas .',
   },
   {
     icon: MapPin,
@@ -184,12 +172,12 @@ export default function AboutPage() {
                 freight forwarding subsidiary in China.
               </p>
               <p>
-                Founded in 2016, Twings draws its name—Twings = Tiger + Wings—from the Chinese idiom
+                Twings draws its name—Twings = Tiger + Wings—from the Chinese idiom
                 &quot;adding wings to a tiger,&quot; reflecting our mission to empower clients&apos; import and
                 export operations with enhanced strength and efficiency.
               </p>
               <p>
-                Backed by nearly two decades of industry expertise, Twings delivers end-to-end freight
+                Twings delivers end-to-end freight
                 forwarding solutions for both China&apos;s outbound exports and its growing import trade.
                 Our global service coverage spans South Asia, the Middle East, North and Sub-Saharan
                 Africa, Central Asia, Europe, and the Americas.

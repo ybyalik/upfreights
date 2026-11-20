@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendContactEmail } from '@/lib/email';
 import { sanitizeInput, validateEmail } from '@/lib/validation';
 import { rateLimit, getClientIp } from '@/lib/rate-limit';
+import { saveLead, markLeadEmail } from '@/lib/leads';
 
 export async function POST(request: NextRequest) {
   try {
@@ -58,7 +59,22 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email
-    await sendContactEmail(sanitizedData);
+    // Backup copy first, so the message is kept even if the email fails
+    const leadId = await saveLead({
+      form: 'contact',
+      name: sanitizedData.name,
+      email: sanitizedData.email,
+      company: sanitizedData.company,
+      phone: sanitizedData.phone,
+      details: { message: sanitizedData.message },
+    });
+    try {
+      await sendContactEmail(sanitizedData);
+      await markLeadEmail(leadId, true);
+    } catch (emailError) {
+      await markLeadEmail(leadId, false, emailError);
+      throw emailError;
+    }
 
     return NextResponse.json(
       { success: true, message: 'Message sent successfully' },

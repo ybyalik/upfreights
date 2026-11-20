@@ -1,3 +1,4 @@
+import { RelatedGuides } from '@/components/sections/RelatedGuides';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { FileCheck, CheckCircle, ArrowRight, FileText, Shield, Clock, Calculator, ClipboardList, Receipt, Award, FileWarning } from 'lucide-react';
@@ -5,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Breadcrumbs, CTASection, HeroQuoteForm } from '@/components/sections';
 import { generateServiceSchema, ORGANIZATION_INFO } from '@/lib/schema';
+import { COUNTRY_GUIDE_COUNT } from '@/lib/data/siteCounts';
 
 export const metadata: Metadata = {
   title: 'Customs Clearance Services',
@@ -280,16 +282,12 @@ export default function CustomsClearancePage() {
               <div className="bg-gradient-hero rounded-2xl p-8 lg:p-12">
                 <div className="space-y-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-white mb-2">24hr</div>
-                    <div className="text-white/80">Average Clearance Time</div>
+                    <div className="text-5xl font-bold text-white mb-2">{COUNTRY_GUIDE_COUNT}</div>
+                    <div className="text-white/80">Country guides with sourced duty and tax rules</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-orange mb-2">100%</div>
-                    <div className="text-white/80">Compliance Rate</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-white mb-2">50+</div>
-                    <div className="text-white/80">Countries Served</div>
+                    <div className="text-5xl font-bold text-orange mb-2">24hr</div>
+                    <div className="text-white/80">Quote Response Time</div>
                   </div>
                 </div>
               </div>
@@ -378,6 +376,14 @@ export default function CustomsClearancePage() {
       </section>
 
       {/* CTA Section */}
+      <RelatedGuides
+        links={[
+          { label: 'Commercial invoice vs invoice: the fields customs needs', href: '/blog/commercial-invoice-and-invoice' },
+          { label: 'HTS code search: find your code and defend it', href: '/blog/hts-code-search' },
+          { label: 'DDP shipping from China: what the price covers', href: '/blog/ddp-shipping-from-china' },
+        ]}
+      />
+
       <CTASection
         variant="gradient"
         title="Need Expert Customs Clearance?"

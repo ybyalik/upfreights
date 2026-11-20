@@ -18,10 +18,13 @@ const VERCEL_ALIAS_HOST = 'upfreights.vercel.app';
 
 // Retired sea-freight routes that 301-redirect to the home page rather than
 // returning 410. Listed by flat slug (origin-to-destination).
-const SEA_ROUTES_REDIRECT_TO_HOME = new Set<string>([
-  'qingdao-to-new-york',
-  'ningbo-to-new-york',
-]);
+// Retired routes that other sites link to: 301 to the country guide instead of 410.
+const SEA_ROUTE_REDIRECTS: Record<string, string> = {
+  'qingdao-to-new-york': '/shipping-china-to-united-states',
+  'ningbo-to-new-york': '/shipping-china-to-united-states',
+  'shanghai-to-new-york': '/shipping-china-to-united-states',
+  'qingdao-to-munich': '/shipping-china-to-germany',
+};
 
 async function verifyAdminToken(token: string): Promise<boolean> {
   try {
@@ -94,11 +97,11 @@ export async function middleware(request: NextRequest) {
   }
   if (pathname.startsWith('/sea-freight-')) {
     const slug = pathname.slice('/sea-freight-'.length);
-    // A few retired routes 301 to the home page instead of returning 410.
+    // A few retired routes 301 to their country guide instead of returning 410.
     // They stay in RETIRED_SEA_ROUTE_SLUGS so the generator still excludes
     // them from the sitemap and internal links; this just changes the response.
-    if (SEA_ROUTES_REDIRECT_TO_HOME.has(slug)) {
-      return NextResponse.redirect(new URL('/', request.url), 301);
+    if (SEA_ROUTE_REDIRECTS[slug]) {
+      return NextResponse.redirect(new URL(SEA_ROUTE_REDIRECTS[slug], request.url), 301);
     }
     if (RETIRED_SEA_ROUTE_SLUGS.has(slug)) {
       return goneResponse('sea');

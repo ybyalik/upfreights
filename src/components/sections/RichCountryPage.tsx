@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { NEARBY_COUNTRIES } from '@/lib/data/nearbyCountries';
+import { getCountryBySlug } from '@/lib/data/countries';
 import { Ship, MapPin, Clock, ArrowRight, CheckCircle, FileCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Breadcrumbs } from './Breadcrumbs';
@@ -288,6 +290,25 @@ export function RichCountryPage({
                 </div>
               ))}
             </div>
+            {/* Nearby country guides */}
+            {(NEARBY_COUNTRIES[country.slug.replace('shipping-china-to-', '')] ?? []).length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-xl font-bold text-foreground mb-3">Nearby country guides</h2>
+                <ul className="flex flex-wrap gap-2">
+                  {(NEARBY_COUNTRIES[country.slug.replace('shipping-china-to-', '')] ?? []).map((slug) => {
+                    const near = getCountryBySlug(`shipping-china-to-${slug}`);
+                    if (!near) return null;
+                    return (
+                      <li key={slug}>
+                        <Link href={`/shipping-china-to-${slug}`} className="inline-block px-3 py-1.5 bg-secondary rounded-full text-sm text-foreground hover:text-orange">
+                          Shipping from China to {near.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
             {/* Sources */}
             {(hasSheet || (c.sources && c.sources.length > 0)) && (
               <div className="mt-12 pt-8 border-t border-border">

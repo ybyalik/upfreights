@@ -1,3 +1,4 @@
+import { RelatedGuides } from '@/components/sections/RelatedGuides';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Warehouse, CheckCircle, ArrowRight, Package, Scale, Tag, Shield, Eye, Truck, Box, ClipboardCheck } from 'lucide-react';
@@ -353,6 +354,13 @@ export default function WarehousingPage() {
       </section>
 
       {/* CTA Section */}
+      <RelatedGuides
+        links={[
+          { label: 'Shipping from China to Amazon FBA', href: '/blog/amazon-fba-freight-forwarding' },
+          { label: 'Air freight packaging requirements', href: '/blog/air-freight-packaging-requirements' },
+        ]}
+      />
+
       <CTASection
         variant="gradient"
         title="Need Warehousing in China?"

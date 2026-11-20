@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { SEA_ROUTE_COUNT, COUNTRY_GUIDE_COUNT } from '@/lib/data/siteCounts';
 
 interface CTASectionProps {
   variant?: 'default' | 'dark' | 'gradient';
@@ -103,13 +104,13 @@ export function CTASection({
                     'text-3xl font-heading font-bold',
                     variant === 'default' ? 'text-copper' : 'text-copper-light'
                   )}>
-                    10K+
+                    {SEA_ROUTE_COUNT}
                   </div>
                   <div className={cn(
                     'text-sm',
                     variant === 'default' ? 'text-muted-foreground' : 'text-white/60'
                   )}>
-                    Shipments<br />delivered
+                    Sea freight<br />routes
                   </div>
                 </div>
 
@@ -123,13 +124,13 @@ export function CTASection({
                     'text-3xl font-heading font-bold',
                     variant === 'default' ? 'text-teal' : 'text-white'
                   )}>
-                    50+
+                    {COUNTRY_GUIDE_COUNT}
                   </div>
                   <div className={cn(
                     'text-sm',
                     variant === 'default' ? 'text-muted-foreground' : 'text-white/60'
                   )}>
-                    Destination<br />countries
+                    Country<br />guides
                   </div>
                 </div>
 

@@ -248,7 +248,7 @@ export function Footer() {
             </p>
             <div className="flex items-center space-x-6">
               <span className="text-xs text-primary-foreground/40">
-                Trusted by 1,000+ businesses worldwide
+                China freight forwarder, based in Jiaxing
               </span>
             </div>
           </div>

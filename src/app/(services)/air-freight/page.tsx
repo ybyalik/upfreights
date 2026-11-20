@@ -1,3 +1,4 @@
+import { RelatedGuides } from '@/components/sections/RelatedGuides';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Plane, CheckCircle, ArrowRight, Clock, Globe, Shield, Package, Zap } from 'lucide-react';
@@ -49,8 +50,8 @@ const destinationCountries = [
     country: 'United States',
     flag: '🇺🇸',
     slug: 'china-to-united-states',
-    description: 'Express air freight to major US airports including LAX, JFK, ORD, and ATL with daily departures.',
-    highlights: ['Daily flights available', 'Multiple airport options', 'Fast customs clearance'],
+    description: 'Express air freight to major US airports including LAX, JFK, ORD, and ATL with flights booked to suit each shipment.',
+    highlights: ['Multiple airport options', 'Fast customs clearance'],
   },
   {
     country: 'Canada',
@@ -340,6 +341,14 @@ export default function AirFreightPage() {
       </section>
 
       {/* CTA Section */}
+      <RelatedGuides
+        links={[
+          { label: 'Chargeable weight calculator for air freight', href: '/blog/chargeable-weight-calculator' },
+          { label: 'Air freight packaging requirements', href: '/blog/air-freight-packaging-requirements' },
+          { label: '1 CBM to kg for sea, air and express', href: '/blog/1-cbm-to-kg' },
+        ]}
+      />
+
       <CTASection
         variant="gradient"
         title="Ready to Ship with Air Freight?"

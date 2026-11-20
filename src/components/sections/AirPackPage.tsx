@@ -164,6 +164,9 @@ export function AirPackPage({
           <Link href="/blog/chargeable-weight-calculator" className="inline-flex items-center gap-2 mt-4 text-copper font-medium hover:underline">
             More on chargeable weight <ArrowRight className="h-4 w-4" />
           </Link>
+          <Link href="/blog/air-freight-packaging-requirements" className="inline-flex items-center gap-2 mt-4 ml-6 text-copper font-medium hover:underline">
+            Air freight packaging rules <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 

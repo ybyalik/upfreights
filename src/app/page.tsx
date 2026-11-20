@@ -20,15 +20,18 @@ import {
 } from '@/components/sections';
 import { services } from '@/lib/data/services';
 import { destinations } from '@/lib/data/destinations';
-import { getCountrySeaDays } from '@/lib/data/routeGenerator';
+import { getCountrySeaDays, generateSeaRoutes, generateAirRoutes } from '@/lib/data/routeGenerator';
+import { getAllCountrySlugs } from '@/lib/data/countries';
 import { getPopularRoutes } from '@/lib/data/routes';
 import type { Statistic } from '@/lib/types';
 
+// Counts of what is on this site, not company claims. The company's own figures
+// (founding year, shipments, countries) go back in once the company confirms them.
 const stats: Statistic[] = [
-  { value: '10,000+', label: 'Shipments Delivered', description: 'Annually' },
-  { value: '50+', label: 'Countries Served', description: 'Worldwide' },
-  { value: '15+', label: 'Years Experience', description: 'Since 2009' },
-  { value: '99.2%', label: 'On-Time Delivery', description: 'Track record' },
+  { value: String(generateSeaRoutes().length), label: 'Sea Freight Routes', description: 'Each with its own page' },
+  { value: String(generateAirRoutes().length), label: 'Air Freight Routes', description: 'Each with its own page' },
+  { value: String(getAllCountrySlugs().length), label: 'Country Guides', description: 'Customs and tax, sourced' },
+  { value: '24', label: 'Hours to a Quote', description: 'Our reply time' },
 ];
 
 const whyChooseUs = [
@@ -157,9 +160,9 @@ export default function HomePage() {
                 Why Choose UpFreights?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                With over 15 years of experience in international freight forwarding,
-                we&apos;ve built a reputation for reliability, transparency, and
-                exceptional customer service.
+                We are a freight forwarder based in Jiaxing, between Shanghai and Ningbo,
+                and we have built our business on reliability, transparency and
+                straight answers.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -190,12 +193,8 @@ export default function HomePage() {
                     <div className="text-white/80">Quote Response Time</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-orange mb-2">1,000+</div>
-                    <div className="text-white/80">Happy Customers</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <div className="text-5xl font-bold text-white mb-2">50+</div>
-                    <div className="text-white/80">Destination Countries</div>
+                    <div className="text-5xl font-bold text-orange mb-2">{getAllCountrySlugs().length}</div>
+                    <div className="text-white/80">Country Guides</div>
                   </div>
                 </div>
               </div>

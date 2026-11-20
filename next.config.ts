@@ -57,7 +57,7 @@ const retiredBlogRedirects: Record<string, string> = {
   'less-than-container-load-shipping': '/sea-freight',
   'less-than-container-load': '/sea-freight',
   'roll-on-roll-off-shipping': '/sea-freight',
-  'sea-freight-cost-calculator': '/sea-freight',
+  'sea-freight-cost-calculator': '/blog/cbm-calculator',
   'sea-freight-forwarder-china': '/sea-freight',
   'sea-freight-from-china': '/sea-freight',
   'temperature-controlled-shipping': '/sea-freight',
@@ -90,7 +90,10 @@ const retiredBlogRedirects: Record<string, string> = {
   'freight-forwarder-china-to-indonesia': '/',
   'shekou-ferry-terminal': '/',
   'shipment-and-cargo': '/',
-  'supply-chain-management-best-practices': '/',
+  'supply-chain-management-best-practices': '/services',
+  // old posts other sites link to (Ahrefs, 17 Nov 2026)
+  'port-facilities-in-qatar-overview': '/all-routes',
+  'freight-compliance-requirements': '/customs-clearance',
   'insurance-options-for-international-shipping': '/',
   'freight-class-codes-and-their-meanings': '/',
 };
@@ -129,6 +132,21 @@ const nextConfig: NextConfig = {
         destination,
         statusCode: 301,
       })),
+      {
+        source: '/shipping-routes-china',
+        destination: '/all-routes',
+        statusCode: 301,
+      },
+      {
+        source: '/logistics-hubs-in-the-middle-east',
+        destination: '/all-routes',
+        statusCode: 301,
+      },
+      {
+        source: '/fcl-vs-lcl-cost-comparison',
+        destination: '/sea-freight',
+        statusCode: 301,
+      },
       {
         source: '/ddp-shipping-from-china',
         destination: '/blog/ddp-shipping-from-china',

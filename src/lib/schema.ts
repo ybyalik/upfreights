@@ -8,7 +8,6 @@ export const ORGANIZATION_INFO = {
   // /logo.png never existed (404). /icon.png is the real brand mark file.
   logo: 'https://upfreights.com/icon.png',
   description: 'International freight forwarding services from China. Sea freight, air freight, door-to-door delivery, and customs clearance solutions.',
-  foundingDate: '2016',
   address: {
     streetAddress: 'Room 1106, Fuyue Building, No.28 Zhonghuan West Road',
     addressLocality: 'Jiaxing',
@@ -40,11 +39,6 @@ export const TEAM_MEMBERS = [
     description: 'Co-founder and CEO of UpFreights with extensive experience in international logistics.',
   },
   {
-    name: 'Victoria Lang',
-    jobTitle: 'Chief Operational Officer',
-    description: 'Chief Operational Officer overseeing all logistics operations.',
-  },
-  {
     name: 'Kaylee Zhang',
     jobTitle: 'Sales Manager',
     description: 'Sales Manager responsible for client relationships and business development.',
@@ -70,7 +64,6 @@ export function generateOrganizationSchema() {
       url: ORGANIZATION_INFO.logo,
     },
     description: ORGANIZATION_INFO.description,
-    foundingDate: ORGANIZATION_INFO.foundingDate,
     address: {
       '@type': 'PostalAddress',
       ...ORGANIZATION_INFO.address,
